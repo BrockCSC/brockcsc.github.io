@@ -1,0 +1,43 @@
+@import 'src/variables.scss';
+.csc-hero-container {
+    background: url('/assets/hero.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    margin-top: -70px;
+}
+
+.csc-hero-overlay {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    $start: 0;
+    $mid: 10;
+    background-image: linear-gradient(to bottom, rgba($start, $start, $start, 0.95) 0%, rgba($mid, $mid, $mid, 0.7) 25%, rgba($mid, $mid, $mid, 0.38) 100%);
+}
+
+.csc-hero-content {
+    position: relative;
+    top: 30%;
+    left: 0%;
+    color: $text-white;
+}
+
+.csc-hero-content div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.csc-hero-heading-1 {
+    font-size: $largeHeading;
+}
+
+.csc-hero-heading-2 {
+    font-size: $extraLargeHeading;
+}
+
+.csc-hero-heading-3 {
+    font-size: $largeHeading;
+    margin-left: 0px;
+}
