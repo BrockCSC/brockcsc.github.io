@@ -10,3 +10,6 @@ $extraLargeHeading: 2.25rem;
 $largeHeading: 1.5rem;
 $subHeading: 1.125rem;
 $smallText: 0.875rem;
+
+// Transition variables
+$ease-in-out-curve-function: cubic-bezier(0.35, 0, 0.25, 1) !default;
