@@ -1,10 +1,11 @@
-$height: 70px;
-$nav-links-margin: 72px;
+$height: 4.375rem;
+$nav-links-font-size: 1.125rem;
+$nav-links-margin: 4.5em;
 
 .csc-nav {
     height: $height;
     position: relative;
-    z-index: 5;
+    z-index: 1;
 }
 
 .csc-nav-links {
@@ -16,7 +17,7 @@ $nav-links-margin: 72px;
 }
 
 .csc-nav-links > a {
-    font-size: 18px;
+    font-size: $nav-links-font-size;
     color: rgba(255, 255, 255, 0.9);
     margin-right: $nav-links-margin;
     &:last-child {
@@ -35,16 +36,18 @@ $nav-links-margin: 72px;
 }
 
 .csc-join-button {
-    $pad-horizontal: 40px;
-    $pad-vertical: 8px;
+    $pad-horizontal: 2.5em;
+    $pad-vertical: 0.5em;
 
-    padding-left: $pad-horizontal;
+    margin-left: 3.125rem;
+    // Height for font has 2 extra pixels on top.
+    padding-top: $pad-vertical - 0.125em;
     padding-right: $pad-horizontal;
-    margin-left: 50px;
-    padding-top: $pad-vertical - 2; // Height for font has 2 extra pixels on top.
     padding-bottom: $pad-vertical;
+    padding-left: $pad-horizontal;
 }
 
 .container {
     height: inherit;
+    padding: 1.25em;
 }
