@@ -49,5 +49,6 @@ $nav-links-margin: 4.5em;
 
 .container {
     height: inherit;
+    box-sizing: content-box;
     padding: 1.25em;
 }

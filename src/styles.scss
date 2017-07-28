@@ -1,7 +1,14 @@
 // Global styles
 @import '~normalize.css/normalize.css';
-* {
+
+html {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 :root {
