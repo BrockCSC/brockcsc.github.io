@@ -3,7 +3,7 @@
     background: url('/assets/hero.jpg');
     background-position: center;
     background-size: cover;
-    height: 50vh;
+    height: 100vh;
     position: relative;
     margin-top: -70px;
 }
@@ -42,11 +42,22 @@
     margin-left: 0px;
 }
 
-#csc-event-promo{
+#csc-event-promo {
     background-color: $navy;
     color: $text-white;
 }
 
 .csc-event-content {
     text-align: center;
+}
+
+.csc-about-desc {
+    margin-left: 0px;
+}
+
+.csc-about-desc h2 {
+    margin-bottom: 35px;
+    border-bottom: 1px solid;
+    display: inline-block;
+    padding-bottom: 5px;
 }
