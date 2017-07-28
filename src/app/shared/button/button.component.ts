@@ -10,9 +10,7 @@ export class ButtonComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-        console.log('a');
-    }
+    ngOnInit() {}
 
 }
 

@@ -1,7 +1,22 @@
 @import 'src/variables.scss';
 
+// Mixin to reset default browser styles
+// borders, outlines, grey-background etc
+@mixin button-reset {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 .csc-button {
+    @include button-reset();
     padding: 10px;
     background-color: $maroon;
     color: $text-white;
+    transition: background-color 200ms $ease-in-out-curve-function;
+
+    &:hover {
+        background-color: darken($maroon, 10%);
+    }
 }
