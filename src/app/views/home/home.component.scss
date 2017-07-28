@@ -3,7 +3,7 @@
     background: url('/assets/hero.jpg');
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 50vh;
     position: relative;
     margin-top: -70px;
 }
@@ -40,4 +40,13 @@
 .csc-hero-heading-3 {
     font-size: $largeHeading;
     margin-left: 0px;
+}
+
+#csc-event-promo{
+    background-color: $navy;
+    color: $text-white;
+}
+
+.csc-event-content {
+    text-align: center;
 }

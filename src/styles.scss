@@ -1,6 +1,5 @@
 // Global styles
 @import '~normalize.css/normalize.css';
-
 * {
     font-family: 'Lato', sans-serif;
 }
@@ -19,6 +18,11 @@ h2 {
 
 h3 {
     font-size: 1.125rem;
+}
+
+.row {
+    display: block;
+    padding: 25px;
 }
 
 .container {
