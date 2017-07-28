@@ -1,10 +1,8 @@
-import { Directive } from '@angular/core';
+import { Directive, HostBinding } from "@angular/core";
 
 @Directive({
-  selector: '[cscLink]'
+    selector: "li[csc-link], a[csc-link]"
 })
 export class LinkDirective {
-
-  constructor() { }
-
+    @HostBinding("class.csc-link") linkClass = true;
 }

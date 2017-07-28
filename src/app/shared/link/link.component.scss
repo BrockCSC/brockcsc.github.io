@@ -1,0 +1,21 @@
+@import 'src/variables.scss';
+
+.csc-link {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.csc-link::after {
+    content: '';
+    margin-top: 3px;
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width .3s;
+}
+
+.csc-link:hover::after {
+    width: 100%;
+}
