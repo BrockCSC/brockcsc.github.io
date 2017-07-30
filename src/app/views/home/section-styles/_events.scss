@@ -8,6 +8,13 @@ $row-height: 50px;
     .container {
         margin-top: $offset;
     }
+    .row {
+        padding: 10px 0px;
+    }
+    .col {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .csc-events-content {
@@ -23,11 +30,6 @@ $row-height: 50px;
     text-transform: uppercase;
 }
 
-.col {
-    display: flex;
-    align-items: center;
-}
-
 .col-left {
     width: 100%;
     min-height: $row-height;
@@ -36,10 +38,6 @@ $row-height: 50px;
 .col-right {
     width: 100%;
     min-height: $row-height;
-}
-
-.row {
-    padding: 10px 0px;
 }
 
 @media #{$tablet} {
