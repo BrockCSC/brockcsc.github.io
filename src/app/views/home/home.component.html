@@ -63,7 +63,7 @@
     <div class="row">
         <div class="container">
             <h2 class="csc-header">Services</h2>
-            <div class="csc-events-content">
+            <div class="csc-services-content">
                 <div class="row" *ngFor="let service of services">
                     <div class="col col-left">
                         <i class="material-icons">{{ service.icon }}</i><span class="csc-icon-title">{{ service.title }}</span>
@@ -74,6 +74,20 @@
                 </div>
             </div>
             <h3 class="csc-header">See more about events</h3>
+        </div>
+    </div>
+</section>
+<section id="csc-join">
+    <div class="row">
+        <div class="container">
+            <div class="csc-join-container">
+                <h2 class="csc-header">Join Us</h2>
+                <div class="csc-desc">
+                    <p>Interested?</p>
+                    <p>We are always looking for new members!</p>
+                </div>
+                <button csc-button class="csc-sign-up-button">Sign Up</button>
+            </div>
         </div>
     </div>
 </section>

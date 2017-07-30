@@ -4,6 +4,7 @@
 @import './section-styles/_about.scss';
 @import './section-styles/_events.scss';
 @import './section-styles/_services.scss';
+@import './section-styles/_join.scss';
 .csc-header {
     margin-bottom: 35px;
     border-bottom: 1px solid;
@@ -11,12 +12,10 @@
     padding-bottom: 5px;
 }
 
-.csc-events-content {
-    i {
-        font-size: $row-height;
-        vertical-align: middle;
-        margin-right: 20px;
-    }
+i {
+    font-size: $row-height;
+    vertical-align: middle;
+    margin-right: 20px;
 }
 
 .csc-icon-title {

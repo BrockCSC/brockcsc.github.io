@@ -36,15 +36,7 @@ $nav-links-margin: 4.5em;
 }
 
 .csc-join-button {
-    $pad-horizontal: 2.5em;
-    $pad-vertical: 0.5em;
-
     margin-left: 3.125rem;
-    // Height for font has 2 extra pixels on top.
-    padding-top: $pad-vertical - 0.125em;
-    padding-right: $pad-horizontal;
-    padding-bottom: $pad-vertical;
-    padding-left: $pad-horizontal;
 }
 
 .container {
