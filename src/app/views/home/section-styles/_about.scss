@@ -1,0 +1,25 @@
+.csc-about-desc {
+    @media #{$desktop}{
+        width: 70%;
+    }
+}
+
+.csc-team {
+    margin-top: 35px;
+}
+
+.csc-team img {
+    width: 100%;
+    float: none;
+    margin-left: 0px;
+
+    @media #{$desktop}{
+        margin-left: 25px;
+        width: 60%;
+        float: right;
+    }
+}
+
+.csc-team h2 {
+    color: $maroon;
+}

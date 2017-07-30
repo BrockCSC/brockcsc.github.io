@@ -1,0 +1,42 @@
+.csc-hero-container {
+    background: url('/assets/hero.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    margin-top: -70px;
+}
+
+.csc-hero-overlay {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-image: -webkit-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
+    background-image: -o-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
+    background-image: linear-gradient(to top, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
+}
+
+.csc-hero-content {
+    position: relative;
+    top: 30%;
+    left: 0%;
+    color: $text-white;
+}
+
+.csc-hero-content div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.csc-hero-heading-1 {
+    margin: 0;
+}
+
+.csc-hero-heading-2 {
+    font-size: $extraLargeHeading;
+}
+
+.csc-hero-heading-3 {
+    margin-left: 0px;
+}

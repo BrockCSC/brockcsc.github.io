@@ -1,5 +1,6 @@
 // Global styles
 @import '~normalize.css/normalize.css';
+@import 'src/variables.scss';
 
 html {
     -moz-box-sizing: border-box;
@@ -7,6 +8,7 @@ html {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -40,17 +42,14 @@ h3 {
 .container {
     margin: 0 auto;
     max-width: 1280px;
-    width: 95%;
-}
 
-@media only screen and (min-width: 601px) {
-    .container {
+    @media #{$mobile}{
+        width: 95%;
+    }
+    @media #{$tablet}{
         width: 85%;
     }
-}
-
-@media only screen and (min-width: 993px) {
-    .container {
-        width: 70%;
+    @media #{$desktop}{
+        width: 75%;
     }
 }

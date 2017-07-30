@@ -13,3 +13,8 @@ $smallText: 0.875rem;
 
 // Transition variables
 $ease-in-out-curve-function: cubic-bezier(0.35, 0, 0.25, 1) !default;
+
+// Media queries
+$mobile: "(max-width: 600px)";
+$tablet: "(min-width: 601px)";
+$desktop: "(min-width: 993px)";
