@@ -1,19 +1,19 @@
 .csc-about-desc {
-    @media #{$desktop}{
+    @media #{$desktop} {
         width: 70%;
     }
 }
 
 .csc-team {
     margin-top: 35px;
+    overflow: auto;
 }
 
 .csc-team img {
     width: 100%;
     float: none;
     margin-left: 0px;
-
-    @media #{$desktop}{
+    @media #{$desktop} {
         margin-left: 25px;
         width: 60%;
         float: right;

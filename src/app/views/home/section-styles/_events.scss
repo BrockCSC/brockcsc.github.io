@@ -1,0 +1,11 @@
+$offset: 85px;
+
+#csc-events {
+    background-color: $maroon;
+    color: $text-white;
+    margin-top: -$offset;
+
+    .container {
+        margin-top: $offset;
+    }
+}
