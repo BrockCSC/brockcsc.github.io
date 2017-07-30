@@ -1,13 +1,8 @@
-$offset: 85px;
-$row-height: 50px;
-#csc-events {
-    background-color: $maroon;
+#csc-services{
+    padding-top: 25px;
+    background-color: $navy;
     color: $text-white;
-    margin-top: -$offset;
     font-size: 16px;
-    .container {
-        margin-top: $offset;
-    }
     .row {
         padding: 10px 0px;
     }

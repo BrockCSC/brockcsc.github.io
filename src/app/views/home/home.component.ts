@@ -7,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    events: Event[] = [];
+    events: Row[] = [];
+    services: Row[] = [];
 
     constructor() { }
 
     ngOnInit() {
         this.initEvents();
+        this.initServices();
     }
 
-    initEvents(): void {
+    public initEvents(): void {
         this.events = [
             {
                 icon: 'videogame_asset',
@@ -41,9 +43,25 @@ export class HomeComponent implements OnInit {
         ];
     }
 
+    public initServices(): void {
+        this.services = [
+            {
+                icon: 'local_pizza',
+                title: 'Food',
+                desc: 'Feeling hungry? We sell food at low prices'
+            },
+            {
+                icon: 'chat_bubble',
+                title: 'Chatrooms',
+                desc: 'We have dedicated channels where you can chat with other members about your classes,' +
+                    'programming questions or anything else'
+            }
+        ];
+    }
+
 }
 
-interface Event {
+interface Row {
     icon: string;
     title: string;
     desc: string;

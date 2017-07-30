@@ -59,3 +59,21 @@
         </div>
     </div>
 </section>
+<section id="csc-services">
+    <div class="row">
+        <div class="container">
+            <h2 class="csc-header">Services</h2>
+            <div class="csc-events-content">
+                <div class="row" *ngFor="let service of services">
+                    <div class="col col-left">
+                        <i class="material-icons">{{ service.icon }}</i><span class="csc-icon-title">{{ service.title }}</span>
+                    </div>
+                    <div class="col col-right">
+                        <p>{{ service.desc }}</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="csc-header">See more about events</h3>
+        </div>
+    </div>
+</section>

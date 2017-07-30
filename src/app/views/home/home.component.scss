@@ -1,13 +1,44 @@
 @import 'src/variables.scss';
-
 @import './section-styles/_hero.scss';
 @import './section-styles/_event-promo.scss';
 @import './section-styles/_about.scss';
 @import './section-styles/_events.scss';
-
+@import './section-styles/_services.scss';
 .csc-header {
     margin-bottom: 35px;
     border-bottom: 1px solid;
     display: inline-block;
     padding-bottom: 5px;
+}
+
+.csc-events-content {
+    i {
+        font-size: $row-height;
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+}
+
+.csc-icon-title {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.col-left {
+    width: 100%;
+    min-height: $row-height;
+}
+
+.col-right {
+    width: 100%;
+    min-height: $row-height;
+}
+
+@media #{$tablet} {
+    .col-left {
+        width: 40%;
+    }
+    .col-right {
+        width: 60%;
+    }
 }
