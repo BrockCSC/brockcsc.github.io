@@ -1,11 +1,38 @@
 $offset: 85px;
-
+$row-height: 50px;
 #csc-events {
     background-color: $maroon;
     color: $text-white;
     margin-top: -$offset;
-
     .container {
         margin-top: $offset;
     }
+}
+
+.csc-events-content {
+    i {
+        font-size: $row-height;
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+}
+
+.csc-icon-title {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+}
+
+.col-left {
+    width: 40%;
+    height: $row-height;
+}
+
+.col-right {
+    width: 60%;
+    height: $row-height;
 }

@@ -1,7 +1,6 @@
 // Global styles
 @import '~normalize.css/normalize.css';
 @import 'src/variables.scss';
-
 html {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -9,7 +8,9 @@ html {
     font-family: 'Lato', sans-serif;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -18,7 +19,11 @@ html {
     line-height: 1.5625em;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-weight: normal;
 }
 
@@ -36,20 +41,34 @@ h3 {
 
 .row {
     display: block;
-    padding: 25px;
+    padding: 25px 0px;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+.col {
+    position: relative;
+    float: left;
 }
 
 .container {
     margin: 0 auto;
     max-width: 1280px;
-
-    @media #{$mobile}{
+    @media #{$mobile} {
         width: 95%;
     }
-    @media #{$tablet}{
+    @media #{$tablet} {
         width: 85%;
     }
-    @media #{$desktop}{
+    @media #{$desktop} {
         width: 75%;
     }
 }

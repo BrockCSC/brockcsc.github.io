@@ -1,4 +1,4 @@
- <section id="csc-hero">
+<section id="csc-hero">
     <div class="csc-hero-container">
         <div class="csc-hero-overlay">
             <div class="csc-hero-content container">
@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
 <section id="csc-event-promo">
     <div class="row">
         <div class="csc-event-content container">
@@ -24,7 +24,8 @@
                 <p>We are the Brock Computer Science Club, a local chapter of the ACM.</p>
                 <p>Our goal is to provide a community for all individuals who are interested in Computer Science at Brock University.</p>
                 <p>Throughout the year, we host and participate in several educational and social events related to Computer
-                    Science.</p>
+                    Science.
+                </p>
             </div>
             <div class="csc-team">
                 <h2 class="csc-header">Learn about the team</h2>
@@ -37,6 +38,20 @@
     <div class="row">
         <div class="container">
             <h2 class="csc-header">Events</h2>
+            <div class="csc-events-content">
+                 <div class="row" *ngFor="let event of events">
+                    <div class="col col-left">
+                        <i class="material-icons">{{ event.icon }}</i><span class="csc-icon-title">{{ event.title }}</span>
+                    </div>
+                    <div class="col col-right">
+                        <p>{{ event.desc }}</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="csc-header">See more about events</h3>
         </div>
+    </div>
+    <div class="row">
+        
     </div>
 </section>
