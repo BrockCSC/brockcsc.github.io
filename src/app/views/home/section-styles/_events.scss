@@ -4,6 +4,7 @@ $row-height: 50px;
     background-color: $maroon;
     color: $text-white;
     margin-top: -$offset;
+    font-size: 16px;
     .container {
         margin-top: $offset;
     }
@@ -18,7 +19,7 @@ $row-height: 50px;
 }
 
 .csc-icon-title {
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
 }
 
@@ -28,11 +29,24 @@ $row-height: 50px;
 }
 
 .col-left {
-    width: 40%;
-    height: $row-height;
+    width: 100%;
+    min-height: $row-height;
 }
 
 .col-right {
-    width: 60%;
-    height: $row-height;
+    width: 100%;
+    min-height: $row-height;
+}
+
+.row {
+    padding: 10px 0px;
+}
+
+@media #{$tablet} {
+    .col-left {
+        width: 40%;
+    }
+    .col-right {
+        width: 60%;
+    }
 }
