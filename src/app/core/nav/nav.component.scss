@@ -1,4 +1,5 @@
-$height: 4.375rem;
+@import 'src/variables.scss';
+$height: 5.375rem;
 $nav-links-font-size: 1.125rem;
 $nav-links-margin: 4.5em;
 
@@ -42,5 +43,8 @@ $nav-links-margin: 4.5em;
 .container {
     height: inherit;
     box-sizing: content-box;
-    padding: 1.25em;
+}
+
+.navy-background {
+    background-color: $navy;
 }

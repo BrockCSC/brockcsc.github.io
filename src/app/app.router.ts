@@ -1,8 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from 'app/views';
+import { AdminComponent, HomeComponent } from 'app/views';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: 'admin', component: AdminComponent },
     { path: 'home', component: HomeComponent },
     { path: '**', redirectTo: '' }
 ];
