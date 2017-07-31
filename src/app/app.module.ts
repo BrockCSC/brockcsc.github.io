@@ -6,6 +6,10 @@ import { routing } from './app.router';
 import { CoreModule } from 'app/core/core.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { ViewsModule } from 'app/views/views.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from 'environments/environment';
 
 @NgModule({
     declarations: [
@@ -16,7 +20,10 @@ import { ViewsModule } from 'app/views/views.module';
         routing,
         CoreModule,
         SharedModule,
-        ViewsModule
+        ViewsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
     providers: [],
     bootstrap: [AppComponent]

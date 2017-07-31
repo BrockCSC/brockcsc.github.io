@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-    constructor(private _location: Location, private _router: Router) {
-
-    }
+    constructor(private _location: Location, private _router: Router) { }
 
     ngOnInit() {
     }
