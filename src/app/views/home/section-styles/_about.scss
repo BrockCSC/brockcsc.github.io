@@ -1,3 +1,7 @@
+#csc-about {
+    background-color: $light-grey;
+}
+
 .csc-about-desc {
     @media #{$desktop} {
         width: 70%;
@@ -13,6 +17,7 @@
     width: 100%;
     float: none;
     margin-left: 0px;
+
     @media #{$desktop} {
         margin-left: 25px;
         width: 60%;
