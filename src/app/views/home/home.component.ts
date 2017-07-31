@@ -9,12 +9,35 @@ export class HomeComponent implements OnInit {
 
     events: Row[] = [];
     services: Row[] = [];
+    socialIcons: SocialIcon[] = [];
 
     constructor() { }
 
     ngOnInit() {
         this.initEvents();
         this.initServices();
+        this.initSocialIcons();
+    }
+
+    public initSocialIcons(): void {
+        const base = '/assets/icons';
+        this.socialIcons = [
+            {
+                src: `${base}/facebook.svg`,
+                href: 'https://www.facebook.com/BrockCSC/',
+                desc: 'Facebook'
+            },
+            {
+                src: `${base}/twitter.svg`,
+                href: 'https://twitter.com/brockucsc',
+                desc: 'Twitter'
+            },
+            {
+                src: `${base}/slack.svg`,
+                href: 'https://brockcsc.slack.com',
+                desc: 'Slack'
+            },
+        ];
     }
 
     public initEvents(): void {
@@ -30,7 +53,7 @@ export class HomeComponent implements OnInit {
                 desc: 'We give a variety of talks throughout the year on all things software development'
             },
             {
-                icon: 'people_outline',
+                icon: 'people',
                 title: 'Social',
                 desc: 'Get to know fellow members and the department at our social events'
             },
@@ -54,7 +77,7 @@ export class HomeComponent implements OnInit {
                 icon: 'chat_bubble',
                 title: 'Chatrooms',
                 desc: 'We have dedicated channels where you can chat with other members about your classes,' +
-                    'programming questions or anything else'
+                'programming questions or anything else'
             }
         ];
     }
@@ -64,5 +87,11 @@ export class HomeComponent implements OnInit {
 interface Row {
     icon: string;
     title: string;
+    desc: string;
+}
+
+interface SocialIcon {
+    src: string;
+    href: string;
     desc: string;
 }
