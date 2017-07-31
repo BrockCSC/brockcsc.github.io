@@ -5,7 +5,7 @@
 @import './section-styles/_events.scss';
 @import './section-styles/_services.scss';
 @import './section-styles/_join.scss';
-@import './section-styles/_social-links.scss';
+
 .csc-header {
     margin-bottom: 35px;
     border-bottom: 1px solid;
@@ -20,7 +20,6 @@ i {
 }
 
 .csc-icon-title {
-    font-size: 16px;
     text-transform: uppercase;
 }
 

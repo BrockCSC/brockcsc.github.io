@@ -1,15 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'csc-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+    selector: 'csc-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss']
 })
+
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+    public socialIcons: SocialIcon[] = [];
 
-  ngOnInit() {
-  }
+    constructor() {}
 
+    ngOnInit() {
+        this.initSocialIcons();
+    }
+
+    initSocialIcons(): void {
+        const base = '/assets/icons';
+        this.socialIcons = [
+            {
+                src: `${base}/facebook.svg`,
+                href: 'https://www.facebook.com/BrockCSC/',
+                desc: 'Facebook'
+            },
+            {
+                src: `${base}/twitter.svg`,
+                href: 'https://twitter.com/brockucsc',
+                desc: 'Twitter'
+            },
+            {
+                src: `${base}/slack.svg`,
+                href: 'https://brockcsc.slack.com',
+                desc: 'Slack'
+            },
+        ];
+    }
+}
+
+interface SocialIcon {
+    src: string;
+    href: string;
+    desc: string;
 }

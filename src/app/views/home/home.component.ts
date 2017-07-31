@@ -9,37 +9,13 @@ export class HomeComponent implements OnInit {
 
     events: Row[] = [];
     services: Row[] = [];
-    socialIcons: SocialIcon[] = [];
 
     constructor() { }
 
     ngOnInit() {
         this.initEvents();
         this.initServices();
-        this.initSocialIcons();
     }
-
-    public initSocialIcons(): void {
-        const base = '/assets/icons';
-        this.socialIcons = [
-            {
-                src: `${base}/facebook.svg`,
-                href: 'https://www.facebook.com/BrockCSC/',
-                desc: 'Facebook'
-            },
-            {
-                src: `${base}/twitter.svg`,
-                href: 'https://twitter.com/brockucsc',
-                desc: 'Twitter'
-            },
-            {
-                src: `${base}/slack.svg`,
-                href: 'https://brockcsc.slack.com',
-                desc: 'Slack'
-            },
-        ];
-    }
-
     public initEvents(): void {
         this.events = [
             {
@@ -49,7 +25,7 @@ export class HomeComponent implements OnInit {
             },
             {
                 icon: 'code',
-                title: 'Techtalks & Seminars',
+                title: 'Tech talks & Seminars',
                 desc: 'We give a variety of talks throughout the year on all things software development'
             },
             {
@@ -76,8 +52,8 @@ export class HomeComponent implements OnInit {
             {
                 icon: 'chat_bubble',
                 title: 'Chatrooms',
-                desc: 'We have dedicated channels where you can chat with other members about your classes,' +
-                'programming questions or anything else'
+                desc: 'We have dedicated channels where you can chat with other members about your classes, ' +
+                'programming questions or anything else!'
             }
         ];
     }
@@ -87,11 +63,5 @@ export class HomeComponent implements OnInit {
 interface Row {
     icon: string;
     title: string;
-    desc: string;
-}
-
-interface SocialIcon {
-    src: string;
-    href: string;
     desc: string;
 }

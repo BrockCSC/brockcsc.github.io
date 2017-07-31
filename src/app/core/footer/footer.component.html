@@ -1,3 +1,27 @@
-<p>
-  footer works!
-</p>
+<div class="footer">
+    <section id="csc-social-links">
+        <div class="row">
+            <div class="container">
+                <div class="csc-social-links-container">
+                    <div class="csc-social" *ngFor="let link of socialIcons">
+                        <a [href]="link.href">
+                            <img [src]="link.src" [alt]="link.desc">
+                        </a>
+                        <div class="csc-social-desc">{{ link.desc }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="csc-made-with-love">
+        <div class="row">
+            <div class="container">
+                <div class="csc-footer-text">
+                    <div>Made with</div>
+                    <i class="material-icons heart">favorite</i>
+                    <div>by the Brock Computer Science Club</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
