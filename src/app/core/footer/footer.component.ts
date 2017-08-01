@@ -30,10 +30,15 @@ export class FooterComponent implements OnInit {
                 desc: 'Twitter'
             },
             {
+                src: `${base}/instagram.svg`,
+                href: 'https://instagram.com/brockcsc',
+                desc: 'Instagram'
+            },
+            {
                 src: `${base}/slack.svg`,
                 href: 'https://brockcsc.slack.com',
                 desc: 'Slack'
-            },
+            }
         ];
     }
 }
