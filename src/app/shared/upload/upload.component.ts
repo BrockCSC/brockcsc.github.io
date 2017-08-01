@@ -1,18 +1,32 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, forwardRef, Input } from '@angular/core';
 import { UploadService, Upload } from 'app/shared/upload';
 import { FileService } from 'app/shared/api';
+import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../abstractValueAccessor';
+
+// import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+// // export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = (clazz: any) => {
+// //     return {
+// //         provide: NG_VALUE_ACCESSOR,
+// //         useExisting: forwardRef(() => clazz),
+// //         multi: true
+// //     };
+// // };
+
 
 @Component({
     selector: 'csc-upload',
     templateUrl: './upload.component.html',
-    styleUrls: ['./upload.component.scss']
+    styleUrls: ['./upload.component.scss'],
+    providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR(UploadComponent)]
 })
-export class UploadComponent implements OnInit {
+export class UploadComponent extends AbstractValueAccessor implements OnInit {
     files: FileList;
     fileHover: boolean;
     uploads: Upload[] = [];
 
-    constructor(private _uploadService: UploadService, private _fileService: FileService) { }
+    constructor(private _uploadService: UploadService, private _fileService: FileService) {
+        super();
+    }
 
     ngOnInit() {
         this.fileHover = false;
@@ -44,7 +58,12 @@ export class UploadComponent implements OnInit {
             const currFile: File = this.files.item(i);
             const upload: Upload = this._uploadService.createUpload(currFile);
             this.uploads.push(upload);
-            this._uploadService.pushUpload(upload);
+            this._uploadService.pushUpload(upload).then(() => {
+                super.propagateChange(this.getUploadedFileIds());
+            }).catch((err: Error) => {
+                console.log('Error encountered while uploading files.');
+                console.error(err);
+            });
         }
     }
 
@@ -55,6 +74,7 @@ export class UploadComponent implements OnInit {
                 console.log(`Error deleting file: ${toDelete.name} from storage.`, err);
             });
             this.uploads.splice(this.uploads.indexOf(toDelete), 1);
+            super.propagateChange(this.getUploadedFileIds());
         }).catch((err) => {
             console.log(`Error deleting file: ${toDelete.name} from db.`, err);
         });

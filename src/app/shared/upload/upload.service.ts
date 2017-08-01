@@ -16,25 +16,30 @@ export class UploadService {
         this._storageRef = firebase.storage().ref();
     }
 
-    public pushUpload(file: Upload): void {
+    public pushUpload(file: Upload): Promise<any> {
         const upload = this._storageRef.child(`${file.path}/${file.name}`).put(file.file);
 
-        upload.on(firebase.storage.TaskEvent.STATE_CHANGED, {
-            next: (snapshot: firebase.storage.UploadTaskSnapshot) => {
-                file.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            },
-            error: (error: Error) => {
-                console.log(`Error uploading: ${file.name}.`);
-                console.error(error);
-            },
-            complete: () => {
-                file.url = upload.snapshot.downloadURL;
-                this.pushToDb(file);
-            }
+        return new Promise((resolve, reject) => {
+            upload.on(firebase.storage.TaskEvent.STATE_CHANGED, {
+                next: (snapshot: firebase.storage.UploadTaskSnapshot) => {
+                    file.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                },
+                error: (error: Error) => {
+                    reject(error);
+                },
+                complete: () => {
+                    file.url = upload.snapshot.downloadURL;
+                    this.pushToDb(file).then(() => {
+                        resolve();
+                    }).catch((error) => {
+                        reject(error);
+                    });
+                }
+            });
         });
     }
 
-    private pushToDb(file: Upload): void {
+    private pushToDb(file: Upload): Promise<any> {
         const uploadObject = {
             'creationDate': file.creationDate,
             'name': file.name,
@@ -42,8 +47,13 @@ export class UploadService {
             'path': file.path
         };
 
-        this._fileService.addFile(uploadObject as CscFile).then(res => {
-            file.$key = res.key;
+        return new Promise((resolve, reject) => {
+            this._fileService.addFile(uploadObject as CscFile).then(res => {
+                file.$key = res.key;
+                resolve(res.key);
+            }).catch(error => {
+                reject(error);
+            });
         });
     }
 

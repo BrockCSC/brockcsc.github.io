@@ -1,11 +1,16 @@
 <div id="csc-admin-container">
     <div class="row">
         <div class="container">
-            <input type="text" value="title"><br>
-            <input type="text" value="location"><br>
-            <input type="text" value="presenter"><br>
-            <input type="text" value="title"><br>
-            <csc-upload></csc-upload>
+            <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+                Title: <input type="text" formControlName="title"><br>
+                Presenter: <input type="text" formControlName="presenter"><br>
+                Description: <input type="text" formControlName="description"><br>
+                Date: <input type="text" formControlName="date"><br>
+                Time: <input type="text" formControlName="time"><br>
+                Location: <input type="text" formControlName="location"><br>
+                <csc-upload formControlName="resources"></csc-upload>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 </div>
