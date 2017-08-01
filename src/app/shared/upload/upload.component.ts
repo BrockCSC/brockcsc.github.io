@@ -50,7 +50,6 @@ export class UploadComponent implements OnInit {
 
     public removeFile(key: string): void {
         const toDelete: Upload = this.uploads.find(upload => upload.$key === key);
-        console.log(toDelete);
         this._fileService.deleteFile(key).then(() => {
             this._fileService.deleteFileStorage(toDelete.path, toDelete.name).catch((err) => {
                 console.log(`Error deleting file: ${toDelete.name} from storage.`, err);
@@ -59,6 +58,10 @@ export class UploadComponent implements OnInit {
         }).catch((err) => {
             console.log(`Error deleting file: ${toDelete.name} from db.`, err);
         });
+    }
+
+    public getUploadedFileIds(): string[] {
+        return this.uploads.map(val => val.$key);
     }
 
 }

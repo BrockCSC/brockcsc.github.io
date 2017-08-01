@@ -28,3 +28,19 @@
         font-size: 50px;
     }
 }
+
+.csc-upload div{
+    display: inline-block;
+}
+
+.csc-progress-bar {
+    width: 150px;
+}
+
+.csc-file-remove {
+    vertical-align: top;
+    cursor: pointer;
+    &.active {
+        color: $maroon;
+    }
+}

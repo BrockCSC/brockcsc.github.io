@@ -1,5 +1,13 @@
-<div *ngFor="let upload of uploads">
-    {{ upload.name }}: {{ upload.progress }} <a *ngIf="upload.$key != null" (click)="removeFile(upload.$key)">X</a>
+<div class="csc-upload" *ngFor="let upload of uploads">
+    <div class="csc-progress-bar">
+        <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
+    </div>
+    <div class="csc-file-remove" [class.active]="upload.$key != null" (click)="removeFile(upload.$key)">
+        <i class="material-icons">clear</i>
+    </div>
+    <div class="csc-file-name">
+        {{ upload.name }}
+    </div>
 </div>
 <div class="csc-drop" [class.hover]="fileHover">
     <div class="csc-drop-border">
