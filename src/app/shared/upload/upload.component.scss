@@ -27,9 +27,15 @@
     i {
         font-size: 50px;
     }
+    .csc-drop-text {
+        display: none;
+        @media #{$desktop}{
+            display: inherit;
+        }
+    }
 }
 
-.csc-upload div{
+.csc-upload div {
     display: inline-block;
 }
 

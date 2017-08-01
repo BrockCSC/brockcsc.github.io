@@ -20,7 +20,8 @@ export class AdminComponent implements OnInit {
             date: new FormControl('date'),
             time: new FormControl('time'),
             location: new FormControl('location'),
-            resources: new FormControl([])
+            resources: new FormControl([]),
+            image: new FormControl([])
         });
     }
 

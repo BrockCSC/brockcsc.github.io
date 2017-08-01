@@ -8,7 +8,12 @@
                 Date: <input type="text" formControlName="date"><br>
                 Time: <input type="text" formControlName="time"><br>
                 Location: <input type="text" formControlName="location"><br>
-                <csc-upload formControlName="resources"></csc-upload>
+                <div class="csc-event-upload-resources">
+                    <csc-upload formControlName="resources"></csc-upload>
+                </div>
+                <div class="csc-event-upload-image">
+                    <csc-upload formControlName="image"></csc-upload>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
