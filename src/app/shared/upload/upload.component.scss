@@ -1,0 +1,30 @@
+@import 'src/variables.scss';
+.csc-drop {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    outline: 3px dashed $navy;
+    outline-offset: -15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $navy;
+    background-color: rgba($navy, 0.2);
+    transition: outline-offset 0.25s;
+}
+
+.csc-drop.hover {
+    background-color: #FFF;
+    outline-offset: -20px;
+}
+
+.csc-drop-desc {
+    width: 400px;
+    margin: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    i {
+        font-size: 50px;
+    }
+}
