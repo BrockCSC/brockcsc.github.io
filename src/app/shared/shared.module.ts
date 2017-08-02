@@ -8,10 +8,12 @@ import { EventApiService, FileService } from './api/';
 import { UploadComponent, UploadService } from './upload';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { InputContainerComponent } from './input-container/input-container.component';
+import { ModalModule } from './modal/modal.module';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        ModalModule
     ],
     exports: [
         ButtonDirective,
@@ -20,7 +22,8 @@ import { InputContainerComponent } from './input-container/input-container.compo
         LinkDirective,
         UploadComponent,
         ProgressBarComponent,
-        InputContainerComponent
+        InputContainerComponent,
+        ModalModule
     ],
     declarations: [
         ButtonComponent,
