@@ -1,11 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent, HomeComponent } from 'app/views';
+import { HomeComponent } from 'app/views';
+import { AdminComponent } from 'app/admin/admin.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'admin', component: AdminComponent },
+    { path: 'admin', component: AdminComponent, loadChildren: 'app/admin/admin.module#AdminModule' },
     { path: 'home', component: HomeComponent },
     { path: '**', redirectTo: '' }
+    // { path: 'path', loadChildren: 'lazy-path#lazy-module' },
 ];
 
 export const routing = RouterModule.forRoot(routes);
