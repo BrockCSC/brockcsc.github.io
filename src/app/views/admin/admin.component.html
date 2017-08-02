@@ -4,36 +4,36 @@
             <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <csc-input-container class="col-12" label="Title" labelLocation="top">
-                        <input class="csc-input" type="text" placeholder="Title of the event">
+                        <input class="csc-input" type="text" formControlName="title" placeholder="Title of the event">
                     </csc-input-container>
                 </div>
                 <div class="row">
                     <csc-input-container class="col-6" label="Presenter" labelLocation="top">
-                        <input class="csc-input" type="text" placeholder="Who is doing the presentation">
+                        <input class="csc-input" type="text" formControlName="presenter" placeholder="Who is running the event?">
                     </csc-input-container>
                     <csc-input-container class="col-6" label="Location" labelLocation="top">
-                        <input class="csc-input" type="text" placeholder="Where the event will be held">
+                        <input class="csc-input" type="text" formControlName="location" placeholder="Where the event will be held">
                     </csc-input-container>
                 </div>
                 <div class="row">
                     <csc-input-container label="Date" class="col-6" labelLocation="top">
-                        <input class="csc-input" type="text" placeholder="Date of the event">
+                        <input class="csc-input" type="text" formControlName="date" placeholder="Date of the event">
                     </csc-input-container>
                     <csc-input-container label="Time" class="col-6" labelLocation="top">
-                        <input class="csc-input" type="text" placeholder="Time of the event">
+                        <input class="csc-input" type="text" formControlName="time" placeholder="Time of the event">
                     </csc-input-container>
                 </div>
                 <div class="row">
                     <csc-input-container label="Description" class="col-12" labelLocation="top">
-                        <textarea class="csc-input" type="text" placeholder="Brief description of the event"></textarea>
+                        <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description of the event"></textarea>
                     </csc-input-container>
                 </div>
                 <div class="row">
                     <csc-input-container label="Image" class="col-6" labelLocation="top">
-                        <csc-upload formControlName="resources"></csc-upload>
+                        <csc-upload formControlName="image" message="Drag event image here"></csc-upload>
                     </csc-input-container>
                     <csc-input-container label="Resources" class="col-6" labelLocation="top">
-                        <csc-upload formControlName="image"></csc-upload>
+                        <csc-upload formControlName="resources" message="Drag event resources here"></csc-upload>
                     </csc-input-container>
                 </div>
                 <div class="row">
