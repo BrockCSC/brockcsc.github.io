@@ -10,6 +10,7 @@ import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../a
     providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR(UploadComponent)]
 })
 export class UploadComponent extends AbstractValueAccessor implements OnInit {
+    @Input() message = 'Select files or drag here';
     files: FileList;
     fileHover: boolean;
     uploads: Upload[] = [];
