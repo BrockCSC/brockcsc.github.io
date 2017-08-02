@@ -18,6 +18,27 @@ Make sure that your module is importing the `SharedModule`.
 </csc-modal>
 ```
 
+There are two ways to programatically open and close the modal.
+
+1. Access the modal component using local variables from the parent component
+```html
+<button (click)="modalAccessor.open()">Open Modal</button>
+<csc-modal #modalAccessor>
+...
+```
+2. Trigger using the ViewChild reference from the parent component.
+```html
+<button (click)="openModal()">Open Modal</button>
+<csc-modal #modalAccessor>
+...
+```
+```typescript
+@ViewChild('modalAccessor') modal: ModalComponent;
+public openModal(): void {
+    this.modal.open();
+}
+```
+
 ## Drag and Drop Upload
 Make sure that your module is importing the `SharedModule`.
 
