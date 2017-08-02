@@ -3,16 +3,6 @@ import { UploadService, Upload } from 'app/shared/upload';
 import { FileService } from 'app/shared/api';
 import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../abstractValueAccessor';
 
-// import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-// // export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = (clazz: any) => {
-// //     return {
-// //         provide: NG_VALUE_ACCESSOR,
-// //         useExisting: forwardRef(() => clazz),
-// //         multi: true
-// //     };
-// // };
-
-
 @Component({
     selector: 'csc-upload',
     templateUrl: './upload.component.html',

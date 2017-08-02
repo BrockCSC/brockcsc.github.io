@@ -1,0 +1,9 @@
+<div class="form-group">
+    <div class="row">
+        <label class="col-{{colsLabel}}" *ngIf="label != null">{{label}}</label>
+        <div class="col-{{colsInput}} input-container">
+            <ng-content></ng-content>
+            <span class="focus-border"></span>
+        </div>
+    </div>
+</div>

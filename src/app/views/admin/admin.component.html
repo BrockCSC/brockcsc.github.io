@@ -2,12 +2,25 @@
     <div class="row">
         <div class="container">
             <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-                Title: <input type="text" formControlName="title"><br>
-                Presenter: <input type="text" formControlName="presenter"><br>
-                Description: <input type="text" formControlName="description"><br>
-                Date: <input type="text" formControlName="date"><br>
-                Time: <input type="text" formControlName="time"><br>
-                Location: <input type="text" formControlName="location"><br>
+                <csc-input-container label="Title">
+                    <input class="csc-input" type="text" placeholder="Title of the event">
+                </csc-input-container>
+                <csc-input-container label="Presenter">
+                    <input class="csc-input" type="text" placeholder="Who is doing the presentation">
+                </csc-input-container>
+                <csc-input-container label="Description">
+                    <textarea class="csc-input" type="text" placeholder="Brief description of the event"></textarea>
+                </csc-input-container>
+                <csc-input-container label="Date">
+                    <input class="csc-input" type="text" placeholder="Date of the event">
+                </csc-input-container>
+                <csc-input-container label="Time">
+                    <input class="csc-input" type="text" placeholder="Time of the event">
+                </csc-input-container>
+                <csc-input-container label="Location">
+                    <input class="csc-input" type="text" placeholder="Where the event will be held">
+                </csc-input-container>
+                
                 <div class="csc-event-upload-resources">
                     <csc-upload formControlName="resources"></csc-upload>
                 </div>
