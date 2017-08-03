@@ -38,6 +38,7 @@ export class EventsComponent implements OnInit {
         const val = this.eventForm.value;
         this._api.addEvent(val).then((res) => {
             this.modalAdd.close();
+            this.eventForm.reset();
         }).catch((error) => {
             console.error(error);
         });

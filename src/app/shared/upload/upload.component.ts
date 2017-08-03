@@ -18,6 +18,11 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
         super();
     }
 
+    public writeValue(value) {
+        // this gets called when .reset() gets called on the form using this component
+        this.storageTasks = [];
+    }
+
     ngOnInit() {
         this.fileHover = false;
     }
