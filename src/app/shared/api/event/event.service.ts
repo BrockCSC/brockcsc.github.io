@@ -12,8 +12,8 @@ export class EventApiService {
         this.events = _db.list(this._path);
     }
 
-    public addEvent(event: Event): void {
-        this.events.push(event);
+    public addEvent(event: Event): firebase.Thenable<Event> {
+        return this.events.push(event);
     }
 
 }

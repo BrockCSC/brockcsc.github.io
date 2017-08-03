@@ -33,6 +33,7 @@ There are two ways to programatically open and close the modal.
 ...
 ```
 ```typescript
+import { ViewChild } from '@angular/core';
 @ViewChild('modalAccessor') modal: ModalComponent;
 public openModal(): void {
     this.modal.open();
