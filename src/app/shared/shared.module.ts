@@ -4,8 +4,8 @@ import { ButtonComponent } from './button/button.component';
 import { ButtonDirective } from './button/button.directive';
 import { LinkComponent } from './link/link.component';
 import { LinkDirective } from './link/link.directive';
-import { EventApiService, FileService } from './api/';
-import { UploadComponent, UploadService } from './upload';
+import { EventApiService, StorageService } from './api/';
+import { UploadComponent } from './upload/upload.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { InputContainerComponent } from './input-container/input-container.component';
 import { ModalModule } from './modal/modal.module';
@@ -36,8 +36,7 @@ import { ModalModule } from './modal/modal.module';
     ],
     providers: [
         EventApiService,
-        FileService,
-        UploadService,
+        StorageService
     ]
 })
 export class SharedModule { }

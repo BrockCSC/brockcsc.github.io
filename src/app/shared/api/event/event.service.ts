@@ -16,4 +16,8 @@ export class EventApiService {
         return this.events.push(event);
     }
 
+    public getEvents(): FirebaseListObservable<Event[]> {
+        return this.events;
+    }
+
 }

@@ -1,4 +1,4 @@
-import { CscFile } from '../file/cscFile';
+import { CscFile } from '../storage/cscFile';
 export class Event {
     title: string;
     presenter: string;

@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
+
+import { GUID } from 'app/shared/guid';
+
 @Component({
     selector: 'csc-admin-events',
     templateUrl: './events.component.html',
@@ -22,7 +25,7 @@ export class EventsComponent implements OnInit {
             time: new FormControl(''),
             location: new FormControl(''),
             resources: new FormControl([]),
-            image: new FormControl([])
+            image: new FormControl({})
         });
     }
 

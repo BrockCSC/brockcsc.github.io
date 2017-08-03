@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener, forwardRef, Input } from '@angular/core';
-import { UploadService, Upload } from 'app/shared/upload';
-import { FileService } from 'app/shared/api';
+import { StorageService, StorageTask, CscFile } from 'app/shared/api';
 import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../abstractValueAccessor';
 
 @Component({
@@ -13,9 +12,9 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     @Input() message = 'Select files or drag here';
     files: FileList;
     fileHover: boolean;
-    uploads: Upload[] = [];
+    storageTasks: StorageTask[] = [];
 
-    constructor(private _uploadService: UploadService, private _fileService: FileService) {
+    constructor(private _storageService: StorageService) {
         super();
     }
 
@@ -46,33 +45,33 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
 
     public uploadFiles(): void {
         for (let i = 0; i < this.files.length; i++) {
-            const currFile: File = this.files.item(i);
-            const upload: Upload = this._uploadService.createUpload(currFile);
-            this.uploads.push(upload);
-            this._uploadService.pushUpload(upload).then(() => {
-                super.propagateChange(this.getUploadedFileIds());
-            }).catch((err: Error) => {
-                console.log('Error encountered while uploading files.');
-                console.error(err);
-            });
+            const storageTask: StorageTask = new StorageTask(this.files.item(i));
+            this.storageTasks.push(storageTask);
+            this._storageService.addFile(storageTask)
+                .then((uploaded: StorageTask) => {
+                    super.propagateChange(this.getFiles());
+                })
+                .catch((error: Error) => {
+                    console.log('Error encountered while uploading files.');
+                    console.error(error);
+                });
         }
     }
 
-    public removeFile(key: string): void {
-        const toDelete: Upload = this.uploads.find(upload => upload.$key === key);
-        this._fileService.deleteFile(key).then(() => {
-            this._fileService.deleteFileStorage(toDelete.path, toDelete.name).catch((err) => {
-                console.log(`Error deleting file: ${toDelete.name} from storage.`, err);
+    public removeFile(storageTask: StorageTask): void {
+        this._storageService.deleteFile(storageTask.path, storageTask.name)
+            .then(() => {
+                super.propagateChange(this.getFiles());
+                const taskIndex = this.storageTasks.indexOf(storageTask);
+                this.storageTasks.splice(taskIndex, 1);
+            })
+            .catch((error: Error) => {
+                console.log('Error enountered while removing a file');
+                console.error(error);
             });
-            this.uploads.splice(this.uploads.indexOf(toDelete), 1);
-            super.propagateChange(this.getUploadedFileIds());
-        }).catch((err) => {
-            console.log(`Error deleting file: ${toDelete.name} from db.`, err);
-        });
     }
 
-    public getUploadedFileIds(): string[] {
-        return this.uploads.map(val => val.$key);
+    public getFiles(): CscFile[] {
+        return this.storageTasks.map((task: StorageTask) => task.toCscFile());
     }
-
 }

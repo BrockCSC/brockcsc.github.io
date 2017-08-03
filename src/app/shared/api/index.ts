@@ -1,4 +1,5 @@
 export * from './event/event.service';
 export * from './event/event';
-export * from './file/file.service';
-export * from './file/cscFile';
+export * from './storage/cscFile';
+export * from './storage/storage.service';
+export * from './storage/storageTask';
