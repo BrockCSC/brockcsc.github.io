@@ -27,7 +27,8 @@ export class EventsComponent implements OnInit {
             time: new FormControl(''),
             location: new FormControl(''),
             resources: new FormControl([]),
-            image: new FormControl({})
+            image: new FormControl({}),
+            signupUrl: new FormControl('')
         });
 
         this.events = this._api.getEvents();
@@ -40,6 +41,7 @@ export class EventsComponent implements OnInit {
 
     public onSubmit(): void {
         const val = this.eventForm.value;
+        val.timestamp = new Date(`${val.date} ${val.time}`).valueOf();
         this._api.addEvent(val).then((res) => {
             this.modalAdd.close();
             this.eventForm.reset();
