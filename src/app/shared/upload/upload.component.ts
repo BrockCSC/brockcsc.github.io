@@ -10,6 +10,7 @@ import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../a
 })
 export class UploadComponent extends AbstractValueAccessor implements OnInit {
     @Input() message = 'Select files or drag here';
+    @Input() type = 'single';
     files: FileList;
     fileHover: boolean;
     storageTasks: StorageTask[] = [];
@@ -42,10 +43,14 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     @HostListener('drop', ['$event'])
     public onDrop($event: DragEvent): void {
         $event.preventDefault();
-        const dataTransfer = $event.dataTransfer;
-        this.files = dataTransfer.files;
-        this.uploadFiles();
+        const files = $event.dataTransfer.files;
         this.fileHover = false;
+        if (this.type === 'single' && (this.storageTasks.length > 0 || files.length > 1)) {
+            // Don't want to upload anything if something has already been uploaded or > 1 file
+            return;
+        }
+        this.files = files;
+        this.uploadFiles();
     }
 
     public uploadFiles(): void {
@@ -76,7 +81,10 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
             });
     }
 
-    public getFiles(): CscFile[] {
+    public getFiles(): CscFile[] | CscFile {
+        if (this.storageTasks.length === 1) {
+            return this.storageTasks[0];
+        }
         return this.storageTasks.map((task: StorageTask) => task.toCscFile());
     }
 }

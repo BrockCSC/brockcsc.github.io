@@ -1,14 +1,3 @@
-<div class="csc-upload" *ngFor="let upload of storageTasks; let idx = index">
-    <div class="csc-progress-bar">
-        <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
-    </div>
-    <div class="csc-file-remove" [class.active]="upload.progress == 100" (click)="removeFile(upload)">
-        <i class="material-icons">clear</i>
-    </div>
-    <div class="csc-file-name">
-        {{ upload.name }}
-    </div>
-</div>
 <div class="csc-drop" [class.hover]="fileHover">
     <div class="csc-drop-border">
         <div class="csc-drop-desc">
@@ -18,5 +7,16 @@
                 <!-- // TODO: Add click to select -->
             </div>
         </div>
+    </div>
+</div>
+<div class="csc-upload" *ngFor="let upload of storageTasks; let idx = index">
+    <div class="csc-progress-bar">
+        <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
+    </div>
+    <div class="csc-file-remove" [class.active]="upload.progress == 100" (click)="removeFile(upload)">
+        <i class="material-icons">clear</i>
+    </div>
+    <div class="csc-file-name">
+        {{ upload.name }}
     </div>
 </div>
