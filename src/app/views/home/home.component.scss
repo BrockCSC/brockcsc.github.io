@@ -5,7 +5,6 @@
 @import './section-styles/_events.scss';
 @import './section-styles/_services.scss';
 @import './section-styles/_join.scss';
-
 .csc-header {
     margin-bottom: 35px;
     border-bottom: 1px solid;
@@ -23,21 +22,18 @@ i {
     text-transform: uppercase;
 }
 
-.col-left {
-    width: 100%;
-    min-height: $row-height;
-}
-
-.col-right {
+.column-left, .column-right {
+    position: relative;
+    float: left;
     width: 100%;
     min-height: $row-height;
 }
 
 @media #{$tablet} {
-    .col-left {
+    .column-left {
         width: 40%;
     }
-    .col-right {
+    .column-right {
         width: 60%;
     }
 }

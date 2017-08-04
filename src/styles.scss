@@ -1,6 +1,8 @@
 // Global styles
 @import '~normalize.css/normalize.css';
 @import 'src/variables.scss';
+@import './styles/_grid.scss';
+@import './styles/_table.scss';
 html {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -39,24 +41,9 @@ h3 {
     font-size: 1.125rem;
 }
 
-.row {
-    display: block;
-    padding: 25px 0px;
-}
-
-.row:before,
-.row:after {
-    content: " ";
-    display: table;
-}
-
-.row:after {
-    clear: both;
-}
-
-.col {
-    position: relative;
-    float: left;
+section {
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .container {

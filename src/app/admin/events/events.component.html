@@ -1,0 +1,72 @@
+<div class="container">
+    <h1>Event Management</h1>
+    <div class="csc-event-add">
+        <button csc-button (click)="openModal()">Create a new event</button>
+    </div>
+    <div class="row">
+        <table>
+            <thead>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of events | async">
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>Actions</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<csc-modal #modalAdd>
+    <csc-modal-header>Add an event</csc-modal-header>
+    <csc-modal-body>
+        <div id="csc-admin-container">
+            <div class="row">
+                <div class="container">
+                    <form [formGroup]="eventForm">
+                        <div class="row">
+                            <csc-input-container class="col-12" label="Title" labelLocation="top">
+                                <input class="csc-input" type="text" formControlName="title" placeholder="Title of the event">
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container class="col-6" label="Presenter" labelLocation="top">
+                                <input class="csc-input" type="text" formControlName="presenter" placeholder="Who is running the event?">
+                            </csc-input-container>
+                            <csc-input-container class="col-6" label="Location" labelLocation="top">
+                                <input class="csc-input" type="text" formControlName="location" placeholder="Where the event will be held">
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Date" class="col-6" labelLocation="top">
+                                <input class="csc-input" type="text" formControlName="date" placeholder="Date of the event">
+                            </csc-input-container>
+                            <csc-input-container label="Time" class="col-6" labelLocation="top">
+                                <input class="csc-input" type="text" formControlName="time" placeholder="Time of the event">
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Description" class="col-12" labelLocation="top">
+                                <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description of the event"></textarea>
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Image" class="col-6" labelLocation="top">
+                                <csc-upload formControlName="image" message="Drag event image here"></csc-upload>
+                            </csc-input-container>
+                            <csc-input-container label="Resources" class="col-6" labelLocation="top">
+                                <csc-upload formControlName="resources" message="Drag event resources here"></csc-upload>
+                            </csc-input-container>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </csc-modal-body>
+    <csc-modal-footer>
+        <button csc-button (click)="onSubmit()">Create Event</button>
+    </csc-modal-footer>
+</csc-modal>

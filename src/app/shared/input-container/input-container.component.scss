@@ -1,0 +1,53 @@
+@import 'src/variables.scss';
+input,
+textarea {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    border: 0;
+    padding: 7px 14px;
+    border: 1px solid #ccc;
+    outline: 0;
+    &:focus~.focus-border {
+        width: 100%;
+        transition: 0.4s;
+    }
+}
+
+@mixin shared_focus_border {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $maroon;
+    transition: 0.4s;
+}
+
+input+.focus-border {
+    @include shared_focus_border();
+    bottom: 0;
+}
+
+textarea+.focus-border {
+    @include shared_focus_border();
+    bottom: 5px;
+}
+
+.form-group {
+    position: relative;
+    display: table;
+    width: 100%;
+    label {
+        display: table-cell;
+        text-transform: uppercase;
+        padding-right: 20px;
+        color: $maroon;
+        vertical-align: top;
+    }
+    .input-container {
+        position: relative;
+        display: table-cell;
+    }
+}
