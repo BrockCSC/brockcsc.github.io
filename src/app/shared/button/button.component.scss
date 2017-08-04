@@ -13,16 +13,18 @@
     @include button-reset();
     $pad-horizontal: 2.5em;
     $pad-vertical: 0.5em;
-
     padding-top: $pad-vertical - 0.125em;
     padding-right: $pad-horizontal;
     padding-bottom: $pad-vertical;
     padding-left: $pad-horizontal;
-    
     background-color: $maroon;
     color: $text-white;
     transition: background-color 200ms $ease-in-out-curve-function;
     &:hover {
         background-color: darken($maroon, 10%);
+    }
+    &[disabled] {
+        background-color: $dark-grey;
+        cursor: default;
     }
 }
