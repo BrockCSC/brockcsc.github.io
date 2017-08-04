@@ -27,6 +27,7 @@ $nav-links-margin: 4.5em;
 
 .csc-nav-links > a {
     @include nav-link();
+    text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
 }
 
