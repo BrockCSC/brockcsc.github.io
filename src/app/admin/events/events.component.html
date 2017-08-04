@@ -6,20 +6,27 @@
     <div class="row">
         <table>
             <thead>
+                <th class="csc-delete-th"></th>
                 <th>Title</th>
                 <th>Date</th>
-                <th>Actions</th>
+                <th class="csc-edit-th">Edit</th>
             </thead>
             <tbody>
                 <tr *ngFor="let event of events | async">
+                    <td class="csc-checkbox-col">
+                        <csc-checkbox>
+                            <input type="checkbox">
+                        </csc-checkbox>
+                    </td>
                     <td>{{ event.title }}</td>
                     <td>{{ event.date }}</td>
-                    <td>Actions</td>
+                    <td class="csc-edit-icon"><i class="material-icons">edit</i></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
 <csc-modal #modalAdd>
     <csc-modal-header>Add an event</csc-modal-header>
     <csc-modal-body>
