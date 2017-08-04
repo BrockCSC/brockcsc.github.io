@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'csc-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
     events: Row[] = [];
     services: Row[] = [];
-
-    constructor() { }
 
     ngOnInit() {
         this.initEvents();
         this.initServices();
     }
+
+    async ngAfterViewInit() {
+        await this.loadScript('//platform.twitter.com/widgets.js');
+    }
+
     public initEvents(): void {
         this.events = [
             {
@@ -56,6 +59,15 @@ export class HomeComponent implements OnInit {
                 'programming questions or anything else!'
             }
         ];
+    }
+
+    private loadScript(scriptUrl: string) {
+        return new Promise((resolve, reject) => {
+            const scriptTag = document.createElement('script');
+            scriptTag.src = scriptUrl;
+            scriptTag.onload = resolve;
+            document.body.appendChild(scriptTag);
+        });
     }
 
 }
