@@ -2956,6 +2956,10 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.npmjs.org/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
+magic-check@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/magic-check/-/magic-check-1.0.3.tgz#3236fb720f33ec8b821663247547556da665be42"
+
 magic-string@^0.22.3:
   version "0.22.3"
   resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.22.3.tgz#047989d99bfc7cbdefba1604adc8912551cd7ef1"

@@ -9,6 +9,7 @@ import { UploadComponent } from './upload/upload.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { InputContainerComponent } from './input-container/input-container.component';
 import { ModalModule } from './modal/modal.module';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { ModalModule } from './modal/modal.module';
         UploadComponent,
         ProgressBarComponent,
         InputContainerComponent,
-        ModalModule
+        ModalModule,
+        CheckboxComponent
     ],
     declarations: [
         ButtonComponent,
@@ -32,7 +34,8 @@ import { ModalModule } from './modal/modal.module';
         LinkDirective,
         UploadComponent,
         ProgressBarComponent,
-        InputContainerComponent
+        InputContainerComponent,
+        CheckboxComponent
     ],
     providers: [
         EventApiService,

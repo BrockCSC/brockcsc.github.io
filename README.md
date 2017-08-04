@@ -53,3 +53,14 @@ Make sure that your module is importing the `SharedModule`.
     <input type="text">
 </csc-input-container>
 ```
+
+## Checkbox
+Make sure that your module is importing the `SharedModule`.
+```html
+<csc-checkbox>
+    <input type="checkbox">
+</csc-checkbox>
+```
+| Parameter     	| Value(s)  	| Description                                       |
+|---------------	|-----------	|------------------------------------------------	|
+| label         	| `string`  	| This parameter will add a label to the input.     |
