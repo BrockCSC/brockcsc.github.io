@@ -6,16 +6,12 @@
     text-decoration: none;
 }
 
-.csc-link::after {
+.csc-link-line {
     content: '';
     margin-top: 3px;
+    color: red;
     display: block;
     width: 0;
     height: 1px;
-    background: white;
     transition: width .3s;
-}
-
-.csc-link:hover::after {
-    width: 100%;
 }

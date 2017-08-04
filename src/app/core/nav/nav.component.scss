@@ -17,13 +17,22 @@ $nav-links-margin: 4.5em;
     transform: translateY(-50%);
 }
 
-.csc-nav-links > a {
+@mixin nav-link {
     font-size: $nav-links-font-size;
-    color: rgba(255, 255, 255, 0.9);
     margin-right: $nav-links-margin;
     &:last-child {
         margin-right: 0px;
     }
+}
+
+.csc-nav-links > a {
+    @include nav-link();
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.black-links > a {
+    @include nav-link();
+    color: rgba(0, 0, 0, 0.9);
 }
 
 .csc-logo-container {
@@ -45,6 +54,6 @@ $nav-links-margin: 4.5em;
     box-sizing: content-box;
 }
 
-.navy-background {
-    background-color: $navy;
+.white-background {
+    background-color: #fff;
 }
