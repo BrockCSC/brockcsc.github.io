@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-
+import { Event } from 'app/shared/api';
 import { GUID } from 'app/shared/guid';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
     selector: 'csc-admin-events',
@@ -12,6 +13,7 @@ import { GUID } from 'app/shared/guid';
 })
 export class EventsComponent implements OnInit {
     public eventForm: FormGroup;
+    public events: FirebaseListObservable<Event[]>;
     @ViewChild('modalAdd') modalAdd: ModalComponent;
 
     constructor(private _api: EventApiService, private formBuilder: FormBuilder) { }
@@ -27,6 +29,8 @@ export class EventsComponent implements OnInit {
             resources: new FormControl([]),
             image: new FormControl({})
         });
+
+        this.events = this._api.getEvents();
     }
 
     public openModal(): void {

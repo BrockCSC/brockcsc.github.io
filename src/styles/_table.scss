@@ -1,0 +1,30 @@
+@import 'src/variables.scss';
+$background: #F5F5F5;
+$border: darken($background, 15%);
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #F5F5F5;
+}
+
+thead {
+    font-size: $subHeading;
+    color: rgba(0, 0, 0, 0.75);
+    background-color: darken($background, 10%);
+    border: 1px solid darken($background, 15%);
+}
+
+th {
+    text-align: left;
+    padding: 20px 10px;
+}
+
+td {
+    padding: 20px 10px;
+}
+
+tr {
+    border-bottom: 1px solid darken($background, 15%);
+    border-left: 1px solid darken($background, 15%);
+    border-right: 1px solid darken($background, 15%);
+}
