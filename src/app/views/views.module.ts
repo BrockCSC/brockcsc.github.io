@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { TeamComponent } from './team/team.component';
 import { SharedModule } from 'app/shared/shared.module';
 
 @NgModule({
@@ -10,6 +11,6 @@ import { SharedModule } from 'app/shared/shared.module';
         SharedModule
     ],
     exports: [HomeComponent],
-    declarations: [HomeComponent]
+    declarations: [HomeComponent, TeamComponent]
 })
 export class ViewsModule { }

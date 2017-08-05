@@ -1,0 +1,60 @@
+@import 'src/variables.scss';
+
+$exec-info-text-color: #515151;
+$tooltip-exec-name-color: $text-white;
+$tooltip-exec-desc-color: #A6A6A6;
+
+.csc-team {
+    margin: 20px;
+}
+
+.csc-team-members {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.exec {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+
+    .exec-avatar {
+        border-radius: 100%;
+        border: 0px solid black;
+        transition: all 100ms ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+            border: 1px solid $maroon;
+            cursor: pointer;
+        }
+    }
+
+    .exec-info {
+        margin-left: 1rem;
+        transition: opacity 200ms ease-in;
+
+        .exec-name, .exec-title {
+            font-size: 14px;
+            color: $exec-info-text-color;
+        }
+    }
+
+
+}
+
+.tooltip-exec-name {
+    color: $tooltip-exec-name-color;
+}
+
+.tooltip-exec-title {
+    color: lighten($tooltip-exec-desc-color, 10%);
+}
+
+.tooltip-exec-desc {
+    color: $tooltip-exec-desc-color;
+}
+
+
