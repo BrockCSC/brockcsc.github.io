@@ -2,12 +2,12 @@
     <h1>Event Management</h1>
     <div class="csc-event-buttons">
         <div class="csc-event-remove">
-            <button csc-button [disabled]="checkedEvents.length === 0" (click)="openRemoveModal()">
+            <button csc-button [disabled]="checkedEvents.length === 0" (click)="removeModal.open()">
                 {{ getRemoveButtonText() }}
             </button>
         </div>
         <div class="csc-event-add">
-            <button csc-button (click)="openAddModal()">Create a new event</button>
+            <button csc-button (click)="addModal.open()">Create a new event</button>
         </div>
     </div>
     <div class="row">
@@ -27,83 +27,12 @@
                     </td>
                     <td>{{ event.title }}</td>
                     <td>{{ event.date }}</td>
-                    <td class="csc-edit-icon"><i class="material-icons">edit</i></td>
+                    <td class="csc-edit-icon"><i (click)="editModal.open(event)" class="material-icons">edit</i></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-<csc-modal #modalAdd>
-    <csc-modal-header>Add an event</csc-modal-header>
-    <csc-modal-body>
-        <div id="csc-admin-container">
-            <div class="row">
-                <div class="container">
-                    <form [formGroup]="eventForm">
-                        <div class="row">
-                            <csc-input-container class="col-12" label="Title" labelLocation="top">
-                                <input class="csc-input" type="text" formControlName="title" placeholder="Title of the event">
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container class="col-6" label="Presenter" labelLocation="top">
-                                <input class="csc-input" type="text" formControlName="presenter" placeholder="Who is running the event?">
-                            </csc-input-container>
-                            <csc-input-container class="col-6" label="Location" labelLocation="top">
-                                <input class="csc-input" type="text" formControlName="location" placeholder="Where the event will be held">
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Date" class="col-6" labelLocation="top">
-                                <input class="csc-input" type="date" formControlName="date" placeholder="Date of the event">
-                            </csc-input-container>
-                            <csc-input-container label="Time" class="col-6" labelLocation="top">
-                                <input class="csc-input" type="time" formControlName="time" placeholder="Time of the event">
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Description" class="col-12" labelLocation="top">
-                                <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description of the event"></textarea>
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Sign up form URL" class="col-12" labelLocation="top">
-                                <input class="csc-input" type="text" formControlName="signupUrl" placeholder="https://docs.google.com/forms/d/...">
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Image" class="col-6" labelLocation="top">
-                                <csc-upload formControlName="image" message="Drag event image here"></csc-upload>
-                            </csc-input-container>
-                            <csc-input-container label="Resources" class="col-6" labelLocation="top">
-                                <csc-upload formControlName="resources" type="multi" message="Drag event resources here"></csc-upload>
-                            </csc-input-container>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="onSubmit()">Create Event</button>
-    </csc-modal-footer>
-</csc-modal>
-
-<csc-modal #modalRemove>
-    <csc-modal-header>
-        Remove Events
-    </csc-modal-header>
-    <csc-modal-body>
-        <div class="row">
-            <div class="col-12">
-                <h2>Are you sure you want to remove {{ checkedEvents.length }} event{{ checkedEvents.length > 1 ? 's' : '' }}
-                    from the database?</h2>
-                <p>This action is irriversable</p>
-            </div>
-        </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="removeEvents()">Remove</button>
-    </csc-modal-footer>
-</csc-modal>
+<csc-add-modal #addModal></csc-add-modal>
+<csc-remove-modal #removeModal [checkedEvents]="checkedEvents" (onDelete)="resetCheckedEvents()"></csc-remove-modal>
+<csc-edit-modal #editModal></csc-edit-modal>
