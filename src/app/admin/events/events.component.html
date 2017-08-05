@@ -1,7 +1,14 @@
 <div class="container">
     <h1>Event Management</h1>
-    <div class="csc-event-add">
-        <button csc-button (click)="openModal()">Create a new event</button>
+    <div class="csc-event-buttons">
+        <div class="csc-event-remove">
+            <button csc-button [disabled]="checkedEvents.length === 0" (click)="openRemoveModal()">
+                {{ getRemoveButtonText() }}
+            </button>
+        </div>
+        <div class="csc-event-add">
+            <button csc-button (click)="openAddModal()">Create a new event</button>
+        </div>
     </div>
     <div class="row">
         <table>
@@ -15,7 +22,7 @@
                 <tr *ngFor="let event of events | async">
                     <td class="csc-checkbox-col">
                         <csc-checkbox>
-                            <input type="checkbox">
+                            <input type="checkbox" (click)="checked($event, event)">
                         </csc-checkbox>
                     </td>
                     <td>{{ event.title }}</td>
@@ -80,5 +87,23 @@
     </csc-modal-body>
     <csc-modal-footer>
         <button csc-button (click)="onSubmit()">Create Event</button>
+    </csc-modal-footer>
+</csc-modal>
+
+<csc-modal #modalRemove>
+    <csc-modal-header>
+        Remove Events
+    </csc-modal-header>
+    <csc-modal-body>
+        <div class="row">
+            <div class="col-12">
+                <h2>Are you sure you want to remove {{ checkedEvents.length }} event{{ checkedEvents.length > 1 ? 's' : '' }}
+                    from the database?</h2>
+                <p>This action is irriversable</p>
+            </div>
+        </div>
+    </csc-modal-body>
+    <csc-modal-footer>
+        <button csc-button (click)="removeEvents()">Remove</button>
     </csc-modal-footer>
 </csc-modal>

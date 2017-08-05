@@ -15,6 +15,8 @@ export class EventsComponent implements OnInit {
     public eventForm: FormGroup;
     public events: FirebaseListObservable<Event[]>;
     @ViewChild('modalAdd') modalAdd: ModalComponent;
+    @ViewChild('modalRemove') modalRemove: ModalComponent;
+    public checkedEvents: Event[] = [];
 
     constructor(private _api: EventApiService, private formBuilder: FormBuilder) { }
 
@@ -34,10 +36,9 @@ export class EventsComponent implements OnInit {
         this.events = this._api.getEvents();
     }
 
-    public openModal(): void {
+    public openAddModal(): void {
         this.modalAdd.open();
     }
-
 
     public onSubmit(): void {
         const val = this.eventForm.value;
@@ -48,5 +49,43 @@ export class EventsComponent implements OnInit {
         }).catch((error) => {
             console.error(error);
         });
+    }
+
+    public openRemoveModal(): void {
+        this.modalRemove.open();
+    }
+
+    public removeEvents(): void {
+        console.log(this.checkedEvents);
+
+        this._api.deleteEvents(this.checkedEvents)
+            .then(res => {
+                this.checkedEvents = [];
+                this.modalRemove.close();
+            })
+            .catch(error => {
+                console.error('Error encountered', error);
+            });
+    }
+
+    public checked(mouseEvent: MouseEvent, event: Event) {
+        const checkbox: HTMLInputElement = <HTMLInputElement>mouseEvent.target;
+        if (checkbox.checked) {
+            this.checkedEvents.push(event);
+        } else {
+            const eventIndex = this.checkedEvents.indexOf(event);
+            this.checkedEvents.splice(eventIndex, 1);
+        }
+    }
+
+    public getRemoveButtonText(): string {
+        const base = `Remove ${this.checkedEvents.length} event`;
+        if (this.checkedEvents.length === 0) {
+            return 'No events selected';
+        } else if (this.checkedEvents.length === 1) {
+            return base;
+        } else {
+            return base + 's';
+        }
     }
 }

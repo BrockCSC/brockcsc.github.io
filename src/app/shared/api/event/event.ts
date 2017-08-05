@@ -1,5 +1,6 @@
 import { CscFile } from '../storage/cscFile';
 export class Event {
+    $key: string;
     title: string;
     presenter: string;
     description: string;
