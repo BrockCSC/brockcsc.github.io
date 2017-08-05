@@ -82,8 +82,8 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     }
 
     public getFiles(): CscFile[] | CscFile {
-        if (this.storageTasks.length === 1) {
-            return this.storageTasks[0];
+        if (this.type === 'single') {
+            return this.storageTasks[0].toCscFile();
         }
         return this.storageTasks.map((task: StorageTask) => task.toCscFile());
     }
