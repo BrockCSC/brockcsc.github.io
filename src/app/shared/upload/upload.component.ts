@@ -69,7 +69,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     }
 
     public removeFile(storageTask: StorageTask): void {
-        this._storageService.deleteFile(storageTask.path, storageTask.name)
+        this._storageService.removeFile(storageTask.path, storageTask.name)
             .then(() => {
                 super.propagateChange(this.getFiles());
                 const taskIndex = this.storageTasks.indexOf(storageTask);

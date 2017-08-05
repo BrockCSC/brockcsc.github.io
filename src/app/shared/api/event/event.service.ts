@@ -21,26 +21,26 @@ export class EventApiService {
         return this.events;
     }
 
-    public deleteEvents(events: Event[]): Promise<void[]> {
-        return Promise.all(events.map(event => this.deleteEvent(event)));
+    public removeEvents(events: Event[]): Promise<void[]> {
+        return Promise.all(events.map(event => this.removeEvent(event)));
     }
 
-    public deleteEvent(event: Event): firebase.Promise<void> {
+    public removeEvent(event: Event): firebase.Promise<void> {
         const image = event.image;
         const resources = event.resources;
 
         if (image !== undefined) {
-            this._storageService.deleteFile(image.path, image.name);
+            this._storageService.removeFile(image.path, image.name);
         }
         if (resources !== undefined) {
             resources.forEach(resource => {
-                this._storageService.deleteFile(resource.path, resource.name);
+                this._storageService.removeFile(resource.path, resource.name);
             });
         }
-        return this.deleteEventByKey(event.$key);
+        return this.removeEventByKey(event.$key);
     }
 
-    public deleteEventByKey(key: string): firebase.Promise<void> {
+    public removeEventByKey(key: string): firebase.Promise<void> {
         return this.events.remove(key);
     }
 

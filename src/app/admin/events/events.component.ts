@@ -58,7 +58,7 @@ export class EventsComponent implements OnInit {
     public removeEvents(): void {
         console.log(this.checkedEvents);
 
-        this._api.deleteEvents(this.checkedEvents)
+        this._api.removeEvents(this.checkedEvents)
             .then(res => {
                 this.checkedEvents = [];
                 this.modalRemove.close();
