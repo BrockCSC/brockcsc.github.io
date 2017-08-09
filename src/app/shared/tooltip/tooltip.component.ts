@@ -34,15 +34,15 @@ export class TooltipComponent implements AfterViewInit {
 
         const popper = new Popper(hostElement, this._$tooltip, {
             placement: (this.direction as Popper.Placement),
+            onCreate: (data) => {
+                hostElement.addEventListener('mouseover', this.showToolTip);
+                hostElement.addEventListener('mouseout', this.hideToolTip);
+            },
             onUpdate: (data) => {
                 this.resetTooltipStyles();
                 this.setArrowDirection(data.placement);
             },
         });
-
-
-        hostElement.addEventListener('mouseover', this.showToolTip);
-        hostElement.addEventListener('mouseout', this.hideToolTip);
     }
 
     public showToolTip = (_: any) => {
