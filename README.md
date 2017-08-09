@@ -75,3 +75,22 @@ Make sure that your module is importing the `SharedModule`.
 | Parameter     	| Value(s)  	| Description                                       |
 |---------------	|-----------	|------------------------------------------------	|
 | label         	| `string`  	| This parameter will add a label to the input.     |
+
+## Tooltip
+Make sure that your module is importing the `SharedModule`.
+
+| Parameter     	| Value(s)  	| Description                                                                        	|
+|---------------	|-----------	|------------------------------------------------------------------------------------	|
+| **forId (required)**         	| `string`  	| ID used to identify the host element for the tooltip.                                      	|
+| direction 	| 'top', 'right', 'left', 'bottom' (default: bottom) 	| Sets the position of where the tooltip will be placed relative to the host element. 	    |
+
+```html
+<!-- Host -->
+<div id="someId">
+</div>
+
+<!-- Tooltip, forId and host id must match -->
+<csc-tooltip forId="someId" direction="right">
+    <p>Some HTML content</p>
+</csc-tooltip>
+```
