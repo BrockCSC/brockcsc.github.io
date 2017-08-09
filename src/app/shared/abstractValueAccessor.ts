@@ -15,11 +15,11 @@ export abstract class AbstractValueAccessor implements ControlValueAccessor {
         this._propagateChange(value);
     }
 }
-export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = (clazz: any) => {
+export function CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR(clazz: any) {
     return {
         provide: NG_VALUE_ACCESSOR,
         useExisting: forwardRef(() => clazz),
         multi: true
     };
-};
+}
 

@@ -1,18 +1,14 @@
 import { CscFile } from '../storage/cscFile';
 export class Event {
+    $key: string;
     title: string;
     presenter: string;
     description: string;
-    date: Date;
+    date: string;
     time: string;
     location: string;
-    resources: string[];
-
-    constructor(title: string, presenter: string, description: string, location: string, date = new Date()) {
-        this.title = title;
-        this.presenter = presenter;
-        this.description = description;
-        this.location = location;
-        this.date = date;
-    }
+    resources: CscFile[];
+    image: CscFile;
+    timestamp: number;
+    signupUrl: string;
 }

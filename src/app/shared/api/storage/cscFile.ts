@@ -3,4 +3,5 @@ export class CscFile {
     name: string;
     url: string;
     path: string;
+    guid: string;
 }

@@ -32,7 +32,8 @@ export class StorageTask {
             'creationDate': this.creationDate,
             'name': this.name,
             'path': this.path,
-            'url': this.url
+            'url': this.url,
+            'guid': this.guid
         } as CscFile;
     }
 }

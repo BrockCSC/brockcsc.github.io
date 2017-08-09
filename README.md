@@ -2,6 +2,17 @@
 `http://localhost:8080`
 
 # Components
+## Drag and Drop File Upload
+Make sure that your module is importing the `SharedModule`.
+```html
+<csc-upload></csc-upload>
+```
+| Parameter | Value(s)      | Description                                                           |
+|-----------|---------------|-----------------------------------------------------------------------|
+| message   | `string`      | The message that will be displayed on top of the upload container.    |
+| type      | single, multi | How many files should the component upload.                           |
+| data      | `CscFile[]`   | When editing, you may want to pass existing file data to the dropper. |                    |
+
 ## Modal
 Make sure that your module is importing the `SharedModule`.
 ```html
@@ -40,7 +51,7 @@ public openModal(): void {
 }
 ```
 
-## Drag and Drop Upload
+## Input Container
 Make sure that your module is importing the `SharedModule`.
 
 | Parameter     	| Value(s)  	| Description                                                                        	|
@@ -53,3 +64,14 @@ Make sure that your module is importing the `SharedModule`.
     <input type="text">
 </csc-input-container>
 ```
+
+## Checkbox
+Make sure that your module is importing the `SharedModule`.
+```html
+<csc-checkbox>
+    <input type="checkbox">
+</csc-checkbox>
+```
+| Parameter     	| Value(s)  	| Description                                       |
+|---------------	|-----------	|------------------------------------------------	|
+| label         	| `string`  	| This parameter will add a label to the input.     |
