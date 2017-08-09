@@ -11,6 +11,7 @@ import { InputContainerComponent } from './input-container/input-container.compo
 import { ModalModule } from './modal/modal.module';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { UploadExistingComponent } from './upload/upload-existing/upload-existing.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { UploadExistingComponent } from './upload/upload-existing/upload-existin
         InputContainerComponent,
         ModalModule,
         CheckboxComponent,
-        UploadExistingComponent
+        UploadExistingComponent,
+        TooltipComponent,
     ],
     declarations: [
         ButtonComponent,
@@ -39,6 +41,7 @@ import { UploadExistingComponent } from './upload/upload-existing/upload-existin
         InputContainerComponent,
         CheckboxComponent,
         UploadExistingComponent,
+        TooltipComponent
     ],
     providers: [
         EventApiService,

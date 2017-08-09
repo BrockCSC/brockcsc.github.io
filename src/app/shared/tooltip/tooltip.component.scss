@@ -1,0 +1,26 @@
+$tooltip-background-color: #3F3F3F;
+$tooltip-font-size: 13px;
+
+.tooltip {
+    opacity: 0;
+    background-color: $tooltip-background-color;
+    padding: 20px;
+    font-size: $tooltip-font-size;
+    margin-left: 1rem;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    transition: opacity 200ms ease-in-out;
+}
+
+// Arrow pointing to the left
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent $tooltip-background-color transparent transparent;
+}
