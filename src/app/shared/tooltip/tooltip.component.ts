@@ -31,25 +31,39 @@ export class TooltipComponent implements AfterViewInit {
         }
 
         this.setArrowDirection(this.direction);
+
         const popper = new Popper(hostElement, this._$tooltip, {
             placement: (this.direction as Popper.Placement),
+            onUpdate: (data) => {
+                this.resetTooltipStyles();
+                this.setArrowDirection(data.placement);
+            },
         });
+
 
         hostElement.addEventListener('mouseover', this.showToolTip);
         hostElement.addEventListener('mouseout', this.hideToolTip);
     }
 
-    public showToolTip = (event: any) => {
+    public showToolTip = (_: any) => {
         this._$tooltip.style.opacity = 1;
     }
 
-    public hideToolTip = (event: any) => {
+    public hideToolTip = (_: any) => {
         this._$tooltip.style.opacity = 0;
     }
 
     private capitalize = (text: string) =>
         text.charAt(0).toUpperCase() + text.slice(1);
 
+
+    private resetTooltipStyles() {
+        const directions = ['top', 'left', 'bottom', 'right'];
+        directions.forEach(direction => {
+            this._$tooltipArrow.style[`${direction}`] = '';
+            this._$tooltipArrow.style[`border${this.capitalize(direction)}`] = '';
+        });
+    }
 
     private setArrowDirection(direction: string = 'bottom') {
         const defaultBorder = `5px solid transparent`;
