@@ -21,6 +21,10 @@ export class EventApiService {
         return this.events;
     }
 
+    public updateEvent(key: string, value: Event): firebase.Promise<void> {
+        return this.events.update(key, value);
+    }
+
     public removeEvents(events: Event[]): Promise<void[]> {
         return Promise.all(events.map(event => this.removeEvent(event)));
     }

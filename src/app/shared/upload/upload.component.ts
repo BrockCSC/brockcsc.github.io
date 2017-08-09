@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener, forwardRef, Input } from '@angular/core';
+import { Component, OnInit, HostListener, forwardRef, Input, ViewChild } from '@angular/core';
 import { StorageService, StorageTask, CscFile } from 'app/shared/api';
 import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../abstractValueAccessor';
+import { UploadExistingComponent } from './upload-existing/upload-existing.component';
 
 @Component({
     selector: 'csc-upload',
@@ -11,6 +12,8 @@ import { AbstractValueAccessor, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR } from '../a
 export class UploadComponent extends AbstractValueAccessor implements OnInit {
     @Input() message = 'Select files or drag here';
     @Input() type = 'single';
+    @Input() data: CscFile[];
+    @ViewChild('existingUpload') existingFiles: UploadExistingComponent;
     files: FileList;
     fileHover: boolean;
     storageTasks: StorageTask[] = [];
@@ -53,6 +56,14 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
         this.uploadFiles();
     }
 
+    public hasExistingFiles(): boolean {
+        return this.data !== undefined && this.data.length > 0;
+    }
+
+    public existingFilesChange(): void {
+        super.propagateChange(this.getFiles());
+    }
+
     public uploadFiles(): void {
         for (let i = 0; i < this.files.length; i++) {
             const storageTask: StorageTask = new StorageTask(this.files.item(i));
@@ -71,9 +82,9 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     public removeFile(storageTask: StorageTask): void {
         this._storageService.removeFile(storageTask.path, storageTask.name)
             .then(() => {
-                super.propagateChange(this.getFiles());
                 const taskIndex = this.storageTasks.indexOf(storageTask);
                 this.storageTasks.splice(taskIndex, 1);
+                super.propagateChange(this.getFiles());
             })
             .catch((error: Error) => {
                 console.log('Error enountered while removing a file');
@@ -82,9 +93,13 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     }
 
     public getFiles(): CscFile[] | CscFile {
+        const newFiles = this.storageTasks.map((task: StorageTask) => task.toCscFile());
+        const existingFiles = this.existingFiles !== undefined ? this.existingFiles.getFiles() : [];
+        const allFiles = existingFiles.concat(newFiles);
+
         if (this.type === 'single') {
-            return this.storageTasks[0].toCscFile();
+            return allFiles.length > 0 ? allFiles[0] : {} as CscFile;
         }
-        return this.storageTasks.map((task: StorageTask) => task.toCscFile());
+        return allFiles;
     }
 }

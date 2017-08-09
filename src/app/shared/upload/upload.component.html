@@ -20,3 +20,4 @@
         {{ upload.name }}
     </div>
 </div>
+<csc-upload-existing #existingUpload *ngIf="hasExistingFiles()" (onChange)="existingFilesChange()" [data]="data"></csc-upload-existing>

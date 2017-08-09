@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
-import { Event } from 'app/shared/api';
+import { Event, CscFile } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { FirebaseListObservable } from 'angularfire2/database';
@@ -35,6 +35,36 @@ export class EditModalComponent implements OnInit {
             image: new FormControl({}),
             signupUrl: new FormControl('')
         });
+    }
+
+    public update(): void {
+        const key = this.editableEvent.$key;
+        const data = this.form.value;
+        this._eventApiService.updateEvent(key, data);
+        this.modal.close();
+        this.form.reset();
+    }
+
+    public hasImage(): boolean {
+        return this.editableEvent !== undefined && this.editableEvent.image !== undefined;
+    }
+
+    public getImage(): CscFile[] {
+        if (this.hasImage()) {
+            return new Array(this.editableEvent.image);
+        }
+        return [];
+    }
+
+    public hasResources(): boolean {
+        return this.editableEvent !== undefined && this.editableEvent.resources !== undefined;
+    }
+
+    public getResources(): CscFile[] {
+        if (this.hasResources()) {
+            return this.editableEvent.resources;
+        }
+        return [];
     }
 
 }

@@ -10,6 +10,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { InputContainerComponent } from './input-container/input-container.component';
 import { ModalModule } from './modal/modal.module';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { UploadExistingComponent } from './upload/upload-existing/upload-existing.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
         ProgressBarComponent,
         InputContainerComponent,
         ModalModule,
-        CheckboxComponent
+        CheckboxComponent,
+        UploadExistingComponent
     ],
     declarations: [
         ButtonComponent,
@@ -35,7 +37,8 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
         UploadComponent,
         ProgressBarComponent,
         InputContainerComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        UploadExistingComponent,
     ],
     providers: [
         EventApiService,
