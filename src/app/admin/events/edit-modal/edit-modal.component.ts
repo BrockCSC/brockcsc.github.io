@@ -40,9 +40,15 @@ export class EditModalComponent implements OnInit {
     public update(): void {
         const key = this.editableEvent.$key;
         const data = this.form.value;
-        this._eventApiService.updateEvent(key, data);
-        this.modal.close();
-        this.form.reset();
+        this._eventApiService.updateEvent(key, data)
+            .then(() => {
+                this.modal.close();
+                this.form.reset();
+            })
+            .catch((error: Error) => {
+                console.log('Error updating event');
+                console.error(error);
+            });
     }
 
     public hasImage(): boolean {
