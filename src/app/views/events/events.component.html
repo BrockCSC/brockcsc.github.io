@@ -1,3 +1,34 @@
-<p>
-  events works!
-</p>
+<div class="container">
+    <h2 class="csc-header">CSC Events</h2>
+    <p>//TODO: General event info here <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.</p>
+
+    <div class="csc-events-week">
+        <h3 class="csc-header">Planned events for the upcoming week</h3>
+        <csc-spinner *ngIf="!eventsWeekLoaded"></csc-spinner>
+        <div class="csc-events" *ngIf="eventsWeek.length > 0">
+            <div class="csc-event" *ngFor="let event of eventsWeek">
+                {{ event.title }}
+            </div>
+        </div>
+        <div class="csc-events-none" *ngIf="eventsWeek.length === 0 && eventsWeekLoaded">
+            <p>There are currently no events planned for this week.</p>
+        </div>
+    </div>
+
+    <div class="csc-events-month">
+        <h3 class="csc-header">Planned events for the upcoming month</h3>
+        <csc-spinner *ngIf="!eventsMonthLoaded"></csc-spinner>
+        <div class="csc-events" *ngIf="eventsMonth.length > 0">
+            <div class="csc-event" *ngFor="let event of eventsMonth">
+                {{ event.title }}
+            </div>
+        </div>
+        <div class="csc-events-none" *ngIf="eventsMonth.length === 0 && eventsMonthLoaded">
+            <p>There are currently no additional events planned yet for the remainder of the month.</p>
+        </div>
+    </div>
+</div>
