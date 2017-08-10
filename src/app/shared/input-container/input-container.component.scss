@@ -37,7 +37,6 @@ textarea+.focus-border {
 
 .form-group {
     position: relative;
-    display: table;
     width: 100%;
     label {
         display: table-cell;
@@ -50,4 +49,8 @@ textarea+.focus-border {
         position: relative;
         display: table-cell;
     }
+}
+
+.border-container {
+    position: relative;
 }
