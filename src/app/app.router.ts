@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent, TeamComponent } from 'app/views';
+import { HomeComponent, TeamComponent, EventsComponent } from 'app/views';
 import { AdminComponent } from 'app/admin/admin.component';
 
 const routes: Routes = [
@@ -7,6 +7,7 @@ const routes: Routes = [
     { path: 'admin', component: AdminComponent, loadChildren: 'app/admin/admin.module#AdminModule' },
     { path: 'home', component: HomeComponent },
     { path: 'team', component: TeamComponent },
+    { path: 'events', component: EventsComponent },
     { path: '**', redirectTo: '' }
     // { path: 'path', loadChildren: 'lazy-path#lazy-module' },
 ];

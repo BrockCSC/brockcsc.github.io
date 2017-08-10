@@ -29,7 +29,7 @@ export class NavComponent implements OnInit {
                 desc: 'Team',
             },
             {
-                href: '',
+                href: '/events',
                 desc: 'Events',
             },
             {
@@ -51,7 +51,7 @@ export class NavComponent implements OnInit {
     public changeToWhiteNav(): boolean {
         // TODO: Improve this whole logic or how the layout is done
         const currentPath = this._location.path();
-        const noBgPaths = ['admin', 'team'];
+        const noBgPaths = ['admin', 'team', 'events'];
 
         for (let i = 0; i < noBgPaths.length; i++) {
             if (currentPath.indexOf(noBgPaths[i]) !== -1) {
