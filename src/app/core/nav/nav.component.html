@@ -5,7 +5,7 @@
         </div>
         <button csc-button class="csc-join-button">Join</button>
         <nav class="csc-nav-links" [ngClass]="{'black-links' : changeToWhiteNav()}">
-            <a *ngFor="let link of links" [routerLink]="link.href" [csclink]="link.colour" title="link.desc">{{ link.desc }}</a>
+            <a *ngFor="let link of links" [routerLink]="link.href" [csclink]="link.colour" [title]="link.desc">{{ link.desc }}</a>
         </nav>
     </div>
 </div>
