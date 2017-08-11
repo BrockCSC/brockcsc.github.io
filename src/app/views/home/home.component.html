@@ -12,7 +12,8 @@
 <section id="csc-event-promo">
     <div class="row">
         <div class="csc-event-content container">
-            // TODO: Grab event info dynamically <span>🎉</span>
+            <span> {{(nextEvent | async)?.title || "There aren't any events planned yet. Please check back at a later time!" }}</span>
+            <span>🎉</span>
         </div>
     </div>
 </section>

@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Event, EventApiService } from 'app/shared/api';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
     selector: 'csc-home',
@@ -9,10 +11,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     events: Row[] = [];
     services: Row[] = [];
+    nextEvent: FirebaseListObservable<Event>;
+
+
+    constructor(private _eventApi: EventApiService) { }
 
     ngOnInit() {
         this.initEvents();
         this.initServices();
+        this.nextEvent = this._eventApi.getNextEvent();
     }
 
     async ngAfterViewInit() {

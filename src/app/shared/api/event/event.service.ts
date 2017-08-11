@@ -18,12 +18,14 @@ export class EventApiService {
         });
     }
 
-    public getNextEvent(): FirebaseListObservable<Event[]> {
+    public getNextEvent(): FirebaseListObservable<Event> {
         return this.queryEvent({
             orderByChild: 'datetime/timeStartTimestamp',
             startAt: this.getTodayTimestamp(),
             limitToFirst: 1
-        });
+        }).map(events => {
+            return events[0];
+        }) as FirebaseListObservable<Event>;
     }
 
     public getFutureEvents(): FirebaseListObservable<Event[]> {
