@@ -24,8 +24,8 @@ $tooltip-exec-desc-color: #A6A6A6;
         border-radius: 100%;
         max-width: 76px;
         max-height: 76px;
-        border: 0px solid black;
-        transition: all 100ms ease-in-out;
+        border: 0.3px solid black;
+        transition: border 100ms ease-in-out;
 
         &:hover {
             border: 1px solid $maroon;
