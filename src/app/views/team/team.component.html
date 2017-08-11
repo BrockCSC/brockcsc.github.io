@@ -3,16 +3,16 @@
         <div class="container">
             <h3 class="csc-header">Current Executive Team</h3>
             <div class="csc-team-members">
-                <div class="exec" *ngFor="let exec of execs">
-                    <img class="exec-avatar" id="{{exec.id + '-id'}}" [src]="exec.avatarSrc"/>
+                <div class="exec" *ngFor="let exec of execs | async">
+                    <img class="exec-avatar" id="{{exec.$key + '-id'}}" [src]="exec.image.url"/>
                     <div class="exec-info">
                         <div class="exec-name">{{ exec.name }}</div>
                         <div class="exec-title">{{ exec.title }}</div>
                     </div>
-                    <csc-tooltip forId="{{exec.id + '-id'}}" direction="right">
+                    <csc-tooltip forId="{{exec.$key + '-id'}}" direction="right">
                         <div class="tooltip-exec-name">{{ exec.name }}</div>
                         <p class="tooltip-exec-title">{{ exec.title }}</p>
-                        <p class="tooltip-exec-desc">{{ exec.desc }}</p>
+                        <p class="tooltip-exec-desc">{{ exec.description }}</p>
                     </csc-tooltip>
                 </div>
             </div>
