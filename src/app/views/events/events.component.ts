@@ -9,31 +9,35 @@ import { Subscription } from 'rxjs/Subscription';
     styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit, OnDestroy {
-    public eventsWeek: EventContainer;
-    public eventsMonth: EventContainer;
+    public upcomingEvents: EventContainer;
+    public pastEvents: EventContainer;
 
     constructor(private _eventApi: EventApiService) {
-        this.eventsWeek = new EventContainer();
-        this.eventsMonth = new EventContainer();
+        this.upcomingEvents = new EventContainer();
     }
 
     public ngOnInit(): void {
-        this.eventsWeek.subscription = this._eventApi.getEventsWeek()
+        this.upcomingEvents.subscription = this._eventApi.getFutureEvents()
             .subscribe(events => {
-                this.eventsWeek.loaded = true;
-                this.eventsWeek.events = events;
+                this.upcomingEvents.loaded = true;
+                this.upcomingEvents.events = events;
             });
+    }
 
-        this.eventsMonth.subscription = this._eventApi.getEventsMonth()
+    public loadPastEvents(): void {
+        this.pastEvents = new EventContainer();
+        this.pastEvents.subscription = this._eventApi.getPastEvents()
             .subscribe(events => {
-                this.eventsMonth.loaded = true;
-                this.eventsMonth.events = events;
+                this.pastEvents.loaded = true;
+                this.pastEvents.events = events;
             });
     }
 
     public ngOnDestroy(): void {
-        this.eventsWeek.subscription.unsubscribe();
-        this.eventsMonth.subscription.unsubscribe();
+        this.upcomingEvents.subscription.unsubscribe();
+        if (this.pastEvents !== undefined) {
+            this.pastEvents.subscription.unsubscribe();
+        }
     }
 }
 

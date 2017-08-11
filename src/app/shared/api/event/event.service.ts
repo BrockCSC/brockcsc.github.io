@@ -4,6 +4,7 @@ import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
 import { Thenable, Promise } from 'firebase';
 import { Query } from 'angularfire2/interfaces';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EventApiService {
@@ -12,40 +13,37 @@ export class EventApiService {
 
     constructor(private _db: AngularFireDatabase, private _storageService: StorageService) {
         this._path = '/event';
-        this.events = _db.list(this._path);
-    }
-
-    public getEventsWeek(): FirebaseListObservable<Event[]> {
-        const currDate = new Date();
-        const currTimestamp = currDate.valueOf();
-        const weekAheadTimestamp = currDate.setDate(currDate.getDate() + 7).valueOf();
-
-        return this.getEventsBetween(currTimestamp, weekAheadTimestamp);
-    }
-
-    public getEventsMonth(): FirebaseListObservable<Event[]> {
-        const currDate = new Date();
-        const weekAheadTimestamp = currDate.setDate(currDate.getDate() + 7).valueOf();
-        const monthAheadTimestamp = currDate.setMonth(currDate.getMonth() + 1).valueOf();
-
-        return this.getEventsBetween(weekAheadTimestamp, monthAheadTimestamp);
+        this.events = this.queryEvent({
+            orderByChild: 'datetime/timeStartTimestamp'
+        });
     }
 
     public getNextEvent(): FirebaseListObservable<Event[]> {
-        const currTimestamp = new Date().valueOf();
         return this.queryEvent({
             orderByChild: 'datetime/timeStartTimestamp',
-            startAt: currTimestamp,
+            startAt: this.getTodayTimestamp(),
             limitToFirst: 1
         });
     }
 
-    private getEventsBetween(start: number, end: number): FirebaseListObservable<Event[]> {
+    public getFutureEvents(): FirebaseListObservable<Event[]> {
         return this.queryEvent({
             orderByChild: 'datetime/timeStartTimestamp',
-            startAt: start,
-            endAt: end
+            startAt: this.getTodayTimestamp()
         });
+    }
+
+    public getPastEvents(): FirebaseListObservable<Event[]> {
+        return this.reverse(
+            this.queryEvent({
+                orderByChild: 'datetime/timeStartTimestamp',
+                endAt: this.getTodayTimestamp()
+            })
+        );
+    }
+
+    private getTodayTimestamp(): number {
+        return new Date().setHours(0, 0, 0, 0);
     }
 
     private queryEvent(query: Query): FirebaseListObservable<Event[]> {
@@ -54,12 +52,16 @@ export class EventApiService {
         });
     }
 
+    private reverse(listObservable: FirebaseListObservable<Event[]>): FirebaseListObservable<Event[]> {
+        return listObservable.map(list => list.reverse()) as FirebaseListObservable<Event[]>;
+    }
+
     public addEvent(event: Event): Thenable<Event> {
         return this.events.push(event);
     }
 
     public getEvents(): FirebaseListObservable<Event[]> {
-        return this.events;
+        return this.reverse(this.events);
     }
 
     public updateEvent(key: string, value: Event): Promise<void> {

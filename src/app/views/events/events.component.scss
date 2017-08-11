@@ -1,0 +1,18 @@
+@import 'src/variables.scss';
+
+.csc-event-type {
+    text-align: center;
+    .csc-header {
+        margin: 0px;
+    }
+}
+
+.csc-event-date {
+    text-align: right;
+}
+
+.csc-events-past-load a{
+    color: $maroon;
+    border-bottom: 1px solid $maroon;
+    padding-bottom: 5px;
+}
