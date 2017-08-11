@@ -22,11 +22,12 @@ $tooltip-exec-desc-color: #A6A6A6;
 
     .exec-avatar {
         border-radius: 100%;
+        max-width: 76px;
+        max-height: 76px;
         border: 0px solid black;
         transition: all 100ms ease-in-out;
 
         &:hover {
-            transform: scale(1.05);
             border: 1px solid $maroon;
             cursor: pointer;
         }

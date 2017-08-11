@@ -1,0 +1,39 @@
+<csc-modal #modal>
+    <csc-modal-header>Add a new CSC exec</csc-modal-header>
+    <csc-modal-body>
+        <div id="csc-admin-container">
+            <div class="row">
+                <div class="container">
+                    <form [formGroup]="form">
+                        <div class="row">
+                            <csc-input-container class="col-12" label="Name" labelLocation="top">
+                                <input class="csc-input" type="text" formControlName="name" placeholder="Full name of executive">
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Title" class="col-12" labelLocation="top">
+                                <select formControlName="title">
+                                    <option value="President">President</option>
+                                    <option value="Executive">Executive</option>
+                                </select>
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Description" class="col-12" labelLocation="top">
+                                <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description of the exec"></textarea>
+                            </csc-input-container>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Upload Image" class="col-6" labelLocation="top">
+                                <csc-upload formControlName="image" message="Drag exec image here"></csc-upload>
+                            </csc-input-container>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </csc-modal-body>
+    <csc-modal-footer>
+        <button csc-button (click)="add()">Add Exec</button>
+    </csc-modal-footer>
+</csc-modal>
