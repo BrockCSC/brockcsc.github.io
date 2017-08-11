@@ -8,26 +8,26 @@
 
     <div class="csc-events-week">
         <h3 class="csc-header">Planned events for the upcoming week</h3>
-        <csc-spinner *ngIf="!eventsWeekLoaded"></csc-spinner>
-        <div class="csc-events" *ngIf="eventsWeek.length > 0">
-            <div class="csc-event" *ngFor="let event of eventsWeek">
+        <csc-spinner *ngIf="!eventsWeek.loaded"></csc-spinner>
+        <div class="csc-events" *ngIf="eventsWeek.events.length > 0">
+            <div class="csc-event" *ngFor="let event of eventsWeek.events">
                 {{ event.title }}
             </div>
         </div>
-        <div class="csc-events-none" *ngIf="eventsWeek.length === 0 && eventsWeekLoaded">
+        <div class="csc-events-none" *ngIf="eventsWeek.events.length === 0 && eventsWeek.loaded">
             <p>There are currently no events planned for this week.</p>
         </div>
     </div>
 
     <div class="csc-events-month">
         <h3 class="csc-header">Planned events for the upcoming month</h3>
-        <csc-spinner *ngIf="!eventsMonthLoaded"></csc-spinner>
-        <div class="csc-events" *ngIf="eventsMonth.length > 0">
+        <csc-spinner *ngIf="!eventsMonth.loaded"></csc-spinner>
+        <div class="csc-events" *ngIf="eventsMonth.events.length > 0">
             <div class="csc-event" *ngFor="let event of eventsMonth">
                 {{ event.title }}
             </div>
         </div>
-        <div class="csc-events-none" *ngIf="eventsMonth.length === 0 && eventsMonthLoaded">
+        <div class="csc-events-none" *ngIf="eventsMonth.events.length === 0 && eventsMonth.loaded">
             <p>There are currently no additional events planned yet for the remainder of the month.</p>
         </div>
     </div>
