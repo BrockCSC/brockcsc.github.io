@@ -15,38 +15,38 @@ export class TooltipComponent implements AfterViewInit {
     @ViewChild('tooltip') tooltip: ElementRef;
     @ViewChild('tooltipArrow') tooltipArrow: ElementRef;
 
+    private _host: any;
     private _$tooltip: any;
     private _$tooltipArrow: any;
+    private _popper: Popper;
 
     constructor(@Inject(DOCUMENT) private document: Document) {}
 
     ngAfterViewInit() {
         this._$tooltip = this.tooltip.nativeElement;
         this._$tooltipArrow = this.tooltipArrow.nativeElement;
-        const hostElement = this.document.getElementById(this.forId);
 
-        if (!hostElement) {
+        this._host = this.document.getElementById(this.forId);
+
+        if (!this._host) {
             console.error('Tooltip: No host element found. Make sure id and forId exist and match on host element and tooltip');
             return;
         }
 
-        this.setArrowDirection(this.direction);
+        this._host.addEventListener('mouseover', this.showToolTip);
+        this._host.addEventListener('mouseout', this.hideToolTip);
+    }
 
-        const popper = new Popper(hostElement, this._$tooltip, {
+    public showToolTip = (_: any) => {
+        this._$tooltip.style.opacity = 1;
+        this.setArrowDirection(this.direction);
+        this._popper = new Popper(this._host, this._$tooltip, {
             placement: (this.direction as Popper.Placement),
-            onCreate: (data) => {
-                hostElement.addEventListener('mouseover', this.showToolTip);
-                hostElement.addEventListener('mouseout', this.hideToolTip);
-            },
             onUpdate: (data) => {
                 this.resetTooltipStyles();
                 this.setArrowDirection(data.placement);
             },
         });
-    }
-
-    public showToolTip = (_: any) => {
-        this._$tooltip.style.opacity = 1;
     }
 
     public hideToolTip = (_: any) => {
