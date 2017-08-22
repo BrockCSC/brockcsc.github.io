@@ -16,7 +16,7 @@
                     </td>
                 </tr>
                 <tr *ngFor="let event of upcomingEvents.events">
-                    <td><a [routerLink]="event.$key">{{ event.title }}</a></td>
+                    <td><a [routerLink]="event.$key" (click)="selectEvent(event)">{{ event.title }}</a></td>
                     <td class="csc-event-date">{{ event.datetime.date }}</td>
                 </tr>
                 <tr *ngIf="upcomingEvents.events.length === 0 && upcomingEvents.loaded">

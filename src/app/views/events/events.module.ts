@@ -5,6 +5,7 @@ import { EventsComponent } from './events.component';
 import { EventsHomeComponent } from './home/home.component';
 import { routing } from './events.router';
 import { EventComponent } from './event/event.component';
+import { EventDataService } from './event-data.service';
 
 @NgModule({
     imports: [
@@ -19,6 +20,9 @@ import { EventComponent } from './event/event.component';
         EventsComponent,
         EventsHomeComponent,
         EventComponent
+    ],
+    providers: [
+        EventDataService
     ]
 })
 export class EventsModule { }

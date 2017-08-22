@@ -1,3 +1,14 @@
-<p>
-  event works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12" *ngIf="!loaded">
+            <csc-spinner></csc-spinner>
+        </div>
+        <div class="col-12" *ngIf="error !== undefined">
+            <h2>{{ error }}</h2>
+            <p>Event ID: {{ id }}</p>
+        </div>
+    </div>
+    <p *ngIf="event !== undefined">
+        {{ event.title }}
+    </p>
+</div>

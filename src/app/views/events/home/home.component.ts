@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventApiService, Event } from 'app/shared/api';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Subscription } from 'rxjs/Subscription';
+import { EventDataService } from 'app/views/events/event-data.service';
 
 @Component({
     selector: 'csc-events-home',
@@ -12,7 +14,7 @@ export class EventsHomeComponent implements OnInit, OnDestroy {
     public upcomingEvents: EventContainer;
     public pastEvents: EventContainer;
 
-    constructor(private _eventApi: EventApiService) {
+    constructor(private _eventApi: EventApiService, private _eventData: EventDataService, private _router: Router) {
         this.upcomingEvents = new EventContainer();
     }
 
@@ -31,6 +33,10 @@ export class EventsHomeComponent implements OnInit, OnDestroy {
                 this.pastEvents.loaded = true;
                 this.pastEvents.events = events;
             });
+    }
+
+    public selectEvent(event: Event): void {
+        this._eventData.setEvent(event);
     }
 
     public ngOnDestroy(): void {

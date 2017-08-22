@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
 import { Thenable, Promise } from 'firebase';
@@ -42,6 +42,10 @@ export class EventApiService {
                 endAt: this.getTodayTimestamp()
             })
         );
+    }
+
+    public getEventByKey(key: string): FirebaseObjectObservable<Event> {
+        return this._db.object(`${this._path}/${key}`);
     }
 
     private getTodayTimestamp(): number {
