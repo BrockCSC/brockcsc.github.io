@@ -39,6 +39,10 @@ export class NavComponent implements OnInit {
             {
                 href: '',
                 desc: 'Contact',
+            },
+            {
+                href: '/admin',
+                desc: 'TempAdmin'
             }
         ];
     }

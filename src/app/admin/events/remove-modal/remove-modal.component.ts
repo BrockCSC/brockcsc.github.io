@@ -18,8 +18,6 @@ export class RemoveModalComponent implements OnInit {
     constructor(private _eventApiService: EventApiService) { }
 
     public removeEvents(): void {
-        console.log(this.checkedEvents);
-
         this._eventApiService.removeEvents(this.checkedEvents)
             .then(res => {
                 this.onDelete.emit();

@@ -7,7 +7,7 @@ const routes: Routes = [
     { path: 'admin', component: AdminComponent, loadChildren: 'app/admin/admin.module#AdminModule' },
     { path: 'home', component: HomeComponent },
     { path: 'team', component: TeamComponent },
-    { path: 'events', component: EventsComponent },
+    { path: 'events', component: EventsComponent, loadChildren: 'app/views/events/events.module#EventsModule'},
     { path: '**', redirectTo: '' }
     // { path: 'path', loadChildren: 'lazy-path#lazy-module' },
 ];
