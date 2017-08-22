@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { RouterCache } from './cache.router';
 import { routing } from './app.router';
 import { CoreModule } from 'app/core/core.module';
 import { SharedModule } from 'app/shared/shared.module';
@@ -27,7 +28,9 @@ import { AdminModule } from 'app/admin/admin.module';
         AngularFireAuthModule,
         AdminModule
     ],
-    providers: [],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: RouterCache }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
