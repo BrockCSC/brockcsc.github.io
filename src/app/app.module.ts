@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { routing } from './app.router';
 import { CoreModule } from 'app/core/core.module';
@@ -27,7 +26,6 @@ import { AdminModule } from 'app/admin/admin.module';
         AngularFireAuthModule,
         AdminModule
     ],
-    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

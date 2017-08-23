@@ -26,7 +26,7 @@
                         </csc-checkbox>
                     </td>
                     <td>{{ event.title }}</td>
-                    <td>{{ event.date }}</td>
+                    <td>{{ event.datetime.date }}</td>
                     <td class="csc-edit-icon"><i (click)="editModal.open(event)" class="material-icons">edit</i></td>
                 </tr>
             </tbody>

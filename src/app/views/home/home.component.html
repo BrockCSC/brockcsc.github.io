@@ -12,7 +12,8 @@
 <section id="csc-event-promo">
     <div class="row">
         <div class="csc-event-content container">
-            // TODO: Grab event info dynamically <span>🎉</span>
+            <span *ngIf="nextEvent === undefined">There aren't any events planned yet. Please check back at a later time!</span>
+            <span *ngIf="nextEvent !== undefined">Our next event is: <a [routerLink]="'/events/' + nextEvent.$key">{{ nextEvent.title }}</a> 🎉</span>
         </div>
     </div>
 </section>

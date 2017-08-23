@@ -13,6 +13,8 @@
     @include button-reset();
     $pad-horizontal: 2.5em;
     $pad-vertical: 0.5em;
+    display: inline-block;
+    text-align: center;
     padding-top: $pad-vertical - 0.125em;
     padding-right: $pad-horizontal;
     padding-bottom: $pad-vertical;
@@ -26,5 +28,12 @@
     &[disabled] {
         background-color: $dark-grey;
         cursor: default;
+    }
+}
+
+.success {
+    background-color: $green;
+    &:hover {
+        background-color: darken($green, 5%);
     }
 }

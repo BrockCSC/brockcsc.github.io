@@ -19,21 +19,26 @@ export class AddModalComponent implements OnInit {
 
     public ngOnInit(): void {
         this.form = this._formBuilder.group({
-            title: new FormControl(''),
-            presenter: new FormControl(''),
-            description: new FormControl(''),
-            date: new FormControl(''),
-            time: new FormControl(''),
-            location: new FormControl(''),
+            title: '',
+            presenter: '',
+            description: '',
+            datetime: this._formBuilder.group({
+                date: '',
+                timeStart: '',
+                timeEnd: ''
+            }),
+            location: '',
             resources: new FormControl([]),
-            image: new FormControl({}),
-            signupUrl: new FormControl('')
+            image: {},
+            signupUrl: ''
         });
     }
 
     public add(): void {
-        const val = this.form.value;
-        val.timestamp = new Date(`${val.date} ${val.time}`).valueOf();
+        const val = this.form.value as Event;
+        val.datetime.timeStartTimestamp = new Date(`${val.datetime.date} ${val.datetime.timeStart}`).valueOf();
+        val.datetime.timeEndTimestamp = new Date(`${val.datetime.date} ${val.datetime.timeEnd}`).valueOf();
+
         this._eventApiService.addEvent(val).then((res) => {
             this.modal.close();
             this.form.reset();

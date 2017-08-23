@@ -25,21 +25,27 @@ export class EditModalComponent implements OnInit {
 
     public ngOnInit(): void {
         this.form = this._formBuilder.group({
-            title: new FormControl(''),
-            presenter: new FormControl(''),
-            description: new FormControl(''),
-            date: new FormControl(''),
-            time: new FormControl(''),
-            location: new FormControl(''),
+            title: '',
+            presenter: '',
+            description: '',
+            datetime: this._formBuilder.group({
+                date: '',
+                timeStart: '',
+                timeEnd: ''
+            }),
+            location: '',
             resources: new FormControl([]),
-            image: new FormControl({}),
-            signupUrl: new FormControl('')
+            image: {},
+            signupUrl: ''
         });
     }
 
     public update(): void {
         const key = this.editableEvent.$key;
         const data = this.form.value;
+        data.datetime.timeStartTimestamp = new Date(`${data.datetime.date} ${data.datetime.timeStart}`).valueOf();
+        data.datetime.timeEndTimestamp = new Date(`${data.datetime.date} ${data.datetime.timeEnd}`).valueOf();
+
         this._eventApiService.updateEvent(key, data)
             .then(() => {
                 this.modal.close();

@@ -12,6 +12,7 @@ import { ModalModule } from './modal/modal.module';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { UploadExistingComponent } from './upload/upload-existing/upload-existing.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
         CheckboxComponent,
         UploadExistingComponent,
         TooltipComponent,
+        SpinnerComponent
     ],
     declarations: [
         ButtonComponent,
@@ -41,7 +43,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
         InputContainerComponent,
         CheckboxComponent,
         UploadExistingComponent,
-        TooltipComponent
+        TooltipComponent,
+        SpinnerComponent
     ],
     providers: [
         EventApiService,

@@ -1,0 +1,51 @@
+<div class="container">
+    <p>
+        //TODO: General event info here <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+    </p>
+    <div class="csc-events-upcoming">
+        <h3 class="csc-header">Upcoming Events</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="2" *ngIf="!upcomingEvents.loaded">
+                        <csc-spinner></csc-spinner>
+                    </td>
+                </tr>
+                <tr *ngFor="let event of upcomingEvents.events">
+                    <td><a [routerLink]="event.$key" (click)="selectEvent(event)">{{ event.title }}</a></td>
+                    <td class="csc-event-date">{{ event.datetime.date }}</td>
+                </tr>
+                <tr *ngIf="upcomingEvents.events.length === 0 && upcomingEvents.loaded">
+                    <td colspan="2">There are currently no additional events planned yet for the remainder of the month.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="csc-events-past">
+        <h3 class="csc-header">Past Events</h3>
+        <div class="csc-events-past-load" *ngIf="!pastEventsLoaded()">
+            <a (click)="loadPastEvents()">Show past events</a>
+        </div>
+        <table *ngIf="pastEventsLoaded()">
+            <tbody>
+                <tr>
+                    <td colspan="2" *ngIf="!pastEvents.loaded">
+                        <csc-spinner></csc-spinner>
+                    </td>
+                </tr>
+                <tr *ngFor="let event of pastEvents.events">
+                    <td><a [routerLink]="event.$key" (click)="selectEvent(event)">{{ event.title }}</a></td>
+                    <td class="csc-event-date">{{ event.datetime.date }}</td>
+                </tr>
+                <tr *ngIf="pastEvents.events.length === 0 && pastEvents.loaded">
+                    <td colspan="2">There are no past events to display.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

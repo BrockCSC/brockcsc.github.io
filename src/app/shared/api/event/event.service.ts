@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
+import { Thenable, Promise } from 'firebase';
+import { Query } from 'angularfire2/interfaces';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EventApiService {
@@ -10,18 +13,64 @@ export class EventApiService {
 
     constructor(private _db: AngularFireDatabase, private _storageService: StorageService) {
         this._path = '/event';
-        this.events = _db.list(this._path);
+        this.events = this.queryEvent({
+            orderByChild: 'datetime/timeStartTimestamp'
+        });
     }
 
-    public addEvent(event: Event): firebase.Thenable<Event> {
+    public getNextEvent(): FirebaseListObservable<Event> {
+        return this.queryEvent({
+            orderByChild: 'datetime/timeStartTimestamp',
+            startAt: this.getTodayTimestamp(),
+            limitToFirst: 1
+        }).map(events => {
+            return events[0];
+        }) as FirebaseListObservable<Event>;
+    }
+
+    public getFutureEvents(): FirebaseListObservable<Event[]> {
+        return this.queryEvent({
+            orderByChild: 'datetime/timeStartTimestamp',
+            startAt: this.getTodayTimestamp()
+        });
+    }
+
+    public getPastEvents(): FirebaseListObservable<Event[]> {
+        return this.reverse(
+            this.queryEvent({
+                orderByChild: 'datetime/timeStartTimestamp',
+                endAt: this.getTodayTimestamp()
+            })
+        );
+    }
+
+    public getEventByKey(key: string): FirebaseObjectObservable<Event> {
+        return this._db.object(`${this._path}/${key}`);
+    }
+
+    private getTodayTimestamp(): number {
+        return new Date().setHours(0, 0, 0, 0);
+    }
+
+    private queryEvent(query: Query): FirebaseListObservable<Event[]> {
+        return this._db.list(this._path, {
+            query: query
+        });
+    }
+
+    private reverse(listObservable: FirebaseListObservable<Event[]>): FirebaseListObservable<Event[]> {
+        return listObservable.map(list => list.reverse()) as FirebaseListObservable<Event[]>;
+    }
+
+    public addEvent(event: Event): Thenable<Event> {
         return this.events.push(event);
     }
 
     public getEvents(): FirebaseListObservable<Event[]> {
-        return this.events;
+        return this.reverse(this.events);
     }
 
-    public updateEvent(key: string, value: Event): firebase.Promise<void> {
+    public updateEvent(key: string, value: Event): Promise<void> {
         return this.events.update(key, value);
     }
 
@@ -29,7 +78,7 @@ export class EventApiService {
         return Promise.all(events.map(event => this.removeEvent(event)));
     }
 
-    public removeEvent(event: Event): firebase.Promise<void> {
+    public removeEvent(event: Event): Promise<void> {
         const image = event.image;
         const resources = event.resources;
 
@@ -44,7 +93,7 @@ export class EventApiService {
         return this.removeEventByKey(event.$key);
     }
 
-    public removeEventByKey(key: string): firebase.Promise<void> {
+    public removeEventByKey(key: string): Promise<void> {
         return this.events.remove(key);
     }
 
