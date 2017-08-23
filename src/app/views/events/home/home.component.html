@@ -28,10 +28,10 @@
 
     <div class="csc-events-past">
         <h3 class="csc-header">Past Events</h3>
-        <div class="csc-events-past-load" *ngIf="pastEvents === undefined">
+        <div class="csc-events-past-load" *ngIf="!pastEventsLoaded()">
             <a (click)="loadPastEvents()">Show past events</a>
         </div>
-        <table *ngIf="pastEvents !== undefined">
+        <table *ngIf="pastEventsLoaded()">
             <tbody>
                 <tr>
                     <td colspan="2" *ngIf="!pastEvents.loaded">
