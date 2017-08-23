@@ -32,6 +32,15 @@ i {
     }
 }
 
+@media #{$desktop} {
+    .column-left {
+        width: 40%;
+    }
+    .column-right {
+        width: 60%;
+    }
+}
+
 .csc-event-content a {
     color: $text-white;
 }
