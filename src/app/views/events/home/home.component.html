@@ -39,7 +39,7 @@
                     </td>
                 </tr>
                 <tr *ngFor="let event of pastEvents.events">
-                    <td>{{ event.title }}</td>
+                    <td><a [routerLink]="event.$key" (click)="selectEvent(event)">{{ event.title }}</a></td>
                     <td class="csc-event-date">{{ event.datetime.date }}</td>
                 </tr>
                 <tr *ngIf="pastEvents.events.length === 0 && pastEvents.loaded">

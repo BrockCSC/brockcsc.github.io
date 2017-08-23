@@ -7,8 +7,18 @@
             <h2>{{ error }}</h2>
             <p>Event ID: {{ id }}</p>
         </div>
+
+        <div *ngIf="event !== undefined">
+            <div class="row csc-event-header">
+                <div class="col-7 col-m-6 csc-event-image" [style.background]="getImageUrl()"></div>
+                <div class="col-5 col-m-6 csc-event-title">
+                    <div class="wrapper">
+                        <h2>{{ event.title }}</h2>
+                        <p class="csc-event-presenter">by {{ event.presenter }}</p>
+                        <a csc-button class="csc-event-signup success" [href]="event.signupUrl">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p *ngIf="event !== undefined">
-        {{ event.title }}
-    </p>
 </div>

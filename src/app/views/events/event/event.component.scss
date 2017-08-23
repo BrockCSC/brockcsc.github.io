@@ -1,0 +1,48 @@
+@import 'src/variables.scss';
+
+.csc-event-presenter {
+    color: $dark-grey;
+}
+
+.csc-event-signup {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.csc-event-header {
+    height: 300px;
+    >div {
+        height: 100%;
+        border: 1px solid $dark-grey;
+    }
+}
+
+.csc-event-image {
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.csc-event-title {
+    padding-left: 10px;
+    padding-right: 10px;
+    @media #{$desktop}{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    @media #{$mobile}{
+        height: auto !important;
+    }
+}
+
+.wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    >h2 {
+        margin-top: 0px;
+    }
+    @media #{$mobile}{
+        top: 0%;
+        transform: translateY(0%);
+    }
+}

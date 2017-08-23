@@ -26,6 +26,16 @@ export class EventComponent implements OnInit {
         });
     }
 
+    public getImageUrl(): string {
+        const url = (path: string) => {
+            return `url(${path})`;
+        };
+        if (this.event !== undefined && this.event.image !== undefined) {
+            return url(this.event.image.url);
+        }
+        return url('/assets/placeholder.png'); // temp
+    }
+
     private loadEvent(): void {
         if (this._eventDataService.hasEvent()) {
             this.loaded = true;
