@@ -21,11 +21,22 @@ $width: 100%;
     .col-#{$i}{
         width: $width;
     }
+    .col-m-#{$i}{
+        width: $width;
+    }
 }
 
 @media #{$desktop} {
     @for $i from 1 through 12 {
         .col-#{$i}{
+            width: $width / (12 / $i);
+        }
+    }
+}
+
+@media #{$tablet} {
+    @for $i from 1 through 12 {
+        .col-m-#{$i}{
             width: $width / (12 / $i);
         }
     }
