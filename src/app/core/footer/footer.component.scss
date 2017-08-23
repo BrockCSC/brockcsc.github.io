@@ -1,14 +1,11 @@
 @import 'src/variables.scss';
-
 #csc-social-links {
     border-top: 1px solid #CCCCCC;
-
     .csc-social-desc {
         display: inline-block;
         text-decoration: none;
         color: black;
     }
-
     .csc-social-links-container {
         display: flex;
         align-items: center;
@@ -51,7 +48,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     &:first-child {
         margin-right: 10px;
     }
