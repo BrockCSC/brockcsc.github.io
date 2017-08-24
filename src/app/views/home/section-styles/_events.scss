@@ -6,6 +6,11 @@ $row-height: 50px;
     color: $text-white;
     margin-top: -$offset;
 
+    a {
+        color: $text-white;
+        text-decoration: none;
+    }
+
     .container {
         margin-top: $offset;
     }
