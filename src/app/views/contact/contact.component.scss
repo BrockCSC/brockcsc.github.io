@@ -1,0 +1,32 @@
+@import 'src/variables.scss';
+$border: 1px solid $dark-grey;
+.csc-contact {
+    display: flex;
+    max-width: 800px;
+    margin: 50px auto;
+    >div {
+        border: 1px solid $dark-grey;
+        padding: 15px;
+    }
+}
+
+.csc-contact-form {
+    background-color: $light-grey;
+}
+
+.csc-contact-info {
+    background-color: $maroon;
+    color: $text-white;
+    p {
+        margin: 0px;
+    }
+}
+
+.csc-contact-submit {
+    width: 100%;
+}
+
+h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

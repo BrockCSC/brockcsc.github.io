@@ -1,7 +1,7 @@
 <div class="form-group">
     <div class="row">
-        <label class="col-{{ getLabelCols() }}" *ngIf="label != null">{{label}}</label>
-        <div class="col-{{ getInputCols() }} input-container">
+        <label class="col-{{ getLabelCols() }} no-sidepad" *ngIf="label != null">{{label}}</label>
+        <div class="col-{{ getInputCols() }} input-container no-sidepad">
             <div class="border-container">
                 <ng-content></ng-content>
                 <span class="focus-border"></span>
