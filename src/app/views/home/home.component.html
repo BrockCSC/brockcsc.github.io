@@ -13,7 +13,7 @@
     <div class="row">
         <div class="csc-event-content container">
             <span *ngIf="nextEvent === undefined">There aren't any events planned yet. Please check back at a later time!</span>
-            <span *ngIf="nextEvent !== undefined">Sign up for our next event: <a [routerLink]="'/events/' + nextEvent.$key">{{ nextEvent.title }}</a> <img height="16px" width="16px" src="/assets/party_popper.png"/></span>
+            <span *ngIf="nextEvent !== undefined">Sign up for our next event: <a [routerLink]="'/events/' + nextEvent.$key">{{ nextEvent.title }}</a> <img alt="Party Popper" height="16px" width="16px" src="/assets/party_popper.png"/></span>
         </div>
     </div>
 </section>
@@ -30,7 +30,7 @@
             </div>
             <div class="csc-team">
                 <a routerLink="/team" class="csc-header">Learn about the team</a>
-                <img src="/assets/csgames.jpg">
+                <img alt="BrockCSC at CS Games 2017" src="/assets/csgames.jpg">
             </div>
         </div>
     </div>
