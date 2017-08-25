@@ -4,7 +4,7 @@ $border: 1px solid $dark-grey;
     display: flex;
     max-width: 800px;
     margin: 50px auto;
-    >div {
+    >div, >form {
         border: 1px solid $dark-grey;
         padding: 15px;
     }

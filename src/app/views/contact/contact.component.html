@@ -1,20 +1,21 @@
 <div class="container">
     <div class="row csc-contact">
-        <div class="col-8 col-m-7 csc-contact-form">
+        <iframe id="no-target" name="no-target" style="display:none"></iframe>
+        <form #contactForm class="col-8 col-m-7 csc-contact-form" [action]="googleForm.url" target="no-target">
             <h3 class="col-12">Contact Us</h3>
             <csc-input-container class="col-12" label="Name" labelLocation="top">
-                <input class="csc-input" type="text" formControlName="name">
+                <input [name]="googleForm.ids.name" class="csc-input" type="text">
             </csc-input-container>
             <csc-input-container class="col-12" label="Email" labelLocation="top">
-                <input class="csc-input" type="text" formControlName="email">
+                <input [name]="googleForm.ids.email" class="csc-input" type="text">
             </csc-input-container>
             <csc-input-container class="col-12" label="Message" labelLocation="top">
-                <textarea class="csc-input" type="text" rows="8" formControlName="message"></textarea>
+                <textarea [name]="googleForm.ids.message" class="csc-input" type="text" rows="8"></textarea>
             </csc-input-container>
             <div class="col-12">
-                <a csc-button class="csc-contact-submit">Submit</a>
+                <a csc-button class="csc-contact-submit" (click)="onSubmit()" value="Send">Submit</a>
             </div>
-        </div>
+        </form>
         <div class="col-4 col-m-5 csc-contact-info">
             <h3>Location</h3>
             <br>
