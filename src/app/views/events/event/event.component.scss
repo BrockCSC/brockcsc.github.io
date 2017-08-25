@@ -1,7 +1,6 @@
 @import 'src/variables.scss';
 $height: 300px;
 $border: 1px solid $dark-grey;
-
 .csc-event-header {
     p {
         margin-top: 0px;
@@ -9,7 +8,7 @@ $border: 1px solid $dark-grey;
     }
     .csc-header {
         margin-bottom: 10px;
-        @media #{$mobile}{
+        @media #{$mobile} {
             margin-bottom: 15px;
         }
     }
@@ -40,11 +39,11 @@ $border: 1px solid $dark-grey;
     padding-right: 10px;
     height: $height;
     border-bottom: $border;
-    @media #{$desktop}{
+    @media #{$desktop} {
         padding-left: 25px;
         padding-right: 25px;
     }
-    @media #{$mobile}{
+    @media #{$mobile} {
         height: auto !important;
     }
 }
@@ -56,7 +55,7 @@ $border: 1px solid $dark-grey;
     >h2 {
         margin-top: 0px;
     }
-    @media #{$mobile}{
+    @media #{$mobile} {
         top: 0%;
         transform: translateY(0%);
     }
@@ -66,11 +65,13 @@ $border: 1px solid $dark-grey;
     color: $maroon;
 }
 
-.csc-event-description, .csc-event-location, .csc-event-resource {
-    @media #{$desktop}{
+.csc-event-description,
+.csc-event-location,
+.csc-event-resource {
+    @media #{$desktop} {
         padding: 25px;
     }
-    @media #{$tablet}{
+    @media #{$tablet} {
         padding: 25px;
     }
 }

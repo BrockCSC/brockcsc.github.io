@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row csc-contact">
+        <iframe id="no-target" name="no-target" style="display:none"></iframe>
+        <form #contactForm class="col-8 col-m-7 csc-contact-form" [action]="googleForm.url" target="no-target">
+            <h3 class="col-12">Contact Us</h3>
+            <csc-input-container class="col-12" label="Name" labelLocation="top">
+                <input [name]="googleForm.ids.name" class="csc-input" type="text">
+            </csc-input-container>
+            <csc-input-container class="col-12" label="Email" labelLocation="top">
+                <input [name]="googleForm.ids.email" class="csc-input" type="text">
+            </csc-input-container>
+            <csc-input-container class="col-12" label="Message" labelLocation="top">
+                <textarea [name]="googleForm.ids.message" class="csc-input" type="text" rows="8"></textarea>
+            </csc-input-container>
+            <div class="col-12">
+                <a csc-button class="csc-contact-submit" (click)="onSubmit()" value="Send">Submit</a>
+            </div>
+        </form>
+        <div class="col-4 col-m-5 csc-contact-info">
+            <h3>Location</h3>
+            <br>
+            <p>Brock University</p>
+            <p>Mackenzie Chown J Block</p>
+            <p>Room 332</p>
+            <br>
+            <p>1812 Sir IsaacBrock Way</p>
+            <p>St. Catharines, ON L2S 3A1</p>
+            <br>
+            <p>brockcsc@gmail.com</p>
+        </div>
+    </div>
+</div>
