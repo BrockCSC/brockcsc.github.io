@@ -17,7 +17,14 @@
                                         <option value="Executive">Executive</option>
                                     </select>
                                 </csc-input-container>
-                            </div>
+                        </div>
+                        <div class="row">
+                            <csc-input-container label="Currently an exec?" class="col-12" labelLocation="left">
+                                <csc-checkbox>
+                                    <input type="checkbox" formControlName="isCurrentExec" value="CurrentExec" checked>
+                                </csc-checkbox>
+                            </csc-input-container>
+                        </div>
                         <div class="row">
                             <csc-input-container label="Description" class="col-12" labelLocation="top">
                                 <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description about exec"></textarea>

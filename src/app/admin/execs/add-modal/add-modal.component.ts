@@ -22,13 +22,13 @@ export class AddModalComponent implements OnInit {
             name: new FormControl(''),
             title: new FormControl('Executive'),
             description: new FormControl(''),
+            isCurrentExec: new FormControl(true),
             image: new FormControl({}),
         });
     }
 
     public add(): void {
         const val = this.form.value;
-        console.log(val);
         this._execApiService.addExec(val).then((res) => {
             this.modal.close();
             this.form.reset();

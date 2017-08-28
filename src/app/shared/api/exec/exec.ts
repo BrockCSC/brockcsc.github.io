@@ -5,5 +5,6 @@ export class Exec {
     name: string;
     title: string;
     description: string;
+    isCurrentExec: boolean;
     image: CscFile;
 }

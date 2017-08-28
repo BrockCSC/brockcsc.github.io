@@ -2,15 +2,16 @@
     <h1>Executive Management</h1>
     <div class="csc-exec-buttons">
         <div class="csc-exec-remove">
-             <button csc-button [disabled]="checkedExecs.length === 0" (click)="removeModal.open()">
-                {{ getRemoveButtonText() }}
+            <button csc-button [disabled]="checkedExecs.length === 0" (click)="removeModal.open()">
+                Remove selected execs
             </button>
         </div>
         <div class="csc-exec-add">
-             <button csc-button (click)="addModal.open()">Add new executive</button>
+            <button csc-button (click)="addModal.open()">Add new executive</button>
         </div>
     </div>
     <div class="row">
+        <h2>Current Executives</h2>
         <table>
             <thead>
                 <th class="csc-remove-th"></th>
@@ -19,6 +20,27 @@
             </thead>
             <tbody>
                 <tr *ngFor="let exec of execs | async">
+                    <td class="csc-checkbox-col">
+                        <csc-checkbox>
+                            <input type="checkbox" (click)="checked($event, exec)">
+                        </csc-checkbox>
+                    </td>
+                    <td>{{ exec.name }}</td>
+                    <td class="csc-edit-icon"><i (click)="editModal.open(exec)" class="material-icons">edit</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <h2>Previous Executives</h2>
+        <table>
+            <thead>
+                <th class="csc-remove-th"></th>
+                <th>Name</th>
+                <th class="csc-edit-th">Edit</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let exec of previousExecs | async">
                     <td class="csc-checkbox-col">
                         <csc-checkbox>
                             <input type="checkbox" (click)="checked($event, exec)">
