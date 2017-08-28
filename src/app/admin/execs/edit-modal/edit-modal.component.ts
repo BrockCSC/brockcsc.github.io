@@ -27,6 +27,7 @@ export class EditModalComponent implements OnInit {
             name: new FormControl(''),
             title: new FormControl('Executive'),
             description: new FormControl(''),
+            isCurrentExec: new FormControl(true),
             image: new FormControl({}),
         });
     }
