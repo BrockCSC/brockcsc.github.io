@@ -1,28 +1,30 @@
-import { FirebaseListObservable } from 'angularfire2/database';
-import { Component, OnInit } from '@angular/core';
-import { Exec, ExecApiService } from 'app/shared/api';
+import { FirebaseListObservable } from "angularfire2/database";
+import { Component, OnInit } from "@angular/core";
+import { Exec, ExecApiService } from "app/shared/api";
 
 @Component({
-    selector: 'csc-execs',
-    templateUrl: './execs.component.html',
-    styleUrls: ['./execs.component.scss']
+    selector: "csc-execs",
+    templateUrl: "./execs.component.html",
+    styleUrls: ["./execs.component.scss"]
 })
 export class ExecsComponent implements OnInit {
     execs: FirebaseListObservable<Exec[]>;
+    previousExecs: FirebaseListObservable<Exec[]>;
     checkedExecs: Exec[] = [];
 
-    constructor(private _api: ExecApiService) { }
+    constructor(private _api: ExecApiService) {}
 
     public resetCheckedExecs(): void {
         this.checkedExecs = [];
     }
 
     ngOnInit() {
-        this.execs = this._api.getExecs();
+        this.execs = this._api.getCurrentExecs();
+        this.previousExecs = this._api.getPreviousExecs();
     }
 
     public checked(mouseEvent: MouseEvent, exec: Exec) {
-        const checkbox: HTMLInputElement = <HTMLInputElement> mouseEvent.target;
+        const checkbox: HTMLInputElement = <HTMLInputElement>mouseEvent.target;
         if (checkbox.checked) {
             this.checkedExecs.push(exec);
         } else {
@@ -30,16 +32,4 @@ export class ExecsComponent implements OnInit {
             this.checkedExecs.splice(eventIndex, 1);
         }
     }
-
-    public getRemoveButtonText(): string {
-        const base = `Remove ${this.checkedExecs.length} exec`;
-        if (this.checkedExecs.length === 0) {
-            return 'No executives selected';
-        } else if (this.checkedExecs.length === 1) {
-            return base;
-        } else {
-            return base + 's';
-        }
-    }
-
 }
