@@ -10,11 +10,13 @@ import { Exec, ExecApiService } from 'app/shared/api';
 export class TeamComponent implements OnInit {
 
     execs: FirebaseListObservable<Exec[]>;
+    prevExecs: FirebaseListObservable<Exec[]>;
 
     constructor(private _api: ExecApiService) { }
 
     ngOnInit() {
-        this.execs = this._api.getExecs();
+        this.execs = this._api.getCurrentExecs();
+        this.prevExecs = this._api.getPreviousExecs();
     }
 }
 
