@@ -1,15 +1,19 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Exec } from './exec';
-import { StorageService } from '../storage/storage.service';
+import { Injectable } from "@angular/core";
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { Query } from "angularfire2/interfaces";
+import { Exec } from "./exec";
+import { StorageService } from "../storage/storage.service";
 
 @Injectable()
 export class ExecApiService {
     execs: FirebaseListObservable<Exec[]>;
     _path: string;
 
-    constructor(private _db: AngularFireDatabase, private _storageService: StorageService) {
-        this._path = '/exec';
+    constructor(
+        private _db: AngularFireDatabase,
+        private _storageService: StorageService
+    ) {
+        this._path = "/exec";
         this.execs = _db.list(this._path);
     }
 
@@ -17,8 +21,18 @@ export class ExecApiService {
         return this.execs.push(exec);
     }
 
-    public getExecs(): FirebaseListObservable<Exec[]> {
-        return this.execs;
+    public getCurrentExecs(): FirebaseListObservable<Exec[]> {
+        return this.queryExec({
+            orderByChild: "isCurrentExec",
+            equalTo: true
+        });
+    }
+
+    public getPreviousExecs(): FirebaseListObservable<Exec[]> {
+        return this.queryExec({
+            orderByChild: "isCurrentExec",
+            equalTo: false
+        });
     }
 
     public updateExec(key: string, value: Exec): firebase.Promise<void> {
@@ -43,4 +57,9 @@ export class ExecApiService {
         return this.execs.remove(key);
     }
 
+    private queryExec(query: Query): FirebaseListObservable<Exec[]> {
+        return this._db.list(this._path, {
+            query: query
+        });
+    }
 }
