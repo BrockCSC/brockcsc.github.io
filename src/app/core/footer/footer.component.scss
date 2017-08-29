@@ -51,6 +51,10 @@
     &:first-child {
         margin-right: 10px;
     }
+    a {
+        color: $text-white;
+        text-decoration: underline;
+    }
 }
 
 .heart {
