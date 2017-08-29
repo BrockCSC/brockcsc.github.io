@@ -71,3 +71,10 @@ section {
     display: inline-block;
     padding-bottom: 5px;
 }
+
+.csc-edit-icon {
+    color: $maroon;
+    i:hover {
+        cursor: pointer;
+    }
+}
