@@ -13,39 +13,35 @@ const MAROON = '#AA3B3B';
 export class NavComponent implements OnInit {
 
     @ViewChild('logo') logo: ElementRef;
-    links: NavLink[];
-    colour = WHITE;
+
+    private links: NavLink[] = [
+        {
+            href: '/team',
+            desc: 'Team',
+        },
+        {
+            href: '/events',
+            desc: 'Events',
+        },
+        {
+            href: '',
+            desc: 'Services',
+        },
+        {
+            href: '/contact',
+            desc: 'Contact',
+        },
+        {
+            href: '/admin',
+            desc: 'TempAdmin'
+        }
+    ];
+
+    private colour = WHITE;
 
     constructor(private _location: Location, private _router: Router) { }
 
-    ngOnInit() {
-        this.initLinks();
-    }
-
-    initLinks(): void {
-        this.links = [
-            {
-                href: '/team',
-                desc: 'Team',
-            },
-            {
-                href: '/events',
-                desc: 'Events',
-            },
-            {
-                href: '',
-                desc: 'Services',
-            },
-            {
-                href: '/contact',
-                desc: 'Contact',
-            },
-            {
-                href: '/admin',
-                desc: 'TempAdmin'
-            }
-        ];
-    }
+    ngOnInit() {}
 
     /*
     For paths that don't have a contrasting backdrop for the see through navbar,
@@ -55,9 +51,16 @@ export class NavComponent implements OnInit {
     public changeToWhiteNav(): boolean {
         // TODO: Improve this whole logic or how the layout is done
         const currentPath = this._location.path();
-        const noBgPaths = ['admin', 'team', 'events', 'contact'];
+
+
+        const noBgPaths = this.links
+                            .filter(link => link.href !== '/home' && link.href !== "")
+                            .map(link => link.href.substring(1));
+
+        console.log(noBgPaths);
 
         for (let i = 0; i < noBgPaths.length; i++) {
+            console.log(currentPath.indexOf(noBgPaths[i]));
             if (currentPath.indexOf(noBgPaths[i]) !== -1) {
                 this.setWhiteNav();
                 return true;
