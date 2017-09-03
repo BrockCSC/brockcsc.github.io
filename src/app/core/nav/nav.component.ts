@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
     @ViewChild('logo') logo: ElementRef;
 
-    private links: NavLink[] = [
+    public links: NavLink[] = [
         {
             href: '/team',
             desc: 'Team',
@@ -57,10 +57,7 @@ export class NavComponent implements OnInit {
                             .filter(link => link.href !== '/home' && link.href !== '')
                             .map(link => link.href.substring(1));
 
-        // console.log(noBgPaths);
-
         for (let i = 0; i < noBgPaths.length; i++) {
-            // console.log(currentPath.indexOf(noBgPaths[i]));
             if (currentPath.indexOf(noBgPaths[i]) !== -1) {
                 this.setWhiteNav();
                 return true;
