@@ -18,5 +18,17 @@
 
 <body>
     <csc-root></csc-root>
+    <script>
+        if ('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(reg => {
+                    console.log('Service Worker Registered');
+                })
+                .catch(err => {
+                    console.log('Service Worker Registration Error', err);
+                })
+        }
+    </script>
 </body>
+
 </html>
