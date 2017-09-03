@@ -54,13 +54,13 @@ export class NavComponent implements OnInit {
 
 
         const noBgPaths = this.links
-                            .filter(link => link.href !== '/home' && link.href !== "")
+                            .filter(link => link.href !== '/home' && link.href !== '')
                             .map(link => link.href.substring(1));
 
-        console.log(noBgPaths);
+        // console.log(noBgPaths);
 
         for (let i = 0; i < noBgPaths.length; i++) {
-            console.log(currentPath.indexOf(noBgPaths[i]));
+            // console.log(currentPath.indexOf(noBgPaths[i]));
             if (currentPath.indexOf(noBgPaths[i]) !== -1) {
                 this.setWhiteNav();
                 return true;
