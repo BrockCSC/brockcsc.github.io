@@ -27,6 +27,10 @@
     top: 30%;
     left: 0%;
     color: $text-white;
+    @media #{$mobile}{
+        text-align: center;
+        line-height: $extraLargeHeading;
+    }
 }
 
 .csc-hero-content div {
