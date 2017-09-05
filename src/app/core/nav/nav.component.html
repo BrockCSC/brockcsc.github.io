@@ -1,11 +1,19 @@
 <div class="csc-nav" [ngClass]="{'white-background' : changeToWhiteNav()}">
-    <div class="container">
+    <div class="container csc-nav-desktop">
         <div class="csc-logo-container">
-            <a routerLink="/home"><img #logo class="csc-logo" width="75px" height="56px" src="assets/logo.svg" alt="Brock Computer Science Club Logo"></a>
+            <a routerLink="/home"><img class="csc-logo" width="75px" height="56px" [src]="logoSrc" alt="Brock Computer Science Club Logo"></a>
         </div>
         <button csc-button class="csc-join-button">Join</button>
         <nav class="csc-nav-links" [ngClass]="{'black-links' : changeToWhiteNav()}">
             <a *ngFor="let link of links" [routerLink]="link.href" [csclink]="link.colour" [title]="link.desc">{{ link.desc }}</a>
         </nav>
+    </div>
+    <div class="container csc-nav-mobile">
+        <div class="csc-nav-menu">
+                <a><i [style.color]="menuColor" class="material-icons">menu</i></a>
+        </div>
+        <div class="csc-logo-container">
+            <a routerLink="/home"><img class="csc-logo" width="75px" height="56px" [src]="logoSrc" alt="Brock Computer Science Club Logo"></a>
+        </div>
     </div>
 </div>

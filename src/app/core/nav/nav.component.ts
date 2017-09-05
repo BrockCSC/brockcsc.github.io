@@ -11,8 +11,8 @@ const MAROON = '#AA3B3B';
     styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
-    @ViewChild('logo') logo: ElementRef;
+    public logoSrc = 'assets/logo.svg';
+    public menuColor = 'rgba(255, 255, 255, 0.86)';
 
     public links: NavLink[] = [
         {
@@ -31,10 +31,10 @@ export class NavComponent implements OnInit {
             href: '/contact',
             desc: 'Contact',
         },
-        {
-            href: '/admin',
-            desc: 'TempAdmin'
-        }
+        // {
+        //     href: '/admin',
+        //     desc: 'TempAdmin'
+        // }
     ];
 
     private colour = WHITE;
@@ -69,11 +69,13 @@ export class NavComponent implements OnInit {
     }
 
     private setBlackLogo() {
-        this.logo.nativeElement.src = 'assets/logo-black.svg';
+        this.logoSrc = 'assets/logo-black.svg';
+        this.menuColor = 'rgba(0, 0, 0, 0.86)';
     }
 
     private setWhiteLogo() {
-        this.logo.nativeElement.src = 'assets/logo.svg';
+        this.logoSrc = 'assets/logo.svg';
+        this.menuColor = 'rgba(255, 255, 255, 0.86)';
     }
 
     private setWhiteNav() {

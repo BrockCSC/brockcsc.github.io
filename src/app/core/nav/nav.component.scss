@@ -2,7 +2,6 @@
 $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
 $nav-links-margin: 4.5em;
-
 .csc-nav {
     height: $height;
     position: relative;
@@ -25,13 +24,13 @@ $nav-links-margin: 4.5em;
     }
 }
 
-.csc-nav-links > a {
+.csc-nav-links>a {
     @include nav-link();
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
 }
 
-.black-links > a {
+.black-links>a {
     @include nav-link();
     color: rgba(0, 0, 0, 0.9);
 }
@@ -57,4 +56,31 @@ $nav-links-margin: 4.5em;
 
 .white-background {
     background-color: #fff;
+}
+
+@media #{$desktop} {
+    .csc-nav-mobile {
+        display: none;
+    }
+}
+
+@media #{$mobile},
+#{$tablet} {
+    .csc-nav-desktop {
+        display: none;
+    }
+    .csc-nav-mobile {
+        .csc-logo-container {
+            width: 100%;
+            text-align: center;
+        }
+        .csc-nav-menu {
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            i {
+                font-size: 30px;
+            }
+        }
+    }
 }
