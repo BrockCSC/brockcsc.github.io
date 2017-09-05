@@ -41,7 +41,7 @@ export class NavComponent implements OnInit {
 
     constructor(private _location: Location, private _router: Router) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     /*
     For paths that don't have a contrasting backdrop for the see through navbar,
@@ -51,21 +51,16 @@ export class NavComponent implements OnInit {
     public changeToWhiteNav(): boolean {
         // TODO: Improve this whole logic or how the layout is done
         const currentPath = this._location.path();
+        const transparentPaths = ['/', '/home'];
 
-
-        const noBgPaths = this.links
-                            .filter(link => link.href !== '/home' && link.href !== '')
-                            .map(link => link.href.substring(1));
-
-        for (let i = 0; i < noBgPaths.length; i++) {
-            if (currentPath.indexOf(noBgPaths[i]) !== -1) {
-                this.setWhiteNav();
-                return true;
+        for (let i = 0; i < transparentPaths.length; i++) {
+            if (currentPath === transparentPaths[i]) {
+                this.setTransparentNav();
+                return false;
             }
         }
-
-        this.setTransparentNav();
-        return false;
+        this.setWhiteNav();
+        return true;
     }
 
     private setBlackLogo() {
