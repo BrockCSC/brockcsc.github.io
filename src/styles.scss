@@ -75,13 +75,6 @@ section {
     padding-bottom: 5px;
 }
 
-.csc-edit-icon {
-    color: $maroon;
-    i:hover {
-        cursor: pointer;
-    }
-}
-
 @media #{$mobile}{
     .hide-mobile {
         display: none;

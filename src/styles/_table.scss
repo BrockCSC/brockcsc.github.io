@@ -24,3 +24,20 @@ td {
 tr {
     border: 1px solid darken($grey, 15%);
 }
+
+.csc-checkbox-col {
+    text-align: center;
+}
+
+.csc-edit-icon {
+    color: $maroon;
+    text-align: center;
+    i:hover {
+        cursor: pointer;
+    }
+}
+
+.csc-remove-th, .csc-edit-th {
+    width: 1px;
+    padding: 0px 35px;
+}
