@@ -1,7 +1,7 @@
 @import 'src/variables.scss';
 @-webkit-keyframes animatetop {
     from {
-        top: -300px;
+        top: -100%;
         opacity: 0
     }
     to {
@@ -12,7 +12,7 @@
 
 @keyframes animatetop {
     from {
-        top: -300px;
+        top: -100%;
         opacity: 0
     }
     to {
@@ -25,7 +25,7 @@
     display: block;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 25px;
     left: 0;
     top: 0;
     width: 100%;
@@ -46,9 +46,9 @@
     border: 1px solid #888;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.5s;
     animation-name: animatetop;
-    animation-duration: 0.4s;
+    animation-duration: 0.5s;
     i {
         color: $text-white;
         position: absolute;
