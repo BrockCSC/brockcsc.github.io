@@ -1,11 +1,11 @@
-import { FirebaseListObservable } from "angularfire2/database";
-import { Component, OnInit } from "@angular/core";
-import { Exec, ExecApiService } from "app/shared/api";
+import { FirebaseListObservable } from 'angularfire2/database';
+import { Component, OnInit } from '@angular/core';
+import { Exec, ExecApiService } from 'app/shared/api';
 
 @Component({
-    selector: "csc-execs",
-    templateUrl: "./execs.component.html",
-    styleUrls: ["./execs.component.scss"]
+    selector: 'csc-execs',
+    templateUrl: './execs.component.html',
+    styleUrls: ['./execs.component.scss']
 })
 export class ExecsComponent implements OnInit {
     execs: FirebaseListObservable<Exec[]>;
