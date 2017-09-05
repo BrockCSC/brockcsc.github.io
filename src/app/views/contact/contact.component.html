@@ -1,8 +1,26 @@
 <div class="container">
+    <div class="row csc-contact-info mobile show-mobile">
+        <div class="col-12">
+            <h2>Contact Us</h2>
+            <hr>
+            <div class="csc-info">
+                <p>Brock University</p>
+                <p>Mackenzie Chown J Block</p>
+                <p>Room 332</p>
+            </div>
+            <div class="csc-info">
+                <p>1812 Sir IsaacBrock Way</p>
+                <p>St. Catharines, ON L2S 3A1</p>
+            </div>
+            <div class="csc-info">
+                <p>brockcsc@gmail.com</p>
+            </div>
+        </div>
+    </div>
     <div class="row csc-contact">
         <iframe id="no-target" name="no-target" style="display:none"></iframe>
         <form #contactForm class="col-8 col-m-7 csc-contact-form" [action]="googleForm.url" target="no-target">
-            <h3 class="col-12">Contact Us</h3>
+            <h3 class="col-12 hide-mobile">Contact Us</h3>
             <csc-input-container class="col-12" label="Name" labelLocation="top">
                 <input [name]="googleForm.ids.name" class="csc-input" type="text">
             </csc-input-container>
@@ -16,9 +34,21 @@
                 <a csc-button class="csc-contact-submit" (click)="onSubmit()" value="Send">Submit</a>
             </div>
         </form>
-        <div class="col-4 col-m-5 csc-contact-info">
+        <div class="col-4 col-m-5 csc-contact-info hide-mobile">
             <h3>Location</h3>
-            <br>
+            <div class="csc-info">
+                <p>Brock University</p>
+                <p>Mackenzie Chown J Block</p>
+                <p>Room 332</p>
+            </div>
+            <div class="csc-info">
+                <p>1812 Sir IsaacBrock Way</p>
+                <p>St. Catharines, ON L2S 3A1</p>
+            </div>
+            <div class="csc-info">
+                <p>brockcsc@gmail.com</p>
+            </div>
+            <!-- <br>
             <p>Brock University</p>
             <p>Mackenzie Chown J Block</p>
             <p>Room 332</p>
@@ -26,7 +56,7 @@
             <p>1812 Sir IsaacBrock Way</p>
             <p>St. Catharines, ON L2S 3A1</p>
             <br>
-            <p>brockcsc@gmail.com</p>
+            <p>brockcsc@gmail.com</p> -->
         </div>
     </div>
 </div>

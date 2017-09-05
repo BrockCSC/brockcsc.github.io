@@ -81,3 +81,15 @@ section {
         cursor: pointer;
     }
 }
+
+@media #{$mobile}{
+    .hide-mobile {
+        display: none;
+    }
+}
+
+@media #{$tablet}, #{$desktop}{
+    .show-mobile {
+        display: none;
+    }
+}
