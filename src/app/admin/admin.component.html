@@ -1,9 +1,9 @@
 <div class="container">
-    <h2>Temp router</h2>
-    <a csc-button routerLink="execs">Execs</a>
-    <a csc-button routerLink="events">Events</a>
-    <a csc-button routerLink="food">Food</a>
-    <a csc-button routerLink="./">Home</a>
+    <div class="row csc-admin-router">
+        <a [routerLink]="link.routerLink" routerLinkActive="active" *ngFor="let link of links" class="csc-admin-route">
+            {{ link.name }}
+        </a>
+    </div>
 </div>
 <div class="csc-admin-content">
     <router-outlet></router-outlet>
