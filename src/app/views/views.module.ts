@@ -7,6 +7,7 @@ import { TeamComponent } from './team/team.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { EventsModule } from './events/events.module';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     imports: [
@@ -16,6 +17,6 @@ import { ContactComponent } from './contact/contact.component';
         EventsModule
     ],
     exports: [HomeComponent],
-    declarations: [HomeComponent, TeamComponent, ContactComponent]
+    declarations: [HomeComponent, TeamComponent, ContactComponent, LoginComponent]
 })
 export class ViewsModule { }
