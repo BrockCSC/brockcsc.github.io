@@ -24,19 +24,28 @@ export class AuthService {
         return this._auth.auth.signOut();
     }
 
+    public get authenticated(): Observable<boolean> {
+        return this._auth.authState.map(auth => auth !== null);
+    }
+
     public getUser(): Observable<User> {
-        return this._auth.authState.switchMap(auth => {
-            if (auth) {
-                return this._db.object(`${this._path}/${auth.uid}`)
-                    .map(user => {
-                        if (user.admin === null) {
-                            user.admin = false;
-                        }
-                        return user;
-                    });
-            }
-            return Observable.of(null);
-        }).take(1);
+        return this._auth.authState
+            .switchMap(auth => {
+                if (auth) {
+                    return this.getUserById(auth.uid);
+                }
+                return Observable.of(null);
+            }).take(1);
+    }
+
+    public getUserById(uid: string): Observable<User> {
+        return this._db.object(`${this._path}/${uid}`)
+            .map(user => {
+                if (user.admin === null) {
+                    user.admin = false;
+                }
+                return user;
+            }).take(1);
     }
 }
 
