@@ -42,4 +42,8 @@ export class FoodApiService {
     public removeFoodItemByKey(key: string): firebase.Promise<void> {
         return this.foodItems.remove(key);
     }
+
+    public queryFoodItems(query: Query): FirebaseListObservable<Food[]> {
+        return this._db.list(this._path, { query });
+    }
 }
