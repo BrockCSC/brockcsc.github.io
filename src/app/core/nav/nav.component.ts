@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
             desc: 'Events',
         },
         {
-            href: '',
+            href: '/services',
             desc: 'Services',
         },
         {
