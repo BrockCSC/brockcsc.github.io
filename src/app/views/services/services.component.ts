@@ -16,7 +16,7 @@ export class ServicesComponent implements OnInit {
         'Combo'
     ];
 
-    private sectionData: FoodSectionData[];
+    public sectionData: FoodSectionData[];
 
     constructor(private _foodApiService: FoodApiService) {}
 
