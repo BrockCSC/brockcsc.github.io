@@ -9,7 +9,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'environments/environment';
-import { AdminModule } from 'app/admin/admin.module';
 
 @NgModule({
     declarations: [
@@ -23,8 +22,7 @@ import { AdminModule } from 'app/admin/admin.module';
         ViewsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
-        AngularFireAuthModule,
-        AdminModule
+        AngularFireAuthModule
     ],
     bootstrap: [AppComponent]
 })
