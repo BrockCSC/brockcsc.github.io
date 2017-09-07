@@ -26,6 +26,21 @@ import { EditModalComponent as EditFoodModal } from './food/edit-modal/edit-moda
         ReactiveFormsModule,
         routing
     ],
-    declarations: [AdminComponent, ExecsComponent, EventsComponent, FoodItemsComponent, HomeComponent, AddEventModal, RemoveEventModal, EditEventModal, AddExecModal, RemoveExecModal, EditExecModal, AddFoodModal, RemoveFoodModal, EditFoodModal]
+    declarations: [
+        AdminComponent,
+        ExecsComponent,
+        EventsComponent,
+        FoodItemsComponent,
+        HomeComponent,
+        AddEventModal,
+        RemoveEventModal,
+        EditEventModal,
+        AddExecModal,
+        RemoveExecModal,
+        EditExecModal,
+        AddFoodModal,
+        RemoveFoodModal,
+        EditFoodModal
+    ]
 })
 export class AdminModule { }

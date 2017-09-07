@@ -8,13 +8,15 @@ import { SharedModule } from 'app/shared/shared.module';
 import { EventsModule } from './events/events.module';
 import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
+import { AuthModule } from 'app/views/auth/auth.module';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
         RouterModule,
-        EventsModule
+        EventsModule,
+        AuthModule
     ],
     exports: [HomeComponent],
     declarations: [HomeComponent, TeamComponent, ContactComponent, ServicesComponent]
