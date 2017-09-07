@@ -7,16 +7,18 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
     public googleForm: GoogleFormConfig;
+    public submitted: boolean;
     @ViewChild('contactForm') contactForm;
 
     constructor() {
+        this.submitted = false;
         this.googleForm = {
-            url: 'https://docs.google.com/forms/d/e/1FAIpQLSd5odQ24nlsNQGLByLAzJwLgS7zFGb3GaEcAKRKqYGktpOrrQ/formResponse',
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSeuMwbqxUfOJ1haeYG4fuvPjHDv2Lr82vLP_SSiISqgRvL70w/formResponse',
             // post parameters for the google form
             ids: {
-                name: 'entry.1340504895',
-                email: 'entry.1741416472',
-                message: 'entry.1141734855'
+                name: 'entry.2137362012',
+                email: 'entry.1926258208',
+                message: 'entry.971826736'
             }
         };
     }
@@ -26,6 +28,7 @@ export class ContactComponent implements OnInit {
     }
 
     public onSubmit(): void {
+        this.submitted = true;
         this.contactForm.nativeElement.submit();
         this.contactForm.nativeElement.reset();
     }

@@ -34,6 +34,9 @@ $border: 1px solid $dark-grey;
 
 .csc-contact-submit {
     width: 100%;
+    i {
+        vertical-align: bottom;
+    }
 }
 
 h3 {

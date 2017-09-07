@@ -31,7 +31,8 @@
                 <textarea [name]="googleForm.ids.message" class="csc-input" type="text" rows="8"></textarea>
             </csc-input-container>
             <div class="col-12">
-                <a csc-button class="csc-contact-submit" (click)="onSubmit()" value="Send">Submit</a>
+                <a csc-button *ngIf="!submitted" class="csc-contact-submit" (click)="onSubmit()" value="Send">Submit</a>
+                <a csc-button *ngIf="submitted" class="csc-contact-submit success" value="Send"><i class="material-icons">check</i> Message submitted</a>
             </div>
         </form>
         <div class="col-4 col-m-5 csc-contact-info hide-mobile">
