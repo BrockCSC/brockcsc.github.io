@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent, TeamComponent, EventsComponent, ServicesComponent, ContactComponent } from 'app/views';
+import { HomeComponent, TeamComponent, ServicesComponent, ContactComponent } from 'app/views';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 
 
@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: 'team', component: TeamComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'services', component: ServicesComponent },
-    { path: 'events', component: EventsComponent, loadChildren: 'app/views/events/events.module#EventsModule'},
+    { path: 'events',  loadChildren: 'app/views/events/events.module#EventsModule'},
     { path: '**', redirectTo: 'home' }
     // { path: 'path', loadChildren: 'lazy-path#lazy-module' },
 ];

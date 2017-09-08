@@ -14,10 +14,9 @@ const routes: Routes = [
             { path: 'execs', component: ExecsComponent },
             { path: 'events', component: EventsComponent },
             { path: 'food', component: FoodItemsComponent },
-            { path: '**', redirectTo: '' }
+            { path: '**', redirectTo: 'home' }
         ]
-    },
-    { path: '**', pathMatch: 'full', redirectTo: '' }
+    }
 ];
 
 export const routing = RouterModule.forChild(routes);
