@@ -2599,6 +2599,10 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.npmjs.org/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
+intersection-observer@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.npmjs.org/intersection-observer/-/intersection-observer-0.4.2.tgz#24100ed620baf6a427072996d4d73366e9ec93ef"
+
 invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
@@ -5924,16 +5928,9 @@ write-file-atomic@^1.1.2:
     imurmurhash "^0.1.4"
     slide "^1.1.5"
 
-ws@1.1.2:
+ws@1.1.2, ws@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npmjs.org/ws/-/ws-1.1.2.tgz#8a244fa052401e08c9886cf44a85189e1fd4067f"
-  dependencies:
-    options ">=0.0.5"
-    ultron "1.0.x"
-
-ws@^1.0.1:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/ws/-/ws-1.1.4.tgz#57f40d036832e5f5055662a397c4de76ed66bf61"
   dependencies:
     options ">=0.0.5"
     ultron "1.0.x"
