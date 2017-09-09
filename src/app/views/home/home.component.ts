@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Event, EventApiService } from 'app/shared/api';
 import { FirebaseListObservable } from 'angularfire2/database';
-import { ImageConfig } from "app/shared/imageConfig";
+import { ImageConfig } from 'app/shared/imageConfig';
 
 @Component({
     selector: 'csc-home',
@@ -13,6 +13,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     events: Row[] = [];
     services: Row[] = [];
     nextEvent: Event;
+    images: HomeImages = {
+        about: { src: '/assets/csgames.jpg', height: 1365, width: 2048 },
+        partyPopper: { src: '/assets/party_popper.png', height: 16, width: 16 }
+    };
 
 
     constructor(private _eventApi: EventApiService) { }
@@ -89,6 +93,6 @@ interface Row {
 }
 
 interface HomeImages {
-    // hero: ImageConfig;
     about: ImageConfig;
+    partyPopper: ImageConfig;
 }
