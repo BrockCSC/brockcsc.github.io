@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Brock Computer Science Club</title>
@@ -10,10 +11,42 @@
     <meta name="msapplication-starturl" content="/">
     <meta name="theme-color" content="#AA3B3B">
     <link rel="manifest" href="/manifest.json">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="preload" as="style" onload="this.rel='stylesheet'">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style" onload="this.rel='stylesheet'">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicons/favicon.ico">
+    <script>
+        // Checks if rel="preload" is supported by browser
+        // If it isn't then the css is loaded synchronously
+        var DOMTokenListSupports = function (tokenList, token) {
+            if (!tokenList || !tokenList.supports) {
+                return;
+            }
+            try {
+                return tokenList.supports(token);
+            } catch (e) {
+                if (e instanceof TypeError) {
+                    console.log("The DOMTokenList doesn't have a supported tokens list");
+                } else {
+                    console.error("That shouldn't have happened");
+                }
+            }
+        };
+        var addLink = function (href, supported) {
+            var link = document.createElement("link");
+            link.href = href;
+            if (supported) {
+                link.rel = "preload";
+                link.setAttribute("as", "style");
+                link.setAttribute("onload", "this.rel='stylesheet'");
+            } else {
+                link.rel = "stylesheet";
+            }
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+        var linkSupportsPreload = DOMTokenListSupports(document.createElement("link").relList, "preload");
+        addLink("https://fonts.googleapis.com/icon?family=Material+Icons", linkSupportsPreload);
+        addLink("https://fonts.googleapis.com/css?family=Lato", linkSupportsPreload);
+    </script>
 </head>
+
 <body>
     <csc-root>
         <noscript>
