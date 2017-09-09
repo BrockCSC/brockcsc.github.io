@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from 'app/core/auth/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 const WHITE = 'white';
 const MAROON = '#AA3B3B';
@@ -30,18 +32,19 @@ export class NavComponent implements OnInit {
         {
             href: '/contact',
             desc: 'Contact',
-        },
-        // {
-        //     href: '/admin',
-        //     desc: 'TempAdmin'
-        // }
+        }
     ];
+
+    public linkAdmin: NavLink = { href: '/admin', desc: 'Admin' };
+    public linkLogout: NavLink = { href: '/auth/logout', desc: 'Logout' };
 
     private colour = WHITE;
 
-    constructor(private _location: Location, private _router: Router) { }
+    constructor(private _location: Location, private _router: Router, private _auth: AuthService) { }
 
-    ngOnInit() { }
+    public ngOnInit(): void {
+        this.initLinks();
+    }
 
     /*
     For paths that don't have a contrasting backdrop for the see through navbar,
@@ -61,6 +64,20 @@ export class NavComponent implements OnInit {
         }
         this.setWhiteNav();
         return true;
+    }
+
+    public initLinks(): void {
+        this._auth.getUser().subscribe(user => {
+            if (user) {
+                this.linkLogout.visible = true;
+                if (user.admin) {
+                    this.linkAdmin.visible = true;
+                }
+            } else {
+                this.linkLogout.visible = false;
+                this.linkAdmin.visible = false;
+            }
+        });
     }
 
     private setBlackLogo() {
@@ -84,9 +101,9 @@ export class NavComponent implements OnInit {
     }
 
     private setLinkColours(colour: string) {
-        this.links.forEach(link => {
-            link.colour = colour;
-        });
+        this.links.forEach(link => link.colour = colour);
+        this.linkAdmin.colour = colour;
+        this.linkLogout.colour = colour;
     }
 }
 
@@ -94,4 +111,5 @@ interface NavLink {
     colour?: string;
     href: string;
     desc: string;
+    visible?: boolean;
 }

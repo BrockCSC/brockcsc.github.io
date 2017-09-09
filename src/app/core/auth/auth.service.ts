@@ -4,7 +4,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/take';
 import 'rxjs/add/observable/of';
 import * as firebase from 'firebase/app';
 
@@ -24,8 +23,8 @@ export class AuthService {
         return this._auth.auth.signOut();
     }
 
-    public get authenticated(): Observable<boolean> {
-        return this._auth.authState.map(auth => auth !== null);
+    public get authenticated(): Observable<firebase.User> {
+        return this._auth.authState;
     }
 
     public getUser(): Observable<User> {
@@ -35,7 +34,7 @@ export class AuthService {
                     return this.getUserById(auth.uid);
                 }
                 return Observable.of(null);
-            }).take(1);
+            });
     }
 
     public getUserById(uid: string): Observable<User> {
@@ -45,7 +44,7 @@ export class AuthService {
                     user.admin = false;
                 }
                 return user;
-            }).take(1);
+            });
     }
 }
 

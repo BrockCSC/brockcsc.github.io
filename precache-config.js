@@ -18,6 +18,5 @@ module.exports = {
         urlPattern: /^https:\/\/platform\.twitter\.com\//,
         handler: 'cacheFirst'
     }],
-    // stripPrefix: 'dist/assets/',
     mergeStaticsConfig: true
 }
