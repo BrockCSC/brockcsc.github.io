@@ -13,10 +13,11 @@
     overflow: auto;
 }
 
-.csc-team img {
+.csc-team csc-img {
     width: 100%;
     float: none;
     margin-left: 0px;
+    margin-top: 15px;
 
     @media #{$desktop} {
         margin-left: 25px;
