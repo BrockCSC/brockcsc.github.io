@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class FooterComponent implements OnInit {
-
+    public imageSize = 35;
     public socialIcons: SocialIcon[] = [];
 
     constructor() {}

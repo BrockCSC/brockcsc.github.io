@@ -5,7 +5,7 @@
                 <div class="csc-social-links-container">
                     <div class="csc-social" *ngFor="let link of socialIcons">
                         <a [href]="link.href">
-                            <img [src]="link.src" [alt]="link.desc">
+                            <csc-img [src]="link.src" [alt]="link.desc" [width]="imageSize" [height]="imageSize" [style.width.px]="imageSize" [style.height.px]="imageSize"></csc-img>
                         </a>
                         <a [href]="link.href" class="csc-social-desc">{{ link.desc }}</a>
                     </div>

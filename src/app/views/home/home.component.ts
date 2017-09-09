@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Event, EventApiService } from 'app/shared/api';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { ImageConfig } from "app/shared/imageConfig";
 
 @Component({
     selector: 'csc-home',
@@ -85,4 +86,9 @@ interface Row {
     icon: string;
     title: string;
     desc: string;
+}
+
+interface HomeImages {
+    // hero: ImageConfig;
+    about: ImageConfig;
 }
