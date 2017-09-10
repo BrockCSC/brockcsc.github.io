@@ -7,11 +7,11 @@ img {
     width: 100%;
     top: 0;
     left: 0;
-    animation-name: fade;
-    animation-duration: 2s;
-}
-@keyframes fade {
-    from { opacity: 0 };
+    opacity: 0;
+    transition: opacity 0.3s;
+    &.loaded{
+        opacity: 1;
+    }
 }
 
 .csc-lazy-img {

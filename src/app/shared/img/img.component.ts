@@ -23,12 +23,16 @@ export class ImgComponent implements OnInit {
         }
         const io = new IntersectionObserver((entries, observer) => {
             const entry = entries[0];
+            if (this.loaded) {
+                return;
+            }
             if (entry.intersectionRatio > 0) {
-                setTimeout(() => {
-                    this.img.nativeElement.src = this.src;
+                this.img.nativeElement.onload = () => {
                     this.img.nativeElement.className += 'loaded';
-                }, 1000);
-                io.disconnect();
+                    this.loaded = true;
+                    io.unobserve(this.img.nativeElement);
+                };
+                this.img.nativeElement.src = this.src;
             }
         });
         io.observe(this.img.nativeElement);
