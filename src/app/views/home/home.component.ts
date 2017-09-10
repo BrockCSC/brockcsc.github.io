@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Event, EventApiService } from 'app/shared/api';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { ImageConfig } from 'app/shared/imageConfig';
+import { HomeImageConfigs } from './imageConfigs';
 
 @Component({
     selector: 'csc-home',
@@ -14,8 +15,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     services: Row[] = [];
     nextEvent: Event;
     images: HomeImages = {
-        about: { src: '/assets/csgames.jpg', height: 1365, width: 2048 },
-        partyPopper: { src: '/assets/party_popper.png', height: 16, width: 16 }
+        about: HomeImageConfigs.about,
+        partyPopper: Object.assign(HomeImageConfigs.partyPopper, { width: 16, height: 16 }), // overwrites the generated w/h
     };
 
 

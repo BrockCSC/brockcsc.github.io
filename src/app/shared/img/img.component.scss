@@ -7,4 +7,14 @@ img {
     width: 100%;
     top: 0;
     left: 0;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+@keyframes fade {
+    from { opacity: 0 };
+}
+
+.csc-lazy-img {
+    background-position: center !important;
+    background-size: cover !important;
 }
