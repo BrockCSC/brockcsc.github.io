@@ -38,7 +38,7 @@ export class NavComponent implements OnInit {
     public linkAdmin: NavLink = { href: '/admin', desc: 'Admin' };
     public linkLogout: NavLink = { href: '/auth/logout', desc: 'Logout' };
 
-    private showOverlay = false;
+    public showOverlay = false;
     private colour = WHITE;
 
     constructor(private _location: Location, private _router: Router, private _auth: AuthService) { }
@@ -105,7 +105,7 @@ export class NavComponent implements OnInit {
         this.linkLogout.colour = colour;
     }
 
-    private toggleOverlayMenu() {
+    public toggleOverlayMenu() {
         this.showOverlay = !this.showOverlay;
     }
 
