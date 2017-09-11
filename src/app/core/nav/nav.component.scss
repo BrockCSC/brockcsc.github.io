@@ -72,14 +72,13 @@ $nav-links-margin: 1.5em;
 
 .nav-overlay-open {
     width: 100%;
-    opacity: 1;
+    opacity: 3;
     z-index: 1;
 }
 
 .nav-overlay-content {
     position: relative;
     top: 25%;
-    width: 100%;
     text-align: center;
     margin-top: 30px;
 
@@ -120,7 +119,7 @@ $nav-links-margin: 1.5em;
         .csc-nav-menu {
             top: 50%;
             transform: translateY(-50%);
-            z-index: 2;
+            z-index: 4;
             position: absolute;
             i {
                 font-size: 30px;
