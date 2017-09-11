@@ -25,7 +25,8 @@
             </div>
         </div>
         <div class="csc-logo-container">
-            <a routerLink="/home"><img class="csc-logo" width="75px" height="56px" [src]="logoSrc" alt="Brock Computer Science Club Logo"></a>
+            <a *ngIf="changeToWhiteNav()" routerLink="/home"><img class="csc-logo-black" width="75px" height="56px" src="assets/logo-black.svg" alt="Brock Computer Science Club Logo"></a>
+            <a *ngIf="!changeToWhiteNav()" routerLink="/home"><img class="csc-logo" width="75px" height="56px" src="assets/logo.svg" alt="Brock Computer Science Club Logo"></a>
         </div>
     </div>
 </div>

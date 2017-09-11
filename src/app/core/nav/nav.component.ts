@@ -82,12 +82,10 @@ export class NavComponent implements OnInit {
     }
 
     private setBlackLogo() {
-        this.logoSrc = 'assets/logo-black.svg';
         this.menuColor = 'rgba(0, 0, 0, 0.86)';
     }
 
     private setWhiteLogo() {
-        this.logoSrc = 'assets/logo.svg';
         this.menuColor = 'rgba(255, 255, 255, 0.86)';
     }
 
