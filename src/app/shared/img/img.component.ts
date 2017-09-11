@@ -13,6 +13,7 @@ export class ImgComponent implements OnInit {
     @Input() height = 0;
     @Input() alt = '';
     @ViewChild('img') img: ElementRef;
+    @ViewChild('parent') parent: ElementRef;
     private loaded = false;
 
     constructor(private _sanitizer: DomSanitizer) { }
@@ -30,12 +31,12 @@ export class ImgComponent implements OnInit {
                 this.img.nativeElement.onload = () => {
                     this.img.nativeElement.className += 'loaded';
                     this.loaded = true;
-                    io.unobserve(this.img.nativeElement);
+                    io.unobserve(this.parent.nativeElement);
                 };
                 this.img.nativeElement.src = this.src;
             }
         });
-        io.observe(this.img.nativeElement);
+        io.observe(this.parent.nativeElement);
     }
 
     public getUrl(): SafeStyle {
