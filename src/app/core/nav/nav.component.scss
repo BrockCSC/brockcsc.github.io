@@ -1,4 +1,6 @@
 @import 'src/variables.scss';
+@import 'hamburger/hamburger.scss';
+
 $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
 $nav-links-margin: 1.5em;
@@ -54,11 +56,51 @@ $nav-links-margin: 1.5em;
     box-sizing: content-box;
 }
 
+.nav-overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.3s opacity;
+}
+
+.nav-overlay-open {
+    width: 100%;
+    opacity: 1;
+    z-index: 1;
+}
+
+.nav-overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+
+    a {
+        padding: 10px;
+        color: #ccc;
+        font-size: 30px;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
 .white-background {
     background-color: #fff;
 }
 
 @media #{$desktop} {
+    .nav-overlay,
     .csc-nav-mobile {
         display: none;
     }
@@ -77,6 +119,7 @@ $nav-links-margin: 1.5em;
         .csc-nav-menu {
             top: 50%;
             transform: translateY(-50%);
+            z-index: 2;
             position: absolute;
             i {
                 font-size: 30px;

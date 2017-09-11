@@ -12,7 +12,17 @@
     </div>
     <div class="container csc-nav-mobile">
         <div class="csc-nav-menu">
-                <a><i [style.color]="menuColor" class="material-icons">menu</i></a>
+            <button class="hamburger hamburger--3dx" type="button" (click)="toggleOverlayMenu()" [ngClass]="{'is-active' : showOverlay}">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner" [ngClass]="{'hamburger-black': !showOverlay && changeToWhiteNav()}"></span>
+                </span>
+            </button>
+        </div>
+        <div #navOverlay class="nav-overlay container" [ngClass]="{'nav-overlay-open' : showOverlay}">
+            <div class="nav-overlay-content">
+                <a routerLink="/home" (click)="toggleOverlayMenu()">Home</a>
+                <a *ngFor="let link of links" [routerLink]="link.href" (click)="toggleOverlayMenu()" [title]="link.desc">{{ link.desc }}</a>
+            </div>
         </div>
         <div class="csc-logo-container">
             <a routerLink="/home"><img class="csc-logo" width="75px" height="56px" [src]="logoSrc" alt="Brock Computer Science Club Logo"></a>
