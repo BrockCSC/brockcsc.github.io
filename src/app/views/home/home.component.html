@@ -1,5 +1,8 @@
 <section id="csc-hero">
     <div class="csc-hero-container">
+        <csc-img [src]="images.hero.src" [data]="images.hero.data" [width]="images.hero.width" [height]="images.hero.height" [style.height.vh]="images.hero.height"
+            [style.width.%]="images.hero.width" [styleConfig]="heroStyleConfig">
+        </csc-img>
         <div class="csc-hero-overlay">
             <div class="csc-hero-content container">
                 <h3 class="csc-hero-heading-1">WE ARE THE</h3>
@@ -32,7 +35,8 @@
             </div>
             <div class="csc-team">
                 <a routerLink="/team" class="csc-header">Learn about the team</a>
-                <csc-img alt="BrockCSC at CSGames 2017" [src]="images.about.src" [data]="images.about.data" [width]="images.about.width" [height]="images.about.height"></csc-img>
+                <csc-img alt="BrockCSC at CSGames 2017" [src]="images.about.src" [data]="images.about.data" [width]="images.about.width"
+                    [height]="images.about.height"></csc-img>
             </div>
         </div>
     </div>

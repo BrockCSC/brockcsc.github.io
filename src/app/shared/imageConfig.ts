@@ -4,3 +4,8 @@ export interface ImageConfig {
     height: number;
     data: string;
 }
+
+export interface ImageStyleConfig {
+    image?: {};
+    container?: {};
+}
