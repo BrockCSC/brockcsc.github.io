@@ -4,7 +4,6 @@
 }
 
 .csc-hero-container {
-    background: url('/assets/hero.jpg');
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -13,9 +12,11 @@
 }
 
 .csc-hero-overlay {
-    height: 100%;
     width: 100%;
-    position: relative;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
     background-image: -webkit-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
     background-image: -moz-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
     background-image: -o-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);

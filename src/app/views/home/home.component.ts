@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Event, EventApiService } from 'app/shared/api';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
+import { HomeImageConfigs } from './imageConfigs';
 
 @Component({
     selector: 'csc-home',
@@ -12,6 +14,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     events: Row[] = [];
     services: Row[] = [];
     nextEvent: Event;
+    images: HomeImages = {
+        about: HomeImageConfigs.about,
+        partyPopper: Object.assign(HomeImageConfigs.partyPopper, { width: 16, height: 16 }), // overwrites the generated w/h
+        hero: Object.assign(HomeImageConfigs.hero, { height: 100, width: 100 })
+    };
+    heroStyleConfig: ImageStyleConfig;
 
 
     constructor(private _eventApi: EventApiService) { }
@@ -22,6 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this._eventApi.getNextEvent().subscribe(event => {
             this.nextEvent = event;
         });
+        this.initHeroConfig();
     }
 
     async ngAfterViewInit() {
@@ -79,10 +88,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
         });
     }
 
+    private initHeroConfig(): void {
+        this.heroStyleConfig = {
+            image: {
+                'object-fit': 'cover',
+                'height': '100vh'
+            },
+            container: {
+                'padding-top': '100vh'
+            }
+        };
+    }
+
 }
 
 interface Row {
     icon: string;
     title: string;
     desc: string;
+}
+
+interface HomeImages {
+    about: ImageConfig;
+    partyPopper: ImageConfig;
+    hero: ImageConfig;
 }

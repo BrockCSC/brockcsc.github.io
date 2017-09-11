@@ -13,6 +13,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { UploadExistingComponent } from './upload/upload-existing/upload-existing.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ImgComponent } from './img/img.component';
 
 @NgModule({
     imports: [
@@ -31,7 +32,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
         CheckboxComponent,
         UploadExistingComponent,
         TooltipComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        ImgComponent
     ],
     declarations: [
         ButtonComponent,
@@ -44,7 +46,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
         CheckboxComponent,
         UploadExistingComponent,
         TooltipComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        ImgComponent
     ],
     providers: [
         EventApiService,
