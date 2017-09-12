@@ -19,10 +19,10 @@
                 </div>
 
             </div>
-            <h3 class="csc-header">Past CSC Executives</h3>
+            <h3 class="csc-header">Previous Executives</h3>
             <div class="csc-team-members">
                 <div class="exec" *ngFor="let prevExec of prevExecs | async">
-                    <img class="exec-avatar" id="prevExec.$key + '-id'" [src]="prevExec.image.url" />
+                    <img class="exec-avatar" [id]="prevExec.$key + '-id'" [src]="prevExec.image.url" />
                     <div class="exec-info">
                         <div class="exec-name">{{ prevExec.name }}</div>
                         <div class="exec-title">{{ prevExec.title }}</div>
