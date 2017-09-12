@@ -1,38 +1,56 @@
 <div class="csc-signup container">
         <iframe id="no-target" name="no-target" style="display:none"></iframe>
-        <form #signupForm [formGroup]="form" class="row csc-contact-form" [action]="googleForm.url" target="no-target">
+        <form #signupForm [hidden]="submitted" [formGroup]="form" class="row csc-contact-form" [action]="signupFormConfig.url" target="no-target">
             <h3 class="col-12 hide-mobile">Sign Up</h3>
             <csc-input-container class="col-6" label="Name" labelLocation="top">
-                    <input [name]="googleForm.ids.name" formControlName="name" class="csc-input" type="text" placeholder="Jane Doe">
+                    <input [name]="signupFormConfig.ids.name" formControlName="name" class="csc-input" type="text" placeholder="Jane Doe">
                     <span class="signup-error"  *ngIf="!form.controls.name.valid && (form.controls.name.touched || submitted)">Please enter your name</span>
                 </csc-input-container>
             <csc-input-container class="col-6" label="Brock Student Id" labelLocation="top">
-                <input [name]="googleForm.ids.student_id" formControlName="student_id" class="csc-input" type="text" placeholder="aa11bb">
+                <input [name]="signupFormConfig.ids.student_id" formControlName="student_id" class="csc-input" type="text" placeholder="aa11bb">
                 <span class="signup-error" *ngIf="!form.controls.student_id.valid && (form.controls.student_id.touched || submitted)">Please enter your Brock Student ID</span>
             </csc-input-container>
             <csc-input-container class="col-12" label="Gender" labelLocation="top">
-                    <select [name]="googleForm.ids.gender" formControlName="gender">
+                    <select [name]="signupFormConfig.ids.gender" formControlName="gender">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="N/A">Prefer not to say</option>
                     </select>
             </csc-input-container>
             <csc-input-container class="col-12" label="Preferred Email" labelLocation="top">
-                    <input [name]="googleForm.ids.email" class="csc-input" formControlName="email" type="text" placeholder="janedoe@gmail.com">
+                    <input [name]="signupFormConfig.ids.email" class="csc-input" formControlName="email" type="text" placeholder="janedoe@gmail.com">
                     <span class="signup-error" *ngIf="!form.controls.email.valid && (form.controls.email.touched || submitted)">Please enter your email</span>
             </csc-input-container>
             <csc-input-container class="col-6" label="Program at Brock" labelLocation="top">
-                    <input [name]="googleForm.ids.program" class="csc-input" formControlName="program" type="text" placeholder="Computer Science">
+                    <input [name]="signupFormConfig.ids.program" class="csc-input" formControlName="program" type="text" placeholder="Computer Science">
             </csc-input-container>
             <csc-input-container class="col-6" label="Number of years as a previous member" labelLocation="top">
-                    <input [name]="googleForm.ids.number_of_years_member" formControlName="number_of_years_member" class="csc-input" type="number" min="0" max="10" value="0">
+                    <input [name]="signupFormConfig.ids.number_of_years_member" formControlName="number_of_years_member" class="csc-input" type="number" min="0" max="10" value="0">
             </csc-input-container>
             <csc-input-container class="col-12" label="Interests" labelLocation="top">
-                    <textarea [name]="googleForm.ids.interests" formControlName="interests" placeholder="What are your interests in computer science?"></textarea>
+                    <textarea [name]="signupFormConfig.ids.interests" formControlName="interests" placeholder="What are your interests in computer science?"></textarea>
             </csc-input-container>
             <div class="col-12">
                 <a csc-button class="csc-contact-submit" (click)="onSubmit(form)" value="Send">Sign up</a>
             </div>
         </form>
-</div>
+        <form #slackInviteForm [hidden]="true" [action]="slackInviteFormConfig.url" target="no-target">
+            <input [name]="slackInviteFormConfig.ids.email" class="csc-input" type="text" [value]="this.form.get('email').value">
+        </form>
 
+        <div class="signup-complete row" [hidden]="!submitted">
+            <h2 style="display: inline;">Thank you for registering to the club, welcome to the CSC!</h2>&nbsp;
+            <span>
+                <img src="/assets/party_popper.png" width="16" height="16" alt="Party Popper emoji">
+            </span>
+            <p>If you haven't already joined, we've sent an invite to our Slack channel at {{ form.get('email').value }}, be sure to join to get updates and chat with existing members in CSC!</p>
+            <p>If you do not receive an invite within the next 5 minutes, please <a routerLink="/contact">contact us</a> and we'll get that invite to you.</p>
+            <div class="col-6 complete-img">
+                <img src="/assets/logo-black.svg" width="120" height="120" alt="CSC logo">
+            </div>
+            <div class="col-6 complete-img">
+                <img src="/assets/icons/slack.svg" width="120" height="120" alt="Slack logo">
+            </div>
+        </div>
+
+</div>
