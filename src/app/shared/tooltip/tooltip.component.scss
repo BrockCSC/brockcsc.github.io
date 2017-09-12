@@ -4,6 +4,7 @@ $tooltip-font-size: 13px;
 .tooltip {
     opacity: 0;
     background-color: $tooltip-background-color;
+    max-width: 200px;
     padding: 20px;
     font-size: $tooltip-font-size;
     margin: 1rem;
