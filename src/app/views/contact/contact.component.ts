@@ -1,16 +1,23 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
+    providers: [FormBuilder],
     selector: 'csc-contact',
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+    public form: FormGroup;
     public googleForm: GoogleFormConfig;
     public submitted: boolean;
     @ViewChild('contactForm') contactForm;
 
-    constructor() {
+    constructor(private _formBuilder: FormBuilder) {
+        this.form = this._formBuilder.group({
+            email: ['', [Validators.email, Validators.required]],
+        });
+
         this.submitted = false;
         this.googleForm = {
             url: 'https://docs.google.com/forms/d/e/1FAIpQLSeuMwbqxUfOJ1haeYG4fuvPjHDv2Lr82vLP_SSiISqgRvL70w/formResponse',
@@ -28,9 +35,11 @@ export class ContactComponent implements OnInit {
     }
 
     public onSubmit(): void {
-        this.submitted = true;
-        this.contactForm.nativeElement.submit();
-        this.contactForm.nativeElement.reset();
+        if (this.form.valid) {
+            this.submitted = true;
+            this.contactForm.nativeElement.submit();
+            this.contactForm.nativeElement.reset();
+        }
     }
 }
 
