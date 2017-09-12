@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventDataService } from 'app/views/events/event-data.service';
 import { Event, EventApiService } from 'app/shared/api';
+import { DatePipe } from '@angular/common';
 import 'rxjs/add/operator/take';
 
 @Component({
+    providers: [DatePipe],
     selector: 'csc-event',
     templateUrl: './event.component.html',
     styleUrls: ['./event.component.scss']
