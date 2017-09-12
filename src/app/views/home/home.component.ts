@@ -42,17 +42,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
             {
                 icon: 'videogame_asset',
                 title: 'Gaming',
-                desc: 'Something here about games we play'
+                desc: "From board games to first-person shooters. We're always up for a good game night."
             },
             {
                 icon: 'code',
                 title: 'Tech talks & Seminars',
-                desc: 'We give a variety of talks throughout the year on all things software development'
+                desc: 'We give a variety of talks throughout the year on all things software development.'
             },
             {
                 icon: 'people',
                 title: 'Social',
-                desc: 'Get to know fellow members and the department at our social events'
+                desc: 'Get to know fellow members and the computer science department at our social events.'
             },
             {
                 icon: 'add',
@@ -68,13 +68,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
             {
                 icon: 'local_pizza',
                 title: 'Food',
-                desc: 'Feeling hungry? We sell food at low prices'
+                desc: 'Feeling hungry? We sell food at low prices from MCJ 330.'
             },
             {
                 icon: 'chat_bubble',
                 title: 'Chatrooms',
-                desc: 'We have dedicated channels where you can chat with other members about your classes, ' +
-                'programming questions or anything else!'
+                desc: "We have dedicated channels where you can chat with other members about your classes, programming questions or anything else!"
             }
         ];
     }
