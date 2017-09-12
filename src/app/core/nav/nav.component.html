@@ -4,7 +4,7 @@
             <a *ngIf="changeToWhiteNav()" routerLink="/home"><img class="csc-logo-black" width="75px" height="56px" src="assets/logo-black.svg" alt="Brock Computer Science Club Logo"></a>
             <a *ngIf="!changeToWhiteNav()" routerLink="/home"><img class="csc-logo" width="75px" height="56px" src="assets/logo.svg" alt="Brock Computer Science Club Logo"></a>
         </div>
-        <button csc-button class="csc-join-button">Join</button>
+        <a routerLink="/signup"><button csc-button class="csc-join-button">Join</button></a>
         <nav class="csc-nav-links" [ngClass]="{'black-links' : changeToWhiteNav()}">
             <a *ngFor="let link of links" [routerLink]="link.href" [csclink]="link.colour" [title]="link.desc">{{ link.desc }}</a>
             <a *ngIf="linkAdmin.visible" [routerLink]="linkAdmin.href" [csclink]="linkAdmin.colour" [title]="linkAdmin.desc">{{ linkAdmin.desc }}</a>

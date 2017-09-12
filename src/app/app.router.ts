@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent, TeamComponent, ServicesComponent, ContactComponent } from 'app/views';
+import { HomeComponent, TeamComponent, ServicesComponent, ContactComponent, SignupComponent } from 'app/views';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 
 
@@ -10,6 +10,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'team', component: TeamComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'signup', component: SignupComponent },
     { path: 'services', component: ServicesComponent },
     { path: 'events',  loadChildren: 'app/views/events/events.module#EventsModule'},
     { path: '**', redirectTo: 'home' }
