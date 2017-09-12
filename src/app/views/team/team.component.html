@@ -3,31 +3,34 @@
         <div class="container">
             <h3 class="csc-header">Current Executive Team</h3>
             <div class="csc-team-members">
-                <div class="exec" *ngFor="let exec of execs | async">
-                    <img class="exec-avatar" id="{{exec.$key + '-id'}}" [src]="exec.image.url" />
+                <div class="exec col-3" *ngFor="let exec of execs | async">
+                    <div [id]="exec.$key + '-id'">
+                        <img class ="exec-avatar" [src]="exec.image.url"/>
+                    </div>
                     <div class="exec-info">
                         <div class="exec-name">{{ exec.name }}</div>
                         <div class="exec-title">{{ exec.title }}</div>
                     </div>
-                    <csc-tooltip forId="{{exec.$key + '-id'}}" direction="right">
+                    <csc-tooltip [forId]="exec.$key + '-id'" direction="right">
                         <div class="tooltip-exec-name">{{ exec.name }}</div>
                         <p class="tooltip-exec-title">{{ exec.title }}</p>
                         <p class="tooltip-exec-desc">{{ exec.description }}</p>
                     </csc-tooltip>
                 </div>
+
             </div>
             <h3 class="csc-header">Past CSC Executives</h3>
             <div class="csc-team-members">
-                <div class="exec" *ngFor="let exec of prevExecs | async">
-                    <img class="exec-avatar" id="{{exec.$key + '-id'}}" [src]="exec.image.url" />
+                <div class="exec" *ngFor="let prevExec of prevExecs | async">
+                    <img class="exec-avatar" id="prevExec.$key + '-id'" [src]="prevExec.image.url" />
                     <div class="exec-info">
-                        <div class="exec-name">{{ exec.name }}</div>
-                        <div class="exec-title">{{ exec.title }}</div>
+                        <div class="exec-name">{{ prevExec.name }}</div>
+                        <div class="exec-title">{{ prevExec.title }}</div>
                     </div>
-                    <csc-tooltip forId="{{exec.$key + '-id'}}" direction="right">
-                        <div class="tooltip-exec-name">{{ exec.name }}</div>
-                        <p class="tooltip-exec-title">{{ exec.title }}</p>
-                        <p class="tooltip-exec-desc">{{ exec.description }}</p>
+                    <csc-tooltip [forId]="prevExec.$key + '-id'" direction="right">
+                        <div class="tooltip-exec-name">{{ prevExec.name }}</div>
+                        <p class="tooltip-exec-title">{{ prevExec.title }}</p>
+                        <p class="tooltip-exec-desc">{{ prevExec.description }}</p>
                     </csc-tooltip>
                 </div>
             </div>
