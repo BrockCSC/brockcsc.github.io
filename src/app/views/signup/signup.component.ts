@@ -52,8 +52,8 @@ export class SignupComponent {
 
     onSubmit(form: FormGroup) {
         if (form.valid) {
-            this.signupForm.nativeElement.submit();
             this.slackInviteForm.nativeElement.submit();
+            this.signupForm.nativeElement.submit();
             this.submitted = true;
         }
     }

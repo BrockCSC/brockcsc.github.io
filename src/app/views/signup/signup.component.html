@@ -1,5 +1,7 @@
 <div class="csc-signup container">
         <iframe id="no-target" name="no-target" style="display:none"></iframe>
+        <iframe id="no-target" name="no-target-slack" style="display:none"></iframe>
+
         <form #signupForm [hidden]="submitted" [formGroup]="form" class="row csc-contact-form" [action]="signupFormConfig.url" target="no-target">
             <h3 class="col-12 hide-mobile">Sign Up</h3>
             <csc-input-container class="col-6" label="Name" labelLocation="top">
@@ -34,7 +36,7 @@
                 <a csc-button class="csc-contact-submit" (click)="onSubmit(form)" value="Send">Sign up</a>
             </div>
         </form>
-        <form #slackInviteForm [hidden]="true" [action]="slackInviteFormConfig.url" target="no-target">
+        <form #slackInviteForm [hidden]="true" [action]="slackInviteFormConfig.url" target="no-target-slack">
             <input [name]="slackInviteFormConfig.ids.email" class="csc-input" type="text" [value]="this.form.get('email').value">
         </form>
 
