@@ -24,7 +24,8 @@
                     <span class="signup-error" *ngIf="!form.controls.email.valid && (form.controls.email.touched || submitted)">Please enter your email</span>
             </csc-input-container>
             <csc-input-container class="col-6" label="Program at Brock" labelLocation="top">
-                    <input [name]="signupFormConfig.ids.program" class="csc-input" formControlName="program" type="text" placeholder="Computer Science">
+                    <input [name]="signupFormConfig.ids.program" class="csc-input" formControlName="program" type="text" placeholder="Program Name">
+                    <span class="signup-error" *ngIf="!form.controls.program.valid && (form.controls.program.touched || submitted)">Please enter program name</span>
             </csc-input-container>
             <csc-input-container class="col-6" label="Number of years as a previous member" labelLocation="top">
                     <input [name]="signupFormConfig.ids.number_of_years_member" formControlName="number_of_years_member" class="csc-input" type="number" min="0" max="10" value="0">

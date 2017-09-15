@@ -22,6 +22,7 @@
         <div #navOverlay class="nav-overlay container" [ngClass]="{'nav-overlay-open' : showOverlay}">
             <div class="nav-overlay-content">
                 <a routerLink="/home" (click)="toggleOverlayMenu()">Home</a>
+                <a routerLink="/signup" (click)="toggleOverlayMenu()">Join</a>
                 <a *ngFor="let link of links" [routerLink]="link.href" (click)="toggleOverlayMenu()" [title]="link.desc">{{ link.desc }}</a>
                 <a *ngIf="linkAdmin.visible" [routerLink]="linkAdmin.href" [title]="linkAdmin.desc" (click)="toggleOverlayMenu()">{{ linkAdmin.desc }}</a>
                 <a *ngIf="linkLogout.visible" [routerLink]="linkLogout.href" [title]="linkLogout.desc" (click)="toggleOverlayMenu()">{{ linkLogout.desc }}</a>
