@@ -4,7 +4,9 @@
 }
 
 img {
-    width: 100%;
+    // Both max and min are set as width 100% doesn't work with IE.
+    max-width: 100%;
+    min-width: 100%;
     top: 0;
     left: 0;
     opacity: 0;

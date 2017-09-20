@@ -44,22 +44,30 @@ export class ImgComponent implements OnInit {
     }
 
     private initObserver(): void {
-        const io = new IntersectionObserver((entries, observer) => {
-            const entry = entries[0];
-            if (this.loaded) {
-                return;
-            }
-            if (entry.intersectionRatio > 0) {
-                this.img.nativeElement.onload = () => {
-                    this.img.nativeElement.className += 'loaded';
-                    this.loaded = true;
-                    io.unobserve(this.container.nativeElement);
-                };
-                this.img.nativeElement.src = this.src;
-            }
-        }, { rootMargin: '50px' });
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries, observer) => {
+                const entry = entries[0];
+                if (this.loaded) {
+                    return;
+                }
+                if (entry.intersectionRatio > 0) {
+                    this.img.nativeElement.onload = () => {
+                        this.img.nativeElement.className += 'loaded';
+                        this.loaded = true;
+                        io.unobserve(this.container.nativeElement);
+                    };
+                    this.img.nativeElement.src = this.src;
+                }
+            }, { rootMargin: '50px' });
 
-        io.observe(this.container.nativeElement);
+            io.observe(this.container.nativeElement);
+        } else {
+            this.img.nativeElement.onload = () => {
+                this.img.nativeElement.className += 'loaded';
+                this.loaded = true;
+            };
+            this.img.nativeElement.src = this.src;
+        }
     }
 
     private setStyles(styles = {}, element: ElementRef): void {
