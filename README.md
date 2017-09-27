@@ -94,3 +94,32 @@ Make sure that your module is importing the `SharedModule`.
     <p>Some HTML content</p>
 </csc-tooltip>
 ```
+
+
+## Button
+To use the csc button, a `csc-button` attribute needs to be added to either an `a` or `button` tag.
+
+```html
+<button csc-button>Text</button>
+
+<a csc-button>Text</a>
+```
+
+## Progress Bar
+Simple progress bar with a binding for current progress value.
+
+| Parameter 	| Value(s)                         	| Description                     	|
+|-----------	|----------------------------------	|---------------------------------	|
+| color     	| 'navy', 'maroon' (default: navy) 	| The colour of the progress bar. 	|
+| progress  	| 0-100                            	| Progress of the bar.            	|
+
+```html
+<csc-progress-bar progress="25" color="navy"></csc-progress-bar>
+```
+
+## Spinner (Loader)
+Simple loader component that has no functionality. Use with `*ngIf` to manage whether it is displayed or not.
+
+```html
+<csc-spinner></csc-spinner>
+```
