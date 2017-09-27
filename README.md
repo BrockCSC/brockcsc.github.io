@@ -1,5 +1,30 @@
-# Csc
-`http://localhost:8080`
+# CSC
+This is the repository for the Brock University Computer Science Club web page.
+
+### Prerequisites
+- [Node][Node] >= v7.9.0
+- [Yarn][Yarn] >= 0.25.0
+
+[Node]: https://nodejs.org/en/download/
+[Yarn]: https://yarnpkg.com/en/docs/install
+
+
+### Installation
+- First run `yarn install` from the terminal. This will install all the required packages into the `node_modules` folder in the root directory.
+
+### Development
+- To run a development server, run `npm run start`.
+- This will spawn a server which can be accessed from `http://localhost:8080`.
+- If wanting to lazy load images from the `assets` folder, run `npm run gen:img`. This will generate a file which can be located at `src/tmp/assets.json`. The file contains the configs for the images which then can be used within the app.
+
+### Building for production
+- In order to build the site, run `npm run build`. This generates a `dist` folder in the root directory which will contain the minimized version of the site.
+- This will also run a postbuild script that will generate a serviceworker which will provide the PWA capabilities for the site.
+
+### Deployment
+- After the application has been built, we can finally run `npm run deploy` which will deploy the application to the `master` branch of this repository.
+
+---
 
 # Components
 ## Drag and Drop File Upload
