@@ -148,3 +148,25 @@ Simple loader component that has no functionality. Use with `*ngIf` to manage wh
 ```html
 <csc-spinner></csc-spinner>
 ```
+
+## Slideshow & Slides
+Slideshow component, to be used with child `Slide` components. Intended to be used with `csc-image`.
+
+The `csc-slideshow` must contain slides.
+
+| Parameter 	| Value(s)                         	| Description                     	                |
+|---------------|----------------------------------	|---------------------------------------------------|
+| delay     	| A number (default: 3) 	        | The delay **in seconds** before the next slide. 	|
+
+```html
+<csc-slideshow delay="2">
+    <csc-slide>
+            <!-- content -->
+            <csc-img ...></csc-img>
+    </csc-slide>
+    <csc-slide>
+            <!-- content -->
+            <csc-img ...></csc-img>
+    </csc-slide>
+</csc-slideshow>
+```
