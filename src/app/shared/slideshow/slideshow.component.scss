@@ -1,0 +1,23 @@
+// Set the container relative to house absolutely positioned slide.
+// Hide overflow for scrollbars around containers.
+.slides-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    // Set absolute to achieve the slide elements "stacking" on top.
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // Initially, slide is hidden.
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+// This class is toggled to show the slide.
+.active {
+    opacity: 1;
+}

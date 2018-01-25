@@ -1,0 +1,6 @@
+<div class="slides-container" #container>
+    <!-- If the slide is active, we show the toggle the active class -->
+    <div *ngFor="let slide of slides; let i = index" [ngClass]="{'slide': true, 'active': slide.active}">
+        <ng-container *ngTemplateOutlet="slide.template"></ng-container>
+    </div>
+</div>
