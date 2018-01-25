@@ -2,6 +2,11 @@
     background-color: $light-grey;
 }
 
+#csc-about a {
+    color: $maroon;
+    text-decoration: none;
+}
+
 .csc-about-desc {
     @media #{$desktop} {
         width: 70%;
@@ -24,9 +29,4 @@
         width: 60%;
         float: right;
     }
-}
-
-.csc-team a {
-    color: $maroon;
-    text-decoration: none;
 }
