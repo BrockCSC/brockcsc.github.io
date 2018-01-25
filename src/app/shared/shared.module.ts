@@ -14,6 +14,8 @@ import { UploadExistingComponent } from './upload/upload-existing/upload-existin
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ImgComponent } from './img/img.component';
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import { SlideComponent } from './slideshow/slides/slide.component';
 
 @NgModule({
     imports: [
@@ -33,7 +35,9 @@ import { ImgComponent } from './img/img.component';
         UploadExistingComponent,
         TooltipComponent,
         SpinnerComponent,
-        ImgComponent
+        ImgComponent,
+        SlideshowComponent,
+        SlideComponent
     ],
     declarations: [
         ButtonComponent,
@@ -47,7 +51,9 @@ import { ImgComponent } from './img/img.component';
         UploadExistingComponent,
         TooltipComponent,
         SpinnerComponent,
-        ImgComponent
+        ImgComponent,
+        SlideshowComponent,
+        SlideComponent
     ],
     providers: [
         EventApiService,
