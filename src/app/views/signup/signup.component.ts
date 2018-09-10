@@ -30,15 +30,15 @@ export class SignupComponent {
         });
 
         this.signupFormConfig = {
-            url: 'https://docs.google.com/forms/d/e/1FAIpQLSetf2LuAor5VzbWRkm8T7wJ2MI7kvEzWKmwYCJt-sjniduyRQ/formResponse',
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSczdObV3U1qU30OT1z7wi7kN3jvInbWGbWk5HUKhOyBmCrRPQ/formResponse',
             ids: {
-                name: 'entry.789935118',
-                student_id: 'entry.1629117136',
-                gender: 'entry.792012042',
-                email: 'entry.1980144799',
-                program: 'entry.767106880',
-                number_of_years_member: 'entry.458027254',
-                interests: 'entry.692315741'
+                name: 'entry.269010871',
+                student_id: 'entry.455461727',
+                gender: 'entry.1428431300',
+                email: 'entry.1990495199',
+                program: 'entry.680690199',
+                number_of_years_member: 'entry.1966426904',
+                interests: 'entry.207170582'
             }
         };
 
