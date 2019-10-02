@@ -30,22 +30,22 @@ export class SignupComponent {
         });
 
         this.signupFormConfig = {
-            url: 'https://docs.google.com/forms/d/e/1FAIpQLSczdObV3U1qU30OT1z7wi7kN3jvInbWGbWk5HUKhOyBmCrRPQ/formResponse',
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSdn26ysJa7_rfrsNAoJr8w-euRbhssPnlHceC4qTM_ux4RekA/formResponse',
             ids: {
-                name: 'entry.269010871',
-                student_id: 'entry.455461727',
-                gender: 'entry.1428431300',
-                email: 'entry.1990495199',
-                program: 'entry.680690199',
-                number_of_years_member: 'entry.1966426904',
-                interests: 'entry.207170582'
+                name: 'entry.1746166300',
+                student_id: 'entry.1408207548',
+                gender: 'entry.1930392869',
+                email: 'entry.232532916',
+                program: 'entry.252923868',
+                number_of_years_member: 'entry.1045425434',
+                interests: 'entry.1308050082'
             }
         };
 
         this.slackInviteFormConfig = {
-            url: 'https://docs.google.com/forms/d/e/1FAIpQLSeqfI9wcilbJb-zb554SmQBZjWBwbTCVfzIo5OneNTC9BL4SA/formResponse',
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSc5iWOEC9AraA2lhhzk6Ma5FsjeJ8Qcc32fViixRholGQ04fg/formResponse',
             ids: {
-                email: 'entry.347926706'
+                email: 'entry.2140667031'
             }
         };
     }
