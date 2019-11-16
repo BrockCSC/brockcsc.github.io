@@ -5,7 +5,7 @@
             <div class="csc-team-members">
                 <div class="exec col-3" *ngFor="let exec of execs | async">
                     <div [id]="exec.$key + '-id'">
-                        <img class ="exec-avatar" [src]="exec.image.url"/>
+                        <img class ="exec-avatar" [src]="exec.image ? exec.image.url: 'assets/exec-image-stub.png'"/>
                     </div>
                     <div class="exec-info">
                         <div class="exec-name">{{ exec.name }}</div>
@@ -22,7 +22,7 @@
             <h3 class="csc-header">Previous Executives</h3>
             <div class="csc-team-members">
                 <div class="exec" *ngFor="let prevExec of prevExecs | async">
-                    <img class="exec-avatar" [id]="prevExec.$key + '-id'" [src]="prevExec.image.url" />
+                    <img class="exec-avatar" [id]="prevExec.$key + '-id'" [src]="prevExec.image ? prevExec.image.url: 'assets/exec-image-stub.png'" />
                     <div class="exec-info">
                         <div class="exec-name">{{ prevExec.name }}</div>
                         <div class="exec-title">{{ prevExec.title }}</div>
