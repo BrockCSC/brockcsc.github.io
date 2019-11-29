@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     images: HomeImages = {
         about: HomeImageConfigs.about,
         partyPopper: Object.assign(HomeImageConfigs.partyPopper, { width: 16, height: 16 }), // overwrites the generated w/h
-        hero: Object.assign(HomeImageConfigs.hero, { height: 100, width: 100 })
+        hero: Object.assign(HomeImageConfigs.hero, { height: 65, width: 100 })
     };
     heroStyleConfig: ImageStyleConfig;
 
@@ -91,10 +91,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.heroStyleConfig = {
             image: {
                 'object-fit': 'cover',
-                'height': '100vh'
+                'height': '65vh'
             },
             container: {
-                'padding-top': '100vh'
+                'padding-top': '65vh'
             }
         };
     }

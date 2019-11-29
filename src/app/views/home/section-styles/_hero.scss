@@ -6,20 +6,19 @@
 .csc-hero-container {
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 65vh;
     position: relative;
     margin-top: -5.375em;
 }
 
 .csc-hero-overlay {
     width: 100%;
-    height: 100vh;
+    height: 65vh;
     position: absolute;
     left: 0;
     top: 0;
     background-image: -webkit-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
     background-image: -moz-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
-    background-image: -o-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
     background-image: linear-gradient(to top, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
 }
 
