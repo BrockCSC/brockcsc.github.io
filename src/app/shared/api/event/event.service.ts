@@ -59,7 +59,7 @@ export class EventApiService {
     }
 
     private reverse(listObservable: FirebaseListObservable<Event[]>): FirebaseListObservable<Event[]> {
-        return listObservable.map(list => list.reverse()) as FirebaseListObservable<Event[]>;
+        return listObservable.map(list => (list as any).reverse()) as FirebaseListObservable<Event[]>;
     }
 
     public addEvent(event: Event): Thenable<Event> {

@@ -28,7 +28,7 @@
     "@angular/router": "^4.3.6",
     "angularfire2": "^4.0.0-rc0",
     "core-js": "^2.5.1",
-    "firebase": "^4.3.0",
+    "firebase": "^3.6.6",
     "intersection-observer": "^0.4.2",
     "magic-check": "^1.0.3",
     "normalize.css": "^7.0.0",

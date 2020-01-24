@@ -46,7 +46,7 @@ export class EventComponent implements OnInit {
             this._eventApiService.getEventByKey(this.id).take(1).subscribe(event => {
                 this.loaded = true;
                 if ((event as any).$exists()) {
-                    this.event = event;
+                    this.event = event as Event;
                 } else {
                     this.error = `Event doesn't exist.`;
                 }
