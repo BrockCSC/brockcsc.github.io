@@ -1,10 +1,12 @@
+
+import {of as observableOf,  Observable ,  BehaviorSubject } from 'rxjs';
+
+import {map, switchMap} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/observable/of';
+
+
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -28,23 +30,23 @@ export class AuthService {
     }
 
     public getUser(): Observable<User> {
-        return this._auth.authState
-            .switchMap(auth => {
+        return this._auth.authState.pipe(
+            switchMap(auth => {
                 if (auth) {
                     return this.getUserById(auth.uid);
                 }
-                return Observable.of(null);
-            });
+                return observableOf(null);
+            }));
     }
 
     public getUserById(uid: string): Observable<User> {
-        return this._db.object(`${this._path}/${uid}`)
-            .map(user => {
+        return this._db.object(`${this._path}/${uid}`).pipe(
+            map(user => {
                 if (user.admin === null) {
                     user.admin = false;
                 }
                 return user;
-            });
+            }));
     }
 }
 

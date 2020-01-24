@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { FoodApiService, Food } from 'app/shared/api';
 
 @Component({

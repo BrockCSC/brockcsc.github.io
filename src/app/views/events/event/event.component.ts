@@ -1,9 +1,11 @@
+
+import {take} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventDataService } from 'app/views/events/event-data.service';
 import { Event, EventApiService } from 'app/shared/api';
 import { DatePipe } from '@angular/common';
-import 'rxjs/add/operator/take';
+
 
 @Component({
     providers: [DatePipe],
@@ -22,7 +24,7 @@ export class EventComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._route.params.take(1).subscribe(params => {
+        this._route.params.pipe(take(1)).subscribe(params => {
             this.id = params['id'];
             this.loadEvent();
         });
@@ -43,7 +45,7 @@ export class EventComponent implements OnInit {
             this.loaded = true;
             this.event = this._eventDataService.getEvent();
         } else {
-            this._eventApiService.getEventByKey(this.id).take(1).subscribe(event => {
+            this._eventApiService.getEventByKey(this.id).pipe(take(1)).subscribe(event => {
                 this.loaded = true;
                 if ((event as any).$exists()) {
                     this.event = event as Event;

@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { ModalComponent } from 'app/shared/modal/modal.component';
+import { FormBuilder } from '@angular/forms';
 import { Event } from 'app/shared/api';
-import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
     selector: 'csc-admin-events',
@@ -11,7 +9,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
     styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
-    public events: FirebaseListObservable<Event[]>;
+    public events: any;
     public checkedEvents: Event[] = [];
     public editableEvent: Event;
 

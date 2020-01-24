@@ -3,8 +3,6 @@ import { EventApiService } from 'app/shared/api';
 import { Event } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { FirebaseListObservable } from 'angularfire2/database';
-
 
 @Component({
     selector: 'csc-add-modal',

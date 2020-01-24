@@ -1,10 +1,12 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
 import { Thenable, Promise } from 'firebase';
 import { Query } from 'angularfire2/interfaces';
-import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class EventApiService {
@@ -23,9 +25,9 @@ export class EventApiService {
             orderByChild: 'datetime/timeStartTimestamp',
             startAt: this.getTodayTimestamp(),
             limitToFirst: 1
-        }).map(events => {
+        }).pipe(map(events => {
             return events[0];
-        }) as FirebaseListObservable<Event>;
+        })) as FirebaseListObservable<Event>;
     }
 
     public getFutureEvents(): FirebaseListObservable<Event[]> {
@@ -59,7 +61,7 @@ export class EventApiService {
     }
 
     private reverse(listObservable: FirebaseListObservable<Event[]>): FirebaseListObservable<Event[]> {
-        return listObservable.map(list => (list as any).reverse()) as FirebaseListObservable<Event[]>;
+        return listObservable.pipe(map(list => (list as any).reverse())) as FirebaseListObservable<Event[]>;
     }
 
     public addEvent(event: Event): Thenable<Event> {
