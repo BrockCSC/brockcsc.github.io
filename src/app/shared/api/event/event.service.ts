@@ -1,75 +1,70 @@
-
-import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject, QueryFn, DatabaseReference } from 'angularfire2/database';
 import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
-import { Thenable, Promise } from 'firebase';
-import { Query } from 'angularfire2/interfaces';
 
 
 @Injectable()
 export class EventApiService {
-    events: FirebaseListObservable<Event[]>;
+    events: AngularFireList<Event>;
     _path: string;
 
     constructor(private _db: AngularFireDatabase, private _storageService: StorageService) {
         this._path = '/event';
-        this.events = this.queryEvent({
-            orderByChild: 'datetime/timeStartTimestamp'
+        this.events = this.queryEvent((ref) => {
+            return ref.orderByChild('datetime/timeStartTimestamp');
         });
     }
 
-    public getNextEvent(): FirebaseListObservable<Event> {
-        return this.queryEvent({
-            orderByChild: 'datetime/timeStartTimestamp',
-            startAt: this.getTodayTimestamp(),
-            limitToFirst: 1
-        }).pipe(map(events => {
-            return events[0];
-        })) as FirebaseListObservable<Event>;
+    private queryEvent(query: QueryFn): AngularFireList<Event> {
+        return this._db.list(this._path, query);
     }
 
-    public getFutureEvents(): FirebaseListObservable<Event[]> {
-        return this.queryEvent({
-            orderByChild: 'datetime/timeStartTimestamp',
-            startAt: this.getTodayTimestamp()
-        });
+    public getNextEvent(): Observable<Event> {
+        return this.queryEvent(ref => {
+            return ref.orderByChild('datetime/timeStartTimestamp')
+                .startAt(this.getTodayTimestamp())
+                .limitToFirst(1);
+        }).valueChanges().pipe((obj) => obj[0]);
     }
 
-    public getPastEvents(): FirebaseListObservable<Event[]> {
+    public getFutureEvents(): Observable<Event[]> {
+        return this.queryEvent(ref => {
+            return ref.orderByChild('datetime/timeStartTimestamp')
+                .startAt(this.getTodayTimestamp());
+        }).valueChanges();
+    }
+
+    public getPastEvents(): Observable<Event[]> {
         return this.reverse(
-            this.queryEvent({
-                orderByChild: 'datetime/timeStartTimestamp',
-                endAt: this.getTodayTimestamp()
-            })
+            this.queryEvent(ref => {
+                return ref
+                    .orderByChild('datetime/timeStartTimestamp')
+                    .endAt(this.getTodayTimestamp());
+            }).valueChanges()
         );
     }
 
-    public getEventByKey(key: string): FirebaseObjectObservable<Event> {
-        return this._db.object(`${this._path}/${key}`);
+    public getEventByKey(key: string): Observable<Event> {
+        return this._db.object(`${this._path}/${key}`).valueChanges();
     }
 
     private getTodayTimestamp(): number {
         return new Date().setHours(0, 0, 0, 0);
     }
 
-    private queryEvent(query: Query): FirebaseListObservable<Event[]> {
-        return this._db.list(this._path, {
-            query: query
-        });
+    private reverse(listObservable: Observable<Event[]>): Observable<Event[]> {
+        return listObservable.pipe(map(list => (list as any).reverse()));
     }
 
-    private reverse(listObservable: FirebaseListObservable<Event[]>): FirebaseListObservable<Event[]> {
-        return listObservable.pipe(map(list => (list as any).reverse())) as FirebaseListObservable<Event[]>;
-    }
-
-    public addEvent(event: Event): Thenable<Event> {
+    public addEvent(event: Event): any {
         return this.events.push(event);
     }
 
-    public getEvents(): FirebaseListObservable<Event[]> {
-        return this.reverse(this.events);
+    public getEvents(): Observable<Event[]> {
+        return this.reverse(this.events.valueChanges());
     }
 
     public updateEvent(key: string, value: Event): Promise<void> {

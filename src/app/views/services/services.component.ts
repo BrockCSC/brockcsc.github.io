@@ -1,5 +1,4 @@
-import { Query } from 'angularfire2/interfaces';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Food, FoodApiService } from 'app/shared/api';
 
@@ -18,14 +17,14 @@ export class ServicesComponent implements OnInit {
 
     public sectionData: FoodSectionData[];
 
-    constructor(private _foodApiService: FoodApiService) {}
+    constructor(private _foodApiService: FoodApiService) { }
 
     ngOnInit() {
         this.sectionData = this.sections.map(title => {
             return {
-                data: this._foodApiService.queryFoodItems({
-                    orderByChild: 'section',
-                    equalTo: title
+                data: this._foodApiService.queryFoodItems(ref => {
+                    return ref.orderByChild('section')
+                        .equalTo(title);
                 }),
                 title
             };
@@ -36,5 +35,5 @@ export class ServicesComponent implements OnInit {
 
 interface FoodSectionData {
     title: String;
-    data: FirebaseListObservable<Food[]>;
+    data: AngularFireList<Food[]>;
 }

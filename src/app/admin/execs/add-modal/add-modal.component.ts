@@ -30,8 +30,6 @@ export class AddModalComponent implements OnInit {
         this._execApiService.addExec(val).then((res) => {
             this.modal.close();
             this.form.reset();
-        }).catch((error) => {
-            console.error(error);
         });
     }
 

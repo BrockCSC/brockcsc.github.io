@@ -1,4 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Exec, ExecApiService } from 'app/shared/api';
 
@@ -9,8 +9,8 @@ import { Exec, ExecApiService } from 'app/shared/api';
 })
 export class TeamComponent implements OnInit {
 
-    execs: FirebaseListObservable<Exec[]>;
-    prevExecs: FirebaseListObservable<Exec[]>;
+    execs: AngularFireList<Exec[]>;
+    prevExecs: AngularFireList<Exec[]>;
 
     constructor(private _api: ExecApiService) { }
 

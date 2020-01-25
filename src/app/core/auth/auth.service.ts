@@ -1,9 +1,9 @@
 
-import {of as observableOf,  Observable ,  BehaviorSubject } from 'rxjs';
+import { of as observableOf, Observable, BehaviorSubject } from 'rxjs';
 
-import {map, switchMap} from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 
@@ -17,11 +17,11 @@ export class AuthService {
         this._path = 'user';
     }
 
-    public googleLogin(): firebase.Promise<any> {
+    public googleLogin(): Promise<any> {
         return this._auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
 
-    public logout(): firebase.Promise<any> {
+    public logout(): Promise<any> {
         return this._auth.auth.signOut();
     }
 
@@ -40,13 +40,14 @@ export class AuthService {
     }
 
     public getUserById(uid: string): Observable<User> {
-        return this._db.object(`${this._path}/${uid}`).pipe(
-            map(user => {
-                if (user.admin === null) {
-                    user.admin = false;
-                }
-                return user;
-            }));
+        return (this._db.object(`${this._path}/${uid}`).valueChanges() as Observable<User>)
+            .pipe(
+                map(user => {
+                    if (user.admin === null) {
+                        user.admin = false;
+                    }
+                    return user;
+                }));
     }
 }
 

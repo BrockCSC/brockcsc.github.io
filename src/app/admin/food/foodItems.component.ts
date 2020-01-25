@@ -1,4 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Food, FoodApiService } from 'app/shared/api';
 
@@ -8,7 +8,7 @@ import { Food, FoodApiService } from 'app/shared/api';
     styleUrls: ['./foodItems.component.scss']
 })
 export class FoodItemsComponent implements OnInit {
-    foodItems: FirebaseListObservable<Food[]>;
+    foodItems: AngularFireList<Food>;
     checkedFoodItems: Food[] = [];
 
     constructor(private _api: FoodApiService) {}

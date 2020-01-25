@@ -31,7 +31,7 @@ export class StorageService {
 
     }
 
-    public removeFile(path: string, filename: string): firebase.Promise<void> {
+    public removeFile(path: string, filename: string): Promise<void> {
         return firebase.storage().ref(path).child(filename).delete();
     }
 
