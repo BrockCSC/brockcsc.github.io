@@ -2,15 +2,15 @@
 This is the repository for the Brock University Computer Science Club web page.
 
 ### Prerequisites
-- [Node][Node] >= v7.9.0
-- [Yarn][Yarn] >= 0.25.0
+- [Node][Node] >= v12.7.0
+- [npm][Npm] >= 6.11.3
 
 [Node]: https://nodejs.org/en/download/
-[Yarn]: https://yarnpkg.com/en/docs/install
+[Npm]: https://www.npmjs.com/get-npm
 
 
 ### Installation
-- First run `yarn install` from the terminal. This will install all the required packages into the `node_modules` folder in the root directory.
+- First run `npm install` from the terminal. This will install all the required packages into the `node_modules` folder in the root directory.
 
 ### Development
 - To run a development server, run `npm run start`.
