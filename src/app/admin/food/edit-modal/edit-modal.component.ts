@@ -11,7 +11,7 @@ import { FoodApiService, Food } from 'app/shared/api';
 export class EditModalComponent implements OnInit {
     public form: FormGroup;
     public editableFood: Food;
-    @ViewChild('modal', {static: true}) modal: ModalComponent;
+    @ViewChild('modal', {static: false}) modal: ModalComponent;
 
     constructor(private _foodApiService: FoodApiService, private _formBuilder: FormBuilder) { }
 

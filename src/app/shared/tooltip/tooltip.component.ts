@@ -12,8 +12,8 @@ export class TooltipComponent implements AfterViewInit {
     @Input('forId') forId: string;
     @Input('direction') direction = 'top';
 
-    @ViewChild('tooltip', {static: true}) tooltip: ElementRef;
-    @ViewChild('tooltipArrow', {static: true}) tooltipArrow: ElementRef;
+    @ViewChild('tooltip', {static: false}) tooltip: ElementRef;
+    @ViewChild('tooltipArrow', {static: false}) tooltipArrow: ElementRef;
 
     private _host: any;
     private _$tooltip: any;

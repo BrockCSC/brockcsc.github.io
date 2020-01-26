@@ -14,7 +14,6 @@ const routes: Routes = [
     { path: 'services', component: ServicesComponent },
     { path: 'events',  loadChildren: () => import('app/views/events/events.module').then(m => m.EventsModule)},
     { path: '**', redirectTo: 'home' }
-    // { path: 'path', loadChildren: 'lazy-path#lazy-module' },
 ];
 
 export const routing = RouterModule.forRoot(routes);
