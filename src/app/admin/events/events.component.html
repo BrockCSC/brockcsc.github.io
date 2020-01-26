@@ -13,22 +13,22 @@
     <div class="row">
         <table>
             <thead>
-                <th class="csc-remove-th"></th>
-                <th>Title</th>
-                <th>Date</th>
-                <th class="csc-edit-th">Edit</th>
+            <th class="csc-remove-th"></th>
+            <th>Title</th>
+            <th>Date</th>
+            <th class="csc-edit-th">Edit</th>
             </thead>
             <tbody>
-                <tr *ngFor="let event of events | async">
-                    <td class="csc-checkbox-col">
-                        <csc-checkbox>
-                            <input type="checkbox" (click)="checked($event, event)">
-                        </csc-checkbox>
-                    </td>
-                    <td>{{ event.title }}</td>
-                    <td>{{ event.datetime.date }}</td>
-                    <td class="csc-edit-icon"><i (click)="editModal.open(event)" class="material-icons">edit</i></td>
-                </tr>
+            <tr *ngFor="let event of events | async">
+                <td class="csc-checkbox-col">
+                    <csc-checkbox>
+                        <input type="checkbox" (click)="checked($event, event)">
+                    </csc-checkbox>
+                </td>
+                <td><a [routerLink]="'/admin/events/' + event.$key">{{ event.title }}</a></td>
+                <td>{{ event.datetime.date }}</td>
+                <td><i (click)="editModal.open(event)" class="material-icons csc-mat-icon">edit</i></td>
+            </tr>
             </tbody>
         </table>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { GUID } from 'app/shared/guid';
 
 @Component({
@@ -6,9 +6,9 @@ import { GUID } from 'app/shared/guid';
     templateUrl: './checkbox.component.html',
     styleUrls: ['./checkbox.component.scss'],
 })
-export class CheckboxComponent implements OnInit {
+export class CheckboxComponent implements OnInit, AfterViewInit {
     @Input() label = null;
-    @ViewChild('checkbox', {static: false}) inputParent: ElementRef;
+    @ViewChild('checkbox') inputParent: ElementRef;
     public _id: string = GUID.newGuid();
     public _defaultLabel = '&#8203;'; // no whitespace empty character
     public input: HTMLInputElement;
@@ -16,6 +16,10 @@ export class CheckboxComponent implements OnInit {
     constructor(private elementRef: ElementRef) { }
 
     ngOnInit() {
+
+    }
+
+    ngAfterViewInit() {
         this.input = this.elementRef.nativeElement.querySelector('.csc-checkbox>input');
         this.input.className += ' magic-checkbox';
         this.input.id = this._id;

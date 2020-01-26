@@ -1,5 +1,8 @@
 # CSC
-This is the repository for the Brock University Computer Science Club web page.
+This is the repository for the Brock University Computer Science Club web page. 
+
+- Angular CLI: 9.0.1
+
 
 ### Prerequisites
 - [Node][Node] >= v12.7.0

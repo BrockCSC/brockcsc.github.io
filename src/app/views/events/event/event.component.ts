@@ -1,10 +1,9 @@
-
 import {take} from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { EventDataService } from 'app/views/events/event-data.service';
-import { Event, EventApiService } from 'app/shared/api';
-import { DatePipe } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {EventDataService} from 'app/views/events/event-data.service';
+import {Event, EventApiService} from 'app/shared/api';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
@@ -30,22 +29,12 @@ export class EventComponent implements OnInit {
         });
     }
 
-    public getImageUrl(): string {
-        const url = (path: string) => {
-            return `url(${path})`;
-        };
-        if (this.event !== undefined && this.event.image !== undefined) {
-            return url(this.event.image.url);
-        }
-        return url('/assets/placeholder.png'); // temp
-    }
-
     private loadEvent(): void {
         if (this._eventDataService.hasEvent()) {
             this.loaded = true;
             this.event = this._eventDataService.getEvent();
         } else {
-            this._eventApiService.getEventByKey(this.id).pipe(take(1)).subscribe(event => {
+            this._eventApiService.getEventByKeyOnce(this.id).subscribe(event => {
                 this.loaded = true;
                 if (event as any) {
                     this.event = event as Event;

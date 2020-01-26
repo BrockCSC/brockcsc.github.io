@@ -1,7 +1,7 @@
 <div class="csc-drop" [class.hover]="fileHover">
     <div class="csc-drop-border">
         <div class="csc-drop-desc">
-            <i class="material-icons">cloud_upload</i>
+            <i class="material-icons csc-mat-icon">cloud_upload</i>
             <div class="csc-drop-text">
                 <h2>{{ message }}</h2>
                 <!-- // TODO: Add click to select -->
@@ -14,7 +14,7 @@
         <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
     </div>
     <div class="csc-file-remove" [class.active]="upload.progress == 100" (click)="removeFile(upload)">
-        <i class="material-icons">clear</i>
+        <i class="material-icons csc-mat-icon">clear</i>
     </div>
     <div class="csc-file-name">
         {{ upload.name }}

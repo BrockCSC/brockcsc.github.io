@@ -21,7 +21,7 @@
             </div>
             <h3 class="csc-header">Previous Executives</h3>
             <div class="csc-team-members">
-                <div class="exec" *ngFor="let prevExec of prevExecs | async">
+                <div class="exec col-3" *ngFor="let prevExec of prevExecs | async">
                     <img class="exec-avatar" [id]="prevExec.$key + '-id'" [src]="prevExec.image ? prevExec.image.url: 'assets/exec-image-stub.png'" />
                     <div class="exec-info">
                         <div class="exec-name">{{ prevExec.name }}</div>

@@ -1,0 +1,13 @@
+<div *ngIf="!!entries">
+    <table>
+        <tr>
+            <th *ngFor="let key of keys">{{ descriptions[key] }}</th>
+        </tr>
+        <tr *ngFor="let entry of entries">
+            <td *ngFor="let key of keys">
+                {{ entry[key] }}
+            </td>
+        </tr>
+    </table>
+</div>
+

@@ -17,7 +17,7 @@ import {
 export class LinkComponent implements AfterViewChecked {
 
     @Input() csclink: string;
-    @ViewChild('line', {static: false}) line: ElementRef;
+    @ViewChild('line') line: ElementRef;
 
     constructor() {}
 

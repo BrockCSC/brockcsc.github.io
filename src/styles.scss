@@ -4,6 +4,7 @@
 @import './styles/_grid.scss';
 @import './styles/_table.scss';
 @import './styles/_checkbox.scss';
+
 html {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -24,6 +25,7 @@ html {
 
 a {
     cursor: pointer;
+    color: $maroon;
 }
 
 h1,
@@ -84,4 +86,8 @@ section {
     .show-mobile {
         display: none;
     }
+}
+
+.error-msg {
+    color: red;
 }

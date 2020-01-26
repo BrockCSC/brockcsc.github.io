@@ -1,0 +1,28 @@
+<div *ngIf="event !== undefined">
+    <div class="row csc-event-header">
+        <div class="col-7 col-m-6 csc-event-image" [style.background]="getImageUrl()"></div>
+        <div class="col-5 col-m-6 csc-event-title">
+            <div class="wrapper">
+                <h2>{{ event.title }}</h2>
+                <p class="csc-event-presenter">by {{ event.presenter }}</p>
+                <a *ngIf="event.signupUrl" csc-button class="csc-event-signup success" [href]="event.signupUrl" target="_blank">Sign Up</a>
+            </div>
+        </div>
+        <div class="col-8 col-m-7 csc-event-description">
+            <h3 class="csc-header">Description</h3>
+            <p>{{ event.description }}</p>
+        </div>
+        <div class="col-4 col-m-5 csc-event-location">
+            <h3 class="csc-header">When & Where</h3>
+            <p>{{ event.datetime.date | date }}</p>
+            <p>{{ event.datetime.timeStartTimestamp | date:'shortTime' }} - {{ event.datetime.timeEndTimestamp | date: 'shortTime' }}</p>
+            <p>{{ event.location }}</p>
+        </div>
+        <div class="col-12 csc-event-resource" *ngIf="event.resources !== undefined">
+            <h3 class="csc-header">Resources</h3>
+            <div *ngFor="let resource of event.resources">
+                <a [href]="resource.url">{{ resource.name }}</a>
+            </div>
+        </div>
+    </div>
+</div>

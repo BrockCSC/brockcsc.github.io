@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { EventFormComponent } from './event-form/event-form.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,15 +15,16 @@ import { EventDataService } from './event-data.service';
         CommonModule,
         SharedModule,
         routing,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule,
     ],
     exports: [
-
     ],
     declarations: [
         EventsComponent,
         EventsHomeComponent,
         EventComponent,
+        EventFormComponent,
     ],
     providers: [
         EventDataService

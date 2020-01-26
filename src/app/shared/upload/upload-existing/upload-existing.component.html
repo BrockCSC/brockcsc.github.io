@@ -1,7 +1,7 @@
 <csc-input-container label="Existing" labelLocation="top">
     <div *ngFor="let item of existingFiles" class="csc-existing-item noselect" (click)="click(item)">
         <div class="csc-item-status" [class.delete]="item.toDelete">
-            <i class="material-icons">{{ item.toDelete ? 'clear' : 'done'}}</i>
+            <i class="material-icons csc-mat-icon">{{ item.toDelete ? 'clear' : 'done'}}</i>
         </div>
         <div class="csc-item-name" [class.delete]="item.toDelete">
             {{ item.file.name }}

@@ -39,6 +39,16 @@
                         </csc-input-container>
                     </div>
                     <div class="row">
+                        <csc-checkbox label="Include embedded form">
+                            <input type="checkbox" [(ngModel)]="includeForm" [ngModelOptions]="{standalone: true}">>
+                        </csc-checkbox>
+                    </div>
+                    <div class="row" *ngIf="includeForm">
+                        <csc-prominent-container title="Sign up form">
+                            <csc-firebase-form-creator [(formInfo)]="eventForm"></csc-firebase-form-creator>
+                        </csc-prominent-container>
+                    </div>
+                    <div class="row">
                         <csc-input-container label="Image" class="col-6" labelLocation="top">
                             <csc-upload formControlName="image" message="Drag event image here" [data]="getImage()"></csc-upload>
                         </csc-input-container>

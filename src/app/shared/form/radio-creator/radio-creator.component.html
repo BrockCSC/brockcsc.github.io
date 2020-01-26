@@ -1,0 +1,24 @@
+<csc-input-container label="Required" labelLocation="left">
+    <csc-checkbox>
+        <input type="checkbox" [(ngModel)]="radio.required"/>
+    </csc-checkbox>
+</csc-input-container>
+<csc-input-container label="Radio label" class="col-12" labelLocation="top">
+    <input [(ngModel)]="radio.description"/>
+</csc-input-container>
+<csc-input-container label="Options" class="col-12" labelLocation="top">
+    <ol>
+        <li *ngFor="let option of radio.options">
+            {{ option.name }}
+            <i (click)="deleteOption(option)" class="material-icons csc-mat-icon">delete</i>
+        </li>
+    </ol>
+    <csc-input-container label="Option name" labelLocation="top">
+        <div class="row">
+            <input class="col-12" [(ngModel)]="newOptionName"/>
+        </div>
+        <div class="row">
+            <button csc-button (click)="addOption()">Add option</button>
+        </div>
+    </csc-input-container>
+</csc-input-container>

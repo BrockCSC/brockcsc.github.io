@@ -1,15 +1,15 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 
-import { FoodService } from './food.service';
+import {FoodApiService} from './food.service';
 
 describe('FoodService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [FoodService]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers: [FoodApiService]
+        });
     });
-  });
 
-  it('should be created', inject([FoodService], (service: FoodService) => {
-    expect(service).toBeTruthy();
-  }));
+    it('should be created', inject([FoodApiService], (service: FoodApiService) => {
+        expect(service).toBeTruthy();
+    }));
 });
