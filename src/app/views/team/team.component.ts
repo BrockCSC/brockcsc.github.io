@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
 import { Exec, ExecApiService } from 'app/shared/api';

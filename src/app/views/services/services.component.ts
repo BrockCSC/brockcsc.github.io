@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
 import { Food, FoodApiService } from 'app/shared/api';

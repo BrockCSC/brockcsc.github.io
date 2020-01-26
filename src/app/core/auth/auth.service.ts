@@ -1,10 +1,10 @@
-import { map } from 'rxjs/operators/map';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs';
+
+
 import * as firebase from 'firebase/app';
 
 @Injectable()
