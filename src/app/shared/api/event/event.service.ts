@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject, QueryFn, DatabaseReference } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject, QueryFn } from '@angular/fire/database';
 import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
 
@@ -27,28 +27,38 @@ export class EventApiService {
             return ref.orderByChild('datetime/timeStartTimestamp')
                 .startAt(this.getTodayTimestamp())
                 .limitToFirst(1);
-        }).valueChanges().pipe((obj) => obj[0]);
+        }).valueChanges().pipe(map((obj) => obj[0]));
     }
 
     public getFutureEvents(): Observable<Event[]> {
-        return this.queryEvent(ref => {
+        return this.keyPipe(this.queryEvent(ref => {
             return ref.orderByChild('datetime/timeStartTimestamp')
                 .startAt(this.getTodayTimestamp());
-        }).valueChanges();
+        }));
+    }
+
+    public keyPipe<T>(obs: AngularFireList<T>): Observable<T[]> {
+        return obs.snapshotChanges().pipe(map(items => {
+            return items.map(a => {
+                const data = a.payload.val() as any;
+                const $key = a.payload.key;
+                return { $key, ...data };
+            });
+        }));
     }
 
     public getPastEvents(): Observable<Event[]> {
         return this.reverse(
-            this.queryEvent(ref => {
+            this.keyPipe(this.queryEvent(ref => {
                 return ref
                     .orderByChild('datetime/timeStartTimestamp')
                     .endAt(this.getTodayTimestamp());
-            }).valueChanges()
+            }))
         );
     }
 
     public getEventByKey(key: string): Observable<Event> {
-        return this._db.object(`${this._path}/${key}`).valueChanges();
+        return this._db.object(`${this._path}/${key}`).valueChanges() as Observable<Event>;
     }
 
     private getTodayTimestamp(): number {

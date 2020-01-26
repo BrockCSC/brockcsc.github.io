@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { routing } from './auth.router';
@@ -9,7 +10,8 @@ import { LogoutComponent } from './logout/logout.component';
     imports: [
         CommonModule,
         SharedModule,
-        routing
+        routing,
+        RouterModule
     ],
     declarations: [
         LoginComponent,

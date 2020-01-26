@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, QueryFn } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, QueryFn } from '@angular/fire/database';
 import { Food } from './food';
 
 @Injectable()
@@ -20,8 +21,8 @@ export class FoodApiService {
         return this.foodItems.push(food) as any as Promise<Food>;
     }
 
-    public getFoodItems(): AngularFireList<Food> {
-        return this.foodItems;
+    public getFoodItems(): Observable<Food[]> {
+        return this.foodItems.valueChanges() as Observable<Food[]>;
     }
 
     public updateFoodItem(key: string, value: Food): Promise<void> {
@@ -40,7 +41,7 @@ export class FoodApiService {
         return this.foodItems.remove(key);
     }
 
-    public queryFoodItems(query: QueryFn): AngularFireList<Food[]> {
-        return this._db.list(this._path, query);
+    public queryFoodItems(query: QueryFn): Observable<Food[]> {
+        return this._db.list(this._path, query).valueChanges() as Observable<Food[]>;
     }
 }

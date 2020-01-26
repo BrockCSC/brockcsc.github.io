@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angu
 import { Food, FoodApiService } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { AngularFireList } from 'angularfire2/database';
+import { AngularFireList } from '@angular/fire/database';
 
 @Component({
     selector: 'csc-remove-food-modal',

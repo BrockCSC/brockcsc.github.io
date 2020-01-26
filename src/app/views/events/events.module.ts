@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'app/shared/shared.module';
@@ -11,7 +12,8 @@ import { EventDataService } from './event-data.service';
     imports: [
         CommonModule,
         SharedModule,
-        routing
+        routing,
+        RouterModule
     ],
     exports: [
 
@@ -19,7 +21,7 @@ import { EventDataService } from './event-data.service';
     declarations: [
         EventsComponent,
         EventsHomeComponent,
-        EventComponent
+        EventComponent,
     ],
     providers: [
         EventDataService

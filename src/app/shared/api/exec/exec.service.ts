@@ -1,6 +1,7 @@
+import { Observable } from 'rxjs/Observable';
 import { database } from 'firebase';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, QueryFn } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, QueryFn } from '@angular/fire/database';
 import { Exec } from './exec';
 import { StorageService } from '../storage/storage.service';
 
@@ -17,7 +18,7 @@ export class ExecApiService {
         this.execs = _db.list(this._path);
     }
 
-    private queryExec(queryFn: QueryFn): AngularFireList<Exec[]> {
+    private queryExec(queryFn: QueryFn): AngularFireList<Exec> {
         return this._db.list(this._path, queryFn);
     }
 
@@ -25,18 +26,18 @@ export class ExecApiService {
         return this.execs.push(exec);
     }
 
-    public getCurrentExecs(): AngularFireList<Exec[]> {
+    public getCurrentExecs(): Observable<Exec[]> {
         return this.queryExec(ref => {
             return ref.orderByChild('isCurrentExec')
                 .equalTo(true);
-        });
+        }).valueChanges();
     }
 
-    public getPreviousExecs(): AngularFireList<Exec[]> {
+    public getPreviousExecs(): Observable<Exec[]> {
         return this.queryExec(ref => {
             return ref.orderByChild('isCurrentExec')
                 .equalTo(false);
-        });
+        }).valueChanges();
     }
 
     public updateExec(key: string, value: Exec): Promise<void> {

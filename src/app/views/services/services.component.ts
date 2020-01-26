@@ -1,4 +1,5 @@
-import { AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
 import { Food, FoodApiService } from 'app/shared/api';
 
@@ -35,5 +36,5 @@ export class ServicesComponent implements OnInit {
 
 interface FoodSectionData {
     title: String;
-    data: AngularFireList<Food[]>;
+    data: Observable<Food[]>;
 }

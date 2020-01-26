@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -5,11 +6,12 @@ import { routing } from './app.router';
 import { CoreModule } from 'app/core/core.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { ViewsModule } from 'app/views/views.module';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'environments/environment';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         AngularFireStorageModule,
+        CommonModule,
+        RouterModule,
     ],
     bootstrap: [AppComponent]
 })

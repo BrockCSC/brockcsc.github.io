@@ -1,12 +1,10 @@
-
-import { of as observableOf, Observable, BehaviorSubject } from 'rxjs';
-
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators/map';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-
-
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/observable/of';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -30,24 +28,24 @@ export class AuthService {
     }
 
     public getUser(): Observable<User> {
-        return this._auth.authState.pipe(
-            switchMap(auth => {
+        return this._auth.authState
+            .switchMap(auth => {
                 if (auth) {
                     return this.getUserById(auth.uid);
                 }
-                return observableOf(null);
-            }));
+                return Observable.of(null);
+            });
     }
 
     public getUserById(uid: string): Observable<User> {
-        return (this._db.object(`${this._path}/${uid}`).valueChanges() as Observable<User>)
-            .pipe(
-                map(user => {
-                    if (user.admin === null) {
-                        user.admin = false;
-                    }
-                    return user;
-                }));
+        return this._db.object(`${this._path}/${uid}`).snapshotChanges().pipe(
+            map(obj => {
+                const data = obj.payload.val() as any;
+                if (data.admin === null) {
+                    data.admin = false;
+                }
+                return data;
+            }));
     }
 }
 

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Event } from 'app/shared/api';
 import { EventDataService } from 'app/views/events/event-data.service';
@@ -12,7 +13,7 @@ export class EventsHomeComponent implements OnInit, OnDestroy {
     public upcomingEvents: EventContainer;
     public pastEvents: EventContainer;
 
-    constructor(private _eventDataService: EventDataService) {
+    constructor(private _eventDataService: EventDataService, private router: Router) {
         this.upcomingEvents = new EventContainer();
     }
 
@@ -33,6 +34,7 @@ export class EventsHomeComponent implements OnInit, OnDestroy {
 
     public selectEvent(event: Event): void {
         this._eventDataService.setEvent(event);
+        // this.router.navigate([`/events/${event.$key}`]);
     }
 
     public ngOnDestroy(): void {

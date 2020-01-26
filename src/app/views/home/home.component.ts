@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Event, EventApiService } from 'app/shared/api';
-import { AngularFireList } from 'angularfire2/database';
+import { AngularFireList } from '@angular/fire/database';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { HomeImageConfigs } from './imageConfigs';
 
