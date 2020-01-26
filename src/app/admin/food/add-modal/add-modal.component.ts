@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FoodApiService, Food } from 'app/shared/api';
+import { FoodApiService } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
     selector: 'csc-add-food-modal',
@@ -11,7 +10,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class AddModalComponent implements OnInit {
     public form: FormGroup;
-    @ViewChild('modal') modal: ModalComponent;
+    @ViewChild('modal', {static: false}) modal: ModalComponent;
 
     constructor(private _foodApiService: FoodApiService, private _formBuilder: FormBuilder) { }
 

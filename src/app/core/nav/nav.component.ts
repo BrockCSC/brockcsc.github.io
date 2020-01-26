@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 const WHITE = 'white';
 const MAROON = '#AA3B3B';

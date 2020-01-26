@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Event, EventApiService } from 'app/shared/api';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { EventContainer } from './eventContainer';
 
 @Injectable()

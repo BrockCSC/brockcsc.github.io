@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { FoodApiService, Food } from 'app/shared/api';
 
 @Component({
@@ -12,7 +11,7 @@ import { FoodApiService, Food } from 'app/shared/api';
 export class EditModalComponent implements OnInit {
     public form: FormGroup;
     public editableFood: Food;
-    @ViewChild('modal') modal: ModalComponent;
+    @ViewChild('modal', {static: false}) modal: ModalComponent;
 
     constructor(private _foodApiService: FoodApiService, private _formBuilder: FormBuilder) { }
 

@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Event } from 'app/shared/api';
 
 export class EventContainer {

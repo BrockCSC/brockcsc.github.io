@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Injectable, Inject, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 import Popper from 'popper.js';
 
 @Component({
@@ -12,8 +12,8 @@ export class TooltipComponent implements AfterViewInit {
     @Input('forId') forId: string;
     @Input('direction') direction = 'top';
 
-    @ViewChild('tooltip') tooltip: ElementRef;
-    @ViewChild('tooltipArrow') tooltipArrow: ElementRef;
+    @ViewChild('tooltip', {static: false}) tooltip: ElementRef;
+    @ViewChild('tooltipArrow', {static: false}) tooltipArrow: ElementRef;
 
     private _host: any;
     private _$tooltip: any;

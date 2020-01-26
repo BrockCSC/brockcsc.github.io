@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExecApiService } from 'app/shared/api';
-import { Exec } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { FirebaseListObservable } from 'angularfire2/database';
 
 
 @Component({
@@ -13,7 +11,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class AddModalComponent implements OnInit {
     public form: FormGroup;
-    @ViewChild('modal') modal: ModalComponent;
+    @ViewChild('modal', {static: false}) modal: ModalComponent;
 
     constructor(private _execApiService: ExecApiService, private _formBuilder: FormBuilder) { }
 
@@ -32,8 +30,6 @@ export class AddModalComponent implements OnInit {
         this._execApiService.addExec(val).then((res) => {
             this.modal.close();
             this.form.reset();
-        }).catch((error) => {
-            console.error(error);
         });
     }
 

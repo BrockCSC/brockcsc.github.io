@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import * as firebase from 'firebase/app';
 import { StorageTask } from './storageTask';
 
@@ -31,7 +31,7 @@ export class StorageService {
 
     }
 
-    public removeFile(path: string, filename: string): firebase.Promise<void> {
+    public removeFile(path: string, filename: string): Promise<void> {
         return firebase.storage().ref(path).child(filename).delete();
     }
 

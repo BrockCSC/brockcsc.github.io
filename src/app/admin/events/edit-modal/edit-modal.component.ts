@@ -3,7 +3,6 @@ import { EventApiService } from 'app/shared/api';
 import { Event, CscFile } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
     selector: 'csc-edit-modal',
@@ -13,7 +12,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class EditModalComponent implements OnInit {
     public form: FormGroup;
     public editableEvent: Event;
-    @ViewChild('modal') modal: ModalComponent;
+    @ViewChild('modal', {static: false}) modal: ModalComponent;
 
     constructor(private _eventApiService: EventApiService, private _formBuilder: FormBuilder) { }
 

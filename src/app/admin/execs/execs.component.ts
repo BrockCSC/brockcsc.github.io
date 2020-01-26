@@ -1,4 +1,3 @@
-import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Exec, ExecApiService } from 'app/shared/api';
 
@@ -8,8 +7,8 @@ import { Exec, ExecApiService } from 'app/shared/api';
     styleUrls: ['./execs.component.scss']
 })
 export class ExecsComponent implements OnInit {
-    execs: FirebaseListObservable<Exec[]>;
-    previousExecs: FirebaseListObservable<Exec[]>;
+    execs: any;
+    previousExecs: any;
     checkedExecs: Exec[] = [];
 
     constructor(private _api: ExecApiService) {}

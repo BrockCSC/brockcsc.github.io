@@ -11,7 +11,7 @@ export class ContactComponent implements OnInit {
     public form: FormGroup;
     public googleForm: GoogleFormConfig;
     public submitted: boolean;
-    @ViewChild('contactForm') contactForm;
+    @ViewChild('contactForm', { static: true }) contactForm;
 
     constructor(private _formBuilder: FormBuilder) {
         this.form = this._formBuilder.group({
