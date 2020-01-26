@@ -9,7 +9,7 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
     styleUrls: ['./remove-modal.component.scss']
 })
 export class RemoveModalComponent implements OnInit {
-    @ViewChild('modal') modal: ModalComponent;
+    @ViewChild('modal', {static: true}) modal: ModalComponent;
     @Input() checkedExecs: Exec[] = [];
     @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 

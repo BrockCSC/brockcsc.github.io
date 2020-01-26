@@ -14,7 +14,7 @@ export class SlideshowComponent implements AfterViewInit {
     @ContentChildren(SlideComponent)
     slides: QueryList<SlideComponent>;
 
-    @ViewChild('container')
+    @ViewChild('container', {static: true})
     slidesContainer: ElementRef;
 
     // The active slide (index used for slides)

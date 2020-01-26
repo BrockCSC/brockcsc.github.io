@@ -1,8 +1,9 @@
+import { switchMap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 
 import * as firebase from 'firebase/app';
@@ -28,13 +29,13 @@ export class AuthService {
     }
 
     public getUser(): Observable<User> {
-        return this._auth.authState
-            .switchMap(auth => {
+        return this._auth.authState.pipe(
+            switchMap(auth => {
                 if (auth) {
                     return this.getUserById(auth.uid);
                 }
-                return Observable.of(null);
-            });
+                return of(null);
+            })) as Observable<User>;
     }
 
     public getUserById(uid: string): Observable<User> {

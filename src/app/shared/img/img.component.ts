@@ -14,8 +14,8 @@ export class ImgComponent implements OnInit {
     @Input() height = 0;
     @Input() alt = '';
     @Input() styleConfig: ImageStyleConfig;
-    @ViewChild('img') img: ElementRef;
-    @ViewChild('container') container: ElementRef;
+    @ViewChild('img', {static: true}) img: ElementRef;
+    @ViewChild('container', {static: true}) container: ElementRef;
     private loaded = false;
 
     constructor(private _sanitizer: DomSanitizer) { }
