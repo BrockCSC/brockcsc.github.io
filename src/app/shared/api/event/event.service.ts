@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject, QueryFn } from '@angular/fire/database';
 import { Event } from './event';
 import { StorageService } from '../storage/storage.service';
+import { listWithKeys, objectWithKeys } from '../util';
 
 
 @Injectable()
@@ -23,33 +24,23 @@ export class EventApiService {
     }
 
     public getNextEvent(): Observable<Event> {
-        return this.queryEvent(ref => {
+        return listWithKeys(this.queryEvent(ref => {
             return ref.orderByChild('datetime/timeStartTimestamp')
                 .startAt(this.getTodayTimestamp())
                 .limitToFirst(1);
-        }).valueChanges().pipe(map((obj) => obj[0]));
+        })).pipe(map((obj) => obj[0]));
     }
 
     public getFutureEvents(): Observable<Event[]> {
-        return this.keyPipe(this.queryEvent(ref => {
+        return listWithKeys(this.queryEvent(ref => {
             return ref.orderByChild('datetime/timeStartTimestamp')
                 .startAt(this.getTodayTimestamp());
         }));
     }
 
-    public keyPipe<T>(obs: AngularFireList<T>): Observable<T[]> {
-        return obs.snapshotChanges().pipe(map(items => {
-            return items.map(a => {
-                const data = a.payload.val() as any;
-                const $key = a.payload.key;
-                return { $key, ...data };
-            });
-        }));
-    }
-
     public getPastEvents(): Observable<Event[]> {
         return this.reverse(
-            this.keyPipe(this.queryEvent(ref => {
+            listWithKeys(this.queryEvent(ref => {
                 return ref
                     .orderByChild('datetime/timeStartTimestamp')
                     .endAt(this.getTodayTimestamp());
@@ -58,7 +49,7 @@ export class EventApiService {
     }
 
     public getEventByKey(key: string): Observable<Event> {
-        return this._db.object(`${this._path}/${key}`).valueChanges() as Observable<Event>;
+        return objectWithKeys(this._db.object(`${this._path}/${key}`)) as Observable<Event>;
     }
 
     private getTodayTimestamp(): number {
@@ -74,10 +65,11 @@ export class EventApiService {
     }
 
     public getEvents(): Observable<Event[]> {
-        return this.reverse(this.events.valueChanges());
+        return this.reverse(listWithKeys(this.events));
     }
 
     public updateEvent(key: string, value: Event): Promise<void> {
+        console.log(key);
         return this.events.update(key, value);
     }
 

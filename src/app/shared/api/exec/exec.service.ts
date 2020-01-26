@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, QueryFn } from '@angular/fire/database';
 import { Exec } from './exec';
 import { StorageService } from '../storage/storage.service';
+import { listWithKeys } from '../util';
 
 @Injectable()
 export class ExecApiService {
@@ -27,17 +28,17 @@ export class ExecApiService {
     }
 
     public getCurrentExecs(): Observable<Exec[]> {
-        return this.queryExec(ref => {
+        return listWithKeys(this.queryExec(ref => {
             return ref.orderByChild('isCurrentExec')
                 .equalTo(true);
-        }).valueChanges();
+        }));
     }
 
     public getPreviousExecs(): Observable<Exec[]> {
-        return this.queryExec(ref => {
+        return listWithKeys(this.queryExec(ref => {
             return ref.orderByChild('isCurrentExec')
                 .equalTo(false);
-        }).valueChanges();
+        }));
     }
 
     public updateExec(key: string, value: Exec): Promise<void> {
