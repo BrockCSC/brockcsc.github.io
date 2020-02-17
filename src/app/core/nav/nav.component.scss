@@ -116,11 +116,13 @@ a {
         display: none;
     }
     .csc-nav-mobile {
+        position: relative;
         .csc-logo-container {
             width: 100%;
             text-align: center;
         }
         .csc-nav-menu {
+            left: 0;
             top: 50%;
             transform: translateY(-50%);
             z-index: 4;
@@ -128,6 +130,12 @@ a {
             i {
                 font-size: 30px;
             }
+        }
+        .csc-join-button-container {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
         }
     }
 }
