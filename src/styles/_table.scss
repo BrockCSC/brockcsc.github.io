@@ -1,4 +1,5 @@
 @import 'src/variables.scss';
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -29,15 +30,17 @@ tr {
     text-align: center;
 }
 
-.csc-edit-icon {
+.csc-mat-icon {
     color: $maroon;
     text-align: center;
-    i:hover {
-        cursor: pointer;
-    }
 }
 
-.csc-remove-th, .csc-edit-th {
+.csc-mat-icon:hover {
+    cursor: pointer;
+}
+
+.csc-remove-th,
+.csc-edit-th {
     width: 1px;
     padding: 0px 35px;
 }

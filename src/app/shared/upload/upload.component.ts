@@ -13,7 +13,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     @Input() message = 'Select files or drag here';
     @Input() type = 'single';
     @Input() data: CscFile[];
-    @ViewChild('existingUpload', {static: false}) existingFiles: UploadExistingComponent;
+    @ViewChild('existingUpload') existingFiles: UploadExistingComponent;
     files: FileList;
     fileHover: boolean;
     storageTasks: StorageTask[] = [];

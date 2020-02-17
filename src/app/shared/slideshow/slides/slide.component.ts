@@ -6,8 +6,8 @@ import { Component, ViewChild, TemplateRef, ElementRef } from "@angular/core";
     styleUrls: ["./slide.component.scss"]
 })
 export class SlideComponent {
-    @ViewChild(TemplateRef, {static: false}) template: TemplateRef<any>;
-    @ViewChild('container', {static: false}) slideContainer: ElementRef;
+    @ViewChild(TemplateRef) template: TemplateRef<any>;
+    @ViewChild('container') slideContainer: ElementRef;
 
     // Is the slide active or not
     active = false;

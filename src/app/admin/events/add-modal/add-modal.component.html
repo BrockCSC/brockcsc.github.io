@@ -6,15 +6,18 @@
                 <form [formGroup]="form">
                     <div class="row">
                         <csc-input-container class="col-12" label="Title" labelLocation="top">
-                            <input class="csc-input" type="text" formControlName="title" placeholder="Title of the event">
+                            <input class="csc-input" type="text" formControlName="title"
+                                   placeholder="Title of the event">
                         </csc-input-container>
                     </div>
                     <div class="row">
                         <csc-input-container class="col-6" label="Presenter" labelLocation="top">
-                            <input class="csc-input" type="text" formControlName="presenter" placeholder="Who is running the event?">
+                            <input class="csc-input" type="text" formControlName="presenter"
+                                   placeholder="Who is running the event?">
                         </csc-input-container>
                         <csc-input-container class="col-6" label="Location" labelLocation="top">
-                            <input class="csc-input" type="text" formControlName="location" placeholder="Where the event will be held">
+                            <input class="csc-input" type="text" formControlName="location"
+                                   placeholder="Where the event will be held">
                         </csc-input-container>
                     </div>
                     <div class="row" formGroupName="datetime">
@@ -22,28 +25,43 @@
                             <input class="csc-input" type="date" formControlName="date" placeholder="Date of the event">
                         </csc-input-container>
                         <csc-input-container label="Time Start" class="col-4" labelLocation="top">
-                            <input class="csc-input" type="time" formControlName="timeStart" placeholder="Time of the event">
+                            <input class="csc-input" type="time" formControlName="timeStart"
+                                   placeholder="Time of the event">
                         </csc-input-container>
                         <csc-input-container label="Time End" class="col-4" labelLocation="top">
-                            <input class="csc-input" type="time" formControlName="timeEnd" placeholder="Time of the event">
+                            <input class="csc-input" type="time" formControlName="timeEnd"
+                                   placeholder="Time of the event">
                         </csc-input-container>
                     </div>
                     <div class="row">
                         <csc-input-container label="Description" class="col-12" labelLocation="top">
-                            <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description of the event"></textarea>
+                            <textarea class="csc-input" type="text" formControlName="description"
+                                      placeholder="Brief description of the event"></textarea>
                         </csc-input-container>
                     </div>
                     <div class="row">
                         <csc-input-container label="Sign up form URL" class="col-12" labelLocation="top">
-                            <input class="csc-input" type="text" formControlName="signupUrl" placeholder="https://docs.google.com/forms/d/...">
+                            <input class="csc-input" type="text" formControlName="signupUrl"
+                                   placeholder="https://docs.google.com/forms/d/...">
                         </csc-input-container>
+                    </div>
+                    <div class="row">
+                        <csc-checkbox label="Include embedded form">
+                            <input type="checkbox" [(ngModel)]="includeForm" [ngModelOptions]="{standalone: true}">>
+                        </csc-checkbox>
+                    </div>
+                    <div class="row" *ngIf="includeForm">
+                        <csc-prominent-container title="Sign up form">
+                            <csc-firebase-form-creator [(formInfo)]="eventForm"></csc-firebase-form-creator>
+                        </csc-prominent-container>
                     </div>
                     <div class="row">
                         <csc-input-container label="Upload Image" class="col-6" labelLocation="top">
                             <csc-upload formControlName="image" message="Drag event image here"></csc-upload>
                         </csc-input-container>
                         <csc-input-container label="Upload Resources" class="col-6" labelLocation="top">
-                            <csc-upload formControlName="resources" type="multi" message="Drag event resources here"></csc-upload>
+                            <csc-upload formControlName="resources" type="multi"
+                                        message="Drag event resources here"></csc-upload>
                         </csc-input-container>
                     </div>
                 </form>

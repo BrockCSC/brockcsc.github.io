@@ -1,0 +1,25 @@
+<script src="admin-event.component.ts"></script>
+<div class="container csc-event">
+    <h1>Event Management</h1>
+    <h2>Event</h2>
+    <a [routerLink]="'/events/'+ id">Event page</a>
+    <div class="row">
+        <div class="col-12" *ngIf="!event">
+            <csc-spinner></csc-spinner>
+        </div>
+        <csc-event-view *ngIf="!!event" [event]="event"></csc-event-view>
+    </div>
+    <h2>Responses</h2>
+    <div class="row">
+        <div class="col-12">
+            <csc-form-responses *ngIf="!!event && !!event.formId;"
+                                [formId]="event.formId"></csc-form-responses>
+            <ng-template [ngIf]="!event">
+                <csc-spinner></csc-spinner>
+            </ng-template>
+            <ng-template [ngIf]="!!event && !event.formId">
+                No form for this event!
+            </ng-template>
+        </div>
+    </div>
+</div>

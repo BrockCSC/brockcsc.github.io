@@ -10,7 +10,7 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
 })
 export class AddModalComponent implements OnInit {
     public form: FormGroup;
-    @ViewChild('modal', {static: false}) modal: ModalComponent;
+    @ViewChild('modal') modal: ModalComponent;
 
     constructor(private _foodApiService: FoodApiService, private _formBuilder: FormBuilder) { }
 

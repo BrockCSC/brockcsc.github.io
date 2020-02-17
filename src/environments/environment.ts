@@ -6,11 +6,12 @@
 export const environment = {
     production: false,
     firebase: {
-        apiKey: 'AIzaSyCs9zuNhRinJgZAiY2KQOHXP5pNI2ssQyc',
-        authDomain: 'brockcsc-b0f6e.firebaseapp.com',
-        databaseURL: 'https://brockcsc-b0f6e.firebaseio.com',
-        projectId: 'brockcsc-b0f6e',
-        storageBucket: 'brockcsc-b0f6e.appspot.com',
-        messagingSenderId: '232986247009'
+        apiKey: 'AIzaSyDQDfY9LihVJctR7xkiaSAK3oY_gWymzMo',
+        authDomain: 'brockcsc-test.firebaseapp.com',
+        databaseURL: 'https://brockcsc-test.firebaseio.com',
+        projectId: 'brockcsc-test',
+        storageBucket: 'brockcsc-test.appspot.com',
+        messagingSenderId: '616874187714',
+        appId: '1:616874187714:web:7c2991b562ffab0944d45b',
     }
 };

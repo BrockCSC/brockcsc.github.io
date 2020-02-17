@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject, QueryFn } from '@angular/fire/database';
-import { Event } from './event';
+import {Observable, Subscribable} from 'rxjs';
+import {map, take} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase, AngularFireList, QueryFn} from '@angular/fire/database';
+import {Event} from './event';
+import {listWithKeys, objectWithKeys} from '../util';
 import { StorageService } from '../storage/storage.service';
-import { listWithKeys, objectWithKeys } from '../util';
 
 
 @Injectable()
@@ -50,6 +50,10 @@ export class EventApiService {
 
     public getEventByKey(key: string): Observable<Event> {
         return objectWithKeys(this._db.object(`${this._path}/${key}`)) as Observable<Event>;
+    }
+
+    public getEventByKeyOnce(key: string): Subscribable<Event> {
+        return this.getEventByKey(key).pipe(take(1));
     }
 
     private getTodayTimestamp(): number {

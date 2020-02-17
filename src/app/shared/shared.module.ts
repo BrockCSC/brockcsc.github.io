@@ -1,3 +1,4 @@
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
@@ -16,11 +17,20 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { ImgComponent } from './img/img.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { SlideComponent } from './slideshow/slides/slide.component';
-
+import { FirebaseFormComponent } from './form/firebase-form/firebase-form.component';
+import { AnyCastPipe } from './any-cast.pipe';
+import { FirebaseFormCreatorComponent } from './form/firebase-form-creator/firebase-form-creator.component';
+import { RadioCreatorComponent } from './form/radio-creator/radio-creator.component';
+import { TextFieldCreatorComponent } from './form/text-field-creator/text-field-creator.component';
+import { CheckboxCreatorComponent } from './form/checkbox-creator/checkbox-creator.component';
+import { ProminentContainerComponent } from './prominent-container/prominent-container.component';
+import { EventViewComponent } from './event-view/event-view.component';
 @NgModule({
     imports: [
         CommonModule,
-        ModalModule
+        ModalModule,
+        ReactiveFormsModule,
+        FormsModule,
     ],
     exports: [
         ButtonDirective,
@@ -37,7 +47,11 @@ import { SlideComponent } from './slideshow/slides/slide.component';
         SpinnerComponent,
         ImgComponent,
         SlideshowComponent,
-        SlideComponent
+        SlideComponent,
+        FirebaseFormComponent,
+        FirebaseFormCreatorComponent,
+        EventViewComponent,
+        ProminentContainerComponent,
     ],
     declarations: [
         ButtonComponent,
@@ -53,13 +67,22 @@ import { SlideComponent } from './slideshow/slides/slide.component';
         SpinnerComponent,
         ImgComponent,
         SlideshowComponent,
-        SlideComponent
+        SlideComponent,
+        FirebaseFormComponent,
+        AnyCastPipe,
+        FirebaseFormCreatorComponent,
+        RadioCreatorComponent,
+        TextFieldCreatorComponent,
+        CheckboxCreatorComponent,
+        FirebaseFormCreatorComponent,
+        ProminentContainerComponent,
+        EventViewComponent,
     ],
     providers: [
         EventApiService,
         ExecApiService,
         StorageService,
-        FoodApiService
+        FoodApiService,
     ]
 })
 export class SharedModule { }

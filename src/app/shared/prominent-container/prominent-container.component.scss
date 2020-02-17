@@ -1,0 +1,9 @@
+@import "src/variables.scss";
+
+.label {
+    display: table-cell;
+    text-transform: uppercase;
+    padding: 0 10px 0 10px;
+    color: $maroon;
+    vertical-align: top;
+}

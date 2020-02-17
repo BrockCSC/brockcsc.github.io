@@ -17,6 +17,8 @@ import { EditModalComponent as EditExecModal } from './execs/edit-modal/edit-mod
 import { AddModalComponent as AddFoodModal } from './food/add-modal/add-modal.component';
 import { RemoveModalComponent as RemoveFoodModal } from './food/remove-modal/remove-modal.component';
 import { EditModalComponent as EditFoodModal } from './food/edit-modal/edit-modal.component';
+import { AdminEventComponent } from './events/admin-event/admin-event.component';
+import { FormResponsesComponent } from './form-responses/form-responses.component';
 
 @NgModule({
     imports: [
@@ -24,7 +26,7 @@ import { EditModalComponent as EditFoodModal } from './food/edit-modal/edit-moda
         SharedModule,
         FormsModule,
         ReactiveFormsModule,
-        routing
+        routing,
     ],
     declarations: [
         AdminComponent,
@@ -40,7 +42,9 @@ import { EditModalComponent as EditFoodModal } from './food/edit-modal/edit-moda
         EditExecModal,
         AddFoodModal,
         RemoveFoodModal,
-        EditFoodModal
+        EditFoodModal,
+        AdminEventComponent,
+        FormResponsesComponent
     ]
 })
 export class AdminModule { }

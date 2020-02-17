@@ -10,7 +10,7 @@ import { AngularFireList } from '@angular/fire/database';
     styleUrls: ['./remove-modal.component.scss']
 })
 export class RemoveModalComponent implements OnInit {
-    @ViewChild('modal', {static: false}) modal: ModalComponent;
+    @ViewChild('modal') modal: ModalComponent;
     @Input() checkedFoodItems: Food[] = [];
     @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 

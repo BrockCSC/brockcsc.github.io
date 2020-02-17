@@ -1,3 +1,4 @@
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CommonModule } from '@angular/common';
-
 
 @NgModule({
     declarations: [
@@ -30,7 +30,11 @@ import { CommonModule } from '@angular/common';
         AngularFireStorageModule,
         CommonModule,
         RouterModule,
+        ReactiveFormsModule,
+        FormsModule,
     ],
-    bootstrap: [AppComponent]
+    exports: [
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }
