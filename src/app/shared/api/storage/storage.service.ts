@@ -23,8 +23,10 @@ export class StorageService {
                     reject(error);
                 },
                 complete: () => {
-                    storageTask.url = upload.snapshot.downloadURL;
-                    resolve(storageTask);
+                    upload.snapshot.ref.getDownloadURL().then(downloadURL => {
+                        storageTask.url = downloadURL;
+                        resolve(storageTask);
+                    });
                 }
             });
         });
