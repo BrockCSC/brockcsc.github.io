@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Event, EventApiService } from 'app/shared/api';
+import { CscEvent, EventApiService } from 'app/shared/api';
 import { AngularFireList } from '@angular/fire/database';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { HomeImageConfigs } from './imageConfigs';
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     events: Row[] = [];
     services: Row[] = [];
-    nextEvent: Event;
+    nextEvent: CscEvent;
     images: HomeImages = {
         about: HomeImageConfigs.about,
         partyPopper: Object.assign(HomeImageConfigs.partyPopper, { width: 16, height: 16 }), // overwrites the generated w/h

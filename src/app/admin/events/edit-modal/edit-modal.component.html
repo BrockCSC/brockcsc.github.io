@@ -49,11 +49,16 @@
                         </csc-prominent-container>
                     </div>
                     <div class="row">
-                        <csc-input-container label="Image" class="col-6" labelLocation="top">
-                            <csc-upload formControlName="image" message="Drag event image here" [data]="getImage()"></csc-upload>
+                        <csc-input-container label="Upload Image" class="col-4" labelLocation="top">
+                            <csc-upload formControlName="image" message="Drag event image here"></csc-upload>
                         </csc-input-container>
-                        <csc-input-container label="Resources" class="col-6" labelLocation="top">
-                            <csc-upload formControlName="resources" type="multi" message="Drag event resources here" [data]="getResources()"></csc-upload>
+                        <csc-input-container label="Upload Resources" class="col-4" labelLocation="top">
+                            <csc-upload formControlName="resources" type="multi"
+                                        message="Drag event resources here"></csc-upload>
+                        </csc-input-container>
+                        <csc-input-container label="Upload Gallery Images" class="col-4" labelLocation="top">
+                            <csc-upload formControlName="gallery" type="multi"
+                                        message="Drag gallery images here"></csc-upload>
                         </csc-input-container>
                     </div>
                 </form>

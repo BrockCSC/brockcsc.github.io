@@ -1,6 +1,5 @@
-import { FormInfo } from '../form/form';
 import { CscFile } from '../storage/cscFile';
-export class Event {
+export class CscEvent {
     $key: string;
     title: string;
     presenter: string;
@@ -16,5 +15,6 @@ export class Event {
         timeStartTimestamp: number;
         timeEndTimestamp: number;
     };
+    gallery: CscFile[];
     formId: string;
 }

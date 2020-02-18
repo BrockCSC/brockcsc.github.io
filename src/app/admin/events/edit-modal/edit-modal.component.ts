@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
-import { Event, CscFile } from 'app/shared/api';
+import { CscEvent, CscFile } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { emptyForm, FormInfo, randomUid } from '../../../shared/api/form/form';
@@ -13,7 +13,7 @@ import { FormApiService } from '../../../shared/api/form/form-api.service';
 })
 export class EditModalComponent implements OnInit {
     public form: FormGroup;
-    public editableEvent: Event;
+    public editableEvent: CscEvent;
     @ViewChild('modal') modal: ModalComponent;
     public eventForm: FormInfo = emptyForm();
     includeForm = false;
@@ -21,7 +21,7 @@ export class EditModalComponent implements OnInit {
     constructor(private _eventApiService: EventApiService, private _formBuilder: FormBuilder, private _formApiService: FormApiService) {
     }
 
-    public open(event: Event) {
+    public open(event: CscEvent) {
         this.eventForm = emptyForm();
         this.editableEvent = event;
         this.includeForm = !!event.formId;
@@ -49,7 +49,8 @@ export class EditModalComponent implements OnInit {
             location: '',
             resources: new FormControl([]),
             image: {},
-            signupUrl: ''
+            signupUrl: '',
+            gallery: new FormControl([]),
         });
     }
 

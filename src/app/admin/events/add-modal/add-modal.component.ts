@@ -1,7 +1,7 @@
 import { emptyForm, FormInfo, randomUid } from '../../../shared/api/form/form';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
-import { Event } from 'app/shared/api';
+import { CscEvent } from 'app/shared/api';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { FormApiService } from '../../../shared/api/form/form-api.service';
@@ -33,12 +33,13 @@ export class AddModalComponent implements OnInit {
             location: '',
             resources: new FormControl([]),
             image: {},
-            signupUrl: ''
+            signupUrl: '',
+            gallery: new FormControl([]),
         });
     }
 
     public add(): void {
-        const val = this.form.value as Event;
+        const val = this.form.value as CscEvent;
         if (this.eventForm.fields.length === 0) {
             this.includeForm = false;
         }

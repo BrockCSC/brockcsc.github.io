@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
 import { FormBuilder } from '@angular/forms';
-import { Event } from 'app/shared/api';
+import { CscEvent } from 'app/shared/api';
 
 @Component({
     selector: 'csc-admin-events',
@@ -10,8 +10,8 @@ import { Event } from 'app/shared/api';
 })
 export class EventsComponent implements OnInit {
     public events: any;
-    public checkedEvents: Event[] = [];
-    public editableEvent: Event;
+    public checkedEvents: CscEvent[] = [];
+    public editableEvent: CscEvent;
 
     constructor(private _api: EventApiService, private formBuilder: FormBuilder) { }
 
@@ -23,7 +23,7 @@ export class EventsComponent implements OnInit {
         this.checkedEvents = [];
     }
 
-    public checked(mouseEvent: MouseEvent, event: Event) {
+    public checked(mouseEvent: MouseEvent, event: CscEvent) {
         const checkbox: HTMLInputElement = <HTMLInputElement>mouseEvent.target;
         if (checkbox.checked) {
             this.checkedEvents.push(event);

@@ -1,8 +1,8 @@
 import { Subscription } from 'rxjs';
-import { Event } from 'app/shared/api';
+import { CscEvent } from 'app/shared/api';
 
 export class EventContainer {
-    events: Event[];
+    events: CscEvent[];
     loaded: boolean;
     subscription: Subscription;
 
