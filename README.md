@@ -3,6 +3,7 @@ This is the repository for the Brock University Computer Science Club web page.
 
 - Angular CLI: 9.0.1
 
+Dev env: https://brockcsc-test.firebaseapp.com
 
 ### Prerequisites
 - [Node][Node] >= v12.7.0
