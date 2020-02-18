@@ -33,7 +33,6 @@
         <div #navOverlay class="nav-overlay container" [ngClass]="{'nav-overlay-open' : showOverlay}">
             <div class="nav-overlay-content">
                 <a routerLink="/home" (click)="toggleOverlayMenu()">Home</a>
-                <a routerLink="/signup" (click)="toggleOverlayMenu()">Join</a>
                 <a *ngFor="let link of links" [routerLink]="link.href" (click)="toggleOverlayMenu()"
                    [title]="link.desc">{{ link.desc }}</a>
                 <a *ngIf="linkAdmin.visible" [routerLink]="linkAdmin.href" [title]="linkAdmin.desc"
@@ -42,15 +41,23 @@
                    (click)="toggleOverlayMenu()">{{ linkLogout.desc }}</a>
             </div>
         </div>
-        <div class="csc-logo-container">
-            <a *ngIf="changeToWhiteNav()" routerLink="/home"><img class="csc-logo-black" width="75px" height="56px"
-                                                                  src="assets/logo-black.svg"
-                                                                  alt="Brock Computer Science Club Logo"></a>
-            <a *ngIf="!changeToWhiteNav()" routerLink="/home"><img class="csc-logo" width="75px" height="56px"
-                                                                   src="assets/logo.svg"
-                                                                   alt="Brock Computer Science Club Logo"></a>
-        </div>
-        <div class="csc-join-button-container">
+        <!--<div class="csc-logo-container">-->
+            <!--<a *ngIf="changeToWhiteNav()" routerLink="/home"><img class="csc-logo-black" width="75px" height="56px"-->
+                                                                  <!--src="assets/logo-black.svg"-->
+                                                                  <!--alt="Brock Computer Science Club Logo"></a>-->
+            <!--<a *ngIf="!changeToWhiteNav()" routerLink="/home"><img class="csc-logo" width="75px" height="56px"-->
+                                                                   <!--src="assets/logo.svg"-->
+                                                                   <!--alt="Brock Computer Science Club Logo"></a>-->
+        <!--</div>-->
+        <div class="csc-mobile-left-container">
+            <div class="csc-logo-container">
+                <a *ngIf="changeToWhiteNav()" routerLink="/home"><img class="csc-logo-black" width="75px" height="56px"
+                                                                      src="assets/logo-black.svg"
+                                                                      alt="Brock Computer Science Club Logo"></a>
+                <a *ngIf="!changeToWhiteNav()" routerLink="/home"><img class="csc-logo" width="75px" height="56px"
+                                                                       src="assets/logo.svg"
+                                                                       alt="Brock Computer Science Club Logo"></a>
+            </div>
             <a routerLink="/signup">
                 <button csc-button class="csc-join-button">Join</button>
             </a>
