@@ -7,9 +7,6 @@
             [formGroup]="form"
         >
             <div class="row">
-
-                <h3 class="col-12 hide-mobile">Sign Up</h3>
-
                 <div *ngFor="let field of formInfo.fields | anyCast">
                     <csc-input-container class="col-12" [label]="field.description + (field.required? ' (*)':'')"
                                          labelLocation="top">

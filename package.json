@@ -13,6 +13,7 @@
     "deploy:dev": "firebase deploy",
     "dev": "npm run build:dev && npm run deploy:dev",
     "prod": "npm run build && npm run postbuild && npm run deploy",
+    "prod:dev": "npm run build:dev && npm run postbuild && npm run deploy:dev",
     "postbuild": "bash ./scripts/postbuild.sh",
     "test": "ng test",
     "lint": "ng lint",

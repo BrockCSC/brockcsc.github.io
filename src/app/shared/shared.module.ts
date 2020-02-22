@@ -25,6 +25,7 @@ import { TextFieldCreatorComponent } from './form/text-field-creator/text-field-
 import { CheckboxCreatorComponent } from './form/checkbox-creator/checkbox-creator.component';
 import { ProminentContainerComponent } from './prominent-container/prominent-container.component';
 import { EventViewComponent } from './event-view/event-view.component';
+import { GoogleFormComponent } from './form/google-form/google-form.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -52,6 +53,7 @@ import { EventViewComponent } from './event-view/event-view.component';
         FirebaseFormCreatorComponent,
         EventViewComponent,
         ProminentContainerComponent,
+        GoogleFormComponent,
     ],
     declarations: [
         ButtonComponent,
@@ -77,6 +79,7 @@ import { EventViewComponent } from './event-view/event-view.component';
         FirebaseFormCreatorComponent,
         ProminentContainerComponent,
         EventViewComponent,
+        GoogleFormComponent,
     ],
     providers: [
         EventApiService,

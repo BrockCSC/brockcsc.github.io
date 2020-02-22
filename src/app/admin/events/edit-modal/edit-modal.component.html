@@ -34,8 +34,30 @@
                         </csc-input-container>
                     </div>
                     <div class="row">
+                        From the following sign up form options, you probably want to choose just one. If you do specify
+                        all of them though, they will all show up.
+                    </div>
+                    <div class="row">
+                        <csc-checkbox label="Include embedded google form">
+                            <input type="checkbox" [(ngModel)]="includeGoogleForm"
+                                   [ngModelOptions]="{standalone: true}">>
+                        </csc-checkbox>
+                    </div>
+                    <div class="row" *ngIf="includeGoogleForm">
+                        <csc-input-container label="Embedded Google Form url" class="col-12" labelLocation="top">
+                            <input class="csc-input" type="text" formControlName="googleFormUrl"
+                                   placeholder="https://docs.google.com/forms/d/...">
+                        </csc-input-container>
+                    </div>
+                    <div class="row">
+                        <csc-checkbox label="Include sign up link">
+                            <input type="checkbox" [(ngModel)]="includeLink" [ngModelOptions]="{standalone: true}">>
+                        </csc-checkbox>
+                    </div>
+                    <div class="row" *ngIf="includeLink">
                         <csc-input-container label="Sign up form URL" class="col-12" labelLocation="top">
-                            <input class="csc-input" type="text" formControlName="signupUrl" placeholder="https://docs.google.com/forms/d/...">
+                            <input class="csc-input" type="text" formControlName="signupUrl"
+                                   placeholder="https://example.com/...">
                         </csc-input-container>
                     </div>
                     <div class="row">

@@ -17,4 +17,5 @@ export class CscEvent {
     };
     gallery: CscFile[];
     formId: string;
+    googleFormUrl: string;
 }
