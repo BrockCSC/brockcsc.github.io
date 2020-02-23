@@ -1,4 +1,5 @@
 @import 'src/variables.scss';
+
 $height: 300px;
 $border: 1px solid $dark-grey;
 
@@ -11,6 +12,7 @@ $border: 1px solid $dark-grey;
         margin-top: 0px;
         margin-bottom: 0px;
     }
+
     .csc-header {
         margin-bottom: 10px;
         @media #{$mobile} {
@@ -30,6 +32,23 @@ $border: 1px solid $dark-grey;
 
 .csc-event-header {
     border: $border;
+}
+
+.csc-google-form-container {
+    border: $border;
+    border-top: none;
+
+    p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .csc-header {
+        margin-bottom: 10px;
+        @media #{$mobile} {
+            margin-bottom: 15px;
+        }
+    }
 }
 
 .csc-event-image {
@@ -57,9 +76,11 @@ $border: 1px solid $dark-grey;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    >h2 {
+
+    > h2 {
         margin-top: 0px;
     }
+
     @media #{$mobile} {
         top: 0%;
         transform: translateY(0%);
@@ -70,6 +91,7 @@ $border: 1px solid $dark-grey;
     color: $maroon;
 }
 
+.csc-google-form,
 .csc-event-description,
 .csc-event-location,
 .csc-event-resource {

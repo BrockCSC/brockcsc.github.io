@@ -21,7 +21,7 @@ export class AnyCastPipe implements PipeTransform {
 //   constructor() {
 //   }
 
-//   transform(value: any, args?: any): Event {
+//   transform(value: any, args?: any): CscEvent {
 //     return value;
 //   }
 // }

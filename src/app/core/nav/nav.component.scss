@@ -26,13 +26,13 @@ $nav-links-margin: 1.5em;
     }
 }
 
-.csc-nav-links>a {
+.csc-nav-links > a {
     @include nav-link();
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
 }
 
-.black-links>a {
+.black-links > a {
     @include nav-link();
     color: rgba(0, 0, 0, 0.9);
 }
@@ -52,8 +52,13 @@ a {
     text-decoration: none;
     color: white;
 }
+
 .csc-join-button {
     margin-left: 3.125rem;
+}
+
+.csc-join-button-mobile {
+    margin-left: 2rem;
 }
 
 .container {
@@ -117,23 +122,22 @@ a {
     }
     .csc-nav-mobile {
         position: relative;
-        .csc-logo-container {
-            width: 100%;
-            text-align: center;
-        }
+
         .csc-nav-menu {
-            left: 0;
+            right: 0;
             top: 50%;
             transform: translateY(-50%);
             z-index: 4;
             position: absolute;
+
             i {
                 font-size: 30px;
             }
         }
-        .csc-join-button-container {
+
+        .csc-mobile-left-container {
             position: absolute;
-            right: 0;
+            left: 0;
             top: 50%;
             transform: translateY(-50%);
         }

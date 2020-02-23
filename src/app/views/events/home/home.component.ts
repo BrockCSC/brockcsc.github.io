@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Event } from 'app/shared/api';
+import { CscEvent } from 'app/shared/api';
 import { EventDataService } from 'app/views/events/event-data.service';
 import { EventContainer } from '../eventContainer';
 
@@ -32,7 +32,7 @@ export class EventsHomeComponent implements OnInit, OnDestroy {
         return this._eventDataService.pastEventsLoaded();
     }
 
-    public selectEvent(event: Event): void {
+    public selectEvent(event: CscEvent): void {
         this._eventDataService.setEvent(event);
         // this.router.navigate([`/events/${event.$key}`]);
     }

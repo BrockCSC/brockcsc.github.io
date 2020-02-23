@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Event, EventApiService } from 'app/shared/api';
+import { CscEvent, EventApiService } from 'app/shared/api';
 import { Subscription } from 'rxjs';
 import { EventContainer } from './eventContainer';
 
 @Injectable()
 export class EventDataService {
-    private event: Event;
+    private event: CscEvent;
     private upcomingEvents: EventContainer;
     private pastEvents: EventContainer;
 
@@ -15,11 +15,11 @@ export class EventDataService {
         return this.event !== undefined;
     }
 
-    public setEvent(event: Event): void {
+    public setEvent(event: CscEvent): void {
         this.event = event;
     }
 
-    public getEvent(): Event {
+    public getEvent(): CscEvent {
         return this.event;
     }
 
