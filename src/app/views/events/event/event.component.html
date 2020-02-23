@@ -8,6 +8,14 @@
             <p>Event ID: {{ id }}</p>
         </div>
         <csc-event-view [event]="event"></csc-event-view>
-        <csc-firebase-form *ngIf="!!event" [formId]="event.formId"></csc-firebase-form>
+    </div>
+    <div class="row csc-google-form-container" *ngIf="event && (event.googleFormUrl || event.formId)">
+        <div class="col-12">
+            <div class="csc-google-form">
+                <h3 class="csc-header">Sign Up</h3>
+                <csc-firebase-form *ngIf="event.formId" [formId]="event.formId"></csc-firebase-form>
+                <csc-google-form *ngIf="event.googleFormUrl" [googleFormUrl]="event.googleFormUrl"></csc-google-form>
+            </div>
+        </div>
     </div>
 </div>

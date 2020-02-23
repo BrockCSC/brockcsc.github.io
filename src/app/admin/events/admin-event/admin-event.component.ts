@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {take} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
-import {Event, EventApiService} from '../../../shared/api';
+import {CscEvent, EventApiService} from '../../../shared/api';
 
 @Component({
     selector: 'csc-admin-event',
@@ -11,7 +11,7 @@ import {Event, EventApiService} from '../../../shared/api';
 export class AdminEventComponent implements OnInit {
 
     id: string;
-    event: Event;
+    event: CscEvent;
 
     constructor(private _route: ActivatedRoute, private _eventApiService: EventApiService) {
     }

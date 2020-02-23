@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { EventApiService } from 'app/shared/api';
-import { Event } from 'app/shared/api';
+import { CscEvent } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
 })
 export class RemoveModalComponent implements OnInit {
     @ViewChild('modal') modal: ModalComponent;
-    @Input() checkedEvents: Event[] = [];
+    @Input() checkedEvents: CscEvent[] = [];
     @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 
     constructor(private _eventApiService: EventApiService) { }

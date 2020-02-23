@@ -3,6 +3,7 @@ This is the repository for the Brock University Computer Science Club web page.
 
 - Angular CLI: 9.0.1
 
+Dev env: https://brockcsc-test.firebaseapp.com
 
 ### Prerequisites
 - [Node][Node] >= v12.7.0
@@ -25,7 +26,17 @@ This is the repository for the Brock University Computer Science Club web page.
 - This will also run a postbuild script that will generate a serviceworker which will provide the PWA capabilities for the site.
 
 ### Deployment
-- After the application has been built, we can finally run `npm run deploy` which will deploy the application to the `master` branch of this repository.
+
+## Development
+
+- You will need firebase cli installed. See https://firebase.google.com/docs/cli.
+- Use firebase login to login with the brock csc gmail account.
+- run `npm run prod:dev` to deploy. This deploys the website on the brockcsc-test firebase project, which can be viewed at https://brockcsc-test.firebaseapp.com/
+
+## Production
+
+- Create a pull request/push to the production branch of this repository. This triggers GitHub actions deployment script, which should build and deploy the project in the master branch, and will 
+then be available at brockcsc.github.io or brockcsc.ca 
 
 ---
 

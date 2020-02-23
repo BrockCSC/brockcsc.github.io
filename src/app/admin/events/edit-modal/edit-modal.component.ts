@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { EventApiService } from 'app/shared/api';
-import { Event, CscFile } from 'app/shared/api';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { ModalComponent } from 'app/shared/modal/modal.component';
-import { emptyForm, FormInfo, randomUid } from '../../../shared/api/form/form';
-import { FormApiService } from '../../../shared/api/form/form-api.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {EventApiService} from 'app/shared/api';
+import {CscEvent, CscFile} from 'app/shared/api';
+import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
+import {ModalComponent} from 'app/shared/modal/modal.component';
+import {emptyForm, FormInfo, randomUid} from '../../../shared/api/form/form';
+import {FormApiService} from '../../../shared/api/form/form-api.service';
 
 @Component({
     selector: 'csc-edit-modal',
@@ -13,18 +13,22 @@ import { FormApiService } from '../../../shared/api/form/form-api.service';
 })
 export class EditModalComponent implements OnInit {
     public form: FormGroup;
-    public editableEvent: Event;
+    public editableEvent: CscEvent;
     @ViewChild('modal') modal: ModalComponent;
     public eventForm: FormInfo = emptyForm();
     includeForm = false;
+    includeGoogleForm: boolean;
+    includeLink: boolean;
 
     constructor(private _eventApiService: EventApiService, private _formBuilder: FormBuilder, private _formApiService: FormApiService) {
     }
 
-    public open(event: Event) {
+    public open(event: CscEvent) {
         this.eventForm = emptyForm();
         this.editableEvent = event;
         this.includeForm = !!event.formId;
+        this.includeLink = !!event.signupUrl;
+        this.includeGoogleForm = !!event.googleFormUrl;
         this.form.patchValue(this.editableEvent);
         if (event.formId) {
             this._formApiService.getFormOnce(this.editableEvent.formId).subscribe(
@@ -49,13 +53,15 @@ export class EditModalComponent implements OnInit {
             location: '',
             resources: new FormControl([]),
             image: {},
-            signupUrl: ''
+            signupUrl: '',
+            googleFormUrl: '',
+            gallery: new FormControl([]),
         });
     }
 
     public update(): void {
         const key = this.editableEvent.$key;
-        const data = this.form.value;
+        const data = this.form.value as CscEvent;
         data.datetime.timeStartTimestamp = new Date(`${data.datetime.date} ${data.datetime.timeStart}`).valueOf();
         data.datetime.timeEndTimestamp = new Date(`${data.datetime.date} ${data.datetime.timeEnd}`).valueOf();
         if (this.eventForm.fields.length === 0) {
@@ -77,6 +83,14 @@ export class EditModalComponent implements OnInit {
                     console.log('Error updating form');
                     console.error(error);
                 });
+        }
+
+        if (!this.includeLink) {
+            data.signupUrl = null;
+        }
+
+        if (!this.includeGoogleForm) {
+            data.googleFormUrl = null;
         }
 
         this._eventApiService.updateEvent(key, data)

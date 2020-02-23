@@ -2,7 +2,7 @@ import {take} from 'rxjs/operators';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {EventDataService} from 'app/views/events/event-data.service';
-import {Event, EventApiService} from 'app/shared/api';
+import {CscEvent, EventApiService} from 'app/shared/api';
 import {DatePipe} from '@angular/common';
 
 
@@ -13,7 +13,7 @@ import {DatePipe} from '@angular/common';
     styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
-    event: Event;
+    event: CscEvent;
     error: string;
     loaded: boolean;
     id: string;
@@ -37,7 +37,7 @@ export class EventComponent implements OnInit {
             this._eventApiService.getEventByKeyOnce(this.id).subscribe(event => {
                 this.loaded = true;
                 if (event as any) {
-                    this.event = event as Event;
+                    this.event = event as CscEvent;
                 } else {
                     this.error = `Event doesn't exist.`;
                 }
