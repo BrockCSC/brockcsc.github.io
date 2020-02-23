@@ -2,6 +2,8 @@
 
 ![Build and Deploy](https://github.com/BrockCSC/brockcsc.github.io/workflows/Build%20and%20Deploy/badge.svg?branch=production)
 
+![Firebase Deployment](https://github.com/BrockCSC/brockcsc.github.io/workflows/Firebase%20Deployment/badge.svg)
+
 This is the repository for the Brock University Computer Science Club web page. 
 
 - Angular CLI: 9.0.1
