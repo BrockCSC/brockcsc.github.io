@@ -1,3 +1,4 @@
+import { DISCORD_LINK } from './../../shared/utils/constants';
 import { Observable } from 'rxjs';
 import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,7 @@ import { Food, FoodApiService } from 'app/shared/api';
     styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnInit {
+    discordLink = DISCORD_LINK;
     private sections = [
         'Food',
         'Drink',

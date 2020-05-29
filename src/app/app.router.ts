@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: 'team', component: TeamComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'signup', component: SignupComponent },
+    { path: 'join', component: SignupComponent },
     { path: 'services', component: ServicesComponent },
     { path: 'events',  loadChildren: () => import('app/views/events/events.module').then(m => m.EventsModule)},
     { path: '**', redirectTo: 'home' }
