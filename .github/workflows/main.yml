@@ -29,7 +29,6 @@ jobs:
       - name: Build and Deploy Repo
         uses: JamesIves/github-pages-deploy-action@releases/v3-test
         with:
-          BASE_BRANCH: production   
           BRANCH: master
           FOLDER: dist
           SSH: true
