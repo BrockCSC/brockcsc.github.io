@@ -1,4 +1,9 @@
 # CSC
+
+![Build and Deploy](https://github.com/BrockCSC/brockcsc.github.io/workflows/Build%20and%20Deploy/badge.svg?branch=production)
+
+![Firebase Deployment](https://github.com/BrockCSC/brockcsc.github.io/workflows/Firebase%20Deployment/badge.svg)
+
 This is the repository for the Brock University Computer Science Club web page. 
 
 - Angular CLI: 9.0.1
@@ -27,13 +32,13 @@ Dev env: https://brockcsc-test.firebaseapp.com
 
 ### Deployment
 
-## Development
+#### Development
 
 - You will need firebase cli installed. See https://firebase.google.com/docs/cli.
 - Use firebase login to login with the brock csc gmail account.
 - run `npm run prod:dev` to deploy. This deploys the website on the brockcsc-test firebase project, which can be viewed at https://brockcsc-test.firebaseapp.com/
 
-## Production
+#### Production
 
 - Create a pull request/push to the production branch of this repository. This triggers GitHub actions deployment script, which should build and deploy the project in the master branch, and will 
 then be available at brockcsc.github.io or brockcsc.ca 

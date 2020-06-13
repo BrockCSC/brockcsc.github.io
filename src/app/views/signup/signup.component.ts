@@ -1,3 +1,4 @@
+import { DISCORD_LINK } from './../../shared/utils/constants';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,13 +9,14 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class SignupComponent {
     public form: FormGroup;
+    discordLink = DISCORD_LINK;
 
     public signupFormConfig: SignUpGoogleFormConfig;
-    public slackInviteFormConfig: SlackSignUpGoogleFormConfig;
+    public discordInviteFormConfig: DiscordSignUpGoogleFormConfig;
     public submitted: boolean;
 
     @ViewChild('signupForm') signupForm;
-    @ViewChild('slackInviteForm') slackInviteForm;
+    @ViewChild('discordInviteForm') discordInviteForm;
 
     constructor(private _formBuilder: FormBuilder) {
         this.submitted = false;
@@ -42,17 +44,17 @@ export class SignupComponent {
             }
         };
 
-        this.slackInviteFormConfig = {
-            url: 'https://docs.google.com/forms/d/e/1FAIpQLSc5iWOEC9AraA2lhhzk6Ma5FsjeJ8Qcc32fViixRholGQ04fg/formResponse',
+        this.discordInviteFormConfig = {
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSd-H69JkeJcJNv1a2vXCw5LXZjte-8Zh-egU-2Z-Q7Vofvqew/formResponse',
             ids: {
-                email: 'entry.2140667031'
+                email: 'entry.1501106727'
             }
         };
     }
 
     onSubmit(form: FormGroup) {
         if (form.valid) {
-            this.slackInviteForm.nativeElement.submit();
+            this.discordInviteForm.nativeElement.submit();
             this.signupForm.nativeElement.submit();
             this.submitted = true;
         }
@@ -73,7 +75,7 @@ class SignUpGoogleFormConfig {
     };
 }
 
-class SlackSignUpGoogleFormConfig {
+class DiscordSignUpGoogleFormConfig {
     url: string;
     ids: {
         email: string;

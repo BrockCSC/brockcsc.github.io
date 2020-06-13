@@ -1,3 +1,4 @@
+import { DISCORD_LINK } from './../../shared/utils/constants';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -35,9 +36,9 @@ export class FooterComponent implements OnInit {
                 desc: 'Instagram'
             },
             {
-                src: `${base}/slack.svg`,
-                href: 'https://brockcsc.slack.com',
-                desc: 'Slack'
+                src: `${base}/discord.svg`,
+                href: DISCORD_LINK,
+                desc: 'Discord'
             }
         ];
     }
