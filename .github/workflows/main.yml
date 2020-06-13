@@ -32,5 +32,4 @@ jobs:
           BASE_BRANCH: production   
           BRANCH: master
           FOLDER: dist
-          CLEAN: true
           SSH: true
