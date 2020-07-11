@@ -8,6 +8,8 @@ import { SharedModule } from 'app/shared/shared.module';
 import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { SignupComponent } from './signup/signup.component';
+import { GuideComponent } from './guide/guide.component';
+import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
     imports: [
@@ -15,8 +17,9 @@ import { SignupComponent } from './signup/signup.component';
         SharedModule,
         RouterModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MarkdownModule
     ],
-    declarations: [HomeComponent, TeamComponent, ContactComponent, ServicesComponent, SignupComponent],
+    declarations: [HomeComponent, TeamComponent, ContactComponent, ServicesComponent, SignupComponent, GuideComponent],
 })
 export class ViewsModule { }
