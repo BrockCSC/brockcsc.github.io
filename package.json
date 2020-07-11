@@ -37,6 +37,7 @@
     "firebase": "^7.7.0",
     "intersection-observer": "^0.4.2",
     "magic-check": "^1.0.3",
+    "ngx-markdown": "^10.0.0",
     "normalize.css": "^7.0.0",
     "popper.js": "^1.12.5",
     "rxjs": "^6.5.4",
