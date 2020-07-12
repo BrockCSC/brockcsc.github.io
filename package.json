@@ -19,7 +19,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pwa": "./node_modules/.bin/sw-precache --root=dist --config=precache-config.js",
-    "format:fix": "pretty-quick && ng lint --fix"
+    "format:fix": "pretty-quick && ng lint --fix",
+    "format:check": "pretty-quick --check && ng lint"
   },
   "private": true,
   "dependencies": {
@@ -80,7 +81,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && ng lint --fix"
+      "pre-commit": "ng lint --fix && pretty-quick --staged"
     }
   }
 }
