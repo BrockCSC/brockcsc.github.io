@@ -2,38 +2,38 @@
 // Mixin to reset default browser styles
 // borders, outlines, grey-background etc
 @mixin button-reset {
-    cursor: pointer;
-    outline: none;
-    border: none;
-    -webkit-tap-highlight-color: transparent;
-    text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
 }
 
 .csc-button {
-    @include button-reset();
-    $pad-horizontal: 2.5em;
-    $pad-vertical: 0.5em;
-    display: inline-block;
-    text-align: center;
-    padding-top: $pad-vertical - 0.125em;
-    padding-right: $pad-horizontal;
-    padding-bottom: $pad-vertical;
-    padding-left: $pad-horizontal;
-    background-color: $maroon;
-    color: $text-white;
-    transition: background-color 200ms $ease-in-out-curve-function;
-    &:hover {
-        background-color: darken($maroon, 10%);
-    }
-    &[disabled] {
-        background-color: $dark-grey;
-        cursor: default;
-    }
+  @include button-reset();
+  $pad-horizontal: 2.5em;
+  $pad-vertical: 0.5em;
+  display: inline-block;
+  text-align: center;
+  padding-top: $pad-vertical - 0.125em;
+  padding-right: $pad-horizontal;
+  padding-bottom: $pad-vertical;
+  padding-left: $pad-horizontal;
+  background-color: $maroon;
+  color: $text-white;
+  transition: background-color 200ms $ease-in-out-curve-function;
+  &:hover {
+    background-color: darken($maroon, 10%);
+  }
+  &[disabled] {
+    background-color: $dark-grey;
+    cursor: default;
+  }
 }
 
 .success {
-    background-color: $green;
-    &:hover {
-        background-color: darken($green, 5%);
-    }
+  background-color: $green;
+  &:hover {
+    background-color: darken($green, 5%);
+  }
 }

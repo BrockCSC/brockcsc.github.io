@@ -1,23 +1,29 @@
 <div class="csc-services">
-    <div class="container">
-        <h3 class="csc-header">Support</h3>
-        <p>
-            If you are seeking any mentorship or guidance, feel free to contact any of the <a class="csc-link" routerLink="/team">executive</a> team members through <a class="csc-link" [href]="discordLink" target="_blank">Discord</a>. We are always happy to help!
-        </p>
+  <div class="container">
+    <h3 class="csc-header">Support</h3>
+    <p>
+      If you are seeking any mentorship or guidance, feel free to contact any of
+      the <a class="csc-link" routerLink="/team">executive</a> team members
+      through
+      <a class="csc-link" [href]="discordLink" target="_blank">Discord</a>. We
+      are always happy to help!
+    </p>
+  </div>
+  <div class="container csc-food-table-container">
+    <h3 class="csc-header">Food items for sale</h3>
+    <p>We sell food for low prices out of MCJ 330!</p>
+    <div class="row" *ngFor="let section of sectionData">
+      <h3>{{ section.title }}</h3>
+      <table>
+        <tbody>
+          <tr *ngFor="let food of section.data | async">
+            <td>{{ food.name }}</td>
+            <td style="width: 50px;">
+              {{ food.price | currency: 'USD':true }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="container csc-food-table-container">
-        <h3 class="csc-header">Food items for sale</h3>
-        <p>We sell food for low prices out of MCJ 330!</p>
-        <div class="row" *ngFor="let section of sectionData">
-            <h3>{{section.title}}</h3>
-            <table>
-                <tbody>
-                    <tr *ngFor="let food of section.data | async">
-                        <td>{{ food.name }}</td>
-                        <td style="width: 50px;">{{ food.price | currency:'USD':true }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  </div>
 </div>

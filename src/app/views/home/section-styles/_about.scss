@@ -1,32 +1,32 @@
 #csc-about {
-    background-color: $light-grey;
+  background-color: $light-grey;
 }
 
 #csc-about a {
-    color: $maroon;
-    text-decoration: none;
+  color: $maroon;
+  text-decoration: none;
 }
 
 .csc-about-desc {
-    @media #{$desktop} {
-        width: 70%;
-    }
+  @media #{$desktop} {
+    width: 70%;
+  }
 }
 
 .csc-team {
-    margin-top: 35px;
-    overflow: auto;
+  margin-top: 35px;
+  overflow: auto;
 }
 
 .csc-team csc-img {
-    width: 100%;
-    float: none;
-    margin-left: 0px;
-    margin-top: 15px;
+  width: 100%;
+  float: none;
+  margin-left: 0px;
+  margin-top: 15px;
 
-    @media #{$desktop} {
-        margin-left: 25px;
-        width: 60%;
-        float: right;
-    }
+  @media #{$desktop} {
+    margin-left: 25px;
+    width: 60%;
+    float: right;
+  }
 }

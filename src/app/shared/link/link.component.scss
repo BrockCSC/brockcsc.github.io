@@ -1,17 +1,17 @@
 @import 'src/variables.scss';
 
 .csc-link {
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .csc-link-line {
-    content: '';
-    margin-top: 3px;
-    color: red;
-    display: block;
-    width: 0;
-    height: 1px;
-    transition: width .3s;
+  content: '';
+  margin-top: 3px;
+  color: red;
+  display: block;
+  width: 0;
+  height: 1px;
+  transition: width 0.3s;
 }

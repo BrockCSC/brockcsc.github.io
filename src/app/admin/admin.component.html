@@ -1,10 +1,15 @@
 <div class="container">
-    <div class="row csc-admin-router">
-        <a [routerLink]="link.routerLink" routerLinkActive="active" *ngFor="let link of links" class="csc-admin-route">
-            {{ link.name }}
-        </a>
-    </div>
+  <div class="row csc-admin-router">
+    <a
+      [routerLink]="link.routerLink"
+      routerLinkActive="active"
+      *ngFor="let link of links"
+      class="csc-admin-route"
+    >
+      {{ link.name }}
+    </a>
+  </div>
 </div>
 <div class="csc-admin-content">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

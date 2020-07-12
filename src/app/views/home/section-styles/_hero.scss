@@ -1,51 +1,63 @@
 #csc-hero {
-    padding-top: 0px;
-    padding-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .csc-hero-container {
-    background-position: center;
-    background-size: cover;
-    height: 65vh;
-    position: relative;
-    margin-top: -5.375em;
+  background-position: center;
+  background-size: cover;
+  height: 65vh;
+  position: relative;
+  margin-top: -5.375em;
 }
 
 .csc-hero-overlay {
-    width: 100%;
-    height: 65vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-image: -webkit-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
-    background-image: -moz-linear-gradient(bottom, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
-    background-image: linear-gradient(to top, rgba(83, 83, 83, 0.38) 0%, #292929 100%);
+  width: 100%;
+  height: 65vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: -webkit-linear-gradient(
+    bottom,
+    rgba(83, 83, 83, 0.38) 0%,
+    #292929 100%
+  );
+  background-image: -moz-linear-gradient(
+    bottom,
+    rgba(83, 83, 83, 0.38) 0%,
+    #292929 100%
+  );
+  background-image: linear-gradient(
+    to top,
+    rgba(83, 83, 83, 0.38) 0%,
+    #292929 100%
+  );
 }
 
 .csc-hero-content {
-    position: relative;
-    top: 30%;
-    left: 0%;
-    color: $text-white;
-    @media #{$mobile}{
-        text-align: center;
-        line-height: $extraLargeHeading;
-    }
+  position: relative;
+  top: 30%;
+  left: 0%;
+  color: $text-white;
+  @media #{$mobile} {
+    text-align: center;
+    line-height: $extraLargeHeading;
+  }
 }
 
 .csc-hero-content div {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .csc-hero-heading-1 {
-    margin: 0;
+  margin: 0;
 }
 
 .csc-hero-heading-2 {
-    font-size: $extraLargeHeading;
+  font-size: $extraLargeHeading;
 }
 
 .csc-hero-heading-3 {
-    margin-left: 0px;
+  margin-left: 0px;
 }

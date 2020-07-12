@@ -1,17 +1,20 @@
 <csc-modal #modal>
-    <csc-modal-header>
-        Remove Executive
-    </csc-modal-header>
-    <csc-modal-body>
-        <div class="row">
-            <div class="col-12">
-                <h2>Are you sure you want to remove {{ checkedExecs.length }} exec{{ checkedExecs.length > 1 ? 's' : '' }}
-                    from the database?</h2>
-                <p>This action is irreversible</p>
-            </div>
-        </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="removeExecs()">Remove exec</button>
-    </csc-modal-footer>
+  <csc-modal-header>
+    Remove Executive
+  </csc-modal-header>
+  <csc-modal-body>
+    <div class="row">
+      <div class="col-12">
+        <h2>
+          Are you sure you want to remove
+          {{ checkedExecs.length }} exec{{ checkedExecs.length > 1 ? 's' : '' }}
+          from the database?
+        </h2>
+        <p>This action is irreversible</p>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="removeExecs()">Remove exec</button>
+  </csc-modal-footer>
 </csc-modal>

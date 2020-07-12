@@ -8,9 +8,8 @@ describe('GuideComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GuideComponent ]
-    })
-    .compileComponents();
+      declarations: [GuideComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

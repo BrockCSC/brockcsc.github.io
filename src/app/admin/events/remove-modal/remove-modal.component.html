@@ -1,17 +1,22 @@
 <csc-modal #modal>
-    <csc-modal-header>
-        Remove Events
-    </csc-modal-header>
-    <csc-modal-body>
-        <div class="row">
-            <div class="col-12">
-                <h2>Are you sure you want to remove {{ checkedEvents.length }} event{{ checkedEvents.length > 1 ? 's' : '' }}
-                    from the database?</h2>
-                <p>This action is irriversable</p>
-            </div>
-        </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="removeEvents()">Remove</button>
-    </csc-modal-footer>
+  <csc-modal-header>
+    Remove Events
+  </csc-modal-header>
+  <csc-modal-body>
+    <div class="row">
+      <div class="col-12">
+        <h2>
+          Are you sure you want to remove
+          {{ checkedEvents.length }} event{{
+            checkedEvents.length > 1 ? 's' : ''
+          }}
+          from the database?
+        </h2>
+        <p>This action is irriversable</p>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="removeEvents()">Remove</button>
+  </csc-modal-footer>
 </csc-modal>

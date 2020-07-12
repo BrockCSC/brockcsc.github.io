@@ -1,38 +1,58 @@
 <div class="container">
-    <h1>Event Management</h1>
-    <div class="csc-event-buttons">
-        <div class="csc-event-remove">
-            <button csc-button [disabled]="checkedEvents.length === 0" (click)="removeModal.open()">
-                {{ getRemoveButtonText() }}
-            </button>
-        </div>
-        <div class="csc-event-add">
-            <button csc-button (click)="addModal.open()">Create a new event</button>
-        </div>
+  <h1>Event Management</h1>
+  <div class="csc-event-buttons">
+    <div class="csc-event-remove">
+      <button
+        csc-button
+        [disabled]="checkedEvents.length === 0"
+        (click)="removeModal.open()"
+      >
+        {{ getRemoveButtonText() }}
+      </button>
     </div>
-    <div class="row">
-        <table>
-            <thead>
-            <th class="csc-remove-th"></th>
-            <th>Title</th>
-            <th>Date</th>
-            <th class="csc-edit-th">Edit</th>
-            </thead>
-            <tbody>
-            <tr *ngFor="let event of events | async">
-                <td class="csc-checkbox-col">
-                    <csc-checkbox>
-                        <input type="checkbox" (click)="checked($event, event)">
-                    </csc-checkbox>
-                </td>
-                <td><a [routerLink]="'/admin/events/' + event.$key">{{ event.title }}</a></td>
-                <td>{{ event.datetime.date }}</td>
-                <td><i (click)="editModal.open(event)" class="material-icons csc-mat-icon">edit</i></td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="csc-event-add">
+      <button csc-button (click)="addModal.open()">
+        Create a new event
+      </button>
     </div>
+  </div>
+  <div class="row">
+    <table>
+      <thead>
+        <th class="csc-remove-th"></th>
+        <th>Title</th>
+        <th>Date</th>
+        <th class="csc-edit-th">Edit</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events | async">
+          <td class="csc-checkbox-col">
+            <csc-checkbox>
+              <input type="checkbox" (click)="checked($event, event)" />
+            </csc-checkbox>
+          </td>
+          <td>
+            <a [routerLink]="'/admin/events/' + event.$key">{{
+              event.title
+            }}</a>
+          </td>
+          <td>{{ event.datetime.date }}</td>
+          <td>
+            <i
+              (click)="editModal.open(event)"
+              class="material-icons csc-mat-icon"
+              >edit</i
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <csc-add-modal #addModal></csc-add-modal>
-<csc-remove-modal #removeModal [checkedEvents]="checkedEvents" (onDelete)="resetCheckedEvents()"></csc-remove-modal>
+<csc-remove-modal
+  #removeModal
+  [checkedEvents]="checkedEvents"
+  (onDelete)="resetCheckedEvents()"
+></csc-remove-modal>
 <csc-edit-modal #editModal></csc-edit-modal>

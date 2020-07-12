@@ -2,61 +2,61 @@
 input,
 textarea,
 select {
-    font: 15px/24px "Lato", Arial, sans-serif;
-    color: #333;
+  font: 15px/24px 'Lato', Arial, sans-serif;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  border: 0;
+  padding: 7px 14px;
+  border: 1px solid #ccc;
+  outline: 0;
+  &:focus ~ .focus-border {
     width: 100%;
-    box-sizing: border-box;
-    letter-spacing: 1px;
-    border: 0;
-    padding: 7px 14px;
-    border: 1px solid #ccc;
-    outline: 0;
-    &:focus~.focus-border {
-        width: 100%;
-        transition: 0.4s;
-    }
+    transition: 0.4s;
+  }
 }
 
 @mixin shared_focus_border {
-    position: absolute;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: $maroon;
-    transition: 0.4s;
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: $maroon;
+  transition: 0.4s;
 }
 
-input+.focus-border {
-    @include shared_focus_border();
-    bottom: 0;
+input + .focus-border {
+  @include shared_focus_border();
+  bottom: 0;
 }
 
-textarea+.focus-border {
-    @include shared_focus_border();
-    bottom: 5px;
+textarea + .focus-border {
+  @include shared_focus_border();
+  bottom: 5px;
 }
 
 .form-group {
+  position: relative;
+  width: 100%;
+  label {
+    display: table-cell;
+    text-transform: uppercase;
+    padding-right: 20px;
+    color: $maroon;
+    vertical-align: top;
+  }
+  .input-container {
     position: relative;
-    width: 100%;
-    label {
-        display: table-cell;
-        text-transform: uppercase;
-        padding-right: 20px;
-        color: $maroon;
-        vertical-align: top;
-    }
-    .input-container {
-        position: relative;
-        display: table-cell;
-    }
+    display: table-cell;
+  }
 }
 
 .border-container {
-    position: relative;
+  position: relative;
 }
 
 .no-sidepad {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }

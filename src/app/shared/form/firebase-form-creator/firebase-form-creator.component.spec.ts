@@ -8,9 +8,8 @@ describe('FirebaseFormCreatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirebaseFormCreatorComponent ]
-    })
-    .compileComponents();
+      declarations: [FirebaseFormCreatorComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

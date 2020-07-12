@@ -8,9 +8,8 @@ describe('GoogleFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GoogleFormComponent ]
-    })
-    .compileComponents();
+      declarations: [GoogleFormComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

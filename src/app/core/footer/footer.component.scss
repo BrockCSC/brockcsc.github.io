@@ -1,62 +1,62 @@
 @import 'src/variables.scss';
 #csc-social-links {
-    border-top: 1px solid #CCCCCC;
-    .csc-social-desc {
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-    }
-    .csc-social-links-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .csc-social {
-        display: flex;
-        align-items: center;
-        margin-right: 40px;
-        &:last-child {
-            margin-right: 0%;
-        }
-        csc-img {
-            margin-right: 15px;
-        }
-    }
-    @media #{$mobile} {
-        .csc-social-desc {
-            display: none;
-        }
-    }
-    @media #{$desktop} {
-        .csc-social {
-            margin-right: 20%;
-        }
-    }
-}
-
-#csc-made-with-love {
-    height: 80px;
-    width: 100%;
-    font-size: 14px;
-    color: $text-white;
-    background-color: $navy;
-}
-
-.csc-footer-text {
+  border-top: 1px solid #cccccc;
+  .csc-social-desc {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+  }
+  .csc-social-links-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    &:first-child {
-        margin-right: 10px;
+  }
+  .csc-social {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    &:last-child {
+      margin-right: 0%;
     }
-    a {
-        color: $text-white;
-        text-decoration: underline;
+    csc-img {
+      margin-right: 15px;
     }
+  }
+  @media #{$mobile} {
+    .csc-social-desc {
+      display: none;
+    }
+  }
+  @media #{$desktop} {
+    .csc-social {
+      margin-right: 20%;
+    }
+  }
+}
+
+#csc-made-with-love {
+  height: 80px;
+  width: 100%;
+  font-size: 14px;
+  color: $text-white;
+  background-color: $navy;
+}
+
+.csc-footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:first-child {
+    margin-right: 10px;
+  }
+  a {
+    color: $text-white;
+    text-decoration: underline;
+  }
 }
 
 .heart {
-    color: $pink;
-    margin-left: 2px;
-    margin-right: 2px;
+  color: $pink;
+  margin-left: 2px;
+  margin-right: 2px;
 }
