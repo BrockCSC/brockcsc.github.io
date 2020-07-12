@@ -1,23 +1,23 @@
 @import 'src/variables.scss';
 .csc-admin-content {
-    padding-bottom: 200px;
+  padding-bottom: 200px;
 }
 
 .csc-admin-router {
-    background-color: $light-grey;
-    border: 1px solid $dark-grey;
+  background-color: $light-grey;
+  border: 1px solid $dark-grey;
 }
 
 .csc-admin-route {
-    display: inline-block;
-    padding: 10px 15px;
-    color: $text-black;
-    text-decoration: none;
-    &:nth-child(n+2) {
-        margin-left: -1px;
-    }
-    &.active{
-        background-color: $maroon;
-        color: $text-white;
-    }
+  display: inline-block;
+  padding: 10px 15px;
+  color: $text-black;
+  text-decoration: none;
+  &:nth-child(n + 2) {
+    margin-left: -1px;
+  }
+  &.active {
+    background-color: $maroon;
+    color: $text-white;
+  }
 }

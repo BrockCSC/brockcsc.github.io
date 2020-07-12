@@ -8,40 +8,41 @@
 @import './section-styles/_social.scss';
 
 i {
-    font-size: $row-height;
-    vertical-align: middle;
-    margin-right: 20px;
+  font-size: $row-height;
+  vertical-align: middle;
+  margin-right: 20px;
 }
 
 .csc-icon-title {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
-.column-left, .column-right {
-    position: relative;
-    float: left;
-    width: 100%;
-    min-height: $row-height;
+.column-left,
+.column-right {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: $row-height;
 }
 
 @media #{$tablet} {
-    .column-left {
-        width: 40%;
-    }
-    .column-right {
-        width: 60%;
-    }
+  .column-left {
+    width: 40%;
+  }
+  .column-right {
+    width: 60%;
+  }
 }
 
 @media #{$desktop} {
-    .column-left {
-        width: 40%;
-    }
-    .column-right {
-        width: 60%;
-    }
+  .column-left {
+    width: 40%;
+  }
+  .column-right {
+    width: 60%;
+  }
 }
 
 .csc-event-content a {
-    color: $text-white;
+  color: $text-white;
 }

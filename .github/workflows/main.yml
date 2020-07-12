@@ -1,24 +1,23 @@
 name: Build and Deploy
 on:
-  push:	
-    branches:	
+  push:
+    branches:
       - production
-jobs:  
+jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-          
       - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-        
+
       - name: Install
         run: |
           npm install
           npm run build
           npm run postbuild
-          
+
       - name: Install SSH Client
         uses: webfactory/ssh-agent@v0.2.0 # This step installs the ssh client into the workflow run. There's many options available for this on the action marketplace.
         with:
@@ -27,7 +26,7 @@ jobs:
       - name: Build and Deploy Repo
         uses: JamesIves/github-pages-deploy-action@releases/v3-test
         with:
-          BASE_BRANCH: production   
+          BASE_BRANCH: production
           BRANCH: master
           FOLDER: dist
           CLEAN: true

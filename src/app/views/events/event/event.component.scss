@@ -4,101 +4,101 @@ $height: 300px;
 $border: 1px solid $dark-grey;
 
 .csc-event {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .csc-event-header {
-    p {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 
-    .csc-header {
-        margin-bottom: 10px;
-        @media #{$mobile} {
-            margin-bottom: 15px;
-        }
+  .csc-header {
+    margin-bottom: 10px;
+    @media #{$mobile} {
+      margin-bottom: 15px;
     }
+  }
 }
 
 .csc-event-presenter {
-    color: $dark-grey;
+  color: $dark-grey;
 }
 
 .csc-event-signup {
-    width: 100%;
-    margin-top: 25px;
+  width: 100%;
+  margin-top: 25px;
 }
 
 .csc-event-header {
-    border: $border;
+  border: $border;
 }
 
 .csc-google-form-container {
-    border: $border;
-    border-top: none;
+  border: $border;
+  border-top: none;
 
-    p {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 
-    .csc-header {
-        margin-bottom: 10px;
-        @media #{$mobile} {
-            margin-bottom: 15px;
-        }
+  .csc-header {
+    margin-bottom: 10px;
+    @media #{$mobile} {
+      margin-bottom: 15px;
     }
+  }
 }
 
 .csc-event-image {
-    border-bottom: $border;
-    height: $height;
-    background-position: center !important;
-    background-size: cover !important;
+  border-bottom: $border;
+  height: $height;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 .csc-event-title {
-    padding-left: 10px;
-    padding-right: 10px;
-    height: $height;
-    border-bottom: $border;
-    @media #{$desktop} {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-    @media #{$mobile} {
-        height: auto !important;
-    }
+  padding-left: 10px;
+  padding-right: 10px;
+  height: $height;
+  border-bottom: $border;
+  @media #{$desktop} {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  @media #{$mobile} {
+    height: auto !important;
+  }
 }
 
 .wrapper {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 
-    > h2 {
-        margin-top: 0px;
-    }
+  > h2 {
+    margin-top: 0px;
+  }
 
-    @media #{$mobile} {
-        top: 0%;
-        transform: translateY(0%);
-    }
+  @media #{$mobile} {
+    top: 0%;
+    transform: translateY(0%);
+  }
 }
 
 .csc-event-resource a {
-    color: $maroon;
+  color: $maroon;
 }
 
 .csc-google-form,
 .csc-event-description,
 .csc-event-location,
 .csc-event-resource {
-    @media #{$desktop} {
-        padding: 25px;
-    }
-    @media #{$tablet} {
-        padding: 25px;
-    }
+  @media #{$desktop} {
+    padding: 25px;
+  }
+  @media #{$tablet} {
+    padding: 25px;
+  }
 }

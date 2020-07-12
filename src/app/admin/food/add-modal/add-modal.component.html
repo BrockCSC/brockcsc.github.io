@@ -1,36 +1,58 @@
 <csc-modal #modal>
-    <csc-modal-header>Add a new food item</csc-modal-header>
-    <csc-modal-body>
-        <div id="csc-admin-container">
+  <csc-modal-header>Add a new food item</csc-modal-header>
+  <csc-modal-body>
+    <div id="csc-admin-container">
+      <div class="row">
+        <div class="container">
+          <form [formGroup]="form">
             <div class="row">
-                <div class="container">
-                    <form [formGroup]="form">
-                        <div class="row">
-                            <csc-input-container class="col-12" label="Name" labelLocation="top">
-                                <input class="csc-input" type="text" formControlName="name" placeholder="Food item name">
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                                <csc-input-container label="Section" class="col-12" labelLocation="top">
-                                    <select formControlName="section">
-                                        <option value="Food">Food</option>
-                                        <option value="Drink">Drink</option>
-                                        <option value="Other">Other</option>
-                                        <option value="Combo">Combo</option>
-                                    </select>
-                                </csc-input-container>
-                            </div>
-                        <div class="row">
-                            <csc-input-container label="Price" class="col-12" labelLocation="top">
-                                <input class="csc-input" type="number" formControlName="price" placeholder="Price">
-                            </csc-input-container>
-                        </div>
-                    </form>
-                </div>
+              <csc-input-container
+                class="col-12"
+                label="Name"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="text"
+                  formControlName="name"
+                  placeholder="Food item name"
+                />
+              </csc-input-container>
             </div>
+            <div class="row">
+              <csc-input-container
+                label="Section"
+                class="col-12"
+                labelLocation="top"
+              >
+                <select formControlName="section">
+                  <option value="Food">Food</option>
+                  <option value="Drink">Drink</option>
+                  <option value="Other">Other</option>
+                  <option value="Combo">Combo</option>
+                </select>
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                label="Price"
+                class="col-12"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="number"
+                  formControlName="price"
+                  placeholder="Price"
+                />
+              </csc-input-container>
+            </div>
+          </form>
         </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="add()">Add food item</button>
-    </csc-modal-footer>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="add()">Add food item</button>
+  </csc-modal-footer>
 </csc-modal>

@@ -1,62 +1,199 @@
 <div class="csc-signup container">
-        <iframe id="no-target" name="no-target" style="display:none"></iframe>
-        <iframe id="no-target" name="no-target-discord" style="display:none"></iframe>
+  <iframe id="no-target" name="no-target" style="display: none;"></iframe>
+  <iframe
+    id="no-target"
+    name="no-target-discord"
+    style="display: none;"
+  ></iframe>
 
-        <form #signupForm [hidden]="submitted" [formGroup]="form" class="row csc-contact-form" [action]="signupFormConfig.url" target="no-target">
-            <h3 class="col-12 hide-mobile">Sign Up</h3>
-            <csc-input-container class="col-6" label="Name" labelLocation="top">
-                    <input [name]="signupFormConfig.ids.name" formControlName="name" class="csc-input" type="text" placeholder="Jane Doe">
-                    <span class="signup-error"  *ngIf="!form.controls.name.valid && (form.controls.name.touched || submitted)">Please enter your name</span>
-                </csc-input-container>
-            <csc-input-container class="col-6" label="Brock Student Id" labelLocation="top">
-                <input [name]="signupFormConfig.ids.student_id" formControlName="student_id" class="csc-input" type="text" placeholder="aa11bb">
-                <span class="signup-error" *ngIf="!form.controls.student_id.valid && (form.controls.student_id.touched || submitted)">Please enter your Brock Student ID</span>
-            </csc-input-container>
-            <csc-input-container class="col-12" label="Gender" labelLocation="top">
-                    <select [name]="signupFormConfig.ids.gender" formControlName="gender">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="N/A">Prefer not to say</option>
-                    </select>
-            </csc-input-container>
-            <csc-input-container class="col-12" label="Preferred Email" labelLocation="top">
-                    <input [name]="signupFormConfig.ids.email" class="csc-input" formControlName="email" type="text" placeholder="janedoe@gmail.com">
-                    <span class="signup-error" *ngIf="!form.controls.email.valid && (form.controls.email.touched || submitted)">Please enter your email</span>
-            </csc-input-container>
-            <csc-input-container class="col-6" label="Program at Brock" labelLocation="top">
-                    <input [name]="signupFormConfig.ids.program" class="csc-input" formControlName="program" type="text" placeholder="Program Name">
-                    <span class="signup-error" *ngIf="!form.controls.program.valid && (form.controls.program.touched || submitted)">Please enter program name</span>
-            </csc-input-container>
-            <csc-input-container class="col-6" label="Number of years as a previous member" labelLocation="top">
-                    <input [name]="signupFormConfig.ids.number_of_years_member" formControlName="number_of_years_member" class="csc-input" type="number" min="0" max="10" value="0">
-            </csc-input-container>
-            <csc-input-container class="col-12" label="Interests" labelLocation="top">
-                    <textarea [name]="signupFormConfig.ids.interests" formControlName="interests" placeholder="What are your interests in computer science?"></textarea>
-            </csc-input-container>
-            <div class="col-12">
-                <a csc-button class="csc-contact-submit" (click)="onSubmit(form)" value="Send">Sign up</a>
-            </div>
-        </form>
-        <form #discordInviteForm [hidden]="true" [action]="discordInviteFormConfig.url" target="no-target-discord">
-            <input [name]="discordInviteFormConfig.ids.email" class="csc-input" type="text" [value]="this.form.get('email').value">
-        </form>
+  <form
+    #signupForm
+    [hidden]="submitted"
+    [formGroup]="form"
+    class="row csc-contact-form"
+    [action]="signupFormConfig.url"
+    target="no-target"
+  >
+    <h3 class="col-12 hide-mobile">Sign Up</h3>
+    <csc-input-container class="col-6" label="Name" labelLocation="top">
+      <input
+        [name]="signupFormConfig.ids.name"
+        formControlName="name"
+        class="csc-input"
+        type="text"
+        placeholder="Jane Doe"
+      />
+      <span
+        class="signup-error"
+        *ngIf="
+          !form.controls.name.valid && (form.controls.name.touched || submitted)
+        "
+        >Please enter your name</span
+      >
+    </csc-input-container>
+    <csc-input-container
+      class="col-6"
+      label="Brock Student Id"
+      labelLocation="top"
+    >
+      <input
+        [name]="signupFormConfig.ids.student_id"
+        formControlName="student_id"
+        class="csc-input"
+        type="text"
+        placeholder="aa11bb"
+      />
+      <span
+        class="signup-error"
+        *ngIf="
+          !form.controls.student_id.valid &&
+          (form.controls.student_id.touched || submitted)
+        "
+        >Please enter your Brock Student ID</span
+      >
+    </csc-input-container>
+    <csc-input-container class="col-12" label="Gender" labelLocation="top">
+      <select [name]="signupFormConfig.ids.gender" formControlName="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="N/A">Prefer not to say</option>
+      </select>
+    </csc-input-container>
+    <csc-input-container
+      class="col-12"
+      label="Preferred Email"
+      labelLocation="top"
+    >
+      <input
+        [name]="signupFormConfig.ids.email"
+        class="csc-input"
+        formControlName="email"
+        type="text"
+        placeholder="janedoe@gmail.com"
+      />
+      <span
+        class="signup-error"
+        *ngIf="
+          !form.controls.email.valid &&
+          (form.controls.email.touched || submitted)
+        "
+        >Please enter your email</span
+      >
+    </csc-input-container>
+    <csc-input-container
+      class="col-6"
+      label="Program at Brock"
+      labelLocation="top"
+    >
+      <input
+        [name]="signupFormConfig.ids.program"
+        class="csc-input"
+        formControlName="program"
+        type="text"
+        placeholder="Program Name"
+      />
+      <span
+        class="signup-error"
+        *ngIf="
+          !form.controls.program.valid &&
+          (form.controls.program.touched || submitted)
+        "
+        >Please enter program name</span
+      >
+    </csc-input-container>
+    <csc-input-container
+      class="col-6"
+      label="Number of years as a previous member"
+      labelLocation="top"
+    >
+      <input
+        [name]="signupFormConfig.ids.number_of_years_member"
+        formControlName="number_of_years_member"
+        class="csc-input"
+        type="number"
+        min="0"
+        max="10"
+        value="0"
+      />
+    </csc-input-container>
+    <csc-input-container class="col-12" label="Interests" labelLocation="top">
+      <textarea
+        [name]="signupFormConfig.ids.interests"
+        formControlName="interests"
+        placeholder="What are your interests in computer science?"
+      ></textarea>
+    </csc-input-container>
+    <div class="col-12">
+      <a
+        csc-button
+        class="csc-contact-submit"
+        (click)="onSubmit(form)"
+        value="Send"
+        >Sign up</a
+      >
+    </div>
+  </form>
+  <form
+    #discordInviteForm
+    [hidden]="true"
+    [action]="discordInviteFormConfig.url"
+    target="no-target-discord"
+  >
+    <input
+      [name]="discordInviteFormConfig.ids.email"
+      class="csc-input"
+      type="text"
+      [value]="this.form.get('email').value"
+    />
+  </form>
 
-        <div class="signup-complete row" [hidden]="!submitted">
-            <h2 style="display: inline;">Thank you for registering to the club, welcome to the CSC!</h2>&nbsp;
-            <span>
-                <img src="/assets/party_popper.png" width="16" height="16" alt="Party Popper emoji">
-            </span>
-            <p>If you haven't already joined, here's a link to our <a [href]="discordLink">discord server</a>, we've also emailed you this link at {{ form.get('email').value }}. Be sure to join to get updates as well as connect with existing members in the CSC!</p>
+  <div class="signup-complete row" [hidden]="!submitted">
+    <h2 style="display: inline;">
+      Thank you for registering to the club, welcome to the CSC!
+    </h2>
+    &nbsp;
+    <span>
+      <img
+        src="/assets/party_popper.png"
+        width="16"
+        height="16"
+        alt="Party Popper emoji"
+      />
+    </span>
+    <p>
+      If you haven't already joined, here's a link to our
+      <a [href]="discordLink">discord server</a>, we've also emailed you this
+      link at {{ form.get('email').value }}. Be sure to join to get updates as
+      well as connect with existing members in the CSC!
+    </p>
 
-            <p>Keep an eye out on the <strong>#announcements</strong> channel on our <a [href]="discordLink">discord server</a> as well as <a routerLink="/events">https://brockcsc.ca/events</a> for info about future events.</p>
-            
-            <p>If you're unable to join the server through the link, please <a routerLink="/contact">contact us</a> and we'll get you added to the server.</p>
-            <div class="col-6 complete-img">
-                <img src="/assets/logo-black.svg" width="120" height="120" alt="CSC logo">
-            </div>
-            <div class="col-6 complete-img">
-                <img src="/assets/icons/discord.svg" width="120" height="120" alt="Discord logo">
-            </div>
-        </div>
+    <p>
+      Keep an eye out on the <strong>#announcements</strong> channel on our
+      <a [href]="discordLink">discord server</a> as well as
+      <a routerLink="/events">https://brockcsc.ca/events</a> for info about
+      future events.
+    </p>
 
+    <p>
+      If you're unable to join the server through the link, please
+      <a routerLink="/contact">contact us</a> and we'll get you added to the
+      server.
+    </p>
+    <div class="col-6 complete-img">
+      <img
+        src="/assets/logo-black.svg"
+        width="120"
+        height="120"
+        alt="CSC logo"
+      />
+    </div>
+    <div class="col-6 complete-img">
+      <img
+        src="/assets/icons/discord.svg"
+        width="120"
+        height="120"
+        alt="Discord logo"
+      />
+    </div>
+  </div>
 </div>

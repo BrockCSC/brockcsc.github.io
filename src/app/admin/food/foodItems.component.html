@@ -1,40 +1,56 @@
 <div class="container">
-        <h1>Food Services Management</h1>
-        <div class="csc-food-buttons">
-            <div class="csc-food-remove">
-                <button csc-button [disabled]="checkedFoodItems.length === 0" (click)="removeModal.open()">
-                    Remove selected food items
-                </button>
-            </div>
-            <div class="csc-food-add">
-                <button csc-button (click)="addModal.open()">Add new food item</button>
-            </div>
-        </div>
-        <div class="row">
-            <table>
-                <thead>
-                    <th class="csc-remove-th"></th>
-                    <th>Title</th>
-                    <th>Section</th>
-                    <th>Price</th>
-                    <th class="csc-edit-th">Edit</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let food of foodItems | async">
-                        <td class="csc-checkbox-col">
-                            <csc-checkbox>
-                                <input type="checkbox" (click)="checked($event, food)">
-                            </csc-checkbox>
-                        </td>
-                        <td>{{ food.name }}</td>
-                        <td>{{ food.section }}</td>
-                        <td>{{ food.price | currency:'USD':true }}</td>
-                        <td class="csc-mat-icon"><i (click)="editModal.open(food)" class="material-icons csc-mat-icon">edit</i></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <h1>Food Services Management</h1>
+  <div class="csc-food-buttons">
+    <div class="csc-food-remove">
+      <button
+        csc-button
+        [disabled]="checkedFoodItems.length === 0"
+        (click)="removeModal.open()"
+      >
+        Remove selected food items
+      </button>
     </div>
-    <csc-add-food-modal #addModal></csc-add-food-modal>
-    <csc-remove-food-modal #removeModal [checkedFoodItems]="checkedFoodItems" (onDelete)="resetCheckedFoodItems()"></csc-remove-food-modal>
-    <csc-edit-food-modal #editModal></csc-edit-food-modal>
+    <div class="csc-food-add">
+      <button csc-button (click)="addModal.open()">
+        Add new food item
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <table>
+      <thead>
+        <th class="csc-remove-th"></th>
+        <th>Title</th>
+        <th>Section</th>
+        <th>Price</th>
+        <th class="csc-edit-th">Edit</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let food of foodItems | async">
+          <td class="csc-checkbox-col">
+            <csc-checkbox>
+              <input type="checkbox" (click)="checked($event, food)" />
+            </csc-checkbox>
+          </td>
+          <td>{{ food.name }}</td>
+          <td>{{ food.section }}</td>
+          <td>{{ food.price | currency: 'USD':true }}</td>
+          <td class="csc-mat-icon">
+            <i
+              (click)="editModal.open(food)"
+              class="material-icons csc-mat-icon"
+              >edit</i
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<csc-add-food-modal #addModal></csc-add-food-modal>
+<csc-remove-food-modal
+  #removeModal
+  [checkedFoodItems]="checkedFoodItems"
+  (onDelete)="resetCheckedFoodItems()"
+></csc-remove-food-modal>
+<csc-edit-food-modal #editModal></csc-edit-food-modal>

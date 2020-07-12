@@ -1,22 +1,22 @@
 :host {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 img {
-    // Both max and min are set as width 100% doesn't work with IE.
-    max-width: 100%;
-    min-width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.4s;
-    &.loaded{
-        opacity: 1;
-    }
+  // Both max and min are set as width 100% doesn't work with IE.
+  max-width: 100%;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 .csc-lazy-img {
-    background-position: center !important;
-    background-size: cover !important;
+  background-position: center !important;
+  background-size: cover !important;
 }

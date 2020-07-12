@@ -6,26 +6,26 @@
 @import './styles/_checkbox.scss';
 
 html {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 :root {
-    font-size: 16px;
-    line-height: 1.5625em;
+  font-size: 16px;
+  line-height: 1.5625em;
 }
 
 a {
-    cursor: pointer;
-    color: $maroon;
+  cursor: pointer;
+  color: $maroon;
 }
 
 h1,
@@ -33,61 +33,61 @@ h2,
 h3,
 h4,
 h5 {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 h1 {
-    font-size: 2.25rem;
-    line-height: 2.25rem;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
 }
 
 h2 {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
 h3 {
-    font-size: 1.125rem;
-    line-height: 1.125rem;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
 }
 
 section {
-    padding-top: 25px;
-    padding-bottom: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 1280px;
-    @media #{$mobile} {
-        width: 95%;
-    }
-    @media #{$tablet} {
-        width: 85%;
-    }
-    @media #{$desktop} {
-        width: 75%;
-    }
+  margin: 0 auto;
+  max-width: 1280px;
+  @media #{$mobile} {
+    width: 95%;
+  }
+  @media #{$tablet} {
+    width: 85%;
+  }
+  @media #{$desktop} {
+    width: 75%;
+  }
 }
 
 .csc-header {
-    border-bottom: 1px solid;
-    display: inline-block;
-    padding-bottom: 5px;
+  border-bottom: 1px solid;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-@media #{$mobile}{
-    .hide-mobile {
-        display: none;
-    }
+@media #{$mobile} {
+  .hide-mobile {
+    display: none;
+  }
 }
 
-@media #{$tablet}, #{$desktop}{
-    .show-mobile {
-        display: none;
-    }
+@media #{$tablet}, #{$desktop} {
+  .show-mobile {
+    display: none;
+  }
 }
 
 .error-msg {
-    color: red;
+  color: red;
 }

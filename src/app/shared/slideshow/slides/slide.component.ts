@@ -1,24 +1,24 @@
-import { Component, ViewChild, TemplateRef, ElementRef } from "@angular/core";
+import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
-    selector: "csc-slide",
-    templateUrl: "./slide.component.html",
-    styleUrls: ["./slide.component.scss"]
+  selector: 'csc-slide',
+  templateUrl: './slide.component.html',
+  styleUrls: ['./slide.component.scss'],
 })
 export class SlideComponent {
-    @ViewChild(TemplateRef) template: TemplateRef<any>;
-    @ViewChild('container') slideContainer: ElementRef;
+  @ViewChild(TemplateRef) template: TemplateRef<any>;
+  @ViewChild('container') slideContainer: ElementRef;
 
-    // Is the slide active or not
-    active = false;
+  // Is the slide active or not
+  active = false;
 
-    constructor() {}
+  constructor() {}
 
-    /**
-     * Used for calculating the height of the relative container view for the slide.
-     * @returns {number} - Get's the slides offset height (height+padding).
-     */
-    getSlideHeight(): number {
-        return this.slideContainer.nativeElement.offsetHeight;
-    }
+  /**
+   * Used for calculating the height of the relative container view for the slide.
+   * @returns {number} - Get's the slides offset height (height+padding).
+   */
+  getSlideHeight(): number {
+    return this.slideContainer.nativeElement.offsetHeight;
+  }
 }

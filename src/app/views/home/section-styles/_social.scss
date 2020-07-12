@@ -1,11 +1,11 @@
 @import 'src/variables.scss';
 
 #csc-social-feeds {
-    background-color: $light-grey;
+  background-color: $light-grey;
 }
 
 .csc-social-container {
-    @media #{$tablet}, #{$desktop}{
-        max-width: 450px;
-    }
+  @media #{$tablet}, #{$desktop} {
+    max-width: 450px;
+  }
 }
