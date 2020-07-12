@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CommonModule } from '@angular/common';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,8 @@ import { CommonModule } from '@angular/common';
         BrowserModule,
         routing,
         CoreModule,
+        MarkdownModule.forRoot(),
+        MarkdownModule.forChild(),
         SharedModule,
         ViewsModule,
         AngularFireModule.initializeApp(environment.firebase),
