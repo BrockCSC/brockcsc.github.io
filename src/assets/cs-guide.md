@@ -29,12 +29,16 @@ Please add yourself to this list (link is optional) if you've contributed to thi
 
 # Courses
 
+---
+
 ## School Resources
 
 - [List of different degrees and specializations in Computer Science with their course requirements](https://brocku.ca/webcal/2020/undergrad/cosc.html)
 - [Computer Science Department website](https://cosc.brocku.ca)
 
 # Goodies
+
+---
 
 As a student in Computer Science there are many free trials, offers, and products that are available to you.
 
