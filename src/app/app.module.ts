@@ -1,30 +1,27 @@
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { routing } from './app.router';
-import { CoreModule } from 'app/core/core.module';
-import { SharedModule } from 'app/shared/shared.module';
-import { ViewsModule } from 'app/views/views.module';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from 'environments/environment';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { CommonModule } from '@angular/common';
-import { MarkdownModule } from 'ngx-markdown';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { AppComponent } from "./app.component";
+import { routing } from "./app.router";
+import { CoreModule } from "app/core/core.module";
+import { SharedModule } from "app/shared/shared.module";
+import { ViewsModule } from "app/views/views.module";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from "environments/environment";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { CommonModule } from "@angular/common";
+import { MarkdownModule } from "ngx-markdown";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         routing,
         CoreModule,
-        MarkdownModule.forRoot(),
-        MarkdownModule.forChild(),
         SharedModule,
         ViewsModule,
         AngularFireModule.initializeApp(environment.firebase),
@@ -35,9 +32,10 @@ import { MarkdownModule } from 'ngx-markdown';
         RouterModule,
         ReactiveFormsModule,
         FormsModule,
+        HttpClientModule,
+        MarkdownModule.forRoot({ loader: HttpClient }),
     ],
-    exports: [
-    ],
+    exports: [],
     bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
