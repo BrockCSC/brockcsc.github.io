@@ -1,25 +1,17 @@
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavComponent } from './nav/nav.component';
-import { FooterComponent } from './footer/footer.component';
-import { SharedModule } from 'app/shared/shared.module';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { routing } from 'app/app.router';
-import { AuthService } from './auth/auth.service';
+import { SharedModule } from 'app/shared/shared.module';
 import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
+import { FooterComponent } from './footer/footer.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        SharedModule,
-        RouterModule,
-        routing
-    ],
-    exports: [
-        NavComponent,
-        FooterComponent
-    ],
-    declarations: [NavComponent, FooterComponent],
-    providers: [AuthService, AuthGuard]
+  imports: [CommonModule, SharedModule, RouterModule, routing],
+  exports: [NavComponent, FooterComponent],
+  declarations: [NavComponent, FooterComponent],
+  providers: [AuthService, AuthGuard],
 })
-export class CoreModule { }
+export class CoreModule {}

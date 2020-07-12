@@ -8,9 +8,8 @@ describe('AdminEventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminEventComponent ]
-    })
-    .compileComponents();
+      declarations: [AdminEventComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

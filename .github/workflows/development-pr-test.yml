@@ -1,0 +1,19 @@
+name: Verify pull request
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Check formatting
+        run: npm run format:check

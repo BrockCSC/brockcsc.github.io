@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Location } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
 import { Observable } from 'rxjs';
@@ -8,112 +8,119 @@ const WHITE = 'white';
 const MAROON = '#AA3B3B';
 
 @Component({
-    selector: 'csc-nav',
-    templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.scss']
+  selector: 'csc-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-    public logoSrc = 'assets/logo.svg';
-    public menuColor = 'rgba(255, 255, 255, 0.86)';
+  public logoSrc = 'assets/logo.svg';
+  public menuColor = 'rgba(255, 255, 255, 0.86)';
 
-    public links: NavLink[] = [
-        {
-            href: '/team',
-            desc: 'Team',
-        },
-        {
-            href: '/events',
-            desc: 'Events',
-        },
-        {
-            href: '/services',
-            desc: 'Services',
-        },
-        {
-            href: '/contact',
-            desc: 'Contact',
-        }
-    ];
+  public links: NavLink[] = [
+    {
+      href: '/team',
+      desc: 'Team',
+    },
+    {
+      href: '/events',
+      desc: 'Events',
+    },
+    {
+      href: '/services',
+      desc: 'Services',
+    },
+    {
+      href: '/guide',
+      desc: 'CS Guide',
+    },
+    {
+      href: '/contact',
+      desc: 'Contact',
+    },
+  ];
 
-    public linkAdmin: NavLink = { href: '/admin', desc: 'Admin' };
-    public linkLogout: NavLink = { href: '/auth/logout', desc: 'Logout' };
+  public linkAdmin: NavLink = { href: '/admin', desc: 'Admin' };
+  public linkLogout: NavLink = { href: '/auth/logout', desc: 'Logout' };
 
-    public showOverlay = false;
-    private colour = WHITE;
+  public showOverlay = false;
+  private colour = WHITE;
 
-    constructor(private _location: Location, private _router: Router, private _auth: AuthService) { }
+  constructor(
+    private _location: Location,
+    private _router: Router,
+    private _auth: AuthService
+  ) {}
 
-    public ngOnInit(): void {
-        this.initLinks();
-    }
+  public ngOnInit(): void {
+    this.initLinks();
+  }
 
-    /*
+  /*
     For paths that don't have a contrasting backdrop for the see through navbar,
     we want to give the navbar some colour. This is done with the [ngClass] directive
     which adds the navy-background class to the root div of this view.
     */
-    public changeToWhiteNav(): boolean {
-        // TODO: Improve this whole logic or how the layout is done
-        const currentPath = this._location.path();
-        const transparentPaths = ['/', '/home'];
+  public changeToWhiteNav(): boolean {
+    // TODO: Improve this whole logic or how the layout is done
+    const currentPath = this._location.path();
+    const transparentPaths = ['/', '/home'];
 
-        for (let i = 0; i < transparentPaths.length; i++) {
-            if (currentPath === transparentPaths[i]) {
-                this.setTransparentNav();
-                return false;
-            }
+    for (const path of transparentPaths) {
+      if (currentPath === path) {
+        this.setTransparentNav();
+        return false;
+      }
+    }
+    this.setWhiteNav();
+    return true;
+  }
+
+  public initLinks(): void {
+    this._auth.getUser().subscribe((user) => {
+      if (user) {
+        this.linkLogout.visible = true;
+        if (user.admin) {
+          this.linkAdmin.visible = true;
         }
-        this.setWhiteNav();
-        return true;
-    }
+      } else {
+        this.linkLogout.visible = false;
+        this.linkAdmin.visible = false;
+      }
+    });
+  }
 
-    public initLinks(): void {
-        this._auth.getUser().subscribe(user => {
-            if (user) {
-                this.linkLogout.visible = true;
-                if (user.admin) {
-                    this.linkAdmin.visible = true;
-                }
-            } else {
-                this.linkLogout.visible = false;
-                this.linkAdmin.visible = false;
-            }
-        });
-    }
+  private setBlackLogo() {
+    this.menuColor = 'rgba(0, 0, 0, 0.86)';
+  }
 
-    private setBlackLogo() {
-        this.menuColor = 'rgba(0, 0, 0, 0.86)';
-    }
+  private setWhiteLogo() {
+    this.menuColor = 'rgba(255, 255, 255, 0.86)';
+  }
 
-    private setWhiteLogo() {
-        this.menuColor = 'rgba(255, 255, 255, 0.86)';
-    }
+  private setWhiteNav() {
+    this.setBlackLogo();
+    this.setLinkColours(MAROON);
+  }
 
-    private setWhiteNav() {
-        this.setBlackLogo();
-        this.setLinkColours(MAROON);
-    }
+  private setTransparentNav() {
+    this.setWhiteLogo();
+    this.setLinkColours(WHITE);
+  }
 
-    private setTransparentNav() {
-        this.setWhiteLogo();
-        this.setLinkColours(WHITE);
-    }
+  private setLinkColours(colour: string) {
+    this.links.forEach((link) => (link.colour = colour));
+    this.linkAdmin.colour = colour;
+    this.linkLogout.colour = colour;
+  }
 
-    private setLinkColours(colour: string) {
-        this.links.forEach(link => link.colour = colour);
-        this.linkAdmin.colour = colour;
-        this.linkLogout.colour = colour;
-    }
-
-    public toggleOverlayMenu() {
-        this.showOverlay = !this.showOverlay;
-    }
-
+  public toggleOverlayMenu() {
+    this.showOverlay = !this.showOverlay;
+  }
 }
 
 interface NavLink {
-    colour?: string;
-    href: string;
-    desc: string;
-    visible?: boolean;
+  colour?: string;
+  href: string;
+  desc: string;
+  visible?: boolean;
 }

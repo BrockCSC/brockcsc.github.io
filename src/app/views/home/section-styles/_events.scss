@@ -2,24 +2,24 @@ $offset: 85px;
 $row-height: 50px;
 
 #csc-events {
-    background-color: $maroon;
+  background-color: $maroon;
+  color: $text-white;
+  margin-top: -$offset;
+
+  a {
     color: $text-white;
-    margin-top: -$offset;
+    text-decoration: none;
+  }
 
-    a {
-        color: $text-white;
-        text-decoration: none;
-    }
+  .container {
+    margin-top: $offset;
+  }
 
-    .container {
-        margin-top: $offset;
-    }
-
-    .row {
-        padding: 10px 0px;
-    }
-    .col {
-        display: flex;
-        align-items: center;
-    }
+  .row {
+    padding: 10px 0px;
+  }
+  .col {
+    display: flex;
+    align-items: center;
+  }
 }

@@ -1,99 +1,147 @@
 <section id="csc-hero">
-    <div class="csc-hero-container">
-        <csc-img [src]="images.hero.src" [data]="images.hero.data" [width]="images.hero.width" [height]="images.hero.height" [style.height.vh]="images.hero.height"
-            [style.width.%]="images.hero.width" [styleConfig]="heroStyleConfig">
-        </csc-img>
-        <div class="csc-hero-overlay">
-            <div class="csc-hero-content container">
-                <h1 class="csc-hero-heading-2">Brock Computer Science Club</h1>
-                <h3 class="csc-hero-heading-3">Aiming to foster a community for individuals at Brock University interested in Computer Science</h3>
-            </div>
-        </div>
+  <div class="csc-hero-container">
+    <csc-img
+      [src]="images.hero.src"
+      [data]="images.hero.data"
+      [width]="images.hero.width"
+      [height]="images.hero.height"
+      [style.height.vh]="images.hero.height"
+      [style.width.%]="images.hero.width"
+      [styleConfig]="heroStyleConfig"
+    >
+    </csc-img>
+    <div class="csc-hero-overlay">
+      <div class="csc-hero-content container">
+        <h1 class="csc-hero-heading-2">Brock Computer Science Club</h1>
+        <h3 class="csc-hero-heading-3">
+          Aiming to foster a community for individuals at Brock University
+          interested in Computer Science
+        </h3>
+      </div>
     </div>
+  </div>
 </section>
 <section id="csc-event-promo">
-    <div class="row">
-        <div class="csc-event-content container">
-            <span *ngIf="nextEvent === undefined">There aren't any events planned yet. Please check back at a later time!</span>&nbsp;
-            <span *ngIf="nextEvent !== undefined">Check out our next event: <a [routerLink]="'/events/' + nextEvent.$key">{{ nextEvent.title }}</a>&nbsp;
-                <csc-img [src]="images.partyPopper.src" [width]="images.partyPopper.width" [height]="images.partyPopper.height" [style.height.px]="images.partyPopper.height" [style.width.px]="images.partyPopper.height"></csc-img>
-            </span>
-        </div>
+  <div class="row">
+    <div class="csc-event-content container">
+      <span *ngIf="nextEvent === undefined"
+        >There aren't any events planned yet. Please check back at a later
+        time!</span
+      >&nbsp;
+      <span *ngIf="nextEvent !== undefined"
+        >Check out our next event:
+        <a [routerLink]="'/events/' + nextEvent.$key">{{ nextEvent.title }}</a
+        >&nbsp;
+        <csc-img
+          [src]="images.partyPopper.src"
+          [width]="images.partyPopper.width"
+          [height]="images.partyPopper.height"
+          [style.height.px]="images.partyPopper.height"
+          [style.width.px]="images.partyPopper.height"
+        ></csc-img>
+      </span>
     </div>
+  </div>
 </section>
 <section id="csc-about">
-    <div class="row">
-        <div class="container">
-            <div class="csc-about-desc">
-                <h2 class="csc-header">About us</h2>
-                <p>We are the Brock Computer Science Club, a local chapter of the ACM.</p>
-                <p>Our goal is to provide a community for all individuals who are interested in Computer Science at Brock University.</p>
-                <p>Throughout the year, we host and participate in several educational and social events related to Computer
-                    Science.
-                </p>
-            </div>
-            <a routerLink="/team" class="csc-header">Learn about the team</a>
-            <div class="csc-team">
-                <csc-img alt="BrockCSC at CSGames 2017" [src]="images.about.src" [data]="images.about.data" [width]="images.about.width"
-                [height]="images.about.height"></csc-img>
-            </div>
-        </div>
+  <div class="row">
+    <div class="container">
+      <div class="csc-about-desc">
+        <h2 class="csc-header">About us</h2>
+        <p>
+          We are the Brock Computer Science Club, a local chapter of the ACM.
+        </p>
+        <p>
+          Our goal is to provide a community for all individuals who are
+          interested in Computer Science at Brock University.
+        </p>
+        <p>
+          Throughout the year, we host and participate in several educational
+          and social events related to Computer Science.
+        </p>
+      </div>
+      <a routerLink="/team" class="csc-header">Learn about the team</a>
+      <div class="csc-team">
+        <csc-img
+          alt="BrockCSC at CSGames 2017"
+          [src]="images.about.src"
+          [data]="images.about.data"
+          [width]="images.about.width"
+          [height]="images.about.height"
+        ></csc-img>
+      </div>
     </div>
+  </div>
 </section>
 <section id="csc-events">
-    <div class="row">
-        <div class="container">
-            <h2 class="csc-header">Events</h2>
-            <div class="csc-events-content">
-                <div class="row" *ngFor="let event of events">
-                    <div class="column-left">
-                        <i class="material-icons">{{ event.icon }}</i><span class="csc-icon-title">{{ event.title }}</span>
-                    </div>
-                    <div class="column-right">
-                        <p>{{ event.desc }}</p>
-                    </div>
-                </div>
-            </div>
-            <a routerLink="/events" class="csc-header">See more about events</a>
+  <div class="row">
+    <div class="container">
+      <h2 class="csc-header">Events</h2>
+      <div class="csc-events-content">
+        <div class="row" *ngFor="let event of events">
+          <div class="column-left">
+            <i class="material-icons">{{ event.icon }}</i
+            ><span class="csc-icon-title">{{ event.title }}</span>
+          </div>
+          <div class="column-right">
+            <p>{{ event.desc }}</p>
+          </div>
         </div>
+      </div>
+      <a routerLink="/events" class="csc-header">See more about events</a>
     </div>
+  </div>
 </section>
 <section id="csc-social-feeds">
-    <div class="row">
-        <div class="container csc-social-container">
-            <a class="twitter-timeline" data-height="450" data-theme="light" data-chrome="nofooter" data-link-color="#AA3B3B" href="https://twitter.com/BrockuCSC"></a>
-        </div>
+  <div class="row">
+    <div class="container csc-social-container">
+      <a
+        class="twitter-timeline"
+        data-height="450"
+        data-theme="light"
+        data-chrome="nofooter"
+        data-link-color="#AA3B3B"
+        href="https://twitter.com/BrockuCSC"
+      ></a>
     </div>
+  </div>
 </section>
 <section id="csc-services">
-    <div class="row">
-        <div class="container">
-            <h2 class="csc-header">Services</h2>
-            <div class="csc-services-content">
-                <div class="row" *ngFor="let service of services">
-                    <div class="column-left">
-                        <i class="material-icons">{{ service.icon }}</i><span class="csc-icon-title">{{ service.title }}</span>
-                    </div>
-                    <div class="column-right">
-                        <p>{{ service.desc }}</p>
-                    </div>
-                </div>
-            </div>
-            <a routerLink="/services" class="csc-header">See more about our services</a>
+  <div class="row">
+    <div class="container">
+      <h2 class="csc-header">Services</h2>
+      <div class="csc-services-content">
+        <div class="row" *ngFor="let service of services">
+          <div class="column-left">
+            <i class="material-icons">{{ service.icon }}</i
+            ><span class="csc-icon-title">{{ service.title }}</span>
+          </div>
+          <div class="column-right">
+            <p>{{ service.desc }}</p>
+          </div>
         </div>
+      </div>
+      <a routerLink="/services" class="csc-header"
+        >See more about our services</a
+      >
     </div>
+  </div>
 </section>
 <section id="csc-join">
-    <div class="row">
-        <div class="container">
-            <div class="csc-join-container">
-                <h2 class="csc-header">Join Us</h2>
-                <div class="csc-desc">
-                    <p>Interested?</p>
-                    <p>We are always looking for new members!</p>
-                </div>
-                <a routerLink="/signup"><button csc-button class="csc-sign-up-button">Join</button></a>
-            </div>
+  <div class="row">
+    <div class="container">
+      <div class="csc-join-container">
+        <h2 class="csc-header">Join Us</h2>
+        <div class="csc-desc">
+          <p>Interested?</p>
+          <p>We are always looking for new members!</p>
         </div>
+        <a routerLink="/signup"
+          ><button csc-button class="csc-sign-up-button">
+            Join
+          </button></a
+        >
+      </div>
     </div>
+  </div>
 </section>

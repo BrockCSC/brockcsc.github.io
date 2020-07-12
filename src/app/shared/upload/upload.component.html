@@ -1,23 +1,32 @@
 <div class="csc-drop" [class.hover]="fileHover">
-    <div class="csc-drop-border">
-        <div class="csc-drop-desc">
-            <i class="material-icons csc-mat-icon">cloud_upload</i>
-            <div class="csc-drop-text">
-                <h2>{{ message }}</h2>
-                <!-- // TODO: Add click to select -->
-            </div>
-        </div>
+  <div class="csc-drop-border">
+    <div class="csc-drop-desc">
+      <i class="material-icons csc-mat-icon">cloud_upload</i>
+      <div class="csc-drop-text">
+        <h2>{{ message }}</h2>
+        <!-- // TODO: Add click to select -->
+      </div>
     </div>
+  </div>
 </div>
 <div class="csc-upload" *ngFor="let upload of storageTasks; let idx = index">
-    <div class="csc-progress-bar">
-        <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
-    </div>
-    <div class="csc-file-remove" [class.active]="upload.progress == 100" (click)="removeFile(upload)">
-        <i class="material-icons csc-mat-icon">clear</i>
-    </div>
-    <div class="csc-file-name">
-        {{ upload.name }}
-    </div>
+  <div class="csc-progress-bar">
+    <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
+  </div>
+  <div
+    class="csc-file-remove"
+    [class.active]="upload.progress == 100"
+    (click)="removeFile(upload)"
+  >
+    <i class="material-icons csc-mat-icon">clear</i>
+  </div>
+  <div class="csc-file-name">
+    {{ upload.name }}
+  </div>
 </div>
-<csc-upload-existing #existingUpload *ngIf="hasExistingFiles()" (onChange)="existingFilesChange()" [data]="data"></csc-upload-existing>
+<csc-upload-existing
+  #existingUpload
+  *ngIf="hasExistingFiles()"
+  (onChange)="existingFilesChange()"
+  [data]="data"
+></csc-upload-existing>

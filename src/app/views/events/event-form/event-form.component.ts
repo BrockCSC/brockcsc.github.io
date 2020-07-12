@@ -1,16 +1,12 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'csc-event-form',
   templateUrl: './event-form.component.html',
-  styleUrls: ['./event-form.component.scss']
+  styleUrls: ['./event-form.component.scss'],
 })
 export class EventFormComponent implements OnInit, AfterViewInit {
- ngOnInit() {
+  ngOnInit() {}
 
- }
-
- ngAfterViewInit() {
-
- }
+  ngAfterViewInit() {}
 }

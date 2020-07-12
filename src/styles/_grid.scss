@@ -1,43 +1,43 @@
 $width: 100%;
 
 .row {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .row [class^='col-'] {
-    float: left; 
-    padding: 0.5rem;
-    min-height: 0.125rem;
+  float: left;
+  padding: 0.5rem;
+  min-height: 0.125rem;
 }
 
 .row::after {
-    content: "";
-    display: table;
-    clear: both;
+  content: '';
+  display: table;
+  clear: both;
 }
 
 @for $i from 1 through 12 {
-    .col-#{$i}{
-        width: $width;
-    }
-    .col-m-#{$i}{
-        width: $width;
-    }
+  .col-#{$i} {
+    width: $width;
+  }
+  .col-m-#{$i} {
+    width: $width;
+  }
 }
 
 @media #{$desktop} {
-    @for $i from 1 through 12 {
-        .col-#{$i}{
-            width: $width / (12 / $i);
-        }
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: $width / (12 / $i);
     }
+  }
 }
 
 @media #{$tablet} {
-    @for $i from 1 through 12 {
-        .col-m-#{$i}{
-            width: $width / (12 / $i);
-        }
+  @for $i from 1 through 12 {
+    .col-m-#{$i} {
+      width: $width / (12 / $i);
     }
+  }
 }

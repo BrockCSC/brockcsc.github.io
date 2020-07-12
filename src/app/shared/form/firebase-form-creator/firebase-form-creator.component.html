@@ -1,28 +1,27 @@
 <div style="padding: 10px;">
-    <table>
-        <tr *ngFor="let field of formInfo.fields; let i = index;">
-            <td>
-                <csc-text-field-creator *ngIf="isTextInput(field)" [text]="field">
-                </csc-text-field-creator>
-                <csc-radio-creator *ngIf="isRadioInput(field)" [radio]="field">
-                </csc-radio-creator>
-                <csc-checkbox-creator
-                    *ngIf="isCheckboxInput(field)"
-                    [checkbox]="field"
-                >
-                </csc-checkbox-creator>
-            </td>
-            <td class="csc-mat-icon">
-                <i (click)="removeField(field)" class="material-icons csc-mat-icon">delete</i>
-            </td>
-        </tr>
-    </table>
-    <csc-input-container label="Add new field" labelLocation="top">
-        <select [(ngModel)]="selectedNewFieldType">
-            <option *ngFor="let type of fieldTypes" [value]="type">
-                {{ type }}
-            </option>
-        </select>
-    </csc-input-container>
-    <button csc-button (click)="addNewField()">Add</button>
+  <table>
+    <tr *ngFor="let field of formInfo.fields; let i = index">
+      <td>
+        <csc-text-field-creator *ngIf="isTextInput(field)" [text]="field">
+        </csc-text-field-creator>
+        <csc-radio-creator *ngIf="isRadioInput(field)" [radio]="field">
+        </csc-radio-creator>
+        <csc-checkbox-creator *ngIf="isCheckboxInput(field)" [checkbox]="field">
+        </csc-checkbox-creator>
+      </td>
+      <td class="csc-mat-icon">
+        <i (click)="removeField(field)" class="material-icons csc-mat-icon"
+          >delete</i
+        >
+      </td>
+    </tr>
+  </table>
+  <csc-input-container label="Add new field" labelLocation="top">
+    <select [(ngModel)]="selectedNewFieldType">
+      <option *ngFor="let type of fieldTypes" [value]="type">
+        {{ type }}
+      </option>
+    </select>
+  </csc-input-container>
+  <button csc-button (click)="addNewField()">Add</button>
 </div>

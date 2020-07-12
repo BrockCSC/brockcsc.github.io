@@ -5,141 +5,141 @@ $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
 $nav-links-margin: 1.5em;
 .csc-nav {
-    height: $height;
-    position: relative;
-    z-index: 1;
+  height: $height;
+  position: relative;
+  z-index: 1;
 }
 
 .csc-nav-links {
-    position: relative;
-    margin: 0;
-    float: right;
-    top: 50%;
-    transform: translateY(-50%);
+  position: relative;
+  margin: 0;
+  float: right;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @mixin nav-link {
-    font-size: $nav-links-font-size;
-    margin-right: $nav-links-margin;
-    &:last-child {
-        margin-right: 0px;
-    }
+  font-size: $nav-links-font-size;
+  margin-right: $nav-links-margin;
+  &:last-child {
+    margin-right: 0px;
+  }
 }
 
 .csc-nav-links > a {
-    @include nav-link();
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
+  @include nav-link();
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .black-links > a {
-    @include nav-link();
-    color: rgba(0, 0, 0, 0.9);
+  @include nav-link();
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .csc-logo-container {
-    height: $height;
-    display: inline-block;
-    line-height: $height;
+  height: $height;
+  display: inline-block;
+  line-height: $height;
 }
 
 .csc-logo-black,
 .csc-logo {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .csc-join-button {
-    margin-left: 3.125rem;
+  margin-left: 3.125rem;
 }
 
 .csc-join-button-mobile {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 .container {
-    height: inherit;
-    box-sizing: content-box;
+  height: inherit;
+  box-sizing: content-box;
 }
 
 .nav-overlay {
-    position: fixed;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    transition: 0.3s opacity;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.3s opacity;
 }
 
 .nav-overlay-open {
-    width: 100%;
-    opacity: 3;
-    z-index: 1;
+  width: 100%;
+  opacity: 3;
+  z-index: 1;
 }
 
 .nav-overlay-content {
-    position: relative;
-    top: 25%;
-    text-align: center;
-    margin-top: 30px;
+  position: relative;
+  top: 25%;
+  text-align: center;
+  margin-top: 30px;
 
-    a {
-        padding: 10px;
-        color: #ccc;
-        font-size: 30px;
-        text-decoration: none;
-        display: block;
+  a {
+    padding: 10px;
+    color: #ccc;
+    font-size: 30px;
+    text-decoration: none;
+    display: block;
 
-        &:hover {
-            color: #fff;
-        }
+    &:hover {
+      color: #fff;
     }
+  }
 }
 
 .white-background {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 @media #{$desktop} {
-    .nav-overlay,
-    .csc-nav-mobile {
-        display: none;
-    }
+  .nav-overlay,
+  .csc-nav-mobile {
+    display: none;
+  }
 }
 
 @media #{$mobile},
 #{$tablet} {
-    .csc-nav-desktop {
-        display: none;
+  .csc-nav-desktop {
+    display: none;
+  }
+  .csc-nav-mobile {
+    position: relative;
+
+    .csc-nav-menu {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      position: absolute;
+
+      i {
+        font-size: 30px;
+      }
     }
-    .csc-nav-mobile {
-        position: relative;
 
-        .csc-nav-menu {
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 4;
-            position: absolute;
-
-            i {
-                font-size: 30px;
-            }
-        }
-
-        .csc-mobile-left-container {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    .csc-mobile-left-container {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
+  }
 }

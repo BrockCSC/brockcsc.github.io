@@ -1,5 +1,5 @@
 <div class="csc-checkbox">
-    <ng-content select="input[type='checkbox']"></ng-content>
-    <label [for]="_id" *ngIf="label != null">{{ label }}</label>
-    <label [for]="_id" *ngIf="label == null" [innerHTML]="_defaultLabel"></label>
+  <ng-content select="input[type='checkbox']"></ng-content>
+  <label [for]="_id" *ngIf="label != null">{{ label }}</label>
+  <label [for]="_id" *ngIf="label == null" [innerHTML]="_defaultLabel"></label>
 </div>

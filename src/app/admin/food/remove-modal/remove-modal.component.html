@@ -1,17 +1,22 @@
 <csc-modal #modal>
-    <csc-modal-header>
-        Remove Food Item
-    </csc-modal-header>
-    <csc-modal-body>
-        <div class="row">
-            <div class="col-12">
-                <h2>Are you sure you want to remove {{ checkedFoodItems.length }} food item{{ checkedFoodItems.length > 1 ? 's' : '' }}
-                    from the database?</h2>
-                <p>This action is irreversible</p>
-            </div>
-        </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="removeFoodItems()">Remove food item</button>
-    </csc-modal-footer>
+  <csc-modal-header>
+    Remove Food Item
+  </csc-modal-header>
+  <csc-modal-body>
+    <div class="row">
+      <div class="col-12">
+        <h2>
+          Are you sure you want to remove
+          {{ checkedFoodItems.length }} food item{{
+            checkedFoodItems.length > 1 ? 's' : ''
+          }}
+          from the database?
+        </h2>
+        <p>This action is irreversible</p>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="removeFoodItems()">Remove food item</button>
+  </csc-modal-footer>
 </csc-modal>

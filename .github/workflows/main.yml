@@ -1,7 +1,7 @@
 name: Build and Deploy
 on:
   push:
-    branches: 
+    branches:
       - production
 jobs:
   build-and-deploy:
@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install and Build 🔧 
+      - name: Install and Build 🔧
         run: |
           npm install
           npm run build

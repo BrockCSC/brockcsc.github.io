@@ -1,20 +1,20 @@
 @import 'src/variables.scss';
 .csc-event-upload-image {
-    max-width: 600px;
+  max-width: 600px;
 }
 
 .csc-event-upload-resources {
-    max-width: 600px;
+  max-width: 600px;
 }
 
 .csc-event-buttons {
-    text-align: right;
-    margin: 40px 0px;
-    div {
-        display: inline-block;
-    }
+  text-align: right;
+  margin: 40px 0px;
+  div {
+    display: inline-block;
+  }
 }
 
 a {
-    color: $maroon;
+  color: $maroon;
 }

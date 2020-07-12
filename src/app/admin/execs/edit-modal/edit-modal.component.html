@@ -1,46 +1,85 @@
 <csc-modal #modal>
-    <csc-modal-header>Edit executive</csc-modal-header>
-    <csc-modal-body>
-        <div id="csc-admin-container">
+  <csc-modal-header>Edit executive</csc-modal-header>
+  <csc-modal-body>
+    <div id="csc-admin-container">
+      <div class="row">
+        <div class="container">
+          <form [formGroup]="form">
             <div class="row">
-                <div class="container">
-                    <form [formGroup]="form">
-                        <div class="row">
-                            <csc-input-container class="col-12" label="Name" labelLocation="top">
-                                <input class="csc-input" type="text" formControlName="name" placeholder="Execuive full name">
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                                <csc-input-container label="Title" class="col-12" labelLocation="top">
-                                    <select formControlName="title">
-                                        <option value="President">President</option>
-                                        <option value="Executive">Executive</option>
-                                    </select>
-                                </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Currently an exec?" class="col-12" labelLocation="left">
-                                <csc-checkbox>
-                                    <input type="checkbox" formControlName="isCurrentExec" value="CurrentExec" checked>
-                                </csc-checkbox>
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Description" class="col-12" labelLocation="top">
-                                <textarea class="csc-input" type="text" formControlName="description" placeholder="Brief description about exec"></textarea>
-                            </csc-input-container>
-                        </div>
-                        <div class="row">
-                            <csc-input-container label="Image" class="col-6" labelLocation="top">
-                                <csc-upload formControlName="image" message="Drag exec image here" [data]="getImage()"></csc-upload>
-                            </csc-input-container>
-                        </div>
-                    </form>
-                </div>
+              <csc-input-container
+                class="col-12"
+                label="Name"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="text"
+                  formControlName="name"
+                  placeholder="Execuive full name"
+                />
+              </csc-input-container>
             </div>
+            <div class="row">
+              <csc-input-container
+                label="Title"
+                class="col-12"
+                labelLocation="top"
+              >
+                <select formControlName="title">
+                  <option value="President">President</option>
+                  <option value="Executive">Executive</option>
+                </select>
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                label="Currently an exec?"
+                class="col-12"
+                labelLocation="left"
+              >
+                <csc-checkbox>
+                  <input
+                    type="checkbox"
+                    formControlName="isCurrentExec"
+                    value="CurrentExec"
+                    checked
+                  />
+                </csc-checkbox>
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                label="Description"
+                class="col-12"
+                labelLocation="top"
+              >
+                <textarea
+                  class="csc-input"
+                  type="text"
+                  formControlName="description"
+                  placeholder="Brief description about exec"
+                ></textarea>
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                label="Image"
+                class="col-6"
+                labelLocation="top"
+              >
+                <csc-upload
+                  formControlName="image"
+                  message="Drag exec image here"
+                  [data]="getImage()"
+                ></csc-upload>
+              </csc-input-container>
+            </div>
+          </form>
         </div>
-    </csc-modal-body>
-    <csc-modal-footer>
-        <button csc-button (click)="update()">Save Exec</button>
-    </csc-modal-footer>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="update()">Save Exec</button>
+  </csc-modal-footer>
 </csc-modal>

@@ -1,66 +1,72 @@
 <div *ngIf="formId">
-    <div *ngIf="!!formInfo && !submitted">
-        <form
-            #formElement
-            class="row csc-contact-form"
-            target="no-target"
-            [formGroup]="form"
-        >
-            <div class="row">
-                <div *ngFor="let field of formInfo.fields | anyCast">
-                    <csc-input-container class="col-12" [label]="field.description + (field.required? ' (*)':'')"
-                                         labelLocation="top">
-                        <div *ngIf="isTextInput(field)">
-                            <input
-                                [formControlName]="field.name"
-                                class="csc-input"
-                                type="text"
-                                placeholder="Your Answer"
-                            />
-                            <span
-                                class="error-msg"
-                                *ngIf="
-                        !form.controls[field.name].valid &&
-                        (form.controls[field.name].touched || submitTried)
-                    "
-                            >
-                    Required field
-                        </span>
-                        </div>
-
-                        <div *ngIf="isCheckboxInput(field)">
-                            <csc-checkbox>
-                                <input type="checkbox" [formControlName]="field.name"/>
-                            </csc-checkbox>
-                        </div>
-
-                        <div *ngIf="isRadioInput(field)">
-                            <select [formControlName]="field.name">
-                                <option
-                                    *ngFor="let option of field.options"
-                                    [value]="option.name">
-                                    {{ option.name }}
-                                </option>
-                            </select>
-                            <span
-                                class="error-msg"
-                                *ngIf="
-                        !form.controls[field.name].valid &&
-                        (form.controls[field.name].touched || submitTried)"
-                            >
-                    Required field
-                        </span>
-                        </div>
-                    </csc-input-container>
-                </div>
-                <p *ngIf="submitTried && form.status === 'INVALID'" class="error-msg">Please fill all required fields,
-                    indicated with *</p>
-                <button csc-button (click)="submitForm()">Submit</button>
+  <div *ngIf="!!formInfo && !submitted">
+    <form
+      #formElement
+      class="row csc-contact-form"
+      target="no-target"
+      [formGroup]="form"
+    >
+      <div class="row">
+        <div *ngFor="let field of formInfo.fields | anyCast">
+          <csc-input-container
+            class="col-12"
+            [label]="field.description + (field.required ? ' (*)' : '')"
+            labelLocation="top"
+          >
+            <div *ngIf="isTextInput(field)">
+              <input
+                [formControlName]="field.name"
+                class="csc-input"
+                type="text"
+                placeholder="Your Answer"
+              />
+              <span
+                class="error-msg"
+                *ngIf="
+                  !form.controls[field.name].valid &&
+                  (form.controls[field.name].touched || submitTried)
+                "
+              >
+                Required field
+              </span>
             </div>
-        </form>
-    </div>
-    <div *ngIf="submitted">
-        Your response has been recorded!
-    </div>
-    <csc-spinner *ngIf="!formInfo || (submitting && !submitted)"></csc-spinner>
+
+            <div *ngIf="isCheckboxInput(field)">
+              <csc-checkbox>
+                <input type="checkbox" [formControlName]="field.name" />
+              </csc-checkbox>
+            </div>
+
+            <div *ngIf="isRadioInput(field)">
+              <select [formControlName]="field.name">
+                <option
+                  *ngFor="let option of field.options"
+                  [value]="option.name"
+                >
+                  {{ option.name }}
+                </option>
+              </select>
+              <span
+                class="error-msg"
+                *ngIf="
+                  !form.controls[field.name].valid &&
+                  (form.controls[field.name].touched || submitTried)
+                "
+              >
+                Required field
+              </span>
+            </div>
+          </csc-input-container>
+        </div>
+        <p *ngIf="submitTried && form.status === 'INVALID'" class="error-msg">
+          Please fill all required fields, indicated with *
+        </p>
+        <button csc-button (click)="submitForm()">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="submitted">
+    Your response has been recorded!
+  </div>
+  <csc-spinner *ngIf="!formInfo || (submitting && !submitted)"></csc-spinner>
 </div>

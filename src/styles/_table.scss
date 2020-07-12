@@ -1,46 +1,46 @@
 @import 'src/variables.scss';
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #F5F5F5;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f5f5f5;
 }
 
 thead {
-    font-size: $subHeading;
-    color: rgba(0, 0, 0, 0.75);
-    background-color: darken($grey, 10%);
-    border: 1px solid darken($grey, 15%);
+  font-size: $subHeading;
+  color: rgba(0, 0, 0, 0.75);
+  background-color: darken($grey, 10%);
+  border: 1px solid darken($grey, 15%);
 }
 
 th {
-    text-align: left;
-    padding: 10px;
+  text-align: left;
+  padding: 10px;
 }
 
 td {
-    padding: 10px;
+  padding: 10px;
 }
 
 tr {
-    border: 1px solid darken($grey, 15%);
+  border: 1px solid darken($grey, 15%);
 }
 
 .csc-checkbox-col {
-    text-align: center;
+  text-align: center;
 }
 
 .csc-mat-icon {
-    color: $maroon;
-    text-align: center;
+  color: $maroon;
+  text-align: center;
 }
 
 .csc-mat-icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .csc-remove-th,
 .csc-edit-th {
-    width: 1px;
-    padding: 0px 35px;
+  width: 1px;
+  padding: 0px 35px;
 }
