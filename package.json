@@ -79,8 +79,8 @@
     "typescript": "3.7.5"
   },
   "husky": {
-      "hooks": {
-          "pre-commit": "npm run format:fix"
-      }
+    "hooks": {
+      "pre-commit": "npm run format:fix"
+    }
   }
 }
