@@ -14,11 +14,11 @@ This is an open-source guide for computer science students at Brock University.
 
 ---
 
+Everyone is _highly_ encouraged to contribute to this guide so that we can make this a very useful resource for students. Add any information you might find useful and feel free to add/change sections.
+
 Anyone can contribute to this document through GitHub's editor - no coding/git skills necessary. Click the "**Contribute to guide**" button at the top of this page and it will bring you to GitHub's text editor. You can make/preview changes on there and create a pull request when you're done. An admin will then approve your changes and add it to production. The document is written in [markdown](https://www.markdownguide.org/basic-syntax/) syntax.
 
-We _highly_ encourage people to contribute so that we can make this a very useful resource for students. Add any information you might find useful and feel free to add/change sections.
-
-If you're posting any opinionated information, use your name in the sentence (i.e. David recommends...).
+If you're posting any opinionated information, use your name in the sentence (i.e. John recommends...).
 
 ## Contributors
 
