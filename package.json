@@ -67,6 +67,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^10.2.11",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
@@ -79,9 +80,12 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "3.7.5"
   },
+  "lint-staged": {
+    "*.ts": "ng lint --fix --files" 
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "ng lint --fix && pretty-quick --staged"
+      "pre-commit": "lint-staged && pretty-quick --staged"
     }
   }
 }
