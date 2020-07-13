@@ -27,9 +27,30 @@ Please add yourself to this list (link is optional) if you've contributed to thi
 - [Dylan Souvage](https://github.com/firefelix)
 - [Kindeep Singh Kargil](https://kindeep.me)
 
-# Courses
 
----
+# Courses
+(Note: do not rely on this, always consult [BrockU Timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all) and your [Course Calendar](https://brocku.ca/webcal/current/undergrad/cosc.html))
+
+###### Requirements Legend
+
+❤️ Bachelor of Science, Computer Science (Honours & General) Required Course
+
+💜 Computer Science (COSC) Elective
+
+💛 Applied Computing Minor (APCO) Required Course/APCO Elective
+
+
+| Course Code | Course Name | Fall | Winter | Spring | Required | Prerequisite(s)
+|-------------|:------------------------------------------------:|-------------|-------------|---------------------|----------|:------------------------------------------------------------------------------:|
+| APCO-1P00 | Introduction to Media Computation | ✅ | ✅ | ✅ | 💛| |
+| APCO-1P01 | Fluency with Technology | ✅ | ✅ | ✅ | 💛| | 
+| APCO-1P30 | Programming for Interactive Media | ❌ | ✅ | ❌ | 💛| |
+| COSC-1P50 | Integrity and Literacy in the Information Age | ✅ | ✅ | ✅ | 💛❤️| |
+| APCO-1P93 | Applied Programming |  ❌ | ✅ |  ❌ | 💛| APCO-1P00 or 4U Mathematics credit |
+| APCO-2P11 | Personal Computers and Networks |  ❌ | ✅ |  ❌ | 💛| APCO-1P01 |
+| COSC-2P89 | Internet Technologies |  ❌ | ✅ |  ❌ | 💛💜| APCO 1P00 (minimum 60 percent) and 1P01 (minimum 60 percent) or COSC 1P03 (minimum 60 percent) |
+| COSC-3P94 | Human Computer Interaction |  ❌ | ✅ |  ❌ | 💛💜| Two Credits from either IASC/APCO/COSC |
+
 
 ## School Resources
 
@@ -49,3 +70,6 @@ As a student in Computer Science there are many free trials, offers, and product
 - [Amazon Prime Student](https://www.amazon.ca/b?ie=UTF8&node=9648404011&tag=googcana-20&hvadid=208306511168&hvpos=&hvnetw=g&hvrand=2646831168916978879&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000745&hvtargid=kwd-308101787433&ref=pd_sl_2w477v4psd_e&hydadcr=848_10117974&gclid=Cj0KCQjw6ar4BRDnARIsAITGzlDcTWhlyDSpHmFQHfl3s2Q2vgpR-RWJbVD-5CEEkGgwPeekHmOuE48aAuScEALw_wcB)
 - [Figma](https://www.figma.com/education/) - Free online design tool, allows you to create vector graphics and prototypes.
 - [Spotify](https://www.spotify.com/ca-en/student/) - 3 months free
+
+
+
