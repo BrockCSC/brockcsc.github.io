@@ -1,22 +1,6 @@
 @import 'src/variables.scss';
 @import 'hamburger/hamburger.scss';
 
-@mixin nav-link {
-  font-size: $nav-links-font-size;
-  margin-right: $nav-links-margin;
-  &:last-child {
-    margin-right: 0px;
-  }
-}
-
-:host {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
 $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
 $nav-links-margin: 1.5em;
@@ -24,12 +8,6 @@ $nav-links-margin: 1.5em;
   height: $height;
   position: relative;
   z-index: 1;
-  // transition: 0.5s all;
-  border-bottom: 2px solid transparent;
-}
-
-.csc-nav.white-background.scrolled {
-  border-bottom: 2px solid $csc-maroon;
 }
 
 .csc-nav-links {
@@ -40,10 +18,11 @@ $nav-links-margin: 1.5em;
   transform: translateY(-50%);
 }
 
-.white-background {
-  .csc-nav-links a {
-    @include nav-link();
-    color: #000;
+@mixin nav-link {
+  font-size: $nav-links-font-size;
+  margin-right: $nav-links-margin;
+  &:last-child {
+    margin-right: 0px;
   }
 }
 

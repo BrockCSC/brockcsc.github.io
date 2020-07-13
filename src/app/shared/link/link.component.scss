@@ -14,4 +14,13 @@
   width: 0;
   height: 1px;
   transition: width 0.3s;
+  background-color: white;
+}
+
+.white-background .csc-link-line {
+  background-color: black;
+}
+
+.csc-link:hover .csc-link-line {
+  width: 100%;
 }
