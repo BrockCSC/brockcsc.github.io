@@ -8,7 +8,7 @@
 
 ---
 
-This is an open-source guide for computer science students at Brock University.
+This is an open-source guide for Computer Science students at Brock University. This was adapted from [this](https://css.uwindsor.ca/guide) guide from the Univeristy of Windsor.
 
 # Contributing
 
