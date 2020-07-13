@@ -1,18 +1,27 @@
+import { map, switchMap, startWith } from 'rxjs/operators';
 import { Location } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
+import { ScrollService } from 'app/shared/services/scroll.service';
 
 const WHITE = 'white';
 const MAROON = '#AA3B3B';
+const ANIMATION_END_Y = 30;
 
 @Component({
   selector: 'csc-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, AfterViewInit {
   public logoSrc = 'assets/logo.svg';
   public menuColor = 'rgba(255, 255, 255, 0.86)';
 
@@ -43,36 +52,39 @@ export class NavComponent implements OnInit {
   public linkLogout: NavLink = { href: '/auth/logout', desc: 'Logout' };
 
   public showOverlay = false;
-  private colour = WHITE;
+  public white$: Observable<boolean>;
+  public opacity$: Observable<number>;
 
   constructor(
     private _location: Location,
     private _router: Router,
-    private _auth: AuthService
-  ) {}
+    private _auth: AuthService,
+    private _scroll: ScrollService
+  ) {
+    this.opacity$ = this._scroll.scrollY$.pipe(
+      map((y) => {
+        return Math.min(ANIMATION_END_Y, y) / ANIMATION_END_Y;
+      })
+    );
+    this.white$ = combineLatest(
+      this._router.events.pipe(startWith(new NavigationEnd(0, '/', '/'))),
+      this.opacity$.pipe(startWith([0])),
+      (_, opacity) => {
+        const currentPath = this._location.path();
+        const transparentPaths = ['/', '/home'];
+        return (
+          !transparentPaths.some((path) => path === currentPath) ||
+          opacity === 1
+        );
+      }
+    );
+    this.white$.subscribe((value) => {
+      console.log('white', value);
+    });
+  }
 
   public ngOnInit(): void {
     this.initLinks();
-  }
-
-  /*
-    For paths that don't have a contrasting backdrop for the see through navbar,
-    we want to give the navbar some colour. This is done with the [ngClass] directive
-    which adds the navy-background class to the root div of this view.
-    */
-  public changeToWhiteNav(): boolean {
-    // TODO: Improve this whole logic or how the layout is done
-    const currentPath = this._location.path();
-    const transparentPaths = ['/', '/home'];
-
-    for (const path of transparentPaths) {
-      if (currentPath === path) {
-        this.setTransparentNav();
-        return false;
-      }
-    }
-    this.setWhiteNav();
-    return true;
   }
 
   public initLinks(): void {
@@ -87,30 +99,6 @@ export class NavComponent implements OnInit {
         this.linkAdmin.visible = false;
       }
     });
-  }
-
-  private setBlackLogo() {
-    this.menuColor = 'rgba(0, 0, 0, 0.86)';
-  }
-
-  private setWhiteLogo() {
-    this.menuColor = 'rgba(255, 255, 255, 0.86)';
-  }
-
-  private setWhiteNav() {
-    this.setBlackLogo();
-    this.setLinkColours(MAROON);
-  }
-
-  private setTransparentNav() {
-    this.setWhiteLogo();
-    this.setLinkColours(WHITE);
-  }
-
-  private setLinkColours(colour: string) {
-    this.links.forEach((link) => (link.colour = colour));
-    this.linkAdmin.colour = colour;
-    this.linkLogout.colour = colour;
   }
 
   public toggleOverlayMenu() {
