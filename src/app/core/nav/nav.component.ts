@@ -1,16 +1,16 @@
-import { map, switchMap, startWith } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   OnInit,
   ViewChild,
-  AfterViewInit,
 } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
-import { Observable, combineLatest } from 'rxjs';
 import { ScrollService } from 'app/shared/services/scroll.service';
+import { combineLatest, Observable } from 'rxjs';
+import { map, startWith, switchMap } from 'rxjs/operators';
 
 const WHITE = 'white';
 const MAROON = '#AA3B3B';
