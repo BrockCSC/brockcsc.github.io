@@ -29,9 +29,12 @@ Please add yourself to this list (link is optional) if you've contributed to thi
 
 
 # Courses
-(Note: do not rely on this, always consult [BrockU Timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all) and your [Course Calendar](https://brocku.ca/webcal/current/undergrad/cosc.html))
 
-###### Requirements Legend
+A list of COSC courses, their prerequisites and what terms they are generally offered in.
+
+Note: do not rely on this, for up to date information, consult:
+* [BrockU Timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all)
+* [Course Calendar](https://brocku.ca/webcal/current/undergrad/cosc.html)
 
 ❤️ Bachelor of Science, Computer Science (Honours & General) Required Course
 
