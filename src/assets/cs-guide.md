@@ -1,8 +1,8 @@
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Contributing](#contributing)
-- [Contributors](#contributors)
+- [Introduction](https://brockcsc.ca/guide#introduction)
+- [Contributing](https://brockcsc.ca/guide#contributing)
+- [Contributors](https://brockcsc.ca/guide#contributors)
 
 # Introduction
 
