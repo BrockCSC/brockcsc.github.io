@@ -31,23 +31,26 @@
     </a>
     <nav class="csc-nav-links">
       <a
+        csclink
         *ngFor="let link of links"
         [routerLink]="link.href"
-        [csclink]="link.colour"
+        routerLinkActive="active-link"
         [title]="link.desc"
         >{{ link.desc }}</a
       >
       <a
+        csclink
         *ngIf="linkAdmin.visible"
         [routerLink]="linkAdmin.href"
-        [csclink]="linkAdmin.colour"
+        routerLinkActive="active-link"
         [title]="linkAdmin.desc"
         >{{ linkAdmin.desc }}</a
       >
       <a
+        csclink
         *ngIf="linkLogout.visible"
         [routerLink]="linkLogout.href"
-        [csclink]="linkLogout.colour"
+        routerLinkActive="active-link"
         [title]="linkLogout.desc"
         >{{ linkLogout.desc }}</a
       >

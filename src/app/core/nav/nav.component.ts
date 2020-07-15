@@ -21,7 +21,7 @@ const ANIMATION_END_Y = 30;
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent implements OnInit, AfterViewInit {
+export class NavComponent implements OnInit {
   public logoSrc = 'assets/logo.svg';
   public menuColor = 'rgba(255, 255, 255, 0.86)';
 
