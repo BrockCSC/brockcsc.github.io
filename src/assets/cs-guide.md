@@ -27,7 +27,7 @@ Please add yourself to this list (link is optional) if you've contributed to thi
 - [Dylan Souvage](https://github.com/firefelix)
 - [Kindeep Singh Kargil](https://kindeep.me)
 
-# Duration Types (D3 vs D2 etc.)
+## Duration Types (D3 vs D2 etc.)
 
 D1 is a full year course, starting from Fall -> Winter, taking up two semesters.
 
@@ -35,28 +35,29 @@ D2 is a one semester course taking place in the Fall, from September -> December
 
 D3 is a one semester course taking place in the Winter, from January -> April.
 
-# Section Types
+## Section Types
 
 The only difference is some classes are large and require splitting into multiple sections of a class for marking purposes and for seminar/lab purposes. If you for example want to be in a class with a friend make sure you enroll in the same section (this isn't always true, some classes don't matter what section you're in).
 
-# Common Course Types (2P00 VS 2F00)
+## Common Course Types (2P00 VS 2F00)
 
 Note: 1 credit is equivalent to two classes, and every Major program requires 20 credits to graduate (40 classes)
 
 F - 1.00 Credit 
 P - 0.5 Credit 
 Q - 0.5 Credit
+C - 0.5 Credit (only required for co-op, and the credit is only weighted for OSAP, but does not apply to your graduation requirement)
 N - 0 Credit (only required for co-op)
-C - 0 Credit (only required for co-op)
 
-# List of available context credits (Humanities vs Social Science)
+
+## List of available context credits (Humanities vs Social Science)
 
 https://brocku.ca/webcal/current/undergrad/areg.html#sec28
 
 Note: this should be cross referenced with the [https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all](undergraduate timetable), as sometimes the courses listed here are not always offered.
 
 
-# Minor in Applied Computing 
+## Minor in Applied Computing 
 
 (Note: the only minor that the CS Department offers)
 
@@ -65,7 +66,7 @@ Students in other disciplines may obtain a minor in Applied Computing within the
 
 The applied computing minor is not available to Computer Science students of any kind, and APCO classes are only available to COSC students if they are crosslisted as COSC classes, e.g APCO 2P89 Internet Technologies is also COSC 2P89.
 
-# Courses
+## Courses
 
 A list of COSC courses, their prerequisites and what terms they are generally offered in.
 
