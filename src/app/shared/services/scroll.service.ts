@@ -66,12 +66,6 @@ export class ScrollService implements OnDestroy {
         return this.window.scrollY;
       })
     );
-    this.scrollPercent$.subscribe((scrollPercent) => {
-      console.log(scrollPercent);
-    });
-    this.scrollY$.subscribe((y) => {
-      console.log(y);
-    });
   }
 
   ngOnDestroy() {

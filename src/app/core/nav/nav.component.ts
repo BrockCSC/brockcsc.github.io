@@ -78,9 +78,6 @@ export class NavComponent implements OnInit {
         );
       }
     );
-    this.white$.subscribe((value) => {
-      console.log('white', value);
-    });
   }
 
   public ngOnInit(): void {
