@@ -15,23 +15,6 @@ import {
   styleUrls: ['./link.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LinkComponent implements AfterViewChecked {
-  @Input() csclink: string;
-  @ViewChild('line') line: ElementRef;
-
+export class LinkComponent {
   constructor() {}
-
-  ngAfterViewChecked() {
-    this.line.nativeElement.style.background = this.csclink;
-  }
-
-  @HostListener('mouseover', [])
-  onHover() {
-    this.line.nativeElement.style.width = '100%';
-  }
-
-  @HostListener('mouseout', [])
-  onMouseOut() {
-    this.line.nativeElement.style.width = '0%';
-  }
 }
