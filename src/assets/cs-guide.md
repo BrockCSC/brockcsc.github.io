@@ -26,6 +26,7 @@ Please add yourself to this list (link is optional) if you've contributed to thi
 
 - [Dylan Souvage](https://github.com/firefelix)
 - [Kindeep Singh Kargil](https://kindeep.me)
+- [Joel Gritter](https://github.com/JoelGritter)
 
 ## Duration Types (D3 vs D2 etc.)
 
@@ -73,6 +74,9 @@ A list of COSC courses, their prerequisites and what terms they are generally of
 Note: do not rely on this, for up to date information, consult:
 * [BrockU Timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all)
 * [Course Calendar](https://brocku.ca/webcal/current/undergrad/cosc.html)
+
+We also have an unofficial graduation calculation Excel spreadsheet where you can plan your courses:
+* [Unofficial Graduation Calculator](https://raw.githubusercontent.com/BrockCSC/brockcsc.github.io/development/src/assets/newGradSchedule.xlsx)
 
 ❤️ Bachelor of Science, Computer Science (Honours & General) Required Course
 
