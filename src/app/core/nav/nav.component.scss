@@ -4,10 +4,25 @@
 $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
 $nav-links-margin: 1.5em;
+
+:host {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 .csc-nav {
   height: $height;
   position: relative;
-  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.scrolled.csc-nav {
+  border-bottom: 2px solid $csc-maroon;
+  box-shadow: 0px 7px 17px -10px rgba(0, 0, 0, 0.4);
 }
 
 .csc-nav-links {
