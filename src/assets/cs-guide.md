@@ -79,7 +79,7 @@ Note: subject to change, check your degree audit page ( https://my.brocku.ca/Bro
 |-------------|:------------------------------------------------:|-------------|-------------|---------------------|----------|
 | Credits Achieved| No more than 8 credits allowed| Must have at least 6 credits above | Must have at least 3 credits or above | Must have at least 3 credits or above |
 
-Use this chart in tandem with the course calender( https://brocku.ca/webcal/current/undergrad/cosc.html ) to achieve your degree requirements.
+Use this chart in tandem with the course calendar ( https://brocku.ca/webcal/current/undergrad/cosc.html ) to achieve your degree requirements.
 
 ## Courses
 
