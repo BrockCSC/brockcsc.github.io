@@ -45,9 +45,13 @@ The only difference is some classes are large and require splitting into multipl
 Note: 1 credit is equivalent to two classes, and every Major program requires 20 credits to graduate (40 classes)
 
 F - 1.00 Credit 
+
 P - 0.5 Credit 
+
 Q - 0.5 Credit
+
 C - 0.5 Credit (only required for co-op, and the credit is only weighted for OSAP, but does not apply to your graduation requirement)
+
 N - 0 Credit (only required for co-op)
 
 
@@ -66,6 +70,16 @@ Students in other disciplines may obtain a minor in Applied Computing within the
 - 	Four APCO and/or COSC credits
 
 The applied computing minor is not available to Computer Science students of any kind, and APCO classes are only available to COSC students if they are crosslisted as COSC classes, e.g APCO 2P89 Internet Technologies is also COSC 2P89.
+
+## Credit Requirements for Bachelors of Science, Computer Science
+
+Note: subject to change, check your degree audit page ( https://my.brocku.ca/BrockDB/daud_DegreeOverview.aspx ), if you're in a specialized major then this could be different for you.
+
+| Courses Numbered | 1x99 or less | 2x00 to 2x89 | 2x90 to 3x89 | 3x90 or above |
+|-------------|:------------------------------------------------:|-------------|-------------|---------------------|----------|
+| Credits Achieved| No more than 8 credits allowed| Must have at least 6 credits above | Must have at least 3 credits or above | Must have at least 3 credits or above |
+
+Use this chart in tandem with the course calender( https://brocku.ca/webcal/current/undergrad/cosc.html ) to achieve your degree requirements.
 
 ## Courses
 
