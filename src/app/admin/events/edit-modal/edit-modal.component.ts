@@ -114,9 +114,7 @@ export class EditModalComponent implements OnInit {
   }
 
   public hasImage(): boolean {
-    return (
-      this.editableEvent !== undefined && this.editableEvent.image !== undefined
-    );
+    return this.editableEvent && !!this.editableEvent.image;
   }
 
   public getImage(): CscFile[] {
@@ -127,9 +125,7 @@ export class EditModalComponent implements OnInit {
   }
 
   public hasUpload(name: string): boolean {
-    return (
-      this.editableEvent !== undefined && this.editableEvent[name] !== undefined
-    );
+    return this.editableEvent && !!this.editableEvent[name];
   }
 
   public getUpload(name: string): CscFile[] {

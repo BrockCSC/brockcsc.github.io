@@ -1,6 +1,5 @@
 import {
   Component,
-  forwardRef,
   HostListener,
   Input,
   OnInit,
@@ -12,6 +11,7 @@ import {
   CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR,
 } from '../abstractValueAccessor';
 import { UploadExistingComponent } from './upload-existing/upload-existing.component';
+import { UploadService } from './upload.service';
 
 @Component({
   selector: 'csc-upload',
@@ -26,15 +26,17 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
   @ViewChild('existingUpload') existingFiles: UploadExistingComponent;
   files: FileList;
   fileHover: boolean;
-  storageTasks: StorageTask[] = [];
 
-  constructor(private _storageService: StorageService) {
+  constructor(
+    private _storageService: StorageService,
+    public uploadService: UploadService
+  ) {
     super();
   }
 
   public writeValue(value) {
     // this gets called when .reset() gets called on the form using this component
-    this.storageTasks = [];
+    this.uploadService.storageTasks = [];
   }
 
   ngOnInit() {
@@ -60,7 +62,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     this.fileHover = false;
     if (
       this.type === 'single' &&
-      (this.storageTasks.length > 0 || files.length > 1)
+      (this.uploadService.storageTasks.length > 0 || files.length > 1)
     ) {
       // Don't want to upload anything if something has already been uploaded or > 1 file
       return;
@@ -70,7 +72,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
   }
 
   public hasExistingFiles(): boolean {
-    return this.data !== undefined && this.data.length > 0;
+    return this.data?.length > 0;
   }
 
   public existingFilesChange(): void {
@@ -80,7 +82,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
   public uploadFiles(): void {
     for (let i = 0; i < this.files.length; i++) {
       const storageTask: StorageTask = new StorageTask(this.files.item(i));
-      this.storageTasks.push(storageTask);
+      this.uploadService.storageTasks.push(storageTask);
       this._storageService
         .addFile(storageTask)
         .then((uploaded: StorageTask) => {
@@ -97,8 +99,8 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
     this._storageService
       .removeFile(storageTask.path, storageTask.name)
       .then(() => {
-        const taskIndex = this.storageTasks.indexOf(storageTask);
-        this.storageTasks.splice(taskIndex, 1);
+        const taskIndex = this.uploadService.storageTasks.indexOf(storageTask);
+        this.uploadService.storageTasks.splice(taskIndex, 1);
         super.propagateChange(this.getFiles());
       })
       .catch((error: Error) => {
@@ -108,7 +110,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
   }
 
   public getFiles(): CscFile[] | CscFile {
-    const newFiles = this.storageTasks.map((task: StorageTask) =>
+    const newFiles = this.uploadService.storageTasks.map((task: StorageTask) =>
       task.toCscFile()
     );
     const existingFiles =
