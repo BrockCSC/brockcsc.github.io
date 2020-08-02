@@ -126,16 +126,15 @@ export class EditModalComponent implements OnInit {
     return [];
   }
 
-  public hasResources(): boolean {
+  public hasUpload(name: string): boolean {
     return (
-      this.editableEvent !== undefined &&
-      this.editableEvent.resources !== undefined
+      this.editableEvent !== undefined && this.editableEvent[name] !== undefined
     );
   }
 
-  public getResources(): CscFile[] {
-    if (this.hasResources()) {
-      return this.editableEvent.resources;
+  public getUpload(name: string): CscFile[] {
+    if (this.hasUpload(name)) {
+      return this.editableEvent[name];
     }
     return [];
   }
