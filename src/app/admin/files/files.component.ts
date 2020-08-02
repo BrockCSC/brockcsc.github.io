@@ -13,24 +13,26 @@ import { Observable } from 'rxjs';
 export class FilesComponent implements OnInit {
   form: FormGroup;
   dbPath = 'files';
-  files$: Observable<CscFile[]>;
+  files$: Observable<Record<string, CscFile[]>>;
 
   constructor(
     private _formBuilder: FormBuilder,
     private _db: AngularFireDatabase,
     private _uploadService: UploadService
   ) {
-    this.files$ = _db.list<CscFile>(this.dbPath).valueChanges();
+    this.files$ = _db
+      .object<Record<string, CscFile[]>>(this.dbPath)
+      .valueChanges();
   }
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
-      files: new FormControl([]),
+      homeSlideshow: new FormControl([]),
     });
   }
 
   async update() {
-    await this._db.object(this.dbPath).set(this.form.value.files);
+    await this._db.object(this.dbPath).set(this.form.value);
     this._uploadService.clearFiles();
   }
 }
