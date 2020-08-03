@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/database';
-import { CscEvent, EventApiService } from 'app/shared/api';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HomeImageConfigs } from './imageConfigs';
 
 @Component({
@@ -21,9 +23,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }), // overwrites the generated w/h
     hero: Object.assign(HomeImageConfigs.hero, { height: 65, width: 100 }),
   };
+  homeSlideshowSrcs$: Observable<string[]>;
   heroStyleConfig: ImageStyleConfig;
 
-  constructor(private _eventApi: EventApiService) {}
+  constructor(
+    private _eventApi: EventApiService,
+    private _db: AngularFireDatabase
+  ) {
+    this.homeSlideshowSrcs$ = _db
+      .list<CscFile>('files/homeSlideshow')
+      .valueChanges()
+      .pipe(
+        map((files) => {
+          return files.map((file) => file.url);
+        })
+      );
+    this.homeSlideshowSrcs$.subscribe((files) => {
+      setTimeout(() => {
+        console.log(files[0]);
+        this.images.hero.src = files[0];
+      }, 2000);
+    });
+  }
 
   ngOnInit() {
     this.initEvents();
