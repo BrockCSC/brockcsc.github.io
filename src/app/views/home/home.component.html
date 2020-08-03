@@ -60,16 +60,10 @@
           and social events related to Computer Science.
         </p>
       </div>
-      <a routerLink="/team" class="csc-header">Learn about the team</a>
-      <div class="csc-team">
-        <csc-img
-          alt="BrockCSC at CSGames 2017"
-          [src]="images.about.src"
-          [data]="images.about.data"
-          [width]="images.about.width"
-          [height]="images.about.height"
-        ></csc-img>
+      <div class="team-preview">
+        <csc-team-preview></csc-team-preview>
       </div>
+      <a routerLink="/team" class="csc-header">Learn about the team</a>
     </div>
   </div>
 </section>

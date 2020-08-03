@@ -9,6 +9,7 @@ import { GuideComponent } from './guide/guide.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
 import { SignupComponent } from './signup/signup.component';
+import { TeamPreviewComponent } from './team/team-preview/team-preview.component';
 import { TeamComponent } from './team/team.component';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { TeamComponent } from './team/team.component';
     ServicesComponent,
     SignupComponent,
     GuideComponent,
+    TeamPreviewComponent,
   ],
 })
 export class ViewsModule {}
