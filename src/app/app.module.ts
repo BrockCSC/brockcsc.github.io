@@ -15,6 +15,7 @@ import { environment } from 'environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { routing } from './app.router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { routing } from './app.router';
     FormsModule,
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
+    LazyLoadImageModule,
   ],
   exports: [],
   bootstrap: [AppComponent],

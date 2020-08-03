@@ -1,15 +1,9 @@
 <section id="csc-hero">
   <div class="csc-hero-container">
-    <csc-img
-      [src]="images.hero.src"
-      [data]="images.hero.data"
-      [width]="images.hero.width"
-      [height]="images.hero.height"
-      [style.height.vh]="images.hero.height"
-      [style.width.%]="images.hero.width"
-      [styleConfig]="heroStyleConfig"
-    >
-    </csc-img>
+    <csc-img-slideshow
+      [defaultImage]="images.hero.data"
+      [srcs]="homeSlideshowSrcs$ | async"
+    ></csc-img-slideshow>
     <div class="csc-hero-overlay">
       <div class="csc-hero-content container">
         <h1 class="csc-hero-heading-2">Brock Computer Science Club</h1>

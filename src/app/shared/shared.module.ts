@@ -25,14 +25,21 @@ import { LinkDirective } from './link/link.directive';
 import { ModalModule } from './modal/modal.module';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ProminentContainerComponent } from './prominent-container/prominent-container.component';
-import { SlideComponent } from './slideshow/slides/slide.component';
-import { SlideshowComponent } from './slideshow/slideshow.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { UploadExistingComponent } from './upload/upload-existing/upload-existing.component';
 import { UploadComponent } from './upload/upload.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { ImgSlideshowComponent } from './img-slideshow/img-slideshow.component';
+
 @NgModule({
-  imports: [CommonModule, ModalModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ModalModule,
+    ReactiveFormsModule,
+    FormsModule,
+    LazyLoadImageModule,
+  ],
   exports: [
     ButtonDirective,
     ButtonComponent,
@@ -47,13 +54,13 @@ import { UploadComponent } from './upload/upload.component';
     TooltipComponent,
     SpinnerComponent,
     ImgComponent,
-    SlideshowComponent,
-    SlideComponent,
     FirebaseFormComponent,
     FirebaseFormCreatorComponent,
     EventViewComponent,
     ProminentContainerComponent,
     GoogleFormComponent,
+    LazyLoadImageModule,
+    ImgSlideshowComponent,
   ],
   declarations: [
     ButtonComponent,
@@ -68,8 +75,6 @@ import { UploadComponent } from './upload/upload.component';
     TooltipComponent,
     SpinnerComponent,
     ImgComponent,
-    SlideshowComponent,
-    SlideComponent,
     FirebaseFormComponent,
     AnyCastPipe,
     FirebaseFormCreatorComponent,
@@ -80,6 +85,7 @@ import { UploadComponent } from './upload/upload.component';
     ProminentContainerComponent,
     EventViewComponent,
     GoogleFormComponent,
+    ImgSlideshowComponent,
   ],
   providers: [EventApiService, ExecApiService, StorageService, FoodApiService],
 })

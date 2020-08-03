@@ -79,16 +79,13 @@ export class EditModalComponent implements OnInit {
       data.formId = null;
     } else {
       if (!this.editableEvent.formId) {
-        console.log('Not form id');
         data.formId = randomUid(10);
       } else {
         data.formId = this.editableEvent.formId;
       }
-      console.log(`Updating ${data.formId}`);
       this._formApiService
         .setForm(this.eventForm, data.formId)
         .catch((error: Error) => {
-          console.log('Error updating form');
           console.error(error);
         });
     }

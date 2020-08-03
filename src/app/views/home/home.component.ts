@@ -35,15 +35,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       .valueChanges()
       .pipe(
         map((files) => {
-          return files.map((file) => file.url);
+          // First one is always the static hero image, initial temp lazy load background is set for it.
+          return [this.images.hero.src, ...files.map((file) => file.url)];
         })
       );
-    this.homeSlideshowSrcs$.subscribe((files) => {
-      setTimeout(() => {
-        console.log(files[0]);
-        this.images.hero.src = files[0];
-      }, 2000);
-    });
   }
 
   ngOnInit() {
