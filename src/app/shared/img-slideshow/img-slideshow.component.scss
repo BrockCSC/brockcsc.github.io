@@ -16,7 +16,7 @@
 }
 
 @keyframes imgIn {
-  50% {
+  0% {
     filter: brightness(40%);
   }
   100% {
@@ -24,6 +24,10 @@
   }
 }
 
+.ng-lazyloading {
+  filter: brightness(40%);
+}
+
 .ng-lazyloaded {
-  animation: 1s imgIn;
+  animation: 2s imgIn;
 }
