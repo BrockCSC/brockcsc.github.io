@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
@@ -20,6 +21,7 @@ import { TeamComponent } from './team/team.component';
     FormsModule,
     ReactiveFormsModule,
     MarkdownModule,
+    MatTooltipModule,
   ],
   declarations: [
     HomeComponent,
