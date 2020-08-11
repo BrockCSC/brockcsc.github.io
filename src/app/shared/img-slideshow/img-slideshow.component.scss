@@ -1,33 +1,57 @@
+@import '../../../variables.scss';
+
 .csc-hero-image {
-  height: 65vh;
+  position: relative;
+  height: $main-hero-height;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
   position: relative;
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     object-position: 50% 50%;
     object-fit: cover;
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-repeat: none;
-    background-size: cover;
+    opacity: 0;
+
+    &.fade-in {
+      animation: 2s fadeIn;
+    }
+
+    &.fade-out {
+      animation: 2s fadeOut;
+    }
   }
+}
+
+.first-load {
+  background-color: black;
 }
 
 @keyframes imgIn {
   0% {
-    filter: brightness(40%);
+    opacity: 0;
   }
+
   100% {
-    filter: brightness(100%);
+    opacity: 1;
   }
 }
 
-.ng-lazyloading {
-  filter: brightness(40%);
-}
+@keyframes imgOut {
+  0% {
+    opacity: 1;
+  }
 
-.ng-lazyloaded {
-  animation: 2s imgIn;
+  100% {
+    opacity: 0;
+  }
 }

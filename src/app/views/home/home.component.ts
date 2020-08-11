@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       width: 16,
       height: 16,
     }), // overwrites the generated w/h
-    hero: Object.assign(HomeImageConfigs.hero, { height: 65, width: 100 }),
+    hero: Object.assign(HomeImageConfigs.hero),
   };
   homeSlideshowSrcs$: Observable<string[]>;
   heroStyleConfig: ImageStyleConfig;
@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this._eventApi.getNextEvent().subscribe((event) => {
       this.nextEvent = event;
     });
-    this.initHeroConfig();
   }
 
   async ngAfterViewInit() {
@@ -105,18 +104,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       scriptTag.onload = resolve;
       document.body.appendChild(scriptTag);
     });
-  }
-
-  private initHeroConfig(): void {
-    this.heroStyleConfig = {
-      image: {
-        'object-fit': 'cover',
-        height: '65vh',
-      },
-      container: {
-        'padding-top': '65vh',
-      },
-    };
   }
 }
 
