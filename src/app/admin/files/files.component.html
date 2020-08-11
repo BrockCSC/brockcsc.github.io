@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Files Management</h1>
+  <form [formGroup]="form">
+    <div class="row">
+      <csc-input-container
+        label="Upload images for homepage slideshow"
+        class="col-12"
+        labelLocation="top"
+      >
+        <csc-upload
+          formControlName="homeSlideshow"
+          message="Drag image here"
+          type="multi"
+          [data]="(files$ | async)?.homeSlideshow"
+        ></csc-upload>
+      </csc-input-container>
+    </div>
+    <button csc-button (click)="update()">Save</button>
+  </form>
+</div>

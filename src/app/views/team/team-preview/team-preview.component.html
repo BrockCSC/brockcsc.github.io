@@ -1,0 +1,15 @@
+<div class="csc-team-members">
+  <ng-container *ngIf="execs | async as execs; else spinner">
+    <div class="exec" *ngFor="let exec of execs">
+      <div [id]="exec.$key + '-id'">
+        <img
+          class="exec-avatar"
+          [src]="exec.image ? exec.image.url : 'assets/exec-image-stub.png'"
+        />
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #spinner>
+    <csc-spinner></csc-spinner>
+  </ng-template>
+</div>

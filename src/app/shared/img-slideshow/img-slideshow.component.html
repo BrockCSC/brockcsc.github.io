@@ -1,0 +1,12 @@
+<div
+  class="csc-hero-image"
+  [class.first-load]="firstLoad"
+  [style.background-image]="!firstLoad ? defaultUrl() : 'none'"
+>
+  <img
+    *ngFor="let src of srcs"
+    (load)="loaded(src)"
+    [@fade]="fadeIn(src) ? 'show' : 'hide'"
+    [src]="src"
+  />
+</div>

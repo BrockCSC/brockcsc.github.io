@@ -22,7 +22,6 @@ export class FormResponsesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.formId);
     this.entries$ = this._formApiService.getAllEntries(this.formId);
     this.entries$.subscribe((_entries) => {
       this.entries = _entries;

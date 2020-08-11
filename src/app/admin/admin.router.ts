@@ -5,6 +5,7 @@ import { AdminComponent } from './admin.component';
 import { AdminEventComponent } from './events/admin-event/admin-event.component';
 import { EventsComponent } from './events/events.component';
 import { ExecsComponent } from './execs/execs.component';
+import { FilesComponent } from './files/files.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'execs', component: ExecsComponent },
       { path: 'events', component: EventsComponent },
       { path: 'events/:id', component: AdminEventComponent },
+      { path: 'files', component: FilesComponent },
       { path: 'food', component: FoodItemsComponent },
       { path: '**', redirectTo: 'home' },
     ],

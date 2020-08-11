@@ -79,16 +79,13 @@ export class EditModalComponent implements OnInit {
       data.formId = null;
     } else {
       if (!this.editableEvent.formId) {
-        console.log('Not form id');
         data.formId = randomUid(10);
       } else {
         data.formId = this.editableEvent.formId;
       }
-      console.log(`Updating ${data.formId}`);
       this._formApiService
         .setForm(this.eventForm, data.formId)
         .catch((error: Error) => {
-          console.log('Error updating form');
           console.error(error);
         });
     }
@@ -114,9 +111,7 @@ export class EditModalComponent implements OnInit {
   }
 
   public hasImage(): boolean {
-    return (
-      this.editableEvent !== undefined && this.editableEvent.image !== undefined
-    );
+    return this.editableEvent && !!this.editableEvent.image;
   }
 
   public getImage(): CscFile[] {
@@ -126,16 +121,13 @@ export class EditModalComponent implements OnInit {
     return [];
   }
 
-  public hasResources(): boolean {
-    return (
-      this.editableEvent !== undefined &&
-      this.editableEvent.resources !== undefined
-    );
+  public hasUpload(name: string): boolean {
+    return this.editableEvent && !!this.editableEvent[name];
   }
 
-  public getResources(): CscFile[] {
-    if (this.hasResources()) {
-      return this.editableEvent.resources;
+  public getUpload(name: string): CscFile[] {
+    if (this.hasUpload(name)) {
+      return this.editableEvent[name];
     }
     return [];
   }
