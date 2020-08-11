@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { AnyCastPipe } from './any-cast.pipe';
 import {
   EventApiService,
@@ -33,13 +32,7 @@ import { UploadExistingComponent } from './upload/upload-existing/upload-existin
 import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ModalModule,
-    ReactiveFormsModule,
-    FormsModule,
-    LazyLoadImageModule,
-  ],
+  imports: [CommonModule, ModalModule, ReactiveFormsModule, FormsModule],
   exports: [
     ButtonDirective,
     ButtonComponent,
@@ -59,7 +52,6 @@ import { UploadComponent } from './upload/upload.component';
     EventViewComponent,
     ProminentContainerComponent,
     GoogleFormComponent,
-    LazyLoadImageModule,
     ImgSlideshowComponent,
   ],
   declarations: [

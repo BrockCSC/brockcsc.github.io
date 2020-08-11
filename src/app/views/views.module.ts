@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { MarkdownModule } from 'ngx-markdown';
 import { ContactComponent } from './contact/contact.component';
 import { GuideComponent } from './guide/guide.component';
@@ -21,7 +20,6 @@ import { TeamComponent } from './team/team.component';
     FormsModule,
     ReactiveFormsModule,
     MarkdownModule,
-    LazyLoadImageModule,
   ],
   declarations: [
     HomeComponent,

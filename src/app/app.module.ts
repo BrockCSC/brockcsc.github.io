@@ -13,7 +13,6 @@ import { CoreModule } from 'app/core/core.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { ViewsModule } from 'app/views/views.module';
 import { environment } from 'environments/environment';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { routing } from './app.router';
@@ -36,7 +35,6 @@ import { routing } from './app.router';
     FormsModule,
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
-    LazyLoadImageModule,
     BrowserAnimationsModule,
   ],
   exports: [],
