@@ -7,6 +7,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from 'app/core/core.module';
 import { SharedModule } from 'app/shared/shared.module';
@@ -34,6 +35,7 @@ import { routing } from './app.router';
     FormsModule,
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
+    BrowserAnimationsModule,
   ],
   exports: [],
   bootstrap: [AppComponent],

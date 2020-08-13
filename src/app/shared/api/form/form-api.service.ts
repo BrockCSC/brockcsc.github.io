@@ -24,7 +24,6 @@ export class FormApiService {
   }
 
   setForm(formInfo: FormInfo, formId: string = randomUid(10)) {
-    console.log({ formId, formInfo });
     return this.forms.set(formId, formInfo);
   }
 
@@ -50,13 +49,6 @@ export class FormApiService {
   }
 
   getAllEntries(formId: string): Observable<any[]> {
-    console.log(`${this._entryPath}/${formId}/`);
-    this._db
-      .object(`${this._entryPath}/${formId}/`)
-      .valueChanges()
-      .subscribe((value) => {
-        console.log(value);
-      });
     return this._db.list(`${this._entryPath}/${formId}/`).valueChanges();
   }
 }

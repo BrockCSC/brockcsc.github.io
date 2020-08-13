@@ -45,6 +45,11 @@ export class UploadExistingComponent implements OnInit, OnChanges {
       .map((existingFile) => existingFile.file);
   }
 
+  public isImage(name: string): boolean {
+    const imageReg = /[\/.](gif|jpg|jpeg|tiff|png)$/i;
+    return !!name.match(imageReg);
+  }
+
   private getExistingFiles(files: CscFile[]): ExistingFile[] {
     return files.map((file) => {
       return new ExistingFile(file);

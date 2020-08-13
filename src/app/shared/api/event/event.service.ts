@@ -91,7 +91,6 @@ export class EventApiService {
   }
 
   public updateEvent(key: string, value: CscEvent): Promise<void> {
-    console.log(key);
     return this.events.update(key, value);
   }
 

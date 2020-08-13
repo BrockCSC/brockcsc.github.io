@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/database';
-import { CscEvent, EventApiService } from 'app/shared/api';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HomeImageConfigs } from './imageConfigs';
 
 @Component({
@@ -19,11 +21,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
       width: 16,
       height: 16,
     }), // overwrites the generated w/h
-    hero: Object.assign(HomeImageConfigs.hero, { height: 65, width: 100 }),
+    hero: Object.assign(HomeImageConfigs.hero),
   };
+  homeSlideshowSrcs$: Observable<string[]>;
   heroStyleConfig: ImageStyleConfig;
 
-  constructor(private _eventApi: EventApiService) {}
+  constructor(
+    private _eventApi: EventApiService,
+    private _db: AngularFireDatabase
+  ) {
+    this.homeSlideshowSrcs$ = _db
+      .list<CscFile>('files/homeSlideshow')
+      .valueChanges()
+      .pipe(
+        map((files) => {
+          // First one is always the static hero image, initial temp lazy load background is set for it.
+          return [this.images.hero.src, ...files.map((file) => file.url)];
+        })
+      );
+  }
 
   ngOnInit() {
     this.initEvents();
@@ -31,7 +47,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this._eventApi.getNextEvent().subscribe((event) => {
       this.nextEvent = event;
     });
-    this.initHeroConfig();
   }
 
   async ngAfterViewInit() {
@@ -89,18 +104,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       scriptTag.onload = resolve;
       document.body.appendChild(scriptTag);
     });
-  }
-
-  private initHeroConfig(): void {
-    this.heroStyleConfig = {
-      image: {
-        'object-fit': 'cover',
-        height: '65vh',
-      },
-      container: {
-        'padding-top': '65vh',
-      },
-    };
   }
 }
 

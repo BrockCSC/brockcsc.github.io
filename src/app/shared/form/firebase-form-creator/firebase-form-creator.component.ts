@@ -68,8 +68,6 @@ export class FirebaseFormCreatorComponent implements OnInit {
   }
 
   removeField(field) {
-    console.log(`Before: ${this.formInfo}`);
     this.formInfo.fields.splice(this.formInfo.fields.indexOf(field), 1);
-    console.log(`After: ${this.formInfo}`);
   }
 }
