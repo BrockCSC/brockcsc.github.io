@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CscFile } from 'app/shared/api';
 import { UploadService } from 'app/shared/upload/upload.service';
 import { Observable } from 'rxjs';
+import { FilesApiService } from './../../shared/api/files/files-api.service';
 import { UploadComponent } from './../../shared/upload/upload.component';
 
 @Component({
@@ -13,18 +14,12 @@ import { UploadComponent } from './../../shared/upload/upload.component';
 })
 export class FilesComponent implements OnInit {
   form: FormGroup;
-  dbPath = 'files';
-  files$: Observable<Record<string, CscFile[]>>;
 
   constructor(
     private _formBuilder: FormBuilder,
     private _db: AngularFireDatabase,
-    private _uploadService: UploadService
-  ) {
-    this.files$ = _db
-      .object<Record<string, CscFile[]>>(this.dbPath)
-      .valueChanges();
-  }
+    public filesApi: FilesApiService
+  ) {}
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
@@ -33,7 +28,7 @@ export class FilesComponent implements OnInit {
   }
 
   async update() {
-    await this._db.object(this.dbPath).set(this.form.value);
+    await this._db.object('files').set(this.form.value);
     this.form.reset();
   }
 }

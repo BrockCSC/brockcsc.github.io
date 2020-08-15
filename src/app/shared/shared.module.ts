@@ -11,6 +11,7 @@ import {
   FoodApiService,
   StorageService,
 } from './api/';
+import { FilesApiService } from './api/files/files-api.service';
 import { ButtonComponent } from './button/button.component';
 import { ButtonDirective } from './button/button.directive';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -91,6 +92,12 @@ import { UploadComponent } from './upload/upload.component';
     ImgSlideshowComponent,
     EventCardComponent,
   ],
-  providers: [EventApiService, ExecApiService, StorageService, FoodApiService],
+  providers: [
+    EventApiService,
+    ExecApiService,
+    StorageService,
+    FoodApiService,
+    FilesApiService,
+  ],
 })
 export class SharedModule {}

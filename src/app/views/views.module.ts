@@ -4,8 +4,10 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 import { MarkdownModule } from 'ngx-markdown';
 import { ContactComponent } from './contact/contact.component';
+import { GalleryComponent } from './gallery/gallery.component';
 import { GuideComponent } from './guide/guide.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
@@ -22,6 +24,7 @@ import { TeamComponent } from './team/team.component';
     ReactiveFormsModule,
     MarkdownModule,
     MatTooltipModule,
+    NgxGalleryModule,
   ],
   declarations: [
     HomeComponent,
@@ -31,6 +34,7 @@ import { TeamComponent } from './team/team.component';
     SignupComponent,
     GuideComponent,
     TeamPreviewComponent,
+    GalleryComponent,
   ],
 })
 export class ViewsModule {}

@@ -1,0 +1,8 @@
+<div class="container gallery-wrapper">
+  <ng-container *ngIf="galleryImages$ | async as galleryImages">
+    <ngx-gallery
+      [options]="galleryOptions"
+      [images]="galleryImages"
+    ></ngx-gallery>
+  </ng-container>
+</div>
