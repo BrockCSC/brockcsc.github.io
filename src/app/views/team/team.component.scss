@@ -10,7 +10,7 @@ $tooltip-exec-desc-color: #a6a6a6;
 
 .csc-team-members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 1rem;
 }
 
