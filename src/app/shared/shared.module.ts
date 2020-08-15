@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+import { EventCardComponent } from 'app/shared/event-card/event-card.component';
 import { AnyCastPipe } from './any-cast.pipe';
 import {
   EventApiService,
@@ -32,7 +35,14 @@ import { UploadExistingComponent } from './upload/upload-existing/upload-existin
 import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
-  imports: [CommonModule, ModalModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ModalModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatCardModule,
+    RouterModule,
+  ],
   exports: [
     ButtonDirective,
     ButtonComponent,
@@ -53,6 +63,7 @@ import { UploadComponent } from './upload/upload.component';
     ProminentContainerComponent,
     GoogleFormComponent,
     ImgSlideshowComponent,
+    EventCardComponent,
   ],
   declarations: [
     ButtonComponent,
@@ -78,6 +89,7 @@ import { UploadComponent } from './upload/upload.component';
     EventViewComponent,
     GoogleFormComponent,
     ImgSlideshowComponent,
+    EventCardComponent,
   ],
   providers: [EventApiService, ExecApiService, StorageService, FoodApiService],
 })
