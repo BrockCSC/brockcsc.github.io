@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+@import 'styles.scss';
+
+.event-card-wrapper {
+  height: 100%;
+  display: block;
+  text-decoration: none;
+  mat-card {
+    height: 100%;
+    background-color: $grey;
+    border: 1px solid darken($grey, 15%);
+    border-radius: 0;
+    @include mat-elevation(0);
+
+    &:hover {
+      @include mat-elevation(4);
+    }
+
+    mat-card-subtitle {
+      color: $csc-maroon;
+      font-weight: medium;
+      margin-bottom: 4px;
+    }
+
+    mat-card-title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .poster {
+      height: 10rem;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
