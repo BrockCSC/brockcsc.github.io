@@ -1,9 +1,11 @@
 import {
+  ChangeDetectorRef,
   Component,
-  forwardRef,
   HostListener,
   Input,
+  OnChanges,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { CscFile, StorageService, StorageTask } from 'app/shared/api';
@@ -12,6 +14,7 @@ import {
   CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR,
 } from '../abstractValueAccessor';
 import { UploadExistingComponent } from './upload-existing/upload-existing.component';
+import { UploadService } from './upload.service';
 
 @Component({
   selector: 'csc-upload',
@@ -19,7 +22,8 @@ import { UploadExistingComponent } from './upload-existing/upload-existing.compo
   styleUrls: ['./upload.component.scss'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR(UploadComponent)],
 })
-export class UploadComponent extends AbstractValueAccessor implements OnInit {
+export class UploadComponent extends AbstractValueAccessor
+  implements OnInit, OnChanges {
   @Input() message = 'Select files or drag here';
   @Input() type = 'single';
   @Input() data: CscFile[];
@@ -27,18 +31,36 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
   files: FileList;
   fileHover: boolean;
   storageTasks: StorageTask[] = [];
+  private dataChanged: boolean;
 
-  constructor(private _storageService: StorageService) {
+  constructor(
+    private _storageService: StorageService,
+    private cd: ChangeDetectorRef
+  ) {
     super();
   }
 
   public writeValue(value) {
     // this gets called when .reset() gets called on the form using this component
     this.storageTasks = [];
+    super.propagateChange(this.getFiles());
+    this.dataChanged = false;
   }
 
   ngOnInit() {
     this.fileHover = false;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // To make sure initial value of the binded form works
+    if (changes.data) {
+      this.dataChanged = true;
+      this.cd.detectChanges();
+    }
+    if (this.dataChanged) {
+      super.propagateChange(this.getFiles());
+      this.dataChanged = false;
+    }
   }
 
   @HostListener('dragover', ['$event'])
@@ -70,7 +92,7 @@ export class UploadComponent extends AbstractValueAccessor implements OnInit {
   }
 
   public hasExistingFiles(): boolean {
-    return this.data !== undefined && this.data.length > 0;
+    return this.data?.length > 0;
   }
 
   public existingFilesChange(): void {

@@ -1,19 +1,24 @@
 #csc-hero {
   padding-top: 0px;
   padding-bottom: 0px;
+  a {
+    margin-top: 1.5rem;
+    color: $text-white;
+    text-decoration: none;
+  }
 }
 
 .csc-hero-container {
   background-position: center;
   background-size: cover;
-  height: 65vh;
+  height: $main-hero-height;
   position: relative;
   margin-top: -5.375em;
 }
 
 .csc-hero-overlay {
   width: 100%;
-  height: 65vh;
+  height: $main-hero-height;
   position: absolute;
   left: 0;
   top: 0;

@@ -4,6 +4,13 @@
     class="csc-existing-item noselect"
     (click)="click(item)"
   >
+    <img
+      *ngIf="isImage(item.file.name)"
+      [src]="item.file.url"
+      height="30"
+      width="30"
+    />
+
     <div class="csc-item-status" [class.delete]="item.toDelete">
       <i class="material-icons csc-mat-icon">{{
         item.toDelete ? 'clear' : 'done'

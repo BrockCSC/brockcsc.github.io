@@ -4,6 +4,7 @@
 @import './styles/_grid.scss';
 @import './styles/_table.scss';
 @import './styles/_checkbox.scss';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html {
   -moz-box-sizing: border-box;
@@ -90,4 +91,14 @@ section {
 
 .error-msg {
   color: red;
+}
+
+.mat-sidenav-container,
+.mat-sidenav-content,
+.mat-tab-body-content {
+  transform: none !important;
+}
+
+.ngx-gallery-image.ngx-gallery-active {
+  z-index: 0;
 }

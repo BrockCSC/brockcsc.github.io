@@ -168,6 +168,7 @@
               <csc-upload
                 formControlName="image"
                 message="Drag event image here"
+                [data]="getImage()"
               ></csc-upload>
             </csc-input-container>
             <csc-input-container
@@ -179,6 +180,7 @@
                 formControlName="resources"
                 type="multi"
                 message="Drag event resources here"
+                [data]="getUpload('resources')"
               ></csc-upload>
             </csc-input-container>
             <csc-input-container
@@ -190,6 +192,7 @@
                 formControlName="gallery"
                 type="multi"
                 message="Drag gallery images here"
+                [data]="getUpload('gallery')"
               ></csc-upload>
             </csc-input-container>
           </div>

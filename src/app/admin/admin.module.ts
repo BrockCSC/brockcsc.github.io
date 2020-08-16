@@ -13,6 +13,7 @@ import { AddModalComponent as AddExecModal } from './execs/add-modal/add-modal.c
 import { EditModalComponent as EditExecModal } from './execs/edit-modal/edit-modal.component';
 import { ExecsComponent } from './execs/execs.component';
 import { RemoveModalComponent as RemoveExecModal } from './execs/remove-modal/remove-modal.component';
+import { FilesComponent } from './files/files.component';
 import { AddModalComponent as AddFoodModal } from './food/add-modal/add-modal.component';
 import { EditModalComponent as EditFoodModal } from './food/edit-modal/edit-modal.component';
 import { FoodItemsComponent } from './food/foodItems.component';
@@ -45,6 +46,7 @@ import { HomeComponent } from './home/home.component';
     EditFoodModal,
     AdminEventComponent,
     FormResponsesComponent,
+    FilesComponent,
   ],
 })
 export class AdminModule {}

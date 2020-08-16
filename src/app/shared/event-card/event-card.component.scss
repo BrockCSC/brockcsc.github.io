@@ -1,0 +1,48 @@
+@import '~@angular/material/theming';
+@import 'variables.scss';
+
+.event-card-wrapper {
+  height: 100%;
+  display: block;
+  text-decoration: none;
+  mat-card {
+    height: 100%;
+    background-color: $grey;
+    border: 1px solid darken($grey, 15%);
+    border-radius: 0;
+    @include mat-elevation(0);
+    transition: all 0.5s;
+    &:hover {
+      @include mat-elevation(4);
+      transform: scale(1.01);
+    }
+
+    mat-card-subtitle {
+      color: $csc-maroon;
+      font-weight: medium;
+      margin-bottom: 4px;
+    }
+
+    mat-card-title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .poster {
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .next-tag {
+        position: absolute;
+        background-color: $info-maroon;
+        color: $text-white;
+        top: 0;
+        left: 0;
+        margin: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
