@@ -1,7 +1,7 @@
 $row-height: 50px;
 
 #csc-events {
-  background-color: $maroon;
+  background-color: $navy;
   color: $text-white;
 
   a {
@@ -15,5 +15,11 @@ $row-height: 50px;
   .col {
     display: flex;
     align-items: center;
+  }
+
+  .upcoming-event {
+    @media #{$desktop}, #{tablet} {
+      padding-right: 2rem;
+    }
   }
 }

@@ -1,6 +1,11 @@
 #csc-hero {
   padding-top: 0px;
   padding-bottom: 0px;
+  a {
+    margin-top: 1.5rem;
+    color: $text-white;
+    text-decoration: none;
+  }
 }
 
 .csc-hero-container {

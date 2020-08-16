@@ -18,7 +18,10 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": ["src/assets", "src/manifest.json"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/font-awesome/css/font-awesome.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -72,7 +75,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/font-awesome/css/font-awesome.css"
+            ],
             "assets": ["src/assets", "src/manifest.json"]
           }
         },

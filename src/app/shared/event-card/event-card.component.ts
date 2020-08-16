@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CscEvent } from './../../../shared/api/event/event';
+import { CscEvent } from 'app/shared/api';
+
 @Component({
   selector: 'csc-event-card',
   templateUrl: './event-card.component.html',
@@ -7,6 +8,8 @@ import { CscEvent } from './../../../shared/api/event/event';
 })
 export class EventCardComponent implements OnInit {
   @Input() event: CscEvent;
+  @Input() next = false;
+  @Input() imgHeight = '10rem';
   get date(): Date {
     return new Date(this.event.datetime.date);
   }
