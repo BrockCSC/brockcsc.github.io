@@ -1,0 +1,14 @@
+<a class="event-card-wrapper" [routerLink]="event.$key">
+  <mat-card>
+    <div
+      class="poster"
+      mat-card-image
+      [style.background-image]="getImage()"
+    ></div>
+    <mat-card-subtitle
+      >{{ date | date }}, {{ start | date: 'hh:mm a' }} -
+      {{ end | date: 'hh:mm a' }}</mat-card-subtitle
+    >
+    <mat-card-title>{{ event.title }}</mat-card-title>
+  </mat-card>
+</a>

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CscFile } from 'app/shared/api';
 import { UploadService } from 'app/shared/upload/upload.service';
 import { Observable } from 'rxjs';
+import { UploadComponent } from './../../shared/upload/upload.component';
 
 @Component({
   selector: 'csc-files',
@@ -33,6 +34,6 @@ export class FilesComponent implements OnInit {
 
   async update() {
     await this._db.object(this.dbPath).set(this.form.value);
-    this._uploadService.clearFiles();
+    this.form.reset();
   }
 }

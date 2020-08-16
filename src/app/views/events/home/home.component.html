@@ -5,29 +5,21 @@
   </p>
   <div class="csc-events-upcoming">
     <h3 class="csc-header">Upcoming Events</h3>
-    <table>
-      <tbody>
-        <tr>
-          <td colspan="2" *ngIf="!upcomingEvents.loaded">
-            <csc-spinner></csc-spinner>
-          </td>
-        </tr>
-        <tr *ngFor="let event of upcomingEvents.events">
-          <td>
-            <a [routerLink]="event.$key" (click)="selectEvent(event)">{{
-              event.title
-            }}</a>
-          </td>
-          <td class="csc-event-date">{{ event.datetime.date }}</td>
-        </tr>
-        <tr *ngIf="upcomingEvents.events.length === 0 && upcomingEvents.loaded">
-          <td colspan="2">
-            There are currently no additional events planned yet for the
-            remainder of the month.
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row" *ngIf="!upcomingEvents.loaded">
+      <csc-spinner></csc-spinner>
+    </div>
+    <div class="grid">
+      <csc-event-card
+        *ngFor="let event of upcomingEvents.events"
+        [event]="event"
+      ></csc-event-card>
+    </div>
+    <div *ngIf="upcomingEvents.events.length === 0 && upcomingEvents.loaded">
+      <p>
+        There are currently no additional events planned yet for the remainder
+        of the month.
+      </p>
+    </div>
   </div>
 
   <div class="csc-events-past">
@@ -35,25 +27,19 @@
     <div class="csc-events-past-load" *ngIf="!pastEventsLoaded()">
       <a (click)="loadPastEvents()">Show past events</a>
     </div>
-    <table *ngIf="pastEventsLoaded()">
-      <tbody>
-        <tr>
-          <td colspan="2" *ngIf="!pastEvents.loaded">
-            <csc-spinner></csc-spinner>
-          </td>
-        </tr>
-        <tr *ngFor="let event of pastEvents.events">
-          <td>
-            <a [routerLink]="event.$key" (click)="selectEvent(event)">{{
-              event.title
-            }}</a>
-          </td>
-          <td class="csc-event-date">{{ event.datetime.date }}</td>
-        </tr>
-        <tr *ngIf="pastEvents.events.length === 0 && pastEvents.loaded">
-          <td colspan="2">There are no past events to display.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div *ngIf="pastEventsLoaded()">
+      <div class="row" *ngIf="!pastEvents.loaded">
+        <csc-spinner></csc-spinner>
+      </div>
+      <div class="grid">
+        <csc-event-card
+          *ngFor="let event of pastEvents.events"
+          [event]="event"
+        ></csc-event-card>
+      </div>
+      <div *ngIf="pastEvents.events.length === 0 && pastEvents.loaded">
+        <p colspan="2">There are no past events to display.</p>
+      </div>
+    </div>
   </div>
 </div>
