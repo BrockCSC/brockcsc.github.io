@@ -12,6 +12,7 @@ import { ServicesComponent } from './services/services.component';
 import { SignupComponent } from './signup/signup.component';
 import { TeamPreviewComponent } from './team/team-preview/team-preview.component';
 import { TeamComponent } from './team/team.component';
+import { DSCComponent } from './dsc/dsc.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { TeamComponent } from './team/team.component';
     TeamComponent,
     ContactComponent,
     ServicesComponent,
+    DSCComponent,
     SignupComponent,
     GuideComponent,
     TeamPreviewComponent,

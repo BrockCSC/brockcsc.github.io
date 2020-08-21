@@ -5,3 +5,4 @@ export * from './services/services.component';
 export * from './signup/signup.component';
 export * from './contact/contact.component';
 export * from './guide/guide.component';
+export * from './dsc/dsc.component';
