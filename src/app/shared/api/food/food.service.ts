@@ -1,3 +1,4 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import {
   AngularFireDatabase,

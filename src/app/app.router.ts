@@ -2,11 +2,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import {
   ContactComponent,
+  DSCComponent,
   HomeComponent,
   ServicesComponent,
   SignupComponent,
   TeamComponent,
-  DSCComponent,
 } from 'app/views';
 import { GuideComponent } from './views/guide/guide.component';
 

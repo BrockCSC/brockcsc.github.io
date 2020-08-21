@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnyCastPipe } from './any-cast.pipe';
 import {
+  DSCApiService,
   EventApiService,
   ExecApiService,
   FoodApiService,
@@ -79,6 +80,12 @@ import { UploadComponent } from './upload/upload.component';
     GoogleFormComponent,
     ImgSlideshowComponent,
   ],
-  providers: [EventApiService, ExecApiService, StorageService, FoodApiService],
+  providers: [
+    EventApiService,
+    ExecApiService,
+    StorageService,
+    FoodApiService,
+    DSCApiService,
+  ],
 })
 export class SharedModule {}

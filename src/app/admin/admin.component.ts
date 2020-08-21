@@ -11,6 +11,7 @@ export class AdminComponent implements OnInit {
     { name: 'Execs', routerLink: 'execs' },
     { name: 'Events', routerLink: 'events' },
     { name: 'Food', routerLink: 'food' },
+    { name: 'DSC', routerLink: 'dsc' },
     { name: 'Files', routerLink: 'files' },
   ];
 

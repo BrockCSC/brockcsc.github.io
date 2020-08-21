@@ -1,0 +1,18 @@
+<csc-modal #modal>
+  <csc-modal-header>
+    Remove Card
+  </csc-modal-header>
+  <csc-modal-body>
+    <div class="row">
+      <div class="col-12">
+        <h2>
+          Are you sure you want to remove this card?
+        </h2>
+        <p>This action is irreversible</p>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="removeCard()">Remove card</button>
+  </csc-modal-footer>
+</csc-modal>

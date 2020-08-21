@@ -43,6 +43,10 @@ export class NavComponent implements OnInit {
       desc: 'CS Guide',
     },
     {
+      href: '/dsc',
+      desc: 'DSC',
+    },
+    {
       href: '/contact',
       desc: 'Contact',
     },
