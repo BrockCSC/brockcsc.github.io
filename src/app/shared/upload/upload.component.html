@@ -9,10 +9,7 @@
     </div>
   </div>
 </div>
-<div
-  class="csc-upload"
-  *ngFor="let upload of uploadService.storageTasks; let idx = index"
->
+<div class="csc-upload" *ngFor="let upload of storageTasks; let idx = index">
   <div class="csc-progress-bar">
     <csc-progress-bar [progress]="upload.progress"></csc-progress-bar>
   </div>

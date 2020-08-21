@@ -1,0 +1,11 @@
+<div class="container gallery-wrapper">
+  <ng-container *ngIf="galleryImages$ | async as galleryImages; else loading">
+    <ngx-gallery
+      [options]="galleryOptions"
+      [images]="galleryImages"
+    ></ngx-gallery>
+  </ng-container>
+  <ng-template #loading>
+    <csc-spinner></csc-spinner>
+  </ng-template>
+</div>

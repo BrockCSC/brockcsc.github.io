@@ -8,6 +8,7 @@ import {
   SignupComponent,
   TeamComponent,
 } from 'app/views';
+import { GalleryComponent } from './views/gallery/gallery.component';
 import { GuideComponent } from './views/guide/guide.component';
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },
+  { path: 'gallery', component: GalleryComponent },
   {
     path: 'events',
     loadChildren: () =>

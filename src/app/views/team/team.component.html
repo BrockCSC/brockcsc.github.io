@@ -3,7 +3,7 @@
     <div class="container">
       <h3 class="csc-header">Current Executive Team</h3>
       <div class="csc-team-members">
-        <div class="exec col-3" *ngFor="let exec of execs | async">
+        <div class="exec" *ngFor="let exec of execs | async">
           <div [id]="exec.$key + '-id'">
             <img
               class="exec-avatar"
@@ -23,7 +23,7 @@
       </div>
       <h3 class="csc-header">Previous Executives</h3>
       <div class="csc-team-members">
-        <div class="exec col-3" *ngFor="let prevExec of prevExecs | async">
+        <div class="exec" *ngFor="let prevExec of prevExecs | async">
           <img
             class="exec-avatar"
             [id]="prevExec.$key + '-id'"
