@@ -4,6 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'app/shared/shared.module';
 import { AdminComponent } from './admin.component';
 import { routing } from './admin.router';
+import { AddModalComponent as AddDSCModal } from './dsc/add-modal/add-modal.component';
+import { DSCComponent } from './dsc/dsc.component';
+import { EditModalComponent as EditDSCModal } from './dsc/edit-modal/edit-modal.component';
+import { RemoveModalComponent as RemoveDSCModal } from './dsc/remove-modal/remove-modal.component';
 import { AddModalComponent as AddEventModal } from './events/add-modal/add-modal.component';
 import { AdminEventComponent } from './events/admin-event/admin-event.component';
 import { EditModalComponent as EditEventModal } from './events/edit-modal/edit-modal.component';
@@ -47,6 +51,10 @@ import { HomeComponent } from './home/home.component';
     AdminEventComponent,
     FormResponsesComponent,
     FilesComponent,
+    DSCComponent,
+    AddDSCModal,
+    EditDSCModal,
+    RemoveDSCModal,
   ],
 })
 export class AdminModule {}

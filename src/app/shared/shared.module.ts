@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { EventCardComponent } from 'app/shared/event-card/event-card.component';
 import { AnyCastPipe } from './any-cast.pipe';
 import {
+  DSCApiService,
   EventApiService,
   ExecApiService,
   FoodApiService,
@@ -98,6 +99,7 @@ import { UploadComponent } from './upload/upload.component';
     StorageService,
     FoodApiService,
     FilesApiService,
+    DSCApiService,
   ],
 })
 export class SharedModule {}
