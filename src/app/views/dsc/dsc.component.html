@@ -6,89 +6,30 @@
       [attr.data-index]="i"
     >
       <div *ngIf="i % 2 == 0; else elseBlock">
-        <div class="text-container">
-          <h1>{{ c.title }}</h1>
-          <div [innerHTML]="c.text"></div>
-        </div>
-
-        <div class="spacer"></div>
-
-        <img class="brock-dsc-logo" src="{{ c.img }}" alt="{{ c.imgAlt }}" />
-      </div>
-      <ng-template #elseBlock>
-        <div>
-          <img class="brock-dsc-logo" src="{{ c.img }}" alt="{{ c.imgAlt }}" />
-
-          <div class="spacer"></div>
-
+        <div class="col-7">
           <div class="text-container">
             <h1>{{ c.title }}</h1>
             <div [innerHTML]="c.text"></div>
           </div>
         </div>
+
+        <div class="col-5">
+          <img src="{{ c.img }}" alt="{{ c.imgAlt }}" />
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div>
+          <div class="col-5">
+            <img src="{{ c.img }}" alt="{{ c.imgAlt }}" />
+          </div>
+          <div class="col-7">
+            <div class="text-container">
+              <h1>{{ c.title }}</h1>
+              <div [innerHTML]="c.text"></div>
+            </div>
+          </div>
+        </div>
       </ng-template>
     </section>
-
-    <!-- <section class="page-header">
-        <div class="text-container">
-          <h1>Connect. Learn. Grow.</h1>
-          <p>
-            Google's network of Developer Student Clubs allow undergrads and graduate students alike to connect and grow as developers. The purpose of these clubs is to help students bridge the gap between theory and practice. Students within a club can collaborate and learn from one another while developing unique and exciting solutions for their community. We're proud to be a member of Google's Student Developer Club network.
-          </p>
-        </div>
-        
-        <div class="spacer"></div>
-        
-        <img
-          class="brock-dsc-logo"
-          src="https://developers.google.com/community/dsc/images/brand-guidelines/lockup_proper_vertical_720.png"
-          alt="Brock Computer Science Developer Student Club Logo"
-        />
-        
-    </section>
-    
-    <section>
-      <img
-        class="spacefiller"
-        src="assets/coding.png"
-        alt="Computer Code"
-      />
-
-      <div class="spacer"></div>
-      
-      <div class="text-container">
-        <h2>Build</h2>
-        <p>
-          Some flowery text
-        </p>
-      </div>
-      
-      
-      
-    </section>
-
-    <section>
-      <div class="text-container">
-        <h2>Collaborate</h2>
-        <p>
-          Some flowery text
-        </p>
-      </div>
-      
-      <div class="spacer"></div>
-      
-      <img
-        class="spacefiller"
-        src="assets/placeholder.png"
-        alt="Happy People Working Together"
-      />
-      
-    </section>
-
-    <section>
-      <h2 class="csc-header">The DSC Team</h2>
-      
-      
-    </section> -->
   </div>
 </div>

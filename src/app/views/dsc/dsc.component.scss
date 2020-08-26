@@ -4,10 +4,6 @@ $exec-info-text-color: #515151;
 $tooltip-exec-name-color: $text-white;
 $tooltip-exec-desc-color: #a6a6a6;
 
-.csc-dsc {
-  margin: auto;
-}
-
 section {
   position: relative;
   // z-index: 4;
@@ -19,30 +15,10 @@ section {
   border-bottom: 1px solid #eee;
 }
 
-section > div {
-  display: flex;
-}
 .text-container {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 }
 
 img {
-  object-fit: contain;
-  max-width: 30rem;
-  max-height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.spacer {
-  width: 10rem;
-}
-
-.spacefiller {
-  width: 350px;
-}
-
-.page-header {
-  height: 115%;
+  width: 100%;
 }

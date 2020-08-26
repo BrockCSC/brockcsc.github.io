@@ -4,11 +4,14 @@ $exec-info-text-color: #515151;
 $tooltip-exec-name-color: $text-white;
 $tooltip-exec-desc-color: #a6a6a6;
 
-.csc-dsc {
-  margin: auto;
-  padding: 4rem;
-}
+// .csc-dsc {
+//   margin: auto;
+//   padding: 4rem;
+// }
 
+.row {
+  border: 1px solid #eee;
+}
 section {
   position: relative;
   //z-index: 4;
@@ -17,36 +20,34 @@ section {
   justify-content: center;
   align-items: center;
   background: white;
-  border-bottom: 1px solid #eee;
 }
 
-section > .card-content > div {
-  display: flex;
-}
+// section > .card-content > div {
+//   display: flex;
+// }
 .text-container {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 }
 
-img {
-  object-fit: contain;
-  max-width: 30rem;
-  max-height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
+// img {
+//   object-fit: contain;
+//   max-width: 30rem;
+//   max-height: 100%;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
-.spacer {
-  width: 10rem;
-}
+// .spacer {
+//   width: 10rem;
+// }
 
-.spacefiller {
-  width: 350px;
-}
+// .spacefiller {
+//   width: 350px;
+// }
 
-.page-header {
-  height: 115%;
-}
+// .page-header {
+//   height: 115%;
+// }
 
 .add-button {
   margin: 1rem;
@@ -54,6 +55,6 @@ img {
 }
 .inline-buttons {
   display: flex;
-  margin: 1rem;
+  //margin: 1rem;
   float: right;
 }
