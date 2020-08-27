@@ -27,9 +27,13 @@
       /></a>
     </div>
     <nav class="csc-nav-links">
-      <a routerLink="/signup">
-        <button csc-button class="csc-join-button">Join</button>
-      </a>
+      <span class="link">
+        <a routerLink="/signup">
+          <button csc-button class="csc-join-button csc-join-button-desktop">
+            Join
+          </button>
+        </a>
+      </span>
       <a
         csclink
         *ngFor="let link of links"
