@@ -14,7 +14,7 @@
     transition: all 0.5s;
     &:hover {
       @include mat-elevation(4);
-      transform: scale(1.01);
+      transform: scale(1.02);
     }
 
     mat-card-subtitle {

@@ -1,5 +1,5 @@
 <csc-modal #modal>
-  <csc-modal-header>Add an event</csc-modal-header>
+  <csc-modal-header>{{ edit ? 'Edit' : 'Add' }} an event</csc-modal-header>
   <csc-modal-body>
     <div id="csc-admin-container">
       <div class="row">
@@ -43,6 +43,11 @@
                 placeholder="Where the event will be held"
               />
             </csc-input-container>
+          </div>
+          <div class="row">
+            <csc-checkbox class="col-12" label="Tentative date">
+              <input type="checkbox" formControlName="tentative" />>
+            </csc-checkbox>
           </div>
           <div class="row" formGroupName="datetime">
             <csc-input-container label="Date" class="col-4" labelLocation="top">
@@ -93,18 +98,22 @@
             </csc-input-container>
           </div>
           <div class="row">
-            From the following sign up form options, you probably want to choose
-            just one. If you do specify all of them though, they will all show
-            up.
+            <div class="col-12">
+              From the following sign up form options, you probably want to
+              choose just one. If you do specify all of them though, they will
+              all show up.
+            </div>
           </div>
           <div class="row">
-            <csc-checkbox label="Include embedded google form">
-              <input
-                type="checkbox"
-                [(ngModel)]="includeGoogleForm"
-                [ngModelOptions]="{ standalone: true }"
-              />>
-            </csc-checkbox>
+            <div class="col-12">
+              <csc-checkbox label="Include embedded google form">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="includeGoogleForm"
+                  [ngModelOptions]="{ standalone: true }"
+                />>
+              </csc-checkbox>
+            </div>
           </div>
           <div class="row" *ngIf="includeGoogleForm">
             <csc-input-container
@@ -121,7 +130,7 @@
             </csc-input-container>
           </div>
           <div class="row">
-            <csc-checkbox label="Include sign up link">
+            <csc-checkbox class="col-12" label="Include sign up link">
               <input
                 type="checkbox"
                 [(ngModel)]="includeLink"
@@ -144,7 +153,7 @@
             </csc-input-container>
           </div>
           <div class="row">
-            <csc-checkbox label="Include embedded form">
+            <csc-checkbox class="col-12" label="Include embedded form">
               <input
                 type="checkbox"
                 [(ngModel)]="includeForm"
@@ -168,6 +177,7 @@
               <csc-upload
                 formControlName="image"
                 message="Drag event image here"
+                [data]="getImage()"
               ></csc-upload>
             </csc-input-container>
             <csc-input-container
@@ -179,6 +189,7 @@
                 formControlName="resources"
                 type="multi"
                 message="Drag event resources here"
+                [data]="getUpload('resources')"
               ></csc-upload>
             </csc-input-container>
             <csc-input-container
@@ -190,6 +201,7 @@
                 formControlName="gallery"
                 type="multi"
                 message="Drag gallery images here"
+                [data]="getUpload('gallery')"
               ></csc-upload>
             </csc-input-container>
           </div>
@@ -198,6 +210,7 @@
     </div>
   </csc-modal-body>
   <csc-modal-footer>
-    <button csc-button (click)="add()">Create Event</button>
+    <button *ngIf="!edit" csc-button (click)="add()">Create Event</button>
+    <button *ngIf="edit" csc-button (click)="update()">Update Event</button>
   </csc-modal-footer>
 </csc-modal>
