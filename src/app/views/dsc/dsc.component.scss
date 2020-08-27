@@ -1,28 +1,20 @@
 @import 'src/variables.scss';
 
-$exec-info-text-color: #515151;
-$tooltip-exec-name-color: $text-white;
-$tooltip-exec-desc-color: #a6a6a6;
-
 section {
-  position: relative;
-  // z-index: 4;
   display: flex;
-  padding: 4rem;
-  justify-content: center;
-  align-items: center;
   background: white;
   border-bottom: 1px solid #eee;
 }
 
-.text-container {
-  text-align: center;
+.odd {
+  background-color: $google-grey;
+}
+
+.right-col {
+  padding-left: 1rem;
 }
 
 img {
   width: 100%;
-}
-
-.page-header > div {
-  width: 100%;
+  height: auto;
 }
