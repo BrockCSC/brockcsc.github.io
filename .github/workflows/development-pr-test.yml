@@ -1,12 +1,12 @@
-name: Verify pull request
+name: Verify Pull Request, deploy to brockcsc-pr.web.app
 on:
-  pull_request:
+  push:
     branches:
       - development
 
 jobs:
   build:
-    name: Build and Test
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -14,6 +14,27 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm run build
-      - name: Check formatting
-        run: npm run format:check
+        run: npm run build:dev
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy to brockcsc-pr.web.app
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:brockcsc-pr
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_BROCKCSC_TEST }}
