@@ -1,7 +1,11 @@
 @import 'src/variables.scss';
 
 table {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  width: max-content;
+  overflow: auto;
   border-collapse: collapse;
   background-color: #f5f5f5;
 }
