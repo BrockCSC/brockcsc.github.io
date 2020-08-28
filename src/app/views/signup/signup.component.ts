@@ -38,7 +38,7 @@ export class SignupComponent {
 
     this.signupFormConfig = {
       url:
-        'https://docs.google.com/forms/d/e/1FAIpQLSdn26ysJa7_rfrsNAoJr8w-euRbhssPnlHceC4qTM_ux4RekA/formResponse',
+        'https://docs.google.com/forms/d/16g4HfNf23mC50PitgvU4E-bA-Zwbqn0VgofEqipKjcI/formResponse',
       ids: {
         name: 'entry.1746166300',
         student_id: 'entry.1408207548',
@@ -52,9 +52,9 @@ export class SignupComponent {
 
     this.discordInviteFormConfig = {
       url:
-        'https://docs.google.com/forms/d/e/1FAIpQLSd-H69JkeJcJNv1a2vXCw5LXZjte-8Zh-egU-2Z-Q7Vofvqew/formResponse',
+        'https://docs.google.com/forms/d/1wklzi9LiBOnq_ngZIcfDuoKHQgl9x9-J6C0v1He8qq4/formResponse',
       ids: {
-        email: 'entry.1501106727',
+        email: 'entry.1065686669',
       },
     };
   }
