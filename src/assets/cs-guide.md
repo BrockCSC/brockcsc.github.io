@@ -44,9 +44,9 @@ The only difference is some classes are large and require splitting into multipl
 
 Note: 1 credit is equivalent to two classes, and every Major program requires 20 credits to graduate (40 classes)
 
-F - 1.00 Credit 
+F - 1.00 Credit
 
-P - 0.5 Credit 
+P - 0.5 Credit
 
 Q - 0.5 Credit
 
@@ -54,20 +54,19 @@ C - 0.5 Credit (only required for co-op, and the credit is only weighted for OSA
 
 N - 0 Credit (only required for co-op)
 
-
 ## List of available context credits (Humanities vs Social Science)
 
 https://brocku.ca/webcal/current/undergrad/areg.html#sec28
 
 Note: this should be cross referenced with the [https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all](undergraduate timetable), as sometimes the courses listed here are not always offered.
 
-
-## Minor in Applied Computing 
+## Minor in Applied Computing
 
 (Note: the only minor that the CS Department offers)
 
 Students in other disciplines may obtain a minor in Applied Computing within their degree program by completing the following courses with a minimum 60 percent overall average:
-- 	Four APCO and/or COSC credits
+
+-     Four APCO and/or COSC credits
 
 The applied computing minor is not available to Computer Science students of any kind, and APCO classes are only available to COSC students if they are crosslisted as COSC classes, e.g APCO 2P89 Internet Technologies is also COSC 2P89.
 
@@ -75,9 +74,9 @@ The applied computing minor is not available to Computer Science students of any
 
 Note: subject to change, check your degree audit page ( https://my.brocku.ca/BrockDB/daud_DegreeOverview.aspx ), if you're in a specialized major then this could be different for you.
 
-| Courses Numbered | 1x99 or less | 2x00 to 2x89 | 2x90 to 3x89 | 3x90 or above |
-|-------------|:------------------------------------------------:|-------------|-------------|---------------------|----------|
-| Credits Achieved| No more than 8 credits allowed| Must have at least 6 credits above | Must have at least 3 credits or above | Must have at least 3 credits or above |
+| Courses Numbered |          1x99 or less          | 2x00 to 2x89                       | 2x90 to 3x89                          | 3x90 or above                         |
+| ---------------- | :----------------------------: | ---------------------------------- | ------------------------------------- | ------------------------------------- |
+| Credits Achieved | No more than 8 credits allowed | Must have at least 6 credits above | Must have at least 3 credits or above | Must have at least 3 credits or above |
 
 Use this chart in tandem with the course calendar ( https://brocku.ca/webcal/current/undergrad/cosc.html ) to achieve your degree requirements.
 
@@ -86,11 +85,13 @@ Use this chart in tandem with the course calendar ( https://brocku.ca/webcal/cur
 A list of COSC courses, their prerequisites and what terms they are generally offered in.
 
 Note: do not rely on this, for up to date information, consult:
-* [BrockU Timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all)
-* [Course Calendar](https://brocku.ca/webcal/current/undergrad/cosc.html)
+
+- [BrockU Timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all)
+- [Course Calendar](https://brocku.ca/webcal/current/undergrad/cosc.html)
 
 We also have an unofficial graduation calculation Excel spreadsheet where you can plan your courses:
-* [Unofficial Graduation Calculator](https://raw.githubusercontent.com/BrockCSC/brockcsc.github.io/development/src/assets/newGradSchedule.xlsx)
+
+- [Unofficial Graduation Calculator](https://raw.githubusercontent.com/BrockCSC/brockcsc.github.io/development/src/assets/newGradSchedule.xlsx)
 
 ❤️ Bachelor of Science, Computer Science (Honours & General) Required Course
 
@@ -100,17 +101,17 @@ We also have an unofficial graduation calculation Excel spreadsheet where you ca
 
 (Note: not all classes are listed here, just classes that are typically offered, e.g. a class that hasn't been offered in more than 2 years won't be listed here)
 
-| Course Code | Course Name | Fall | Winter | Spring | Required | Prerequisite(s)
-|-------------|:------------------------------------------------:|-------------|-------------|---------------------|----------|:------------------------------------------------------------------------------:|
-| APCO-1P00 | Introduction to Media Computation | ✅ | ✅ | ✅ | 💛| |
-| APCO-1P01 | Fluency with Technology | ✅ | ✅ | ✅ | 💛| | 
-| APCO-1P30 | Programming for Interactive Media | ❌ | ✅ | ❌ | 💛| |
-| COSC-1P50 | Integrity and Literacy in the Information Age | ✅ | ✅ | ✅ | 💛❤️| |
-| APCO-1P93 | Applied Programming |  ❌ | ✅ |  ❌ | 💛| APCO-1P00 or 4U Mathematics credit |
-| APCO-2P11 | Personal Computers and Networks |  ❌ | ✅ |  ❌ | 💛| APCO-1P01 |
-| COSC-2P89 | Internet Technologies |  ✅ | ❌ |  ❌ | 💛💜| APCO 1P00 (minimum 60 percent) and 1P01 (minimum 60 percent) or COSC 1P03 (minimum 60 percent) |
-| COSC-3P94 | Human Computer Interaction |  ❌ | ✅ |  ❌ | 💛💜| Two Credits from either IASC/APCO/COSC |
-| APCO-2P99 | Project in Applied Computing | ✅ | ✅ | ✅ | 💛| 2 APCO credits, permission from an instructor/faculty |
+| Course Code |                  Course Name                  | Fall | Winter | Spring | Required |                                        Prerequisite(s)                                         |
+| ----------- | :-------------------------------------------: | ---- | ------ | ------ | -------- | :--------------------------------------------------------------------------------------------: |
+| APCO-1P00   |       Introduction to Media Computation       | ✅   | ✅     | ✅     | 💛       |                                                                                                |
+| APCO-1P01   |            Fluency with Technology            | ✅   | ✅     | ✅     | 💛       |                                                                                                |
+| APCO-1P30   |       Programming for Interactive Media       | ❌   | ✅     | ❌     | 💛       |                                                                                                |
+| COSC-1P50   | Integrity and Literacy in the Information Age | ✅   | ✅     | ✅     | 💛❤️     |                                                                                                |
+| APCO-1P93   |              Applied Programming              | ❌   | ✅     | ❌     | 💛       |                               APCO-1P00 or 4U Mathematics credit                               |
+| APCO-2P11   |        Personal Computers and Networks        | ❌   | ✅     | ❌     | 💛       |                                           APCO-1P01                                            |
+| COSC-2P89   |             Internet Technologies             | ✅   | ❌     | ❌     | 💛💜     | APCO 1P00 (minimum 60 percent) and 1P01 (minimum 60 percent) or COSC 1P03 (minimum 60 percent) |
+| COSC-3P94   |          Human Computer Interaction           | ❌   | ✅     | ❌     | 💛💜     |                             Two Credits from either IASC/APCO/COSC                             |
+| APCO-2P99   |         Project in Applied Computing          | ✅   | ✅     | ✅     | 💛       |                     2 APCO credits, permission from an instructor/faculty                      |
 
 ## School Resources
 
@@ -130,6 +131,3 @@ As a student in Computer Science there are many free trials, offers, and product
 - [Amazon Prime Student](https://www.amazon.ca/b?ie=UTF8&node=9648404011&tag=googcana-20&hvadid=208306511168&hvpos=&hvnetw=g&hvrand=2646831168916978879&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000745&hvtargid=kwd-308101787433&ref=pd_sl_2w477v4psd_e&hydadcr=848_10117974&gclid=Cj0KCQjw6ar4BRDnARIsAITGzlDcTWhlyDSpHmFQHfl3s2Q2vgpR-RWJbVD-5CEEkGgwPeekHmOuE48aAuScEALw_wcB)
 - [Figma](https://www.figma.com/education/) - Free online design tool, allows you to create vector graphics and prototypes.
 - [Spotify](https://www.spotify.com/ca-en/student/) - 3 months free
-
-
-
