@@ -6,3 +6,9 @@
 .main-container {
   margin-bottom: 3rem;
 }
+
+::ng-deep .markdown-content table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+}
