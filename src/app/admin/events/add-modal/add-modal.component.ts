@@ -42,6 +42,7 @@ export class AddModalComponent implements OnInit {
       googleFormUrl: '',
       gallery: new FormControl([]),
       tentative: false,
+      dscEvent: false,
     });
   }
 

@@ -10,6 +10,7 @@ export class EventCardComponent implements OnInit {
   @Input() event: CscEvent;
   @Input() next = false;
   @Input() imgHeight = '10rem';
+  @Input() theme: 'grey' | 'google' = 'grey';
   get date(): Date {
     return new Date(this.event.datetime.date);
   }

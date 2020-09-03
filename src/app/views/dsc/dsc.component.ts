@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Card, DSCApiService } from 'app/shared/api';
+import { Card, CscEvent, DSCApiService, EventApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,8 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class DSCComponent implements OnInit {
   public cards: Observable<Card[]>;
+  public nextEvent$: Observable<CscEvent>;
 
-  constructor(private _DSCApiService: DSCApiService) {}
+  constructor(
+    private _DSCApiService: DSCApiService,
+    private eventApiService: EventApiService
+  ) {
+    this.nextEvent$ = eventApiService.getNextDscEvent();
+  }
 
   ngOnInit() {
     this.cards = this._DSCApiService.getCards();

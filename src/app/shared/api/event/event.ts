@@ -19,4 +19,5 @@ export class CscEvent {
   formId: string;
   googleFormUrl: string;
   tentative: boolean;
+  dscEvent: boolean;
 }

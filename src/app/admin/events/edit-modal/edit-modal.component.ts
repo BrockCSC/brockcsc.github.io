@@ -60,6 +60,7 @@ export class EditModalComponent implements OnInit {
       googleFormUrl: '',
       gallery: new FormControl([]),
       tentative: false,
+      dscEvent: false,
     });
   }
 

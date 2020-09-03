@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
@@ -26,6 +28,8 @@ import { TeamComponent } from './team/team.component';
     MarkdownModule,
     MatTooltipModule,
     NgxGalleryModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   declarations: [
     HomeComponent,

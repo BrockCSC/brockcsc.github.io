@@ -9,7 +9,6 @@
     height: 100%;
     background-color: $grey;
     border: 1px solid darken($grey, 15%);
-    border-radius: 0;
     @include mat-elevation(0);
     transition: all 0.5s;
     &:hover {
@@ -43,6 +42,24 @@
         padding: 0.3rem 0.5rem;
         font-weight: bold;
       }
+    }
+  }
+}
+
+.white-theme {
+  mat-card {
+    background-color: white;
+    mat-card-subtitle {
+      color: $google-blue;
+    }
+  }
+}
+
+.grey-theme {
+  mat-card {
+    border-radius: 0;
+    mat-card-subtitle {
+      color: $google-blue;
     }
   }
 }

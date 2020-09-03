@@ -1,4 +1,8 @@
-<a class="event-card-wrapper" [routerLink]="['/', 'events', event.$key]">
+<a
+  class="event-card-wrapper"
+  [routerLink]="['/', 'events', event.$key]"
+  [class.white-theme]="theme === 'google'"
+>
   <mat-card>
     <div
       class="poster"
@@ -9,7 +13,7 @@
       <span class="next-tag" *ngIf="next">UPCOMING EVENT</span>
     </div>
     <mat-card-subtitle>
-      {{ event.tentative && '[TENTATIVE] ' }}{{ date | date }},
+      {{ event.tentative ? '[TENTATIVE] ' : '' }}{{ date | date }},
       {{ start | date: 'hh:mm a' }} -
       {{ end | date: 'hh:mm a' }}</mat-card-subtitle
     >
