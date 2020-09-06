@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import {
   ContactComponent,
+  DSCComponent,
   HomeComponent,
   ServicesComponent,
   SignupComponent,
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'dsc', component: DSCComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },

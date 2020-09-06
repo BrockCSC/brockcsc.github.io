@@ -18,4 +18,6 @@ export class CscEvent {
   gallery: CscFile[];
   formId: string;
   googleFormUrl: string;
+  tentative: boolean;
+  dscEvent: boolean;
 }

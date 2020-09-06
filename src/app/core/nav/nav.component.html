@@ -26,10 +26,14 @@
           alt="Brock Computer Science Club Logo"
       /></a>
     </div>
-    <a routerLink="/signup">
-      <button csc-button class="csc-join-button">Join</button>
-    </a>
     <nav class="csc-nav-links">
+      <span class="link">
+        <a routerLink="/signup">
+          <button csc-button class="csc-join-button csc-join-button-desktop">
+            Join
+          </button>
+        </a>
+      </span>
       <a
         csclink
         *ngFor="let link of links"

@@ -84,3 +84,14 @@ $border: 1px solid $dark-grey;
     padding: 25px;
   }
 }
+
+.tentative-container {
+  padding: 12px 25px;
+  border: $border;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  i {
+    padding-right: 25px;
+  }
+}

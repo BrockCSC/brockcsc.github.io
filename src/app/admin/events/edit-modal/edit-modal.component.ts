@@ -8,8 +8,7 @@ import { FormApiService } from '../../../shared/api/form/form-api.service';
 
 @Component({
   selector: 'csc-edit-modal',
-  templateUrl: './edit-modal.component.html',
-  styleUrls: ['./edit-modal.component.scss'],
+  templateUrl: '../add-edit-modal.component.html',
 })
 export class EditModalComponent implements OnInit {
   public form: FormGroup;
@@ -19,6 +18,7 @@ export class EditModalComponent implements OnInit {
   includeForm = false;
   includeGoogleForm: boolean;
   includeLink: boolean;
+  edit = true;
 
   constructor(
     private _eventApiService: EventApiService,
@@ -59,6 +59,8 @@ export class EditModalComponent implements OnInit {
       signupUrl: '',
       googleFormUrl: '',
       gallery: new FormControl([]),
+      tentative: false,
+      dscEvent: false,
     });
   }
 
@@ -131,4 +133,6 @@ export class EditModalComponent implements OnInit {
     }
     return [];
   }
+
+  add() {}
 }

@@ -12,6 +12,8 @@ $tooltip-font-size: 13px;
   position: absolute;
   transition: opacity 200ms ease-in-out;
   will-change: opacity;
+  top: 0;
+  left: 0;
 }
 
 // Base styles for arrow.

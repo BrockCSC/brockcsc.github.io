@@ -1,0 +1,70 @@
+<div class="csc-dsc">
+  <section class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="header-wrap">
+            <div>
+              <img src="assets/dsc/google-developers-logo.svg" />
+            </div>
+            <h1>Developer Student Clubs</h1>
+            <span></span>
+            <h2>Brock University</h2>
+            <span></span>
+            <div>
+              <a
+                mat-raised-button
+                color="primary"
+                href="https://dsc.community.dev/brock-university"
+                >Sign Up</a
+              >
+            </div>
+          </div>
+        </div>
+        <csc-event-card
+          *ngIf="nextEvent$ | async as nextEvent"
+          class="col-6 right-col"
+          [imgHeight]="'15rem'"
+          [theme]="'google'"
+          [event]="nextEvent"
+          [next]="true"
+        ></csc-event-card>
+      </div>
+    </div>
+  </section>
+  <section
+    *ngFor="let c of cards | async; let i = index"
+    [class.even]="i % 2 === 0"
+    [class.odd]="i % 2 !== 0"
+    [attr.data-index]="i"
+  >
+    <div class="container">
+      <mat-card>
+        <div class="row">
+          <ng-container *ngIf="i % 2 == 0; else elseBlock">
+            <div class="col-7">
+              <div class="text-container">
+                <h1>{{ c.title }}</h1>
+                <div [innerHTML]="c.text"></div>
+              </div>
+            </div>
+            <div class="col-5 right-col">
+              <img src="{{ c.img }}" alt="{{ c.imgAlt }}" />
+            </div>
+          </ng-container>
+          <ng-template #elseBlock>
+            <div class="col-5">
+              <img src="{{ c.img }}" alt="{{ c.imgAlt }}" />
+            </div>
+            <div class="col-7 right-col">
+              <div class="text-container">
+                <h1>{{ c.title }}</h1>
+                <div [innerHTML]="c.text"></div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </mat-card>
+    </div>
+  </section>
+</div>

@@ -7,3 +7,5 @@ export * from './food/food';
 export * from './storage/cscFile';
 export * from './storage/storage.service';
 export * from './storage/storageTask';
+export * from './dsc/dsc';
+export * from './dsc/dsc.service';

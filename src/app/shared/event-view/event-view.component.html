@@ -1,4 +1,12 @@
 <div *ngIf="event !== undefined">
+  <div *ngIf="event.tentative" class="tentative-container">
+    <div><i class="material-icons csc-mat-icon">info</i></div>
+    <div>
+      Tentative date/time, sign up to make sure you get updates for the final
+      date/time through email, usually 1-2 weeks before the tentative start
+      date.
+    </div>
+  </div>
   <div class="row csc-event-header">
     <div
       class="col-7 col-m-6 csc-event-image"

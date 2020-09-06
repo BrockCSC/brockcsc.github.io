@@ -3,7 +3,7 @@
 
 $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
-$nav-links-margin: 1.5em;
+$nav-links-margin: 1.2em;
 
 :host {
   position: sticky;
@@ -41,7 +41,8 @@ $nav-links-margin: 1.5em;
   }
 }
 
-.csc-nav-links > a {
+.csc-nav-links > a,
+.link {
   @include nav-link();
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
@@ -68,8 +69,9 @@ a {
   color: white;
 }
 
-.csc-join-button {
-  margin-left: 3.125rem;
+.csc-join-button-desktop {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .csc-join-button-mobile {

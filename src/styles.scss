@@ -4,7 +4,7 @@
 @import './styles/_grid.scss';
 @import './styles/_table.scss';
 @import './styles/_checkbox.scss';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 html {
   -moz-box-sizing: border-box;
@@ -27,6 +27,7 @@ html {
 a {
   cursor: pointer;
   color: $maroon;
+  word-wrap: break-word;
 }
 
 h1,

@@ -40,6 +40,16 @@ export class EventApiService {
     ).pipe(map((obj) => obj[0]));
   }
 
+  public getNextDscEvent(): Observable<CscEvent> {
+    return listWithKeys(
+      this.queryEvent((ref) => {
+        return ref
+          .orderByChild('datetime/timeStartTimestamp')
+          .startAt(this.getTodayTimestamp());
+      })
+    ).pipe(map((obj) => obj.find((o) => o.dscEvent)));
+  }
+
   public getFutureEvents(): Observable<CscEvent[]> {
     return listWithKeys(
       this.queryEvent((ref) => {

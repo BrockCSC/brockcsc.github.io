@@ -1,0 +1,32 @@
+@import 'src/variables.scss';
+
+$exec-info-text-color: #515151;
+$tooltip-exec-name-color: $text-white;
+$tooltip-exec-desc-color: #a6a6a6;
+
+.row {
+  border: 1px solid #eee;
+}
+section {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.text-container {
+  text-align: center;
+}
+
+.add-button {
+  margin: 1rem;
+  text-align: right;
+}
+.inline-buttons {
+  display: flex;
+  float: right;
+}
+
+img {
+  width: 100%;
+}

@@ -1,0 +1,85 @@
+<csc-modal #modal>
+  <csc-modal-header>Add a new card</csc-modal-header>
+  <csc-modal-body>
+    <div id="csc-admin-container">
+      <div class="row">
+        <div class="container">
+          <form [formGroup]="form">
+            <div class="row">
+              <csc-input-container
+                class="col-12"
+                label="Title"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="text"
+                  formControlName="title"
+                  placeholder="Card title"
+                />
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                class="col-12"
+                label="Text"
+                labelLocation="top"
+              >
+                <textarea
+                  class="csc-input"
+                  formControlName="text"
+                  placeholder="Card text"
+                ></textarea>
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                class="col-12"
+                label="Image"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="url"
+                  formControlName="img"
+                  placeholder="img url"
+                />
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                class="col-12"
+                label="Image Description"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="text"
+                  formControlName="imgAlt"
+                  placeholder="Image description"
+                />
+              </csc-input-container>
+            </div>
+            <div class="row">
+              <csc-input-container
+                class="col-12"
+                label="Position"
+                labelLocation="top"
+              >
+                <input
+                  class="csc-input"
+                  type="text"
+                  formControlName="position"
+                  placeholder="An integer indicating the position of the card"
+                />
+              </csc-input-container>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </csc-modal-body>
+  <csc-modal-footer>
+    <button csc-button (click)="add()">Add card</button>
+  </csc-modal-footer>
+</csc-modal>
