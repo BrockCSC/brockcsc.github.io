@@ -17,4 +17,14 @@ export class DSCComponent implements OnInit {
   ngOnInit() {
     this.cards = this._DSCApiService.getCards();
   }
+
+  public getUrl(card: Card): string {
+    const url = (path: string) => {
+      return `${path}`;
+    };
+    if (card !== undefined && card.img !== undefined) {
+      return url(card.img.url);
+    }
+    return url('/assets/placeholder.png'); // temp
+  }
 }

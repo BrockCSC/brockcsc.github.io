@@ -31,13 +31,13 @@
             </div>
           </div>
           <div class="col-5">
-            <img src="{{ c.img.url }}" alt="{{ c.imgAlt }}" />
+            <img [src]="getUrl(c)" alt="{{ c.imgAlt }}" />
           </div>
         </div>
         <ng-template #elseBlock>
           <div>
             <div class="col-5">
-              <img src="{{ c.img.url }}" alt="{{ c.imgAlt }}" />
+              <img [src]="getUrl(c)" alt="{{ c.imgAlt }}" />
             </div>
             <div class="col-7">
               <div class="text-container">
