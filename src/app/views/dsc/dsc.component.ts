@@ -26,7 +26,7 @@ export class DSCComponent implements OnInit {
     const url = (path: string) => {
       return `${path}`;
     };
-    if (card !== undefined && card.img !== undefined) {
+    if (card && card.img) {
       return url(card.img.url);
     }
     return url('/assets/placeholder.png'); // temp
