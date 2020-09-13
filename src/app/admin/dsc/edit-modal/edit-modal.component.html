@@ -34,16 +34,15 @@
             </div>
             <div class="row">
               <csc-input-container
-                class="col-12"
-                label="Image"
+                label="Upload Image"
+                class="col-4"
                 labelLocation="top"
               >
-                <input
-                  class="csc-input"
-                  type="url"
+                <csc-upload
                   formControlName="img"
-                  placeholder="img url"
-                />
+                  message="Drag card image here"
+                  [data]="getImage()"
+                ></csc-upload>
               </csc-input-container>
             </div>
             <div class="row">

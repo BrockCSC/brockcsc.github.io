@@ -21,7 +21,7 @@ export class AddModalComponent implements OnInit {
     this.form = this._formBuilder.group({
       title: new FormControl(),
       text: new FormControl(),
-      img: new FormControl(),
+      img: {},
       imgAlt: new FormControl(),
       position: new FormControl(),
     });
@@ -29,7 +29,6 @@ export class AddModalComponent implements OnInit {
 
   public add(): void {
     const val = this.form.value;
-
     this._DSCApiService
       .addCard(val)
       .then((res) => {
