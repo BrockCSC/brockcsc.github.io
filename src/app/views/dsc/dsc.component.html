@@ -49,12 +49,12 @@
               </div>
             </div>
             <div class="col-5 right-col">
-              <img src="{{ c.img }}" alt="{{ c.imgAlt }}" />
+              <img [src]="getUrl(c)" alt="{{ c.imgAlt }}" />
             </div>
           </ng-container>
           <ng-template #elseBlock>
             <div class="col-5">
-              <img src="{{ c.img }}" alt="{{ c.imgAlt }}" />
+              <img [src]="getUrl(c)" alt="{{ c.imgAlt }}" />
             </div>
             <div class="col-7 right-col">
               <div class="text-container">

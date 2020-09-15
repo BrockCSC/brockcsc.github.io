@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Card, DSCApiService } from 'app/shared/api';
+import { Card, CscFile, DSCApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
 @Component({
@@ -28,7 +28,7 @@ export class EditModalComponent implements OnInit {
     this.form = this._formBuilder.group({
       title: new FormControl(),
       text: new FormControl(),
-      img: new FormControl(),
+      img: {},
       imgAlt: new FormControl(),
       position: new FormControl(),
     });
@@ -37,6 +37,7 @@ export class EditModalComponent implements OnInit {
   public update(): void {
     const key = this.editableCard.$key;
     const data = this.form.value;
+    alert(data.img);
     this._foodApiService
       .updateFoodItem(key, data)
       .then(() => {
@@ -44,8 +45,15 @@ export class EditModalComponent implements OnInit {
         this.form.reset();
       })
       .catch((error: Error) => {
-        console.log('Error updating exec');
+        console.log('Error updating card');
         console.error(error);
       });
+  }
+
+  public getImage(): CscFile[] {
+    if (this.editableCard && !!this.editableCard.img) {
+      return new Array(this.editableCard.img);
+    }
+    return [];
   }
 }
