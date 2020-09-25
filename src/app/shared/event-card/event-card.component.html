@@ -13,9 +13,10 @@
       <span class="next-tag" *ngIf="next">UPCOMING EVENT</span>
     </div>
     <mat-card-subtitle>
-      {{ event.tentative ? '[TENTATIVE] ' : '' }}{{ date | date }},
-      {{ start | date: 'hh:mm a' }} -
-      {{ end | date: 'hh:mm a' }}</mat-card-subtitle
+      {{ event.tentative ? '[TENTATIVE] ' : ''
+      }}{{ event.datetime.date | date }},
+      {{ event.datetime.timeStartTimestamp | date: 'hh:mm a' }} -
+      {{ event.datetime.timeEndTimestamp | date: 'hh:mm a' }}</mat-card-subtitle
     >
     <mat-card-title>{{ event.title }}</mat-card-title>
   </mat-card>

@@ -11,15 +11,6 @@ export class EventCardComponent implements OnInit {
   @Input() next = false;
   @Input() imgHeight = '10rem';
   @Input() theme: 'grey' | 'google' = 'grey';
-  get date(): Date {
-    return new Date(this.event.datetime.date);
-  }
-  get start(): Date {
-    return new Date(this.event.datetime.timeStartTimestamp);
-  }
-  get end(): Date {
-    return new Date(this.event.datetime.timeEndTimestamp);
-  }
 
   constructor() {}
 
