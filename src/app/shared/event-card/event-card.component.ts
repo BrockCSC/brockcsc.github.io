@@ -16,8 +16,15 @@ export class EventCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getImage(): string {
-    const url = this.event?.image?.url;
-    return `url(${url ? url : 'assets/placeholder.png'})`;
+  getImg(): string {
+    return this.event?.image?.url;
+  }
+
+  getImgBg(): string {
+    return this.getImg() && `url(${this.getImg()})`;
+  }
+
+  getDefaultImg(): string {
+    return !this.getImg() && 'url(assets/placeholder.png)';
   }
 }

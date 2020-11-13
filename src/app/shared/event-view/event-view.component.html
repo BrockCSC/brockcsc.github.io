@@ -10,8 +10,15 @@
   <div class="row csc-event-header">
     <div
       class="col-7 col-m-6 csc-event-image"
-      [style.background]="getImageUrl()"
-    ></div>
+      [style.background]="getDefault()"
+    >
+      <div
+        class="image-bg"
+        [style.background]="getImgUrl()"
+        *ngIf="getImgUrl()"
+      ></div>
+      <img class="image-img" [src]="getImg()" *ngIf="getImg()" />
+    </div>
     <div class="col-5 col-m-6 csc-event-title">
       <div class="wrapper">
         <h2>{{ event.title }}</h2>

@@ -7,9 +7,15 @@
     <div
       class="poster"
       mat-card-image
-      [style.background-image]="getImage()"
       [style.height]="imgHeight"
+      [style.background-image]="getDefaultImg()"
     >
+      <div
+        class="poster-bg"
+        [style.background-image]="getImgBg()"
+        *ngIf="getImgBg()"
+      ></div>
+      <img [src]="getImg()" *ngIf="getImg()" class="poster-img" />
       <span class="next-tag" *ngIf="next">UPCOMING EVENT</span>
     </div>
     <mat-card-subtitle>

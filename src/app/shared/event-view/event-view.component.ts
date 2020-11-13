@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+const url = (path: string) => {
+  return `url(${path})`;
+};
+
 @Component({
   selector: 'csc-event-view',
   templateUrl: './event-view.component.html',
@@ -12,13 +16,15 @@ export class EventViewComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public getImageUrl(): string {
-    const url = (path: string) => {
-      return `url(${path})`;
-    };
-    if (this.event !== undefined && this.event.image !== undefined) {
-      return url(this.event.image.url);
-    }
-    return url('/assets/placeholder.png'); // temp
+  public getImg(): string {
+    return this.event?.image?.url;
+  }
+
+  public getDefault(): string {
+    return !this.getImg() && 'url(assets/placeholder.png)';
+  }
+
+  public getImgUrl(): string {
+    return this.getImg() && url(this.getImg());
   }
 }
