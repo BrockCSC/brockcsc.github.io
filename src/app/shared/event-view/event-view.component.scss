@@ -39,6 +39,33 @@ $border: 1px solid $dark-grey;
   height: $height;
   background-position: center !important;
   background-size: cover !important;
+  position: relative;
+  overflow: hidden;
+
+  .image-bg {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    margin: -3px;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    filter: blur(3px) brightness(80%);
+  }
+
+  .image-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    object-fit: contain;
+    object-position: center;
+  }
 }
 
 .csc-event-title {

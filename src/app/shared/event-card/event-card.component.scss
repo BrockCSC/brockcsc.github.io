@@ -5,12 +5,14 @@
   height: 100%;
   display: block;
   text-decoration: none;
+
   mat-card {
     height: 100%;
     background-color: $grey;
     border: 1px solid darken($grey, 15%);
     @include mat-elevation(0);
     transition: all 0.5s;
+
     &:hover {
       @include mat-elevation(4);
       transform: scale(1.02);
@@ -32,6 +34,8 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+      overflow: hidden;
+
       .next-tag {
         position: absolute;
         background-color: $info-maroon;
@@ -42,6 +46,32 @@
         padding: 0.3rem 0.5rem;
         font-weight: bold;
       }
+
+      .poster-img {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        right: 0;
+        position: absolute;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .poster-bg {
+        top: 0;
+        left: 0;
+        width: 110%;
+        height: 110%;
+        margin: -3px;
+        right: 0;
+        position: absolute;
+        background-repeat: no-repeat;
+        filter: blur(3px) brightness(70%);
+        background-size: cover;
+        background-position: center;
+        background-color: white;
+      }
     }
   }
 }
@@ -49,6 +79,7 @@
 .white-theme {
   mat-card {
     background-color: white;
+
     mat-card-subtitle {
       color: $google-blue;
     }
@@ -58,6 +89,7 @@
 .grey-theme {
   mat-card {
     border-radius: 0;
+
     mat-card-subtitle {
       color: $google-blue;
     }
