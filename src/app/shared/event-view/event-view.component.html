@@ -39,11 +39,19 @@
     </div>
     <div class="col-4 col-m-5 csc-event-location">
       <h3 class="csc-header">When & Where</h3>
-      <p>{{ event.datetime.date | date }}</p>
-      <p>
-        {{ event.datetime.timeStartTimestamp | date: 'shortTime' }} -
-        {{ event.datetime.timeEndTimestamp | date: 'shortTime' }}
-      </p>
+      <ng-container *ngIf="!event.hiddenDate">
+        <p>{{ event.datetime.date | date }}</p>
+        <p>
+          {{ event.datetime.timeStartTimestamp | date: 'shortTime' }} -
+          {{ event.datetime.timeEndTimestamp | date: 'shortTime' }}
+        </p>
+      </ng-container>
+      <ng-container *ngIf="event.hiddenDate">
+        <p>
+          {{ event.customDate }}
+        </p>
+      </ng-container>
+
       <p>{{ event.location }}</p>
     </div>
     <div
