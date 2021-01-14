@@ -20,4 +20,6 @@ export class CscEvent {
   googleFormUrl: string;
   tentative: boolean;
   dscEvent: boolean;
+  hiddenDate: boolean;
+  customDate: string;
 }
