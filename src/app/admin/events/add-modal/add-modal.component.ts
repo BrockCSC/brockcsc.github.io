@@ -43,6 +43,8 @@ export class AddModalComponent implements OnInit {
       gallery: new FormControl([]),
       tentative: false,
       dscEvent: false,
+      hiddenDate: false,
+      customDate: '',
     });
   }
 

@@ -46,8 +46,20 @@
           </div>
           <div class="row">
             <csc-checkbox class="col-12" label="Tentative date">
-              <input type="checkbox" formControlName="tentative" />>
+              <input type="checkbox" formControlName="tentative" />
             </csc-checkbox>
+          </div>
+          <div class="row">
+            <csc-checkbox class="col-12" label="Hidden/custom date">
+              <input type="checkbox" formControlName="hiddenDate" />
+            </csc-checkbox>
+            <input
+              [hidden]="!form.value.hiddenDate"
+              class="csc-input"
+              type="text"
+              formControlName="customDate"
+              placeholder="Every Tuesday at 3:30 PM"
+            />
           </div>
           <div class="row" formGroupName="datetime">
             <csc-input-container label="Date" class="col-4" labelLocation="top">
