@@ -1,7 +1,18 @@
 <div *ngIf="!!entries">
   <table>
     <tr>
-      <th *ngFor="let key of keys">{{ descriptions[key] }}</th>
+      <th *ngFor="let key of keys">
+        {{ descriptions[key] }}
+        <button
+          [cdkCopyToClipboard]="getColCsv(key)"
+          matTooltip="Copy column"
+          tooltipPosition="after"
+          mat-icon-button
+          aria-label="Copy column"
+        >
+          <mat-icon>content_copy</mat-icon>
+        </button>
+      </th>
     </tr>
     <tr *ngFor="let entry of entries">
       <td *ngFor="let key of keys">
