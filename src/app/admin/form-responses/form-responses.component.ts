@@ -45,4 +45,15 @@ export class FormResponsesComponent implements OnInit {
     });
     this.keys = Object.keys(tempKeySet);
   }
+
+  // Not exactly csv, should work with ideal-ish data. Use some lib if this becomes an issue.
+  getColCsv(key: string) {
+    const result = [];
+    this.entries.forEach((entry) => {
+      if (entry[key]) {
+        result.push(entry[key]);
+      }
+    });
+    return result.join(',');
+  }
 }
