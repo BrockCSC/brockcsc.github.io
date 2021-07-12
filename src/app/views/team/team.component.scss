@@ -1,6 +1,6 @@
 @import 'src/variables.scss';
 
-$exec-info-text-color: #515151;
+$exec-info-text-color: black;
 $tooltip-exec-name-color: $text-white;
 $tooltip-exec-desc-color: #a6a6a6;
 
@@ -10,41 +10,84 @@ $tooltip-exec-desc-color: #a6a6a6;
 
 .csc-team-members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 1rem;
 }
 
+.prev-team {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+  padding: 0px 0px 5px;
+  cursor: pointer;
+  border-bottom: solid 1px black;
+}
+.prev-team::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  background-color: red;
+  transform: scale(0, 1);
+  transform-origin: 0% 100%;
+  transition: transform 0.3s ease;
+}
+
+.prev-team:hover::after {
+  transform: scale(1, 1);
+  cursor: pointer;
+}
+
 .exec {
-  margin-left: 20px;
-  margin-bottom: 20px;
-  display: flex;
+  max-width: 150px;
+  height: fit-content;
   align-items: center;
-
-  .exec-avatar {
-    border-radius: 100%;
-    width: 76px;
-    height: 76px;
-    max-width: 76px;
-    max-height: 76px;
-    border: 0.3px solid black;
-    transition: border 100ms ease-in-out;
-
-    &:hover {
-      border: 1px solid $maroon;
-      cursor: pointer;
-    }
-  }
-
+  //background: rgb(36, 33, 33);
+  border-radius: 10px;
   .exec-info {
     margin-left: 1rem;
     transition: opacity 200ms ease-in;
-
-    .exec-name,
+    .exec-name {
+      margin-top: 1rem;
+      color: $exec-info-text-color;
+      font-weight: bold;
+    }
     .exec-title {
-      font-size: 14px;
+      font-size: $smallText;
+      color: $text-grey;
+    }
+    .exec-disc {
       color: $exec-info-text-color;
     }
   }
+}
+
+.exec-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.exec-avatar {
+  height: 50%;
+  padding-top: 10%;
+  overflow: hidden;
+}
+
+.exec-avatar-img {
+  display: block;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  border: 2px solid;
+  border-color: rgba($color: #aa3b3b, $alpha: 1);
+  transition: all 0.5s ease-in-out;
 }
 
 .tooltip-exec-name {
