@@ -3,45 +3,47 @@
     <div class="container">
       <h3 class="csc-header">Current Executive Team</h3>
       <div class="csc-team-members">
-        <div class="exec" *ngFor="let exec of execs | async">
-          <div [id]="exec.$key + '-id'">
-            <img
-              class="exec-avatar"
-              [src]="exec.image ? exec.image.url : 'assets/exec-image-stub.png'"
-            />
+        <div class="exec-wrapper" *ngFor="let exec of execs | async">
+          <div class="exec">
+            <div class="exec-avatar" [id]="exec.$key + '-id'">
+              <img
+                class="exec-avatar-img"
+                [src]="
+                  exec.image ? exec.image.url : 'assets/exec-image-stub.png'
+                "
+              />
+            </div>
+            <div class="exec-info">
+              <div class="exec-name">{{ exec.name }}</div>
+              <div class="exec-title">{{ exec.title }}</div>
+              <div class="exec-disc">{{ exec.description }}</div>
+            </div>
           </div>
-          <div class="exec-info">
-            <div class="exec-name">{{ exec.name }}</div>
-            <div class="exec-title">{{ exec.title }}</div>
-          </div>
-          <csc-tooltip [forId]="exec.$key + '-id'" direction="right">
-            <div class="tooltip-exec-name">{{ exec.name }}</div>
-            <p class="tooltip-exec-title">{{ exec.title }}</p>
-            <p class="tooltip-exec-desc">{{ exec.description }}</p>
-          </csc-tooltip>
         </div>
       </div>
-      <h3 class="csc-header">Previous Executives</h3>
-      <div class="csc-team-members">
-        <div class="exec" *ngFor="let prevExec of prevExecs | async">
-          <img
-            class="exec-avatar"
-            [id]="prevExec.$key + '-id'"
-            [src]="
-              prevExec.image ? prevExec.image.url : 'assets/exec-image-stub.png'
-            "
-          />
-          <div class="exec-info">
-            <div class="exec-name">{{ prevExec.name }}</div>
-            <div class="exec-title">{{ prevExec.title }}</div>
+      <h3 class="prev-team" (click)="flipShowPrevExecs()">
+        Previous Executives
+      </h3>
+      <div [@showPrevExecsAnim]="prevDivState" class="csc-team-members">
+        <div class="exec-wrapper" *ngFor="let prevExec of prevExecs | async">
+          <div class="exec">
+            <div class="exec-avatar" [id]="prevExec.$key + '-id'">
+              <img
+                class="exec-avatar-img"
+                [id]="prevExec.$key + '-id'"
+                [src]="
+                  prevExec.image
+                    ? prevExec.image.url
+                    : 'assets/exec-image-stub.png'
+                "
+              />
+            </div>
+            <div class="exec-info">
+              <div class="exec-name">{{ prevExec.name }}</div>
+              <div class="exec-title">{{ prevExec.title }}</div>
+              <div class="exec-disc">{{ prevExec.description }}</div>
+            </div>
           </div>
-          <csc-tooltip [forId]="prevExec.$key + '-id'" direction="right">
-            <div class="tooltip-exec-name">{{ prevExec.name }}</div>
-            <p class="tooltip-exec-title">{{ prevExec.title }}</p>
-            <p class="tooltip-exec-desc">
-              {{ prevExec.description }}
-            </p>
-          </csc-tooltip>
         </div>
       </div>
     </div>
