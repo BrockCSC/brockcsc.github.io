@@ -8,16 +8,16 @@ This is the repository for the Brock University Computer Science Club web page.
 
 - Angular CLI: 12.1.1
 - Package                         Version
+- @angular-devkit/architect       0.1201.1
+- @angular-devkit/build-angular   12.1.1
+- @angular-devkit/core            12.1.1
+- @angular-devkit/schematics      12.1.1
+- @angular/fire                   6.1.5
+- @schematics/angular             12.1.1
+- rxjs                            6.6.7
+- typescript                      4.3.5
+- webpack                         5.44.0
 ---------------------------------------------------------
-@angular-devkit/architect       0.1201.1
-@angular-devkit/build-angular   12.1.1
-@angular-devkit/core            12.1.1
-@angular-devkit/schematics      12.1.1
-@angular/fire                   6.1.5
-@schematics/angular             12.1.1
-rxjs                            6.6.7
-typescript                      4.3.5
-webpack                         5.44.0
 
 Dev env: https://brockcsc-test.firebaseapp.com
 
