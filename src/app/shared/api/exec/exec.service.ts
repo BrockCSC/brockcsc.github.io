@@ -4,7 +4,7 @@ import {
   AngularFireList,
   QueryFn,
 } from '@angular/fire/database';
-import { database } from 'firebase';
+
 import { Observable } from 'rxjs';
 import { StorageService } from '../storage/storage.service';
 import { listWithKeys } from '../util';
@@ -27,7 +27,7 @@ export class ExecApiService {
     return this._db.list(this._path, queryFn);
   }
 
-  public addExec(exec: Exec): database.ThenableReference {
+  public addExec(exec: Exec) {
     return this.execs.push(exec);
   }
 
