@@ -50,6 +50,10 @@ export class NavComponent implements OnInit {
       href: '/contact',
       desc: 'Contact',
     },
+    {
+      href: '/exec-application',
+      desc: 'Exec Application',
+    },
   ];
 
   public linkAdmin: NavLink = { href: '/admin', desc: 'Admin' };

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row csc-contact">
+    <iframe id="no-target" name="no-target" style="display: none"></iframe>
+    <form
+      #contactForm
+      class="col-8 col-m-7 csc-contact-form"
+      [formGroup]="form"
+      [action]="googleForm.url"
+      target="no-target"
+    >
+      <h3 class="col-12 hide-mobile">Contact Us</h3>
+      <csc-input-container class="col-12" label="Name" labelLocation="top">
+        <input [name]="googleForm.ids.name" class="csc-input" type="text" />
+      </csc-input-container>
+      <csc-input-container class="col-12" label="Email" labelLocation="top">
+        <input
+          [name]="googleForm.ids.email"
+          class="csc-input"
+          formControlName="email"
+          type="text"
+        />
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.email.valid &&
+            (form.controls.email.touched || submitted)
+          "
+          >Please enter a valid email</span
+        >
+      </csc-input-container>
+      <csc-input-container class="col-12" label="Message" labelLocation="top">
+        <textarea
+          [name]="googleForm.ids.message"
+          class="csc-input"
+          type="text"
+          rows="8"
+        ></textarea>
+      </csc-input-container>
+      <div class="col-12">
+        <a
+          csc-button
+          *ngIf="!submitted"
+          class="csc-contact-submit"
+          (click)="onSubmit()"
+          value="Send"
+          >Submit</a
+        >
+        <a
+          csc-button
+          *ngIf="submitted"
+          class="csc-contact-submit success"
+          value="Send"
+          ><i class="material-icons">check</i> Message submitted</a
+        >
+      </div>
+    </form>
+    <div class="col-4 col-m-5 csc-contact-info hide-mobile">
+      <h3>Location</h3>
+      <div class="csc-info">
+        <p>Brock University</p>
+        <p>Mackenzie Chown J Block</p>
+        <p>Room 332</p>
+      </div>
+      <div class="csc-info">
+        <p>1812 Sir IsaacBrock Way</p>
+        <p>St. Catharines, ON L2S 3A1</p>
+      </div>
+      <div class="csc-info">
+        <p>brockcsc@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
