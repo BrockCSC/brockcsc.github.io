@@ -11,16 +11,16 @@ export class ExecApplicationsComponent implements OnInit {
   public form: FormGroup;
   public googleForm: GoogleFormConfig;
   public submitted: boolean;
-  @ViewChild('contactForm', { static: true }) contactForm;
+  @ViewChild('execApplicationForm', { static: true }) execApplicationForm;
 
   constructor(private _formBuilder: FormBuilder) {
     this.form = this._formBuilder.group({
-      name: ['', [Validators.required]],
+      name: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
-      intrCscExec: ['', [Validators.required]],
-      skills: ['', [Validators.required]],
-      workshop: ['', [Validators.required]],
-      years: ['', [Validators.required]],
+      intrCscExec: ['', Validators.required],
+      skills: ['', Validators.required],
+      workshop: ['', Validators.required],
+      years: ['', Validators.required],
     });
 
     this.submitted = false;
@@ -43,8 +43,8 @@ export class ExecApplicationsComponent implements OnInit {
   public onSubmit(): void {
     if (this.form.valid) {
       this.submitted = true;
-      this.contactForm.nativeElement.submit();
-      this.contactForm.nativeElement.reset();
+      this.execApplicationForm.nativeElement.submit();
+      this.execApplicationForm.nativeElement.reset();
     }
   }
 }
