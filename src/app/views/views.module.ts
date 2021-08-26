@@ -17,6 +17,7 @@ import { ServicesComponent } from './services/services.component';
 import { SignupComponent } from './signup/signup.component';
 import { TeamPreviewComponent } from './team/team-preview/team-preview.component';
 import { TeamComponent } from './team/team.component';
+import { ExecApplicationsComponent } from './exec-applications/execapplications.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { TeamComponent } from './team/team.component';
     GuideComponent,
     TeamPreviewComponent,
     GalleryComponent,
+    ExecApplicationsComponent,
   ],
 })
 export class ViewsModule {}

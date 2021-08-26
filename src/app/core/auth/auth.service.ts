@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
@@ -19,13 +19,11 @@ export class AuthService {
   }
 
   public googleLogin(): Promise<any> {
-    return this._auth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    );
+    return this._auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   public logout(): Promise<any> {
-    return this._auth.auth.signOut();
+    return this._auth.signOut();
   }
 
   public get authenticated(): Observable<firebase.User> {

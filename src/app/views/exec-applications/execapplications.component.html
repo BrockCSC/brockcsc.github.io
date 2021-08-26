@@ -1,0 +1,147 @@
+<div class="container">
+  <div class="row csc-contact">
+    <iframe id="no-target" name="no-target" style="display: none"></iframe>
+    <form
+      #execApplicationForm
+      class="col-12 col-m-12 csc-contact-form"
+      [formGroup]="form"
+      [action]="googleForm.url"
+      target="no-target"
+    >
+      <h3 class="col-12 hide-mobile">Executive Application Form</h3>
+      <csc-input-container class="col-12" label="Name" labelLocation="top">
+        <input
+          [name]="googleForm.ids.name"
+          formControlName="name"
+          class="csc-input"
+          type="text"
+        />
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.name.valid &&
+            (form.controls.name.touched || submitted)
+          "
+          >*Required</span
+        >
+      </csc-input-container>
+      <csc-input-container class="col-12" label="Email" labelLocation="top">
+        <input
+          [name]="googleForm.ids.email"
+          class="csc-input"
+          formControlName="email"
+          type="text"
+        />
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.email.valid &&
+            (form.controls.email.touched || submitted)
+          "
+          >Please enter a valid email</span
+        >
+      </csc-input-container>
+      <csc-input-container
+        class="col-12"
+        label="Years of being an active participant in CSC events and groups"
+        labelLocation="top"
+      >
+        <select [name]="googleForm.ids.years" formControlName="years">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4+">4+</option>
+        </select>
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.years.valid &&
+            (form.controls.years.touched || submitted)
+          "
+          >*Required</span
+        >
+      </csc-input-container>
+      <csc-input-container
+        class="col-12"
+        label="Why are you interested in becoming a CSC Executive?"
+        labelLocation="top"
+      >
+        <textarea
+          [name]="googleForm.ids.intrCscExec"
+          formControlName="intrCscExec"
+          class="csc-input"
+          rows="4"
+          type="text"
+        ></textarea>
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.intrCscExec.valid &&
+            (form.controls.intrCscExec.touched || submitted)
+          "
+          >*Required</span
+        >
+      </csc-input-container>
+      <csc-input-container
+        class="col-12"
+        label="What skills/knowledge would you bring to the CSC?"
+        labelLocation="top"
+      >
+        <textarea
+          [name]="googleForm.ids.skills"
+          formControlName="skills"
+          class="csc-input"
+          rows="4"
+          type="text"
+        ></textarea>
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.skills.valid &&
+            (form.controls.skills.touched || submitted)
+          "
+          >*Required</span
+        >
+      </csc-input-container>
+      <csc-input-container
+        class="col-12"
+        label="If you had to design your own workshop/event, what would it be?"
+        labelLocation="top"
+      >
+        <textarea
+          [name]="googleForm.ids.workshop"
+          formControlName="workshop"
+          class="csc-input"
+          rows="4"
+          type="text"
+        ></textarea>
+        <span
+          class="signup-error"
+          *ngIf="
+            !form.controls.workshop.valid &&
+            (form.controls.workshop.touched || submitted)
+          "
+          >*Required</span
+        >
+      </csc-input-container>
+      <div class="col-12">
+        <a
+          csc-button
+          *ngIf="!submitted"
+          class="csc-contact-submit"
+          (click)="onSubmit()"
+          value="Send"
+          >Submit</a
+        >
+        <a
+          csc-button
+          *ngIf="submitted"
+          class="csc-contact-submit success"
+          value="Send"
+          ><i class="material-icons">check</i> Message Submitted</a
+        >
+      </div>
+    </form>
+  </div>
+</div>

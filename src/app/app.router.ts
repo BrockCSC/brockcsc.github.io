@@ -7,6 +7,7 @@ import {
   ServicesComponent,
   SignupComponent,
   TeamComponent,
+  ExecApplicationsComponent,
 } from 'app/views';
 import { GalleryComponent } from './views/gallery/gallery.component';
 import { GuideComponent } from './views/guide/guide.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('app/views/events/events.module').then((m) => m.EventsModule),
   },
+  { path: 'exec-application', component: ExecApplicationsComponent },
   { path: '**', redirectTo: 'home' },
 ];
 
