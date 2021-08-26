@@ -43,16 +43,16 @@ export class NavComponent implements OnInit {
       desc: 'CS Guide',
     },
     {
-      href: '/dsc',
-      desc: 'DSC',
+      href: '/exec-application',
+      desc: 'Exec Application',
     },
+    // {
+    //   href: '/dsc',
+    //   desc: 'DSC',
+    // },
     {
       href: '/contact',
       desc: 'Contact',
-    },
-    {
-      href: '/exec-application',
-      desc: 'Exec Application',
     },
   ];
 
