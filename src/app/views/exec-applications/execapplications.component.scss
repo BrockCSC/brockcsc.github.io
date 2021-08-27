@@ -10,6 +10,10 @@ $border: 1px solid $dark-grey;
     border: 1px solid $dark-grey;
     padding: 15px;
   }
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
   @media #{$mobile} {
     margin-top: 15px;
   }
@@ -39,9 +43,4 @@ $border: 1px solid $dark-grey;
   i {
     vertical-align: bottom;
   }
-}
-
-h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
