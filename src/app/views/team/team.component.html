@@ -16,7 +16,9 @@
             <div class="exec-info">
               <div class="exec-name">{{ exec.name }}</div>
               <div class="exec-title">{{ exec.title }}</div>
-              <div class="exec-disc">{{ exec.description }}</div>
+              <div *ngIf="exec.description" class="exec-disc">
+                {{ exec.description }}
+              </div>
             </div>
           </div>
         </div>
@@ -41,7 +43,9 @@
             <div class="exec-info">
               <div class="exec-name">{{ prevExec.name }}</div>
               <div class="exec-title">{{ prevExec.title }}</div>
-              <div class="exec-disc">{{ prevExec.description }}</div>
+              <div *ngIf="prevExec.description" class="exec-disc">
+                {{ prevExec.description }}
+              </div>
             </div>
           </div>
         </div>
