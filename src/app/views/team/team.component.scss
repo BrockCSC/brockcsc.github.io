@@ -10,7 +10,7 @@ $tooltip-exec-desc-color: #a6a6a6;
 
 .csc-team-members {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
 }
 
@@ -26,6 +26,7 @@ $tooltip-exec-desc-color: #a6a6a6;
   cursor: pointer;
   border-bottom: solid 1px black;
 }
+
 .prev-team::after {
   content: '';
   position: absolute;
@@ -45,24 +46,29 @@ $tooltip-exec-desc-color: #a6a6a6;
 }
 
 .exec {
-  max-width: 150px;
+  width: 100%;
   height: fit-content;
   align-items: center;
-  //background: rgb(36, 33, 33);
-  border-radius: 10px;
+
   .exec-info {
-    margin-left: 1rem;
     transition: opacity 200ms ease-in;
+
     .exec-name {
       margin-top: 1rem;
       color: $exec-info-text-color;
       font-weight: bold;
+      text-align: center;
     }
+
     .exec-title {
       font-size: $smallText;
       color: $text-grey;
+      text-align: center;
     }
+
     .exec-disc {
+      position: relative;
+      margin-top: 0.5rem;
       color: $exec-info-text-color;
     }
   }
@@ -86,7 +92,8 @@ $tooltip-exec-desc-color: #a6a6a6;
   width: 150px;
   border-radius: 100%;
   border: 2px solid;
-  border-color: rgba($color: #aa3b3b, $alpha: 1);
+  border-color: #aa3b3b;
+  background-color: #aa3b3b;
   transition: all 0.5s ease-in-out;
 }
 
