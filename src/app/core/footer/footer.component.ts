@@ -20,9 +20,9 @@ export class FooterComponent implements OnInit {
     const base = '/assets/icons';
     this.socialIcons = [
       {
-        src: `${base}/facebook.svg`,
-        href: 'https://www.facebook.com/BrockCSC/',
-        desc: 'Facebook',
+        src: `${base}/instagram.svg`,
+        href: 'https://instagram.com/brockcsc',
+        desc: 'Instagram',
       },
       {
         src: `${base}/twitter.svg`,
@@ -30,14 +30,19 @@ export class FooterComponent implements OnInit {
         desc: 'Twitter',
       },
       {
-        src: `${base}/instagram.svg`,
-        href: 'https://instagram.com/brockcsc',
-        desc: 'Instagram',
-      },
-      {
         src: `${base}/discord.svg`,
         href: DISCORD_LINK,
         desc: 'Discord',
+      },
+      {
+        src: `${base}/github.svg`,
+        href: 'https://github.com/brockcsc/brockcsc.github.io',
+        desc: 'GitHub',
+      },
+      {
+        src: `${base}/facebook.svg`,
+        href: 'https://www.facebook.com/BrockCSC/',
+        desc: 'Facebook',
       },
     ];
   }
