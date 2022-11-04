@@ -50,7 +50,7 @@
     "rxjs": "^6.6.7",
     "sass": "^1.35.2",
     "tslib": "^1.14.1",
-    "webpack": "^5.44.0",
+    "webpack": "^5.74.0",
     "zone.js": "^0.11.4"
   },
   "devDependencies": {
@@ -79,7 +79,6 @@
     "protractor": "^7.0.0",
     "svg2png": "^4.1.1",
     "sw-precache": "^5.2.0",
-    "sw-precache-webpack-plugin": "^0.11.4",
     "ts-node": "^3.3.0",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
