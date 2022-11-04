@@ -1,0 +1,76 @@
+@import 'src/app/views/team/team.component';
+
+.exec-info {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(0, 0, 0);
+  border-radius: 0 0 $img-roundness $img-roundness;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(34, 34, 34, 0.47942927170868344) 60%,
+    rgba(82, 82, 82, 0) 100%
+  );
+  transition: background-color 500ms ease-in-out;
+  width: $img-width;
+  height: fit-content;
+  max-height: $img-height;
+  padding: 5px;
+  overflow: hidden;
+  .exec-name {
+    color: $exec-info-text-color;
+    font-weight: bold;
+    text-align: center;
+    border-radius: $img-roundness $img-roundness 0 0;
+  }
+
+  .exec-title {
+    font-size: $smallText;
+    color: $text-white;
+    text-align: center;
+    border-radius: 0 0 $img-roundness $img-roundness;
+  }
+
+  .exec-disc {
+    height: 0;
+    color: $exec-info-text-color;
+    text-align: center;
+    overflow-y: scroll;
+    padding-left: 5px;
+    padding-right: 5px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
+  mat-icon {
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+    z-index: 3;
+    transform: scale(1.5);
+  }
+}
+.open {
+  height: 100%;
+  overflow-y: hidden;
+  border-radius: $img-roundness;
+  .exec-name,
+  .exec-title {
+    background-color: rgba(0, 0, 0, 0.64);
+  }
+  .exec-name {
+    padding-top: 5px;
+  }
+  .exec-disc {
+    height: 69%;
+  }
+}
