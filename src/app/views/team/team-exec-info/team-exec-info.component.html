@@ -1,0 +1,15 @@
+<div [className]="canOpen && isOpen ? 'open exec-info' : 'exec-info'">
+  <div class="exec-name">{{ exec.name }}</div>
+  <div class="exec-title">
+    {{ exec.title }}
+    <mat-icon *ngIf="canOpen && !isOpen" (click)="clicked()"
+      >arrow_drop_up</mat-icon
+    >
+    <mat-icon *ngIf="canOpen && isOpen" (click)="clicked()"
+      >arrow_drop_down</mat-icon
+    >
+  </div>
+  <div *ngIf="exec.description" class="exec-disc">
+    {{ exec.description }}
+  </div>
+</div>

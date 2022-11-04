@@ -117,7 +117,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "csc",
-      "styleext": "scss"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "csc"
