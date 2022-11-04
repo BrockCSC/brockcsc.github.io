@@ -18,6 +18,8 @@ import { SignupComponent } from './signup/signup.component';
 import { TeamPreviewComponent } from './team/team-preview/team-preview.component';
 import { TeamComponent } from './team/team.component';
 import { ExecApplicationsComponent } from './exec-applications/execapplications.component';
+import { TeamExecInfoComponent } from './team/team-exec-info/team-exec-info.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -31,6 +33,7 @@ import { ExecApplicationsComponent } from './exec-applications/execapplications.
     NgxGalleryModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
   ],
   declarations: [
     HomeComponent,
@@ -43,6 +46,7 @@ import { ExecApplicationsComponent } from './exec-applications/execapplications.
     TeamPreviewComponent,
     GalleryComponent,
     ExecApplicationsComponent,
+    TeamExecInfoComponent,
   ],
 })
 export class ViewsModule {}

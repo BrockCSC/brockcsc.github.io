@@ -11,15 +11,10 @@
                 [src]="
                   exec.image ? exec.image.url : 'assets/exec-image-stub.png'
                 "
+                [alt]="exec.name"
               />
             </div>
-            <div class="exec-info">
-              <div class="exec-name">{{ exec.name }}</div>
-              <div class="exec-title">{{ exec.title }}</div>
-              <div *ngIf="exec.description" class="exec-disc">
-                {{ exec.description }}
-              </div>
-            </div>
+            <csc-team-exec-info [exec]="exec"></csc-team-exec-info>
           </div>
         </div>
       </div>
@@ -38,15 +33,10 @@
                     ? prevExec.image.url
                     : 'assets/exec-image-stub.png'
                 "
+                [alt]="prevExec.name"
               />
             </div>
-            <div class="exec-info">
-              <div class="exec-name">{{ prevExec.name }}</div>
-              <div class="exec-title">{{ prevExec.title }}</div>
-              <div *ngIf="prevExec.description" class="exec-disc">
-                {{ prevExec.description }}
-              </div>
-            </div>
+            <csc-team-exec-info [exec]="prevExec"></csc-team-exec-info>
           </div>
         </div>
       </div>
