@@ -1,11 +1,12 @@
-import { NONE_TYPE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import {
   AngularFireDatabase,
   AngularFireList,
   QueryFn,
+  SnapshotAction,
 } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Food } from './food';
 
 @Injectable()
@@ -21,11 +22,13 @@ export class FoodApiService {
   }
 
   public addFoodItem(food: Food): Promise<Food> {
-    return (this.foodItems.push(food) as any) as Promise<Food>;
+    return this.foodItems.push(food) as any as Promise<Food>;
   }
 
   public getFoodItems(): Observable<Food[]> {
-    return this.foodItems.valueChanges() as Observable<Food[]>;
+    return this.foodItems
+      .snapshotChanges()
+      .pipe(map((snapshots) => snapshots.map(toFood)));
   }
 
   public updateFoodItem(key: string, value: Food): Promise<void> {
@@ -45,8 +48,19 @@ export class FoodApiService {
   }
 
   public queryFoodItems(query: QueryFn): Observable<Food[]> {
-    return this._db.list(this._path, query).valueChanges() as Observable<
-      Food[]
-    >;
+    return this._db
+      .list(this._path, query)
+      .snapshotChanges()
+      .pipe(map((snapshots) => snapshots.map(toFood)));
   }
+}
+
+function toFood(snapshot: SnapshotAction<Food>): Food {
+  const { name, price, section } = snapshot.payload.val();
+  return {
+    $key: snapshot.key,
+    name,
+    price,
+    section,
+  } as Food;
 }
