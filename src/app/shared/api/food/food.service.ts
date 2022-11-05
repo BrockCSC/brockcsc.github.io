@@ -3,10 +3,9 @@ import {
   AngularFireDatabase,
   AngularFireList,
   QueryFn,
-  SnapshotAction,
 } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { listWithKeys } from '../util';
 import { Food } from './food';
 
 @Injectable()
@@ -26,9 +25,7 @@ export class FoodApiService {
   }
 
   public getFoodItems(): Observable<Food[]> {
-    return this.foodItems
-      .snapshotChanges()
-      .pipe(map((snapshots) => snapshots.map(toFood)));
+    return listWithKeys(this.foodItems);
   }
 
   public updateFoodItem(key: string, value: Food): Promise<void> {
@@ -48,19 +45,6 @@ export class FoodApiService {
   }
 
   public queryFoodItems(query: QueryFn): Observable<Food[]> {
-    return this._db
-      .list(this._path, query)
-      .snapshotChanges()
-      .pipe(map((snapshots) => snapshots.map(toFood)));
+    return listWithKeys(this._db.list(this._path, query));
   }
-}
-
-function toFood(snapshot: SnapshotAction<Food>): Food {
-  const { name, price, section } = snapshot.payload.val();
-  return {
-    $key: snapshot.key,
-    name,
-    price,
-    section,
-  } as Food;
 }
