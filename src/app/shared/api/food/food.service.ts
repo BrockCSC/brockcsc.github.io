@@ -20,8 +20,8 @@ export class FoodApiService {
     });
   }
 
-  public addFoodItem(food: Food): Promise<Food> {
-    return this.foodItems.push(food) as any as Promise<Food>;
+  public async addFoodItem(food: Food): Promise<void> {
+    await this.foodItems.push(food);
   }
 
   public getFoodItems(): Observable<Food[]> {
