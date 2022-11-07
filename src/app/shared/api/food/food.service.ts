@@ -1,4 +1,3 @@
-import { NONE_TYPE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import {
   AngularFireDatabase,
@@ -6,6 +5,7 @@ import {
   QueryFn,
 } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { listWithKeys } from '../util';
 import { Food } from './food';
 
 @Injectable()
@@ -20,12 +20,12 @@ export class FoodApiService {
     });
   }
 
-  public addFoodItem(food: Food): Promise<Food> {
-    return (this.foodItems.push(food) as any) as Promise<Food>;
+  public async addFoodItem(food: Food): Promise<void> {
+    await this.foodItems.push(food);
   }
 
   public getFoodItems(): Observable<Food[]> {
-    return this.foodItems.valueChanges() as Observable<Food[]>;
+    return listWithKeys(this.foodItems);
   }
 
   public updateFoodItem(key: string, value: Food): Promise<void> {
@@ -45,8 +45,6 @@ export class FoodApiService {
   }
 
   public queryFoodItems(query: QueryFn): Observable<Food[]> {
-    return this._db.list(this._path, query).valueChanges() as Observable<
-      Food[]
-    >;
+    return listWithKeys(this._db.list(this._path, query));
   }
 }

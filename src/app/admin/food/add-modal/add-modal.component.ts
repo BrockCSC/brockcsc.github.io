@@ -29,7 +29,7 @@ export class AddModalComponent implements OnInit {
     const val = this.form.value;
     this._foodApiService
       .addFoodItem(val)
-      .then((res) => {
+      .then(() => {
         this.modal.close();
         this.form.reset();
       })
