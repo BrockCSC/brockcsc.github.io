@@ -115,7 +115,7 @@ We also have an unofficial graduation calculation Excel spreadsheet where you ca
 
 ## School Resources
 
-- [List of different degrees and specializations in Computer Science with their course requirements](https://brocku.ca/webcal/2020/undergrad/cosc.html)
+- [List of different degrees and specializations in Computer Science with their course requirements](https://brocku.ca/webcal/current/undergrad/cosc.html)
 - [Computer Science Department website](https://cosc.brocku.ca)
 
 # Goodies
