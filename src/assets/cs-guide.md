@@ -58,7 +58,7 @@ N - 0 Credit (only required for co-op)
 
 https://brocku.ca/webcal/current/undergrad/areg.html#sec28
 
-Note: this should be cross referenced with the [https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all](undergraduate timetable), as sometimes the courses listed here are not always offered.
+Note: this should be cross referenced with the [undergraduate timetable](https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all), as sometimes the courses listed here are not always offered.
 
 ## Minor in Applied Computing
 
@@ -115,7 +115,7 @@ We also have an unofficial graduation calculation Excel spreadsheet where you ca
 
 ## School Resources
 
-- [List of different degrees and specializations in Computer Science with their course requirements](https://brocku.ca/webcal/2020/undergrad/cosc.html)
+- [List of different degrees and specializations in Computer Science with their course requirements](https://brocku.ca/webcal/current/undergrad/cosc.html)
 - [Computer Science Department website](https://cosc.brocku.ca)
 
 # Goodies
