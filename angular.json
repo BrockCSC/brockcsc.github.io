@@ -109,6 +109,15 @@
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "csc:serve"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "e2e/**/*.ts",
+              "e2e/**/*.html"
+            ]
+          }
         }
       }
     }
