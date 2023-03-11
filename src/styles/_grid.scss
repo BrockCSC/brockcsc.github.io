@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $width: 100%;
 
 .row {
@@ -29,7 +31,7 @@ $width: 100%;
 @media #{$desktop} {
   @for $i from 1 through 12 {
     .col-#{$i} {
-      width: $width / (12 / $i);
+      width: math.div($width, math.div(12, $i));
     }
   }
 }
@@ -37,7 +39,7 @@ $width: 100%;
 @media #{$tablet} {
   @for $i from 1 through 12 {
     .col-m-#{$i} {
-      width: $width / (12 / $i);
+      width: math.div($width, math.div(12, $i));
     }
   }
 }
