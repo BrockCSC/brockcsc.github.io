@@ -26,10 +26,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   homeSlideshowSrcs$: Observable<string[]>;
   heroStyleConfig: ImageStyleConfig;
 
-  constructor(
-    private _eventApi: EventApiService,
-    private _db: AngularFireDatabase
-  ) {
+  constructor(private _eventApi: EventApiService, _db: AngularFireDatabase) {
     this.homeSlideshowSrcs$ = _db
       .list<CscFile>('files/homeSlideshow')
       .valueChanges()
@@ -58,20 +55,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
       {
         icon: 'videogame_asset',
         title: 'Gaming',
-        desc:
-          "From board games to first-person shooters. We're always up for a good game night.",
+        desc: "From board games to first-person shooters. We're always up for a good game night.",
       },
       {
         icon: 'code',
         title: 'Tech talks & Seminars',
-        desc:
-          'We give a variety of talks throughout the year on all things software development.',
+        desc: 'We give a variety of talks throughout the year on all things software development.',
       },
       {
         icon: 'people',
         title: 'Social',
-        desc:
-          'Get to know fellow members and the computer science department at our social events.',
+        desc: 'Get to know fellow members and the computer science department at our social events.',
       },
       {
         icon: 'add',
@@ -91,14 +85,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
       {
         icon: 'chat_bubble',
         title: 'Chatrooms',
-        desc:
-          'We have dedicated channels where you can chat with other members about your classes, programming questions or anything else!',
+        desc: 'We have dedicated channels where you can chat with other members about your classes, programming questions or anything else!',
       },
     ];
   }
 
   private loadScript(scriptUrl: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const scriptTag = document.createElement('script');
       scriptTag.src = scriptUrl;
       scriptTag.onload = resolve;

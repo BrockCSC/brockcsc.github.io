@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { GUID } from 'app/shared/guid';
@@ -13,7 +12,7 @@ import { GUID } from 'app/shared/guid';
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
 })
-export class CheckboxComponent implements OnInit, AfterViewInit {
+export class CheckboxComponent implements AfterViewInit {
   @Input() label = null;
   @ViewChild('checkbox') inputParent: ElementRef;
   public _id: string = GUID.newGuid();
@@ -21,8 +20,6 @@ export class CheckboxComponent implements OnInit, AfterViewInit {
   public input: HTMLInputElement;
 
   constructor(private elementRef: ElementRef) {}
-
-  ngOnInit() {}
 
   ngAfterViewInit() {
     this.input = this.elementRef.nativeElement.querySelector(

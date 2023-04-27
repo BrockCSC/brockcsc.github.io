@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   NgxGalleryAnimation,
   NgxGalleryImage,
@@ -13,7 +13,7 @@ import { FilesApiService } from './../../shared/api/files/files-api.service';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent {
   galleryOptions: NgxGalleryOptions[] = [
     {
       width: '100%',
@@ -31,7 +31,9 @@ export class GalleryComponent implements OnInit {
       thumbnailsColumns: 2,
     },
   ];
+
   galleryImages$: Observable<NgxGalleryImage[]>;
+
   constructor(filesApi: FilesApiService) {
     this.galleryImages$ = filesApi.gallery$.pipe(
       map((files) => {
@@ -43,6 +45,4 @@ export class GalleryComponent implements OnInit {
       })
     );
   }
-
-  ngOnInit(): void {}
 }

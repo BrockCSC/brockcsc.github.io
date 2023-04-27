@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 const url = (path: string) => {
   return `url(${path})`;
@@ -9,12 +9,8 @@ const url = (path: string) => {
   templateUrl: './event-view.component.html',
   styleUrls: ['./event-view.component.scss'],
 })
-export class EventViewComponent implements OnInit {
+export class EventViewComponent {
   @Input() event;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   public getImg(): string {
     return this.event?.image?.url;

@@ -2,12 +2,10 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
-import { EventApiService } from 'app/shared/api';
-import { CscEvent } from 'app/shared/api';
+import { CscEvent, EventApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
 @Component({
@@ -15,9 +13,10 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   templateUrl: './remove-modal.component.html',
   styleUrls: ['./remove-modal.component.scss'],
 })
-export class RemoveModalComponent implements OnInit {
+export class RemoveModalComponent {
   @ViewChild('modal') modal: ModalComponent;
   @Input() checkedEvents: CscEvent[] = [];
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private _eventApiService: EventApiService) {}
@@ -25,7 +24,7 @@ export class RemoveModalComponent implements OnInit {
   public removeEvents(): void {
     this._eventApiService
       .removeEvents(this.checkedEvents)
-      .then((res) => {
+      .then(() => {
         this.onDelete.emit();
         this.modal.close();
       })
@@ -37,6 +36,4 @@ export class RemoveModalComponent implements OnInit {
   public open(): void {
     this.modal.open();
   }
-
-  public ngOnInit(): void {}
 }
