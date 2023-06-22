@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'csc-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
   public links: Link[] = [
     { name: 'Home', routerLink: 'home' },
     { name: 'Execs', routerLink: 'execs' },
@@ -14,10 +14,6 @@ export class AdminComponent implements OnInit {
     { name: 'DSC', routerLink: 'dsc' },
     { name: 'Files', routerLink: 'files' },
   ];
-
-  constructor() {}
-
-  ngOnInit() {}
 }
 
 interface Link {

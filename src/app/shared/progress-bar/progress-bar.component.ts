@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'csc-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnInit {
+export class ProgressBarComponent {
   @Input() progress: number;
   @Input() color: string;
 
@@ -17,6 +17,4 @@ export class ProgressBarComponent implements OnInit {
   public floorProgress(): number {
     return Math.floor(this.progress);
   }
-
-  ngOnInit() {}
 }

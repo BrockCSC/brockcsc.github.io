@@ -1,13 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import { AngularFireList } from '@angular/fire/database';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Card, DSCApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -16,18 +7,19 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   templateUrl: './remove-modal.component.html',
   styleUrls: ['./remove-modal.component.scss'],
 })
-export class RemoveModalComponent implements OnInit {
+export class RemoveModalComponent {
   @ViewChild('modal') modal: ModalComponent;
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 
   toRemove: Card;
 
-  constructor(private _DSCApiService: DSCApiService) {}
+  constructor(private _dscApiService: DSCApiService) {}
 
   public removeCard(): void {
-    this._DSCApiService
+    this._dscApiService
       .removeCard(this.toRemove)
-      .then((res) => {
+      .then(() => {
         this.modal.close();
       })
       .catch((error) => {
@@ -39,6 +31,4 @@ export class RemoveModalComponent implements OnInit {
     this.toRemove = card;
     this.modal.open();
   }
-
-  public ngOnInit(): void {}
 }

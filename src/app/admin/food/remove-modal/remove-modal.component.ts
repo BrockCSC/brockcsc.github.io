@@ -2,12 +2,9 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
-import { AngularFireList } from '@angular/fire/database';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Food, FoodApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -16,9 +13,10 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   templateUrl: './remove-modal.component.html',
   styleUrls: ['./remove-modal.component.scss'],
 })
-export class RemoveModalComponent implements OnInit {
+export class RemoveModalComponent {
   @ViewChild('modal') modal: ModalComponent;
   @Input() checkedFoodItems: Food[] = [];
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private _execApiService: FoodApiService) {}
@@ -26,7 +24,7 @@ export class RemoveModalComponent implements OnInit {
   public removeFoodItems(): void {
     this._execApiService
       .removeFoodItems(this.checkedFoodItems)
-      .then((res) => {
+      .then(() => {
         this.onDelete.emit();
         this.modal.close();
       })
@@ -38,6 +36,4 @@ export class RemoveModalComponent implements OnInit {
   public open(): void {
     this.modal.open();
   }
-
-  public ngOnInit(): void {}
 }

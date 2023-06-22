@@ -3,10 +3,8 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ImageStyleConfig } from 'app/shared/imageConfig';
 
 @Component({
@@ -14,7 +12,7 @@ import { ImageStyleConfig } from 'app/shared/imageConfig';
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss'],
 })
-export class ImgComponent implements OnInit, AfterViewInit {
+export class ImgComponent implements AfterViewInit {
   @Input() src;
   @Input() data;
   @Input() width = 0;
@@ -24,10 +22,6 @@ export class ImgComponent implements OnInit, AfterViewInit {
   @ViewChild('img') img: ElementRef;
   @ViewChild('container') container: ElementRef;
   private loaded = false;
-
-  constructor(private _sanitizer: DomSanitizer) {}
-
-  ngOnInit() {}
 
   ngAfterViewInit() {
     this.initStyles();
@@ -55,7 +49,7 @@ export class ImgComponent implements OnInit, AfterViewInit {
   private initObserver(): void {
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
           const entry = entries[0];
           if (this.loaded) {
             return;
@@ -84,7 +78,6 @@ export class ImgComponent implements OnInit, AfterViewInit {
 
   private setStyles(styles = {}, element: ElementRef): void {
     Object.keys(styles).forEach((key) => {
-      const style = styles[key];
       element.nativeElement.style[key] = styles[key];
     });
   }

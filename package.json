@@ -8,7 +8,7 @@
     "start-nhc": "ng serve --host=0.0.0.0 --port=8080 --disable-host-check",
     "deploy": "node ./scripts/deploy.js",
     "gen:img": "node ./src/createImageConfigs.js",
-    "build": "ng build --prod --aot && npm run pwa",
+    "build": "ng build --configuration production --aot && npm run pwa",
     "build:dev": "ng build --aot && npm run pwa",
     "deploy:dev": "firebase deploy",
     "dev": "npm run build:dev && npm run deploy:dev",

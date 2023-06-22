@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Field, FieldType, FormInfo } from '../../api/form/form';
 import { FormApiService } from '../../api/form/form-api.service';
@@ -16,7 +8,7 @@ import { FormApiService } from '../../api/form/form-api.service';
   templateUrl: './firebase-form.component.html',
   styleUrls: ['./firebase-form.component.scss'],
 })
-export class FirebaseFormComponent implements OnInit, AfterViewInit, OnChanges {
+export class FirebaseFormComponent implements OnInit {
   public form: FormGroup;
   @Input() formId: string;
   formInfo: FormInfo;
@@ -29,8 +21,6 @@ export class FirebaseFormComponent implements OnInit, AfterViewInit, OnChanges {
     private _formBuilder: FormBuilder,
     private _formApiService: FormApiService
   ) {}
-
-  ngOnChanges(changes: SimpleChanges): void {}
 
   initForm() {
     const group = {};
@@ -58,8 +48,6 @@ export class FirebaseFormComponent implements OnInit, AfterViewInit, OnChanges {
       }
     });
   }
-
-  ngAfterViewInit() {}
 
   isTextInput(field: Field) {
     return field.type === FieldType.text;

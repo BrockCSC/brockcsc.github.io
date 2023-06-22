@@ -1,33 +1,29 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   CheckboxInput,
+  Field,
+  FieldType,
+  FormInfo,
+  RadioInput,
+  TextInput,
   emptyCheckboxInput,
   emptyRadioInput,
   emptyTextInput,
-  Field,
-  FieldType,
-  RadioInput,
-  randomUid,
-  TextInput,
 } from '../../api/form/form';
-import { FormInfo } from '../../api/form/form';
 
 @Component({
   selector: 'csc-firebase-form-creator',
   templateUrl: './firebase-form-creator.component.html',
   styleUrls: ['./firebase-form-creator.component.scss'],
 })
-export class FirebaseFormCreatorComponent implements OnInit {
+export class FirebaseFormCreatorComponent {
   @Input() formInfo: FormInfo = { fields: [] };
-  @Output() formInfoChange: EventEmitter<FormInfo> = new EventEmitter<
-    FormInfo
-  >();
+  @Output() formInfoChange: EventEmitter<FormInfo> =
+    new EventEmitter<FormInfo>();
   fieldTypes = [FieldType.checkbox, FieldType.radio, FieldType.text];
   selectedNewFieldType;
 
   constructor() {}
-
-  ngOnInit() {}
 
   addRadioField() {
     this.formInfo.fields.push(emptyRadioInput() as RadioInput);
