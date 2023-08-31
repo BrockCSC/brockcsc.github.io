@@ -3,7 +3,7 @@ import {
   AngularFireDatabase,
   AngularFireList,
   QueryFn,
-} from '@angular/fire/database';
+} from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { listWithKeys } from '../util';
 import { Food } from './food';

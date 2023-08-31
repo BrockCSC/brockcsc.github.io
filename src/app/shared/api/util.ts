@@ -1,5 +1,5 @@
-import { AngularFireObject } from '@angular/fire/database';
-import { AngularFireList } from '@angular/fire/database';
+import { AngularFireObject } from '@angular/fire/compat/database';
+import { AngularFireList } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
