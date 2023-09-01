@@ -11,9 +11,7 @@
       </button>
     </div>
     <div class="csc-event-add">
-      <button csc-button (click)="addModal.open()">
-        Create a new event
-      </button>
+      <button csc-button (click)="addModal.open()">Create a new event</button>
     </div>
   </div>
   <div class="row">
@@ -36,7 +34,7 @@
               event.title
             }}</a>
           </td>
-          <td>{{ event.datetime.date }}</td>
+          <td>{{ event.datetime.timeStartTimestamp | date : 'YYYY-MM-dd' }}</td>
           <td>
             <i
               (click)="editModal.open(event)"

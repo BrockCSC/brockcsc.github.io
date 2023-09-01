@@ -61,40 +61,32 @@
               placeholder="Every Tuesday at 3:30 PM"
             />
           </div>
+
           <div class="row" formGroupName="datetime">
-            <csc-input-container label="Date" class="col-4" labelLocation="top">
-              <input
-                class="csc-input"
-                type="date"
-                formControlName="date"
-                placeholder="Date of the event"
-              />
-            </csc-input-container>
             <csc-input-container
-              label="Time Start"
+              label="Start time"
               class="col-4"
               labelLocation="top"
             >
               <input
                 class="csc-input"
-                type="time"
-                formControlName="timeStart"
-                placeholder="Time of the event"
+                type="datetime-local"
+                formControlName="startDatetime"
               />
             </csc-input-container>
             <csc-input-container
-              label="Time End"
+              label="End time"
               class="col-4"
               labelLocation="top"
             >
               <input
                 class="csc-input"
-                type="time"
-                formControlName="timeEnd"
-                placeholder="Time of the event"
+                type="datetime-local"
+                formControlName="endDatetime"
               />
             </csc-input-container>
           </div>
+
           <div class="row">
             <csc-input-container
               label="Description"

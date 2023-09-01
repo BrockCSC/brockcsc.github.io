@@ -21,9 +21,9 @@
     <mat-card-subtitle>
       {{ event.tentative ? '[TENTATIVE] ' : '' }}
       <ng-container *ngIf="!event.hiddenDate">
-        {{ event.datetime.date | date }},
-        {{ event.datetime.timeStartTimestamp | date: 'hh:mm a' }} -
-        {{ event.datetime.timeEndTimestamp | date: 'hh:mm a' }}
+        {{
+          event.datetime.timeStartTimestamp | date : 'EEEE, MMMM d, y, hh:mm a'
+        }}
       </ng-container>
       <ng-container *ngIf="event.hiddenDate && event.customDate">
         {{ event.customDate }}

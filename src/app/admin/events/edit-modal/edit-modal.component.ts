@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { EventApiService } from 'app/shared/api';
-import { CscEvent, CscFile } from 'app/shared/api';
+import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { emptyForm, FormInfo, randomUid } from '../../../shared/api/form/form';
+import { FormInfo, emptyForm, randomUid } from '../../../shared/api/form/form';
 import { FormApiService } from '../../../shared/api/form/form-api.service';
 
 @Component({
@@ -32,7 +31,8 @@ export class EditModalComponent implements OnInit {
     this.includeForm = !!event.formId;
     this.includeLink = !!event.signupUrl;
     this.includeGoogleForm = !!event.googleFormUrl;
-    this.form.patchValue(this.editableEvent);
+
+    this.form.patchValue(this.formFromEvent(this.editableEvent));
     if (event.formId) {
       this._formApiService
         .getFormOnce(this.editableEvent.formId)
@@ -49,9 +49,8 @@ export class EditModalComponent implements OnInit {
       presenter: '',
       description: '',
       datetime: this._formBuilder.group({
-        date: '',
-        timeStart: '',
-        timeEnd: '',
+        startDatetime: '',
+        endDatetime: '',
       }),
       location: '',
       resources: new FormControl([]),
@@ -66,44 +65,102 @@ export class EditModalComponent implements OnInit {
     });
   }
 
+  private toDateTimeLocalString(timestamp: number): string {
+    const date = new Date(timestamp);
+
+    const timezone = 'America/Toronto';
+
+    const year = date.toLocaleString('en-US', {
+      timeZone: timezone,
+      year: 'numeric',
+    });
+    const month = date.toLocaleString('en-US', {
+      timeZone: timezone,
+      month: '2-digit',
+    });
+    const day = date.toLocaleString('en-US', {
+      timeZone: timezone,
+      day: '2-digit',
+    });
+    const time = date.toLocaleString('en-US', {
+      timeZone: timezone,
+      timeStyle: 'short',
+      hour12: false,
+    });
+
+    return `${year}-${month}-${day}T${time}`; // YYYY-MM-DDTHH:II
+  }
+
+  private formFromEvent(event: CscEvent): any {
+    return {
+      formId: event.formId,
+      title: event.title,
+      presenter: event.presenter,
+      description: event.description,
+      location: event.location,
+      signupUrl: event.signupUrl,
+      googleFormUrl: event.googleFormUrl,
+      tentative: event.tentative,
+      dscEvent: event.dscEvent,
+      hiddenDate: event.hiddenDate,
+      customDate: event.customDate,
+      image: event.image,
+      gallery: event.gallery,
+      resources: event.resources,
+      datetime: {
+        startDatetime: this.toDateTimeLocalString(
+          event.datetime.timeStartTimestamp
+        ),
+        endDatetime: this.toDateTimeLocalString(
+          event.datetime.timeEndTimestamp
+        ),
+      },
+    };
+  }
+
+  private parseCscEvent(value: any, formId?: string): CscEvent {
+    return {
+      formId: formId ?? null,
+      title: value.title,
+      presenter: value.presenter,
+      description: value.description,
+      location: value.location,
+      signupUrl: this.includeLink ? value.signupUrl : null,
+      googleFormUrl: this.includeGoogleForm ? value.googleFormUrl : null,
+      tentative: value.tentative,
+      dscEvent: value.dscEvent,
+      hiddenDate: value.hiddenDate,
+      customDate: value.customDate,
+      image: value.image,
+      gallery: value.gallery,
+      resources: value.resources,
+      datetime: {
+        timeStartTimestamp: Date.parse(value.datetime.startDatetime),
+        timeEndTimestamp: Date.parse(value.datetime.endDatetime),
+      },
+    } as CscEvent;
+  }
+
   public update(): void {
     const key = this.editableEvent.$key;
-    const data = this.form.value as CscEvent;
-    data.datetime.timeStartTimestamp = new Date(
-      `${data.datetime.date} ${data.datetime.timeStart}`
-    ).valueOf();
-    data.datetime.timeEndTimestamp = new Date(
-      `${data.datetime.date} ${data.datetime.timeEnd}`
-    ).valueOf();
+
     if (this.eventForm.fields.length === 0) {
       this.includeForm = false;
     }
-    if (!this.includeForm) {
-      // Disassociate the form from event, but stays in db.
-      data.formId = null;
-    } else {
-      if (!this.editableEvent.formId) {
-        data.formId = randomUid(10);
-      } else {
-        data.formId = this.editableEvent.formId;
-      }
+
+    let event: CscEvent;
+    if (this.includeForm) {
+      const formId = this.editableEvent.formId ?? randomUid(10);
+      event = this.parseCscEvent(this.form.value, formId);
       this._formApiService
-        .setForm(this.eventForm, data.formId)
-        .catch((error: Error) => {
-          console.error(error);
-        });
-    }
-
-    if (!this.includeLink) {
-      data.signupUrl = null;
-    }
-
-    if (!this.includeGoogleForm) {
-      data.googleFormUrl = null;
+        .setForm(this.eventForm, event.formId)
+        .catch((error) => console.error(error));
+    } else {
+      event = this.parseCscEvent(this.form.value);
     }
 
     this._eventApiService
-      .updateEvent(key, data)
+      .updateEvent(key, event)
       .then(() => {
         this.modal.close();
         this.form.reset();
