@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { Observable } from 'rxjs';

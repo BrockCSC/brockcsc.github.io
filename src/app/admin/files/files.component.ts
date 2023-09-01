@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CscFile } from 'app/shared/api';
 import { UploadService } from 'app/shared/upload/upload.service';

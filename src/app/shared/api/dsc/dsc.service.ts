@@ -3,7 +3,7 @@ import {
   AngularFireDatabase,
   AngularFireList,
   QueryFn,
-} from '@angular/fire/database';
+} from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Card } from './dsc';
@@ -35,7 +35,7 @@ export class DSCApiService {
   }
 
   public addCard(card: Card): Promise<Card> {
-    return (this.cards.push(card) as any) as Promise<Card>;
+    return this.cards.push(card) as any as Promise<Card>;
   }
 
   public removeCard(card: Card): Promise<void> {
