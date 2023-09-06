@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { EventApiService } from 'app/shared/api';
-import { CscEvent } from 'app/shared/api';
+import { CscEvent, EventApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
-import { emptyForm, FormInfo, randomUid } from '../../../shared/api/form/form';
+import { FormInfo, emptyForm, randomUid } from '../../../shared/api/form/form';
 import { FormApiService } from '../../../shared/api/form/form-api.service';
 
 @Component({
@@ -31,9 +30,8 @@ export class AddModalComponent implements OnInit {
       presenter: '',
       description: '',
       datetime: this._formBuilder.group({
-        date: '',
-        timeStart: '',
-        timeEnd: '',
+        startDatetime: '',
+        endDatetime: '',
       }),
       location: '',
       resources: new FormControl([]),
@@ -49,37 +47,53 @@ export class AddModalComponent implements OnInit {
   }
 
   public add(): void {
-    const val = this.form.value as CscEvent;
     if (this.eventForm.fields.length === 0) {
       this.includeForm = false;
     }
+
+    let event: CscEvent;
     if (this.includeForm) {
-      val.formId = randomUid(10);
-      this._formApiService.setForm(this.eventForm, val.formId);
-    }
-    if (!this.includeLink) {
-      val.signupUrl = null;
-    }
-
-    if (!this.includeGoogleForm) {
-      val.googleFormUrl = null;
+      const formId = randomUid(10);
+      event = this.parseCscEvent(this.form.value, formId);
+      this._formApiService
+        .setForm(this.eventForm, event.formId)
+        .catch((error) => console.error(error));
+    } else {
+      event = this.parseCscEvent(this.form.value);
     }
 
-    val.datetime.timeStartTimestamp = new Date(
-      `${val.datetime.date} ${val.datetime.timeStart}`
-    ).valueOf();
-    val.datetime.timeEndTimestamp = new Date(
-      `${val.datetime.date} ${val.datetime.timeEnd}`
-    ).valueOf();
     this._eventApiService
-      .addEvent(val)
-      .then((res) => {
+      .addEvent(event)
+      .then(() => {
         this.modal.close();
         this.form.reset();
       })
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  private parseCscEvent(value: any, formId?: string): CscEvent {
+    return {
+      formId: formId ?? null,
+      title: value.title,
+      presenter: value.presenter,
+      description: value.description,
+      location: value.location,
+      signupUrl: this.includeLink ? value.signupUrl : null,
+      googleFormUrl: this.includeGoogleForm ? value.googleFormUrl : null,
+      tentative: value.tentative,
+      dscEvent: value.dscEvent,
+      hiddenDate: value.hiddenDate,
+      customDate: value.customDate,
+      image: value.image,
+      gallery: value.gallery,
+      resources: value.resources,
+      datetime: {
+        timeStartTimestamp: Date.parse(value.datetime.startDatetime),
+        timeEndTimestamp: Date.parse(value.datetime.endDatetime),
+      },
+    } as CscEvent;
   }
 
   public open(): void {
