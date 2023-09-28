@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CscEvent } from 'app/shared/api';
 
 @Component({
@@ -6,15 +6,11 @@ import { CscEvent } from 'app/shared/api';
   templateUrl: './event-card.component.html',
   styleUrls: ['./event-card.component.scss'],
 })
-export class EventCardComponent implements OnInit {
+export class EventCardComponent {
   @Input() event: CscEvent;
   @Input() next = false;
   @Input() imgHeight = '10rem';
   @Input() theme: 'grey' | 'google' = 'grey';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   getImg(): string {
     return this.event?.image?.url;

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   public form: FormGroup;
   public googleForm: GoogleFormConfig;
   public submitted: boolean;
@@ -20,8 +20,7 @@ export class ContactComponent implements OnInit {
 
     this.submitted = false;
     this.googleForm = {
-      url:
-        'https://docs.google.com/forms/d/e/1FAIpQLSeuMwbqxUfOJ1haeYG4fuvPjHDv2Lr82vLP_SSiISqgRvL70w/formResponse',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLSeuMwbqxUfOJ1haeYG4fuvPjHDv2Lr82vLP_SSiISqgRvL70w/formResponse',
       // post parameters for the google form
       ids: {
         name: 'entry.2137362012',
@@ -30,8 +29,6 @@ export class ContactComponent implements OnInit {
       },
     };
   }
-
-  ngOnInit() {}
 
   public onSubmit(): void {
     if (this.form.valid) {

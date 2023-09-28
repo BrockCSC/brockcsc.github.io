@@ -3,7 +3,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -14,15 +13,12 @@ import { CscFile } from 'app/shared/api';
   templateUrl: './upload-existing.component.html',
   styleUrls: ['./upload-existing.component.scss'],
 })
-export class UploadExistingComponent implements OnInit, OnChanges {
+export class UploadExistingComponent implements OnChanges {
   @Input() data: CscFile[]; // Read when ngOnChanges is triggered.
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onChange: EventEmitter<CscFile[]> = new EventEmitter<CscFile[]>();
   public existingFiles: ExistingFile[] = [];
   public prevString = '';
-
-  constructor() {}
-
-  ngOnInit() {}
 
   public ngOnChanges(change: SimpleChanges): void {
     const files: CscFile[] = change.data.currentValue;

@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './execapplications.component.html',
   styleUrls: ['./execapplications.component.scss'],
 })
-export class ExecApplicationsComponent implements OnInit {
+export class ExecApplicationsComponent {
   public form: FormGroup;
   public googleForm: GoogleFormConfig;
   public submitted: boolean;
@@ -37,8 +37,6 @@ export class ExecApplicationsComponent implements OnInit {
       },
     };
   }
-
-  ngOnInit() {}
 
   public onSubmit(): void {
     if (this.form.valid) {

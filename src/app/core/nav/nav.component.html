@@ -17,7 +17,7 @@
           alt="Brock Computer Science Club Logo"
       /></a>
 
-      <a *ngIf="!(white$ | async)" routerLink="/home"
+      <a *ngIf="!!!(white$ | async)" routerLink="/home"
         ><img
           class="csc-logo"
           width="75px"
@@ -109,7 +109,7 @@
       </div>
     </div>
     <div class="csc-mobile-left-container">
-      <div class="csc-logo-container" style="padding-left: 15px;">
+      <div class="csc-logo-container" style="padding-left: 15px">
         <a *ngIf="white$ | async" routerLink="/home"
           ><img
             class="csc-logo-black"
@@ -119,7 +119,7 @@
             alt="Brock Computer Science Club Logo"
         /></a>
 
-        <a *ngIf="!(white$ | async)" routerLink="/home"
+        <a *ngIf="!!!(white$ | async)" routerLink="/home"
           ><img
             class="csc-logo"
             width="75px"

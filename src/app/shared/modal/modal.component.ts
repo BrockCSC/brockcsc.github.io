@@ -1,12 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'csc-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onClose: EventEmitter<void>;
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onOpen: EventEmitter<void>;
   public closed: boolean;
 
@@ -15,8 +17,6 @@ export class ModalComponent implements OnInit {
     this.onOpen = new EventEmitter<void>();
     this.closed = true;
   }
-
-  ngOnInit() {}
 
   public close(): void {
     this.onClose.emit();

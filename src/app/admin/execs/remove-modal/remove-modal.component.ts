@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -15,9 +14,10 @@ import { ExecApiService } from './../../../shared/api/exec/exec.service';
   templateUrl: './remove-modal.component.html',
   styleUrls: ['./remove-modal.component.scss'],
 })
-export class RemoveModalComponent implements OnInit {
+export class RemoveModalComponent {
   @ViewChild('modal') modal: ModalComponent;
   @Input() checkedExecs: Exec[] = [];
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onDelete: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private _execApiService: ExecApiService) {}
@@ -25,7 +25,7 @@ export class RemoveModalComponent implements OnInit {
   public removeExecs(): void {
     this._execApiService
       .removeExecs(this.checkedExecs)
-      .then((res) => {
+      .then(() => {
         this.onDelete.emit();
         this.modal.close();
       })
@@ -37,6 +37,4 @@ export class RemoveModalComponent implements OnInit {
   public open(): void {
     this.modal.open();
   }
-
-  public ngOnInit(): void {}
 }

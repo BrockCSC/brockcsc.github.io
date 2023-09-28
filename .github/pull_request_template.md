@@ -16,6 +16,6 @@ NO
 
 Changes from the latest PR are deployed to https://brockcsc-pr.web.app once the checks are complete. Can use this for testing.
 
-### Any other info neededed for testing?
+### Any other info needed for testing?
 
 NO

@@ -1,24 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  FieldType,
-  RadioInput,
-  RadioOption,
-  TextInput,
-} from '../../api/form/form';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RadioInput, RadioOption } from '../../api/form/form';
 
 @Component({
   selector: 'csc-radio-creator',
   templateUrl: './radio-creator.component.html',
   styleUrls: ['./radio-creator.component.scss'],
 })
-export class RadioCreatorComponent implements OnInit {
+export class RadioCreatorComponent {
   @Input() radio: RadioInput;
   @Output() radioChange: EventEmitter<RadioInput> = new EventEmitter();
   newOptionName: string;
-
-  constructor() {}
-
-  ngOnInit() {}
 
   addOption() {
     if (!this.radio.options) {

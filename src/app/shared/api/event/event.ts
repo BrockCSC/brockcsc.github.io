@@ -1,4 +1,5 @@
 import { CscFile } from '../storage/cscFile';
+
 export class CscEvent {
   $key: string;
   title: string;
@@ -9,9 +10,6 @@ export class CscEvent {
   image: CscFile;
   signupUrl: string;
   datetime: {
-    date: string;
-    timeStart: string;
-    timeEnd: string;
     timeStartTimestamp: number;
     timeEndTimestamp: number;
   };

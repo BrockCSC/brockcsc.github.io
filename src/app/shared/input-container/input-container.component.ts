@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'csc-input-container',
@@ -6,15 +6,11 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./input-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class InputContainerComponent implements OnInit {
+export class InputContainerComponent {
   @Input() label: string;
   @Input() colsLabel = 3;
   @Input() colsInput = 9;
   @Input() labelLocation = 'left'; // only left/top supported
-
-  constructor() {}
-
-  ngOnInit() {}
 
   public getLabelCols(): number {
     // We want to set column width to 100% so that label will be placed on top.
