@@ -53,6 +53,30 @@
         </csc-input-container>
         <csc-input-container
           class="col-12"
+          label="Current year"
+          labelLocation="top"
+        >
+          <select
+            [name]="googleForm.ids.currentYear"
+            formControlName="currentYear"
+          >
+            <option value="1st year">1st year</option>
+            <option value="2nd year">2nd year</option>
+            <option value="3rd year">3rd year</option>
+            <option value="4th year">4th year</option>
+            <option value="5th+ year">5th+ year</option>
+          </select>
+          <span
+            class="signup-error"
+            *ngIf="
+              !form.controls.currentYear.valid &&
+              (form.controls.currentYear.touched || submitted)
+            "
+            >*Required</span
+          >
+        </csc-input-container>
+        <csc-input-container
+          class="col-12"
           label="Years of being an active participant in CSC events and groups"
           labelLocation="top"
         >

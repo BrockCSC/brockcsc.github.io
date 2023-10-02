@@ -21,6 +21,7 @@ export class ExecApplicationsComponent {
       skills: ['', Validators.required],
       workshop: ['', Validators.required],
       years: ['', Validators.required],
+      currentYear: ['', Validators.required],
     });
 
     this.submitted = false;
@@ -34,6 +35,7 @@ export class ExecApplicationsComponent {
         skills: 'entry.39093058',
         workshop: 'entry.22914651',
         years: 'entry.147287492',
+        currentYear: 'entry.1353896723',
       },
     };
   }
@@ -56,5 +58,6 @@ class GoogleFormConfig {
     skills: string;
     workshop: string;
     years: string;
+    currentYear: string;
   };
 }
