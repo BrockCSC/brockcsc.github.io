@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { DSCApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -9,21 +9,21 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   styleUrls: ['./add-modal.component.scss'],
 })
 export class AddModalComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
     private _DSCApiService: DSCApiService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: UntypedFormBuilder
   ) {}
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
-      title: new FormControl(),
-      text: new FormControl(),
+      title: new UntypedFormControl(),
+      text: new UntypedFormControl(),
       img: {},
-      imgAlt: new FormControl(),
-      position: new FormControl(),
+      imgAlt: new UntypedFormControl(),
+      position: new UntypedFormControl(),
     });
   }
 

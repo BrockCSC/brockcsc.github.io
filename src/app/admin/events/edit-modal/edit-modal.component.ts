@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 import { FormInfo, emptyForm, randomUid } from '../../../shared/api/form/form';
@@ -10,7 +10,7 @@ import { FormApiService } from '../../../shared/api/form/form-api.service';
   templateUrl: '../add-edit-modal.component.html',
 })
 export class EditModalComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public editableEvent: CscEvent;
   @ViewChild('modal') modal: ModalComponent;
   public eventForm: FormInfo = emptyForm();
@@ -21,7 +21,7 @@ export class EditModalComponent implements OnInit {
 
   constructor(
     private _eventApiService: EventApiService,
-    private _formBuilder: FormBuilder,
+    private _formBuilder: UntypedFormBuilder,
     private _formApiService: FormApiService
   ) {}
 
@@ -53,11 +53,11 @@ export class EditModalComponent implements OnInit {
         endDatetime: '',
       }),
       location: '',
-      resources: new FormControl([]),
+      resources: new UntypedFormControl([]),
       image: {},
       signupUrl: '',
       googleFormUrl: '',
-      gallery: new FormControl([]),
+      gallery: new UntypedFormControl([]),
       tentative: false,
       dscEvent: false,
       hiddenDate: false,

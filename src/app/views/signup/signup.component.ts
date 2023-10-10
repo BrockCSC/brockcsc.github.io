@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
-  FormBuilder,
+  UntypedFormBuilder,
   FormControl,
-  FormGroup,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { DISCORD_LINK } from './../../shared/utils/constants';
@@ -13,7 +13,7 @@ import { DISCORD_LINK } from './../../shared/utils/constants';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   discordLink = DISCORD_LINK;
 
   public signupFormConfig: SignUpGoogleFormConfig;
@@ -23,7 +23,7 @@ export class SignupComponent {
   @ViewChild('signupForm') signupForm;
   @ViewChild('discordInviteForm') discordInviteForm;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: UntypedFormBuilder) {
     this.submitted = false;
 
     this.form = this._formBuilder.group({
@@ -59,7 +59,7 @@ export class SignupComponent {
     };
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit(form: UntypedFormGroup) {
     if (form.valid) {
       this.discordInviteForm.nativeElement.submit();
       this.signupForm.nativeElement.submit();
