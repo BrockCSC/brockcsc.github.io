@@ -44,7 +44,7 @@
     "mkdirp": "^1.0.4",
     "ngx-gallery": "^5.10.0",
     "ngx-gallery-9": "^1.0.6",
-    "ngx-markdown": "^13.1.0",
+    "ngx-markdown": "^14.0.1",
     "normalize.css": "^7.0.0",
     "popper.js": "^1.12.5",
     "rxjs": "^6.6.7",
