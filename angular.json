@@ -17,10 +17,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/manifest.json"
-            ],
+            "assets": ["src/assets", "src/manifest.json"],
             "styles": [
               "src/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
@@ -81,19 +78,13 @@
               "src/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "assets": [
-              "src/assets",
-              "src/manifest.json"
-            ]
+            "assets": ["src/assets", "src/manifest.json"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -113,16 +104,12 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "e2e/**/*.ts",
-              "e2e/**/*.html"
-            ]
+            "lintFilePatterns": ["e2e/**/*.ts", "e2e/**/*.html"]
           }
         }
       }
     }
   },
-  "defaultProject": "csc",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "csc",
@@ -131,5 +118,8 @@
     "@schematics/angular:directive": {
       "prefix": "csc"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

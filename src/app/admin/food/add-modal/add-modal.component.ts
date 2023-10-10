@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { FoodApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -9,19 +9,19 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   styleUrls: ['./add-modal.component.scss'],
 })
 export class AddModalComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
     private _foodApiService: FoodApiService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: UntypedFormBuilder
   ) {}
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
-      name: new FormControl(''),
-      section: new FormControl('Food'),
-      price: new FormControl(0),
+      name: new UntypedFormControl(''),
+      section: new UntypedFormControl('Food'),
+      price: new UntypedFormControl(0),
     });
   }
 

@@ -1,19 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
-  providers: [FormBuilder],
+  providers: [UntypedFormBuilder],
   selector: 'csc-execapplications',
   templateUrl: './execapplications.component.html',
   styleUrls: ['./execapplications.component.scss'],
 })
 export class ExecApplicationsComponent {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public googleForm: GoogleFormConfig;
   public submitted: boolean;
   @ViewChild('execApplicationForm', { static: true }) execApplicationForm;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: UntypedFormBuilder) {
     this.form = this._formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],

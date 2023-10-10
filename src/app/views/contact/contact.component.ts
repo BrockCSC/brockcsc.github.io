@@ -1,19 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
-  providers: [FormBuilder],
+  providers: [UntypedFormBuilder],
   selector: 'csc-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public googleForm: GoogleFormConfig;
   public submitted: boolean;
   @ViewChild('contactForm', { static: true }) contactForm;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: UntypedFormBuilder) {
     this.form = this._formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
     });
