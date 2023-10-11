@@ -18,7 +18,7 @@ export const environment: Environment = {
     appId: '1:616874187714:web:7c2991b562ffab0944d45b',
   },
   execApplicationForm: {
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSfBrVc9NN552xvMBIQ36_-q8jUuuMvgNdBVn2fTM4bsgkcRqw/formResponse',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLScOYzySwdp33VLDSTFMmeNIIg_2VHEWoiSiDUw7EC_BXoHcng/formResponse',
     ids: {
       name: 'entry.475531787',
       email: 'entry.1544656338',
@@ -30,7 +30,7 @@ export const environment: Environment = {
     },
   },
   signupForm: {
-    url: 'https://docs.google.com/forms/d/16g4HfNf23mC50PitgvU4E-bA-Zwbqn0VgofEqipKjcI/formResponse',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLScfT1oeDUiFjoMoHiIwDMrc_ubjSAoDjSrC1BCJiD-sW2zVcA/formResponse',
     ids: {
       name: 'entry.1746166300',
       student_id: 'entry.1408207548',
@@ -42,13 +42,13 @@ export const environment: Environment = {
     },
   },
   discordInviteForm: {
-    url: 'https://docs.google.com/forms/d/1wklzi9LiBOnq_ngZIcfDuoKHQgl9x9-J6C0v1He8qq4/formResponse',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSfIMBt7liyTYChtmhRHKg83Kk6PBUu9MqQFBD6XUX7IUn3qaA/formResponse',
     ids: {
       email: 'entry.1065686669',
     },
   },
   contactForm: {
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSeuMwbqxUfOJ1haeYG4fuvPjHDv2Lr82vLP_SSiISqgRvL70w/formResponse',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSetrnW07PDBEuBV-NMf801AQaExf8Pu_TJ9kr95cLBoNl6sjQ/formResponse',
     ids: {
       name: 'entry.2137362012',
       email: 'entry.1926258208',
