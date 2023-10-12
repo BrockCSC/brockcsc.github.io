@@ -1,10 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
   UntypedFormBuilder,
-  FormControl,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { environment } from 'environments/environment';
+import {
+  DiscordSignUpGoogleFormConfig,
+  SignUpGoogleFormConfig,
+} from 'environments/types';
 import { DISCORD_LINK } from './../../shared/utils/constants';
 
 @Component({
@@ -20,8 +24,9 @@ export class SignupComponent {
   public discordInviteFormConfig: DiscordSignUpGoogleFormConfig;
   public submitted: boolean;
 
-  @ViewChild('signupForm') signupForm;
-  @ViewChild('discordInviteForm') discordInviteForm;
+  @ViewChild('signupForm') signupForm: ElementRef<HTMLFormElement>;
+  @ViewChild('discordInviteForm')
+  discordInviteForm: ElementRef<HTMLFormElement>;
 
   constructor(private _formBuilder: UntypedFormBuilder) {
     this.submitted = false;
@@ -36,27 +41,9 @@ export class SignupComponent {
       interests: '',
     });
 
-    this.signupFormConfig = {
-      url:
-        'https://docs.google.com/forms/d/16g4HfNf23mC50PitgvU4E-bA-Zwbqn0VgofEqipKjcI/formResponse',
-      ids: {
-        name: 'entry.1746166300',
-        student_id: 'entry.1408207548',
-        gender: 'entry.1930392869',
-        email: 'entry.232532916',
-        program: 'entry.252923868',
-        number_of_years_member: 'entry.1045425434',
-        interests: 'entry.1308050082',
-      },
-    };
+    this.signupFormConfig = environment.signupForm;
 
-    this.discordInviteFormConfig = {
-      url:
-        'https://docs.google.com/forms/d/1wklzi9LiBOnq_ngZIcfDuoKHQgl9x9-J6C0v1He8qq4/formResponse',
-      ids: {
-        email: 'entry.1065686669',
-      },
-    };
+    this.discordInviteFormConfig = environment.discordInviteForm;
   }
 
   onSubmit(form: UntypedFormGroup) {
@@ -66,24 +53,4 @@ export class SignupComponent {
       this.submitted = true;
     }
   }
-}
-
-class SignUpGoogleFormConfig {
-  url: string;
-  ids: {
-    name: string;
-    student_id: string;
-    gender: string;
-    program: string;
-    email: string;
-    number_of_years_member: string;
-    interests: string;
-  };
-}
-
-class DiscordSignUpGoogleFormConfig {
-  url: string;
-  ids: {
-    email: string;
-  };
 }
