@@ -27,7 +27,7 @@ export class AddModalComponent implements OnInit {
     });
   }
 
-  public add(): void {
+  public add(exec_role): void {
     const val = this.form.value;
     this._execApiService.addExec(val).then((res) => {
       this.modal.close();
