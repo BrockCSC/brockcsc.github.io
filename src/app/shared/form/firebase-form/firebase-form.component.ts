@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Field, FieldType, FormInfo } from '../../api/form/form';
 import { FormApiService } from '../../api/form/form-api.service';
 
@@ -9,7 +9,7 @@ import { FormApiService } from '../../api/form/form-api.service';
   styleUrls: ['./firebase-form.component.scss'],
 })
 export class FirebaseFormComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   @Input() formId: string;
   formInfo: FormInfo;
   @ViewChild('formElement') formElement;
@@ -18,7 +18,7 @@ export class FirebaseFormComponent implements OnInit {
   submitTried = false;
 
   constructor(
-    private _formBuilder: FormBuilder,
+    private _formBuilder: UntypedFormBuilder,
     private _formApiService: FormApiService
   ) {}
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ExecApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -9,21 +9,21 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   styleUrls: ['./add-modal.component.scss'],
 })
 export class AddModalComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
     private _execApiService: ExecApiService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: UntypedFormBuilder
   ) {}
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
-      name: new FormControl(''),
-      title: new FormControl('Executive'),
-      description: new FormControl(''),
-      isCurrentExec: new FormControl(true),
-      image: new FormControl({}),
+      name: new UntypedFormControl(''),
+      title: new UntypedFormControl('Executive'),
+      description: new UntypedFormControl(''),
+      isCurrentExec: new UntypedFormControl(true),
+      image: new UntypedFormControl({}),
     });
   }
 

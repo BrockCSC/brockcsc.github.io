@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { CscFile, Exec, ExecApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -9,13 +9,13 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   styleUrls: ['./edit-modal.component.scss'],
 })
 export class EditModalComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public editableExec: Exec;
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
     private _execApiService: ExecApiService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: UntypedFormBuilder
   ) {}
 
   public open(exec: Exec) {
@@ -26,11 +26,11 @@ export class EditModalComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
-      name: new FormControl(''),
-      title: new FormControl('Executive'),
-      description: new FormControl(''),
-      isCurrentExec: new FormControl(true),
-      image: new FormControl({}),
+      name: new UntypedFormControl(''),
+      title: new UntypedFormControl('Executive'),
+      description: new UntypedFormControl(''),
+      isCurrentExec: new UntypedFormControl(true),
+      image: new UntypedFormControl({}),
     });
   }
 

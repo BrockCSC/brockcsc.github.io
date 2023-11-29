@@ -1,1 +1,3 @@
-export const DISCORD_LINK = 'https://discord.gg/qsctEK2';
+import { environment } from 'environments/environment';
+
+export const DISCORD_LINK = environment.discordURL;

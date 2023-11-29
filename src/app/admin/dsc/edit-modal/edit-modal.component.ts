@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Card, CscFile, DSCApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
 
@@ -9,13 +9,13 @@ import { ModalComponent } from 'app/shared/modal/modal.component';
   styleUrls: ['./edit-modal.component.scss'],
 })
 export class EditModalComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public editableCard: Card;
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
     private _foodApiService: DSCApiService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: UntypedFormBuilder
   ) {}
 
   public open(card: Card) {
@@ -26,11 +26,11 @@ export class EditModalComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = this._formBuilder.group({
-      title: new FormControl(),
-      text: new FormControl(),
+      title: new UntypedFormControl(),
+      text: new UntypedFormControl(),
       img: {},
-      imgAlt: new FormControl(),
-      position: new FormControl(),
+      imgAlt: new UntypedFormControl(),
+      position: new UntypedFormControl(),
     });
   }
 

@@ -1,33 +1,32 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { environment } from 'environments/environment';
+import { ContactFormConfig } from 'environments/types';
 
 @Component({
-  providers: [FormBuilder],
+  providers: [UntypedFormBuilder],
   selector: 'csc-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-  public form: FormGroup;
-  public googleForm: GoogleFormConfig;
+  public form: UntypedFormGroup;
+  public googleForm: ContactFormConfig;
   public submitted: boolean;
-  @ViewChild('contactForm', { static: true }) contactForm;
+  @ViewChild('contactForm', { static: true })
+  contactForm: ElementRef<HTMLFormElement>;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: UntypedFormBuilder) {
     this.form = this._formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
     });
 
     this.submitted = false;
-    this.googleForm = {
-      url: 'https://docs.google.com/forms/d/e/1FAIpQLSeuMwbqxUfOJ1haeYG4fuvPjHDv2Lr82vLP_SSiISqgRvL70w/formResponse',
-      // post parameters for the google form
-      ids: {
-        name: 'entry.2137362012',
-        email: 'entry.1926258208',
-        message: 'entry.971826736',
-      },
-    };
+    this.googleForm = environment.contactForm;
   }
 
   public onSubmit(): void {
@@ -37,13 +36,4 @@ export class ContactComponent {
       this.contactForm.nativeElement.reset();
     }
   }
-}
-
-class GoogleFormConfig {
-  url: string;
-  ids: {
-    name: string;
-    email: string;
-    message: string;
-  };
 }
