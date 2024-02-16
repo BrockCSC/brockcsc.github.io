@@ -39,6 +39,7 @@ export type ExecApplicationFormConfig = {
     skills: string;
     workshop: string;
     years: string;
+    role: string;
     currentYear: string;
   };
 };

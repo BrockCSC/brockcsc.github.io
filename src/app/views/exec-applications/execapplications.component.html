@@ -96,6 +96,24 @@
             >*Required</span
           >
         </csc-input-container>
+        <csc-input-container class="col-12" label="Role" labelLocation="top">
+          <select [name]="googleForm.ids.role" formControlName="role">
+            <option value="Social Media Coordinator">
+              Social Media Coordinator
+            </option>
+            <option value="Graphic Designer">Graphic Designer</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Moderator">Moderator</option>
+          </select>
+          <span
+            class="signup-error"
+            *ngIf="
+              !form.controls.role.valid &&
+              (form.controls.role.touched || submitted)
+            "
+            >*Required</span
+          >
+        </csc-input-container>
         <csc-input-container
           class="col-12"
           label="Why are you interested in becoming a CSC Executive?"

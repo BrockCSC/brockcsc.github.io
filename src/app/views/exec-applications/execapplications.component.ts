@@ -28,6 +28,7 @@ export class ExecApplicationsComponent {
       skills: ['', Validators.required],
       workshop: ['', Validators.required],
       years: ['', Validators.required],
+      role: ['', Validators.required],
       currentYear: ['', Validators.required],
     });
 
