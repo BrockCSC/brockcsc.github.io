@@ -122,7 +122,6 @@
       }
     }
   },
-  "defaultProject": "csc",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "csc",
@@ -130,6 +129,15 @@
     },
     "@schematics/angular:directive": {
       "prefix": "csc"
+    },
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

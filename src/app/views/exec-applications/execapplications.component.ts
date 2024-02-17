@@ -1,19 +1,26 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { environment } from 'environments/environment';
+import { ExecApplicationFormConfig } from 'environments/types';
 
 @Component({
-  providers: [FormBuilder],
+  providers: [UntypedFormBuilder],
   selector: 'csc-execapplications',
   templateUrl: './execapplications.component.html',
   styleUrls: ['./execapplications.component.scss'],
 })
 export class ExecApplicationsComponent {
-  public form: FormGroup;
-  public googleForm: GoogleFormConfig;
+  public form: UntypedFormGroup;
+  public googleForm: ExecApplicationFormConfig;
   public submitted: boolean;
-  @ViewChild('execApplicationForm', { static: true }) execApplicationForm;
+  @ViewChild('execApplicationForm', { static: true })
+  execApplicationForm: ElementRef<HTMLFormElement>;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: UntypedFormBuilder) {
     this.form = this._formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
@@ -21,23 +28,12 @@ export class ExecApplicationsComponent {
       skills: ['', Validators.required],
       workshop: ['', Validators.required],
       years: ['', Validators.required],
+      role: ['', Validators.required],
       currentYear: ['', Validators.required],
     });
 
     this.submitted = false;
-    this.googleForm = {
-      url: 'https://docs.google.com/forms/d/e/1FAIpQLSfBrVc9NN552xvMBIQ36_-q8jUuuMvgNdBVn2fTM4bsgkcRqw/formResponse',
-      // post parameters for the google form
-      ids: {
-        name: 'entry.475531787',
-        email: 'entry.1544656338',
-        intrCscExec: 'entry.1838966879',
-        skills: 'entry.39093058',
-        workshop: 'entry.22914651',
-        years: 'entry.147287492',
-        currentYear: 'entry.1353896723',
-      },
-    };
+    this.googleForm = environment.execApplicationForm;
   }
 
   public onSubmit(): void {
@@ -47,17 +43,4 @@ export class ExecApplicationsComponent {
       this.execApplicationForm.nativeElement.reset();
     }
   }
-}
-
-class GoogleFormConfig {
-  url: string;
-  ids: {
-    name: string;
-    email: string;
-    intrCscExec: string;
-    skills: string;
-    workshop: string;
-    years: string;
-    currentYear: string;
-  };
 }

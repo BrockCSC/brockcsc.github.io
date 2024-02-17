@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { EventApiService } from 'app/shared/api';
 import { CscEvent } from 'app/shared/api';
 
@@ -15,7 +15,7 @@ export class EventsComponent implements OnInit {
 
   constructor(
     private _api: EventApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {}
 
   ngOnInit() {

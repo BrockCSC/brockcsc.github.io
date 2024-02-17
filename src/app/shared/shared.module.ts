@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { RouterModule } from '@angular/router';
 import { EventCardComponent } from 'app/shared/event-card/event-card.component';
 import { AnyCastPipe } from './any-cast.pipe';
