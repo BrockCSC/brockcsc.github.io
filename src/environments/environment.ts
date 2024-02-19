@@ -56,4 +56,14 @@ export const environment: Environment = {
       message: 'entry.971826736',
     },
   },
+  merchForm: {
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSc0A2frbQH4LakV3j2z117KWDHReayUHng3XTupKQB5kUFxgA/formResponse',
+    ids: {
+      email: 'entry.1102895267',
+      id: 'entry.2051086268',
+      color: 'entry.1216847753',
+      size: 'entry.503150430',
+      refnum: 'entry.1253622749',
+    },
+  },
 };

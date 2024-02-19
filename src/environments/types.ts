@@ -8,6 +8,7 @@ export type Environment = {
   signupForm: SignUpGoogleFormConfig;
   discordInviteForm: DiscordSignUpGoogleFormConfig;
   contactForm: ContactFormConfig;
+  merchForm: MerchFormConfig;
 };
 
 export type SignUpGoogleFormConfig = {
@@ -50,5 +51,16 @@ export type ContactFormConfig = {
     name: string;
     email: string;
     message: string;
+  };
+};
+
+export type MerchFormConfig = {
+  url: string;
+  ids: {
+    email: string;
+    id: string;
+    color: string;
+    size: string;
+    refnum: string;
   };
 };

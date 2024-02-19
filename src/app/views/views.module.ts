@@ -20,6 +20,7 @@ import { TeamComponent } from './team/team.component';
 import { ExecApplicationsComponent } from './exec-applications/execapplications.component';
 import { TeamExecInfoComponent } from './team/team-exec-info/team-exec-info.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MerchComponent } from './merch/merch.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
     GalleryComponent,
     ExecApplicationsComponent,
     TeamExecInfoComponent,
+    MerchComponent,
   ],
 })
 export class ViewsModule {}
