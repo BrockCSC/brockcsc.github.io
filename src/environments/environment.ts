@@ -57,7 +57,7 @@ export const environment: Environment = {
     },
   },
   merchForm: {
-    url: 'https://docs.google.com/forms/d/e/1FAIpQLSf3Aet204vFeXXP5IkWm0oEK_rm-VTvHFl6mwEXQxwuounRSg/formResponse',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSc0A2frbQH4LakV3j2z117KWDHReayUHng3XTupKQB5kUFxgA/formResponse',
     ids: {
       email: 'entry.1102895267',
       id: 'entry.2051086268',
