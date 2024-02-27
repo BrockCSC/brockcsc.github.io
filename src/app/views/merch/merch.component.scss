@@ -1,0 +1,43 @@
+@import 'src/variables.scss';
+
+video {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+button:hover {
+  background-color: maroon;
+}
+
+button {
+  font-weight: bold;
+
+  border: 0px;
+  padding: 20px 30px;
+  background-color: $maroon;
+  color: white;
+  position: absolute;
+
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  text-align: center;
+  align-items: center;
+}
+
+.grid img {
+  width: 80%;
+}
+
+.csc-merch-submit {
+  width: 100%;
+  i {
+    vertical-align: bottom;
+  }
+}

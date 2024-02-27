@@ -8,6 +8,7 @@ import {
   SignupComponent,
   TeamComponent,
   ExecApplicationsComponent,
+  MerchComponent,
 } from 'app/views';
 import { GalleryComponent } from './views/gallery/gallery.component';
 import { GuideComponent } from './views/guide/guide.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
       import('app/views/auth/auth.module').then((m) => m.AuthModule),
   },
   { path: 'home', component: HomeComponent },
+  { path: 'merch', component: MerchComponent },
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
