@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -6,7 +6,6 @@ import {
 } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { MerchFormConfig } from 'environments/types';
-import { SourceTextModule } from 'vm';
 
 @Component({
   providers: [UntypedFormBuilder],
