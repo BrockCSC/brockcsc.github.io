@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -6,6 +6,7 @@ import {
 } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { MerchFormConfig } from 'environments/types';
+import { SourceTextModule } from 'vm';
 
 @Component({
   providers: [UntypedFormBuilder],
@@ -33,22 +34,45 @@ export class MerchComponent {
     this.googleForm = environment.merchForm;
   }
 
-  buynow(grid: HTMLElement) {
+  buynow(grid: HTMLElement): void {
     grid.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
-  changeColor(newColor) {
+  // Deals with hoodie color previews
+  public color: String = 'black';
+  public gender: String = 'm';
+
+  changeColor(newColor): void {
     const image = <HTMLImageElement>document.getElementById('image');
 
     if (newColor == 'White') {
-      image.src = 'app/../assets/merch/white.png';
+      this.color = 'white';
+      image.src = 'app/../assets/merch/white' + '-' + this.gender + '.png';
     } else {
-      image.src = 'app/../assets/merch/black.png';
+      this.color = 'black';
+      image.src = 'app/../assets/merch/black' + '-' + this.gender + '.png';
     }
+  }
 
-    document
-      .getElementById('grid')
-      .scrollIntoView({ block: 'center', behavior: 'smooth' });
+  // Change gender
+  changeGender(): void {
+    setTimeout(() => {
+      const image = <HTMLImageElement>document.getElementById('image');
+
+      if (this.gender == 'm') {
+        this.gender = 'f';
+      } else {
+        this.gender = 'm';
+      }
+
+      image.src =
+        'app/../assets/merch/' + this.color + '-' + this.gender + '.png';
+      this.changeGender();
+    }, 10000);
+  }
+
+  ngOnInit(): void {
+    this.changeGender();
   }
 
   onSubmit(): void {
