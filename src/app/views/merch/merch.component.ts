@@ -33,24 +33,65 @@ export class MerchComponent {
     this.googleForm = environment.merchForm;
   }
 
-  buynow(grid: HTMLElement) {
+  // Handles scrolling on buy button
+  buynow(grid: HTMLElement): void {
     grid.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
-  changeColor(newColor) {
+  // Deals with hoodie color previews
+  public color: String = 'black';
+  public gender: String = 'm';
+
+  changeColor(newColor): void {
     const image = <HTMLImageElement>document.getElementById('image');
 
     if (newColor == 'White') {
-      image.src = 'app/../assets/merch/white.png';
+      this.color = 'white';
+      image.src = 'app/../assets/merch/white' + '-' + this.gender + '.png';
     } else {
-      image.src = 'app/../assets/merch/black.png';
+      this.color = 'black';
+      image.src = 'app/../assets/merch/black' + '-' + this.gender + '.png';
     }
-
-    document
-      .getElementById('grid')
-      .scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
+  // Change gender
+  changeGender(): void {
+    setTimeout(() => {
+      const image = <HTMLImageElement>document.getElementById('image');
+
+      if (this.gender == 'm') {
+        this.gender = 'f';
+      } else {
+        this.gender = 'm';
+      }
+
+      image.src =
+        'app/../assets/merch/' + this.color + '-' + this.gender + '.png';
+      this.changeGender();
+    }, 10000);
+  }
+
+  ngOnInit(): void {
+    this.changeGender();
+
+    // Ensure video plays on page load
+    const video = <HTMLVideoElement>document.getElementById('video');
+
+    video.muted = true;
+    video.play();
+  }
+
+  toggleMute() {
+    const video = <HTMLVideoElement>document.getElementById('video');
+
+    if (video.muted) {
+      video.muted = false;
+    } else {
+      video.muted = true;
+    }
+  }
+
+  // Handles form submission
   onSubmit(): void {
     if (this.form.valid) {
       this.submitted = true;
