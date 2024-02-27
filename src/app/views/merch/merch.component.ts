@@ -34,6 +34,7 @@ export class MerchComponent {
     this.googleForm = environment.merchForm;
   }
 
+  // Handles scrolling on buy button
   buynow(grid: HTMLElement): void {
     grid.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
@@ -73,8 +74,25 @@ export class MerchComponent {
 
   ngOnInit(): void {
     this.changeGender();
+
+    // Ensure video plays on page load
+    const video = <HTMLVideoElement>document.getElementById('video');
+
+    video.muted = true;
+    video.play();
   }
 
+  toggleMute() {
+    const video = <HTMLVideoElement>document.getElementById('video');
+
+    if (video.muted) {
+      video.muted = false;
+    } else {
+      video.muted = true;
+    }
+  }
+
+  // Handles form submission
   onSubmit(): void {
     if (this.form.valid) {
       this.submitted = true;

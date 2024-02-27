@@ -1,6 +1,6 @@
 <div>
   <div id="promo">
-    <video autoplay muted loop>
+    <video id="video" loop muted autoplay (click)="toggleMute()">
       <source src="app/../assets/merch/merch.mp4" />
     </video>
     <button (click)="buynow(grid)" clickable>Buy Today!</button>
