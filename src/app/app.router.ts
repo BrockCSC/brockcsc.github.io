@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('app/views/events/events.module').then((m) => m.EventsModule),
   },
-  { path: 'exec-application', component: ExecApplicationsComponent },
+  // { path: 'exec-application', component: ExecApplicationsComponent },
   { path: '**', redirectTo: 'home' },
 ];
 
