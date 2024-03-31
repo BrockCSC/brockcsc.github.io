@@ -27,7 +27,7 @@ const routes: Routes = [
       import('app/views/auth/auth.module').then((m) => m.AuthModule),
   },
   { path: 'home', component: HomeComponent },
-  { path: 'merch', component: MerchComponent },
+  // { path: 'merch', component: MerchComponent },
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
