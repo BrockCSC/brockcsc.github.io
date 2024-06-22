@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { mapToCanActivate, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import {
   ContactComponent,
@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('app/admin/admin.module').then((m) => m.AdminModule),
-    canActivate: [AuthGuard],
+    canActivate: mapToCanActivate([AuthGuard]),
   },
   {
     path: 'auth',
