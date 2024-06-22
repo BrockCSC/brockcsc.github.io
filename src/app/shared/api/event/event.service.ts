@@ -7,8 +7,8 @@ export abstract class EventApiService {
   abstract getFutureEvents(): Observable<CscEvent[]>;
   abstract getPastEvents(): Observable<CscEvent[]>;
   abstract getEventByKeyOnce(key: string): Subscribable<CscEvent>;
-  abstract addEvent(event: CscEvent): any;
+  abstract addEvent(event: CscEvent): Promise<void>;
   abstract getEvents(): Observable<CscEvent[]>;
   abstract updateEvent(key: string, value: CscEvent): Promise<void>;
-  abstract removeEvents(events: CscEvent[]): Promise<void[]>;
+  abstract removeEvents(events: CscEvent[]): Promise<void>;
 }

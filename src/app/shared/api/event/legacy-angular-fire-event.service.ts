@@ -96,8 +96,8 @@ export class LegacyAngularFireEventApiService extends EventApiService {
     return listObservable.pipe(map((list) => (list as any).reverse()));
   }
 
-  public addEvent(event: CscEvent): any {
-    return this.events.push(event);
+  public async addEvent(event: CscEvent): Promise<void> {
+    await this.events.push(event);
   }
 
   public getEvents(): Observable<CscEvent[]> {
@@ -108,8 +108,8 @@ export class LegacyAngularFireEventApiService extends EventApiService {
     return this.events.update(key, value);
   }
 
-  public removeEvents(events: CscEvent[]): Promise<void[]> {
-    return Promise.all(events.map((event) => this.removeEvent(event)));
+  public async removeEvents(events: CscEvent[]): Promise<void> {
+    await Promise.all(events.map((event) => this.removeEvent(event)));
   }
 
   public removeEvent(event: CscEvent): Promise<void> {
