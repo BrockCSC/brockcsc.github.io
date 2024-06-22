@@ -15,6 +15,7 @@ import { provideCscAuth } from 'app/core/auth';
 import { provideDSCApiService } from 'app/shared/api/dsc';
 import { provideEventApiService } from 'app/shared/api/event';
 import { provideExecApiService } from 'app/shared/api/exec';
+import { provideFilesApiService } from 'app/shared/api/files';
 import { provideFoodApiService } from 'app/shared/api/food';
 import { provideFormApiService } from 'app/shared/api/form';
 import { provideStorageService } from 'app/shared/api/storage';
@@ -46,5 +47,6 @@ bootstrapApplication(AppComponent, {
     provideFoodApiService(),
     provideStorageService(),
     provideFormApiService(),
+    provideFilesApiService(),
   ],
 });

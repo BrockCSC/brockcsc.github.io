@@ -11,7 +11,7 @@
           formControlName="homeSlideshow"
           message="Drag image here"
           type="multi"
-          [data]="(filesApi.files$ | async)?.homeSlideshow"
+          [data]="(filesApi.files$() | async)?.homeSlideshow"
         ></csc-upload>
       </csc-input-container>
     </div>
