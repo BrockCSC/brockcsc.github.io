@@ -1,8 +1,8 @@
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { RouterLink } from '@angular/router';
-import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
+import { CscEvent, EventApiService } from 'app/shared/api';
+import { FilesApiService } from 'app/shared/api/files/files-api.service';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -45,16 +45,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   homeSlideshowSrcs$: Observable<string[]>;
   heroStyleConfig: ImageStyleConfig;
 
-  constructor(private _eventApi: EventApiService, _db: AngularFireDatabase) {
-    this.homeSlideshowSrcs$ = _db
-      .list<CscFile>('files/homeSlideshow')
-      .valueChanges()
-      .pipe(
-        map((files) => {
-          // First one is always the static hero image, initial temp lazy load background is set for it.
-          return [this.images.hero.src, ...files.map((file) => file.url)];
-        })
-      );
+  constructor(private _eventApi: EventApiService, filesApi: FilesApiService) {
+    this.homeSlideshowSrcs$ = filesApi.getHomeSlideshowFiles().pipe(
+      map((files) => {
+        // First one is always the static hero image, initial temp lazy load background is set for it.
+        return [this.images.hero.src, ...files.map((file) => file.url)];
+      })
+    );
   }
 
   ngOnInit() {
