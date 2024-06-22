@@ -1,13 +1,13 @@
-@import 'src/variables.scss';
-@import './section-styles/_hero.scss';
-@import './section-styles/_about.scss';
-@import './section-styles/_events.scss';
-@import './section-styles/_services.scss';
-@import './section-styles/_join.scss';
-@import './section-styles/_social.scss';
+@use 'variables.scss' as vars;
+@use 'section-styles/_hero.scss';
+@use 'section-styles/_about.scss';
+@use 'section-styles/_events.scss';
+@use 'section-styles/_services.scss';
+@use 'section-styles/_join.scss';
+@use 'section-styles/_social.scss';
 
 i {
-  font-size: $row-height;
+  font-size: events.$row-height;
   vertical-align: middle;
   margin-right: 20px;
 }
@@ -21,10 +21,10 @@ i {
   position: relative;
   float: left;
   width: 100%;
-  min-height: $row-height;
+  min-height: events.$row-height;
 }
 
-@media #{$tablet} {
+@media #{vars.$tablet} {
   .column-left {
     width: 40%;
   }
@@ -33,7 +33,7 @@ i {
   }
 }
 
-@media #{$desktop} {
+@media #{vars.$desktop} {
   .column-left {
     width: 40%;
   }
@@ -43,5 +43,5 @@ i {
 }
 
 .csc-event-content a {
-  color: $text-white;
+  color: vars.$text-white;
 }

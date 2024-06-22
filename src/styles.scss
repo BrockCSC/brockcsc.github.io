@@ -1,9 +1,10 @@
+@use 'sass:meta';
 // Global styles
+@use 'variables.scss' as vars;
 @import '~normalize.css/normalize.css';
-@import 'src/variables.scss';
-@import './styles/_grid.scss';
-@import './styles/_table.scss';
-@import './styles/_checkbox.scss';
+@include meta.load-css('styles/_grid.scss');
+@include meta.load-css('styles/_table.scss');
+@include meta.load-css('styles/_checkbox.scss');
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 html {
@@ -26,7 +27,7 @@ html {
 
 a {
   cursor: pointer;
-  color: $maroon;
+  color: vars.$maroon;
   word-wrap: break-word;
 }
 
@@ -61,13 +62,13 @@ section {
 .container {
   margin: 0 auto;
   max-width: 1280px;
-  @media #{$mobile} {
+  @media #{vars.$mobile} {
     width: 95%;
   }
-  @media #{$tablet} {
+  @media #{vars.$tablet} {
     width: 85%;
   }
-  @media #{$desktop} {
+  @media #{vars.$desktop} {
     width: 75%;
   }
 }
@@ -78,13 +79,13 @@ section {
   padding-bottom: 5px;
 }
 
-@media #{$mobile} {
+@media #{vars.$mobile} {
   .hide-mobile {
     display: none;
   }
 }
 
-@media #{$tablet}, #{$desktop} {
+@media #{vars.$tablet}, #{vars.$desktop} {
   .show-mobile {
     display: none;
   }

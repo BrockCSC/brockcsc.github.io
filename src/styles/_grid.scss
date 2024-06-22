@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'variables' as vars;
 
 $width: 100%;
 
@@ -28,7 +29,7 @@ $width: 100%;
   }
 }
 
-@media #{$desktop} {
+@media #{vars.$desktop} {
   @for $i from 1 through 12 {
     .col-#{$i} {
       width: math.div($width, math.div(12, $i));
@@ -36,7 +37,7 @@ $width: 100%;
   }
 }
 
-@media #{$tablet} {
+@media #{vars.$tablet} {
   @for $i from 1 through 12 {
     .col-m-#{$i} {
       width: math.div($width, math.div(12, $i));

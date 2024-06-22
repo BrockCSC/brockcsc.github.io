@@ -1,11 +1,13 @@
+@use 'variables.scss' as vars;
+
 $row-height: 50px;
 
 #csc-events {
-  background-color: $navy;
-  color: $text-white;
+  background-color: vars.$navy;
+  color: vars.$text-white;
 
   a {
-    color: $text-white;
+    color: vars.$text-white;
     text-decoration: none;
   }
 
@@ -18,7 +20,7 @@ $row-height: 50px;
   }
 
   .upcoming-event {
-    @media #{$desktop}, #{tablet} {
+    @media #{vars.$desktop}, #{tablet} {
       padding-right: 2rem;
     }
   }

@@ -1,14 +1,16 @@
+@use 'variables.scss' as vars;
+
 #csc-about {
-  background-color: $light-grey;
+  background-color: vars.$light-grey;
 }
 
 #csc-about a {
-  color: $maroon;
+  color: vars.$maroon;
   text-decoration: none;
 }
 
 .csc-about-desc {
-  @media #{$desktop} {
+  @media #{vars.$desktop} {
     width: 70%;
   }
 }
@@ -24,7 +26,7 @@
   margin-left: 0px;
   margin-top: 15px;
 
-  @media #{$desktop} {
+  @media #{vars.$desktop} {
     margin-left: 25px;
     width: 60%;
     float: right;

@@ -16,15 +16,15 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/manifest.json"
-            ],
+            "polyfills": "zone.js",
+            "assets": ["src/assets", "src/manifest.json"],
             "styles": [
               "src/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules/", "src/"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -74,26 +74,20 @@
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": "zone.js",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
               "src/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "assets": [
-              "src/assets",
-              "src/manifest.json"
-            ]
+            "assets": ["src/assets", "src/manifest.json"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -113,10 +107,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "e2e/**/*.ts",
-              "e2e/**/*.html"
-            ]
+            "lintFilePatterns": ["e2e/**/*.ts", "e2e/**/*.html"]
           }
         }
       }

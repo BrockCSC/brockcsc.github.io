@@ -1,9 +1,9 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 .label {
   display: table-cell;
   text-transform: uppercase;
   padding: 0 10px 0 10px;
-  color: $maroon;
+  color: vars.$maroon;
   vertical-align: top;
 }

@@ -1,22 +1,23 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
+
 .csc-progress-container {
   position: relative;
   text-align: center;
   line-height: 16px;
   font-size: 12px;
-  color: $text-white;
+  color: vars.$text-white;
   &.maroon {
-    background-color: rgba($maroon, 0.5);
-    border: 1px solid $maroon;
+    background-color: rgba(vars.$maroon, 0.5);
+    border: 1px solid vars.$maroon;
     .csc-progress-bar {
-      background-color: rgba($maroon, 0.85);
+      background-color: rgba(vars.$maroon, 0.85);
     }
   }
   &.navy {
-    background-color: rgba($navy, 0.5);
-    border: 1px solid $navy;
+    background-color: rgba(vars.$navy, 0.5);
+    border: 1px solid vars.$navy;
     .csc-progress-bar {
-      background-color: rgba($navy, 0.85);
+      background-color: rgba(vars.$navy, 0.85);
     }
   }
 }

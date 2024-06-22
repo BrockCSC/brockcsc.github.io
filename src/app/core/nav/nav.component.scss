@@ -1,5 +1,5 @@
-@import 'src/variables.scss';
-@import 'hamburger/hamburger.scss';
+@use 'variables.scss' as vars;
+@use 'hamburger/hamburger.scss';
 
 $height: 5.375rem;
 $nav-links-font-size: 1.125rem;
@@ -21,7 +21,7 @@ $nav-links-margin: 1.2em;
 }
 
 .scrolled.csc-nav {
-  border-bottom: 2px solid $csc-maroon;
+  border-bottom: 2px solid vars.$csc-maroon;
   box-shadow: 0px 7px 17px -10px rgba(0, 0, 0, 0.4);
 }
 
@@ -125,15 +125,15 @@ a {
   background-color: #fff;
 }
 
-@media #{$desktop} {
+@media #{vars.$desktop} {
   .nav-overlay,
   .csc-nav-mobile {
     display: none;
   }
 }
 
-@media #{$mobile},
-#{$tablet} {
+@media #{vars.$mobile},
+#{vars.$tablet} {
   .csc-nav-desktop {
     display: none;
   }
