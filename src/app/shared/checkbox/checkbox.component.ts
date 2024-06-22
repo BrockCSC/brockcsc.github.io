@@ -10,8 +10,23 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'csc-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss'],
+  template: `
+    <div class="csc-checkbox">
+      <ng-content select="input[type='checkbox']"></ng-content>
+      <label [for]="_id" *ngIf="label !== null">{{ label }}</label>
+      <label
+        [for]="_id"
+        *ngIf="label === null"
+        [innerHTML]="_defaultLabel"
+      ></label>
+    </div>
+  `,
+  styles: `
+    .csc-checkbox {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  `,
   standalone: true,
   imports: [NgIf],
 })

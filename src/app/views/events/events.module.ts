@@ -22,7 +22,6 @@ import { EventsHomeComponent } from './home/home.component';
     EventComponent,
     EventFormComponent,
   ],
-  exports: [],
   providers: [EventDataService],
 })
 export class EventsModule {}

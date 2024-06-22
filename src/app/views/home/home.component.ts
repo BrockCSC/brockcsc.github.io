@@ -1,17 +1,17 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { RouterLink } from '@angular/router';
 import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HomeImageConfigs } from './imageConfigs';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { ButtonDirective } from '../../shared/button/button.directive';
-import { TeamPreviewComponent } from '../team/team-preview/team-preview.component';
 import { EventCardComponent } from '../../shared/event-card/event-card.component';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { ImgSlideshowComponent } from '../../shared/img-slideshow/img-slideshow.component';
+import { TeamPreviewComponent } from '../team/team-preview/team-preview.component';
+import { HomeImageConfigs } from './imageConfigs';
 
 @Component({
   selector: 'csc-home',

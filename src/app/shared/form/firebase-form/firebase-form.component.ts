@@ -1,25 +1,24 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
-  ReactiveFormsModule,
 } from '@angular/forms';
+import { AnyCastPipe } from '../../any-cast.pipe';
 import { Field, FieldType, FormInfo } from '../../api/form/form';
 import { FormApiService } from '../../api/form/form-api.service';
-import { AnyCastPipe } from '../../any-cast.pipe';
-import { SpinnerComponent } from '../../spinner/spinner.component';
-import { ButtonDirective } from '../../button/button.directive';
 import { ButtonComponent } from '../../button/button.component';
+import { ButtonDirective } from '../../button/button.directive';
 import { CheckboxComponent } from '../../checkbox/checkbox.component';
 import { InputContainerComponent } from '../../input-container/input-container.component';
-import { NgIf, NgFor } from '@angular/common';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'csc-firebase-form',
-  templateUrl: './firebase-form.component.html',
-  styleUrls: ['./firebase-form.component.scss'],
   standalone: true,
+  templateUrl: './firebase-form.component.html',
   imports: [
     NgIf,
     ReactiveFormsModule,

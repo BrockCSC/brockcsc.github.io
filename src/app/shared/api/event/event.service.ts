@@ -10,7 +10,9 @@ import { StorageService } from '../storage/storage.service';
 import { listWithKeys, objectWithKeys } from '../util';
 import { CscEvent } from './event';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class EventApiService {
   events: AngularFireList<CscEvent>;
   _path: string;

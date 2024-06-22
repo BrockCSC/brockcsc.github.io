@@ -1,17 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RadioInput, RadioOption } from '../../api/form/form';
-import { ButtonDirective } from '../../button/button.directive';
-import { ButtonComponent } from '../../button/button.component';
 import { NgFor } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RadioInput, RadioOption } from '../../api/form/form';
+import { ButtonComponent } from '../../button/button.component';
+import { ButtonDirective } from '../../button/button.directive';
 import { CheckboxComponent } from '../../checkbox/checkbox.component';
 import { InputContainerComponent } from '../../input-container/input-container.component';
 
 @Component({
   selector: 'csc-radio-creator',
-  templateUrl: './radio-creator.component.html',
-  styleUrls: ['./radio-creator.component.scss'],
   standalone: true,
+  templateUrl: './radio-creator.component.html',
   imports: [
     InputContainerComponent,
     CheckboxComponent,

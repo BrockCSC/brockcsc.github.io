@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Card } from './dsc';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class DSCApiService {
   cards: AngularFireList<Card>;
   _path: string;

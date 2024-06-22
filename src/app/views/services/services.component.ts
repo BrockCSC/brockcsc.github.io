@@ -1,10 +1,9 @@
+import { AsyncPipe, CurrencyPipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/compat/database';
+import { RouterLink } from '@angular/router';
 import { Food, FoodApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
 import { DISCORD_LINK } from './../../shared/utils/constants';
-import { NgFor, AsyncPipe, CurrencyPipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'csc-services',

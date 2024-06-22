@@ -4,9 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { CscEvent, EventApiService } from 'app/shared/api';
 import { EventDataService } from 'app/views/events/event-data.service';
 import { take } from 'rxjs/operators';
-import { GoogleFormComponent } from '../../../shared/form/google-form/google-form.component';
-import { FirebaseFormComponent } from '../../../shared/form/firebase-form/firebase-form.component';
 import { EventViewComponent } from '../../../shared/event-view/event-view.component';
+import { FirebaseFormComponent } from '../../../shared/form/firebase-form/firebase-form.component';
+import { GoogleFormComponent } from '../../../shared/form/google-form/google-form.component';
 import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
 
 @Component({

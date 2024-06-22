@@ -1,10 +1,10 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatAnchor } from '@angular/material/button';
+import { MatCard } from '@angular/material/card';
 import { Card, CscEvent, DSCApiService, EventApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
-import { MatCard } from '@angular/material/card';
 import { EventCardComponent } from '../../shared/event-card/event-card.component';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
-import { MatAnchor } from '@angular/material/button';
 
 @Component({
   selector: 'csc-dsc',

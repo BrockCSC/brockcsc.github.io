@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 import { listWithKeys } from '../util';
 import { Food } from './food';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class FoodApiService {
   foodItems: AngularFireList<Food>;
   _path: string;

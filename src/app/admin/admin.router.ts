@@ -8,7 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { ExecsComponent } from './execs/execs.component';
 import { FilesComponent } from './files/files.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: AdminComponent,

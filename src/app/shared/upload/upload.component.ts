@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -13,10 +14,8 @@ import {
   AbstractValueAccessor,
   CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR,
 } from '../abstractValueAccessor';
-import { UploadExistingComponent } from './upload-existing/upload-existing.component';
-import { UploadService } from './upload.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-import { NgFor, NgIf } from '@angular/common';
+import { UploadExistingComponent } from './upload-existing/upload-existing.component';
 
 @Component({
   selector: 'csc-upload',

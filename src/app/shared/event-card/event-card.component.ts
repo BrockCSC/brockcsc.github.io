@@ -1,6 +1,5 @@
+import { DatePipe, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CscEvent } from 'app/shared/api';
-import { NgIf, DatePipe } from '@angular/common';
 import {
   MatCard,
   MatCardImage,
@@ -8,6 +7,7 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
+import { CscEvent } from 'app/shared/api';
 
 @Component({
   selector: 'csc-event-card',

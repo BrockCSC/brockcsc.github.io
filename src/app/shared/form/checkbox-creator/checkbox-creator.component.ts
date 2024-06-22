@@ -1,14 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxInput } from '../../api/form/form';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InputContainerComponent } from '../../input-container/input-container.component';
 
 @Component({
   selector: 'csc-checkbox-creator',
-  templateUrl: './checkbox-creator.component.html',
-  styleUrls: ['./checkbox-creator.component.scss'],
   standalone: true,
   imports: [InputContainerComponent, ReactiveFormsModule, FormsModule],
+  template: `
+    <csc-input-container
+      label="Checkbox label"
+      class="col-12"
+      labelLocation="top"
+    >
+      <input [(ngModel)]="checkbox.description" />
+    </csc-input-container>
+  `,
 })
 export class CheckboxCreatorComponent {
   @Input() checkbox: CheckboxInput;

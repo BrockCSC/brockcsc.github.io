@@ -7,7 +7,9 @@ import { map } from 'rxjs/operators';
 
 import firebase from 'firebase/compat/app';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthService {
   private _path;
 

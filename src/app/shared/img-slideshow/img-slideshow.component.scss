@@ -1,8 +1,8 @@
-@use '../../../variables.scss';
+@use 'variables.scss' as vars;
 
 .csc-hero-image {
   position: relative;
-  height: variables.$main-hero-height;
+  height: vars.$main-hero-height;
   width: 100%;
   max-width: 100%;
   overflow: hidden;

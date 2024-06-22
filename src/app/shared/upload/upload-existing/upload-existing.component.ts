@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -7,7 +8,6 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { CscFile } from 'app/shared/api';
-import { NgFor, NgIf } from '@angular/common';
 import { InputContainerComponent } from '../../input-container/input-container.component';
 
 @Component({

@@ -1,14 +1,14 @@
+import { NgIf } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
-  ReactiveFormsModule,
 } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { ContactFormConfig } from 'environments/types';
 import { ButtonDirective } from '../../shared/button/button.directive';
-import { NgIf } from '@angular/common';
 import { InputContainerComponent } from '../../shared/input-container/input-container.component';
 
 @Component({

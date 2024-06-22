@@ -1,34 +1,17 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
 import { EventCardComponent } from 'app/shared/event-card/event-card.component';
-import { AnyCastPipe } from './any-cast.pipe';
-import {
-  DSCApiService,
-  EventApiService,
-  ExecApiService,
-  FoodApiService,
-  StorageService,
-} from './api/';
-import { FilesApiService } from './api/files/files-api.service';
 import { ButtonComponent } from './button/button.component';
 import { ButtonDirective } from './button/button.directive';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { EventViewComponent } from './event-view/event-view.component';
-import { CheckboxCreatorComponent } from './form/checkbox-creator/checkbox-creator.component';
 import { FirebaseFormCreatorComponent } from './form/firebase-form-creator/firebase-form-creator.component';
 import { FirebaseFormComponent } from './form/firebase-form/firebase-form.component';
 import { GoogleFormComponent } from './form/google-form/google-form.component';
-import { RadioCreatorComponent } from './form/radio-creator/radio-creator.component';
-import { TextFieldCreatorComponent } from './form/text-field-creator/text-field-creator.component';
 import { ImgSlideshowComponent } from './img-slideshow/img-slideshow.component';
 import { ImgComponent } from './img/img.component';
 import { InputContainerComponent } from './input-container/input-container.component';
 import { LinkComponent } from './link/link.component';
 import { LinkDirective } from './link/link.directive';
-
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ProminentContainerComponent } from './prominent-container/prominent-container.component';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -38,11 +21,6 @@ import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatCardModule,
-    RouterModule,
     ButtonComponent,
     ButtonDirective,
     LinkComponent,
@@ -56,11 +34,6 @@ import { UploadComponent } from './upload/upload.component';
     SpinnerComponent,
     ImgComponent,
     FirebaseFormComponent,
-    AnyCastPipe,
-    FirebaseFormCreatorComponent,
-    RadioCreatorComponent,
-    TextFieldCreatorComponent,
-    CheckboxCreatorComponent,
     FirebaseFormCreatorComponent,
     ProminentContainerComponent,
     EventViewComponent,
@@ -88,14 +61,6 @@ import { UploadComponent } from './upload/upload.component';
     GoogleFormComponent,
     ImgSlideshowComponent,
     EventCardComponent,
-  ],
-  providers: [
-    EventApiService,
-    ExecApiService,
-    StorageService,
-    FoodApiService,
-    FilesApiService,
-    DSCApiService,
   ],
 })
 export class SharedModule {}

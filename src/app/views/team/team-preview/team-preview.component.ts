@@ -1,9 +1,9 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatTooltip } from '@angular/material/tooltip';
 import { Exec, ExecApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
 import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
-import { MatTooltip } from '@angular/material/tooltip';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'csc-team-preview',

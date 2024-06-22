@@ -5,13 +5,28 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'csc-img-slideshow',
-  templateUrl: './img-slideshow.component.html',
+  standalone: true,
+  imports: [NgFor],
   styleUrls: ['./img-slideshow.component.scss'],
+  template: `
+    <div
+      class="csc-hero-image"
+      [class.first-load]="firstLoad"
+      [style.background-image]="!firstLoad ? defaultUrl() : 'none'"
+    >
+      <img
+        *ngFor="let src of srcs"
+        (load)="loaded(src)"
+        [@fade]="fadeIn(src) ? 'show' : 'hide'"
+        [src]="src"
+      />
+    </div>
+  `,
   animations: [
     trigger('fade', [
       state(
@@ -30,8 +45,6 @@ import { NgFor } from '@angular/common';
       transition('hide => show', [animate('2s')]),
     ]),
   ],
-  standalone: true,
-  imports: [NgFor],
 })
 export class ImgSlideshowComponent implements OnInit {
   @Input() srcs: string[];

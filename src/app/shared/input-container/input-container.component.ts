@@ -1,5 +1,5 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'csc-input-container',

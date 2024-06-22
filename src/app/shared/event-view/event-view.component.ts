@@ -1,6 +1,6 @@
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonDirective } from '../button/button.directive';
-import { NgIf, NgFor, DatePipe } from '@angular/common';
 
 const url = (path: string) => {
   return `url(${path})`;

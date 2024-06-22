@@ -3,10 +3,15 @@ import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'csc-progress-bar',
-  templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss'],
   standalone: true,
   imports: [NgClass],
+  styleUrls: ['./progress-bar.component.scss'],
+  template: `
+    <div class="csc-progress-container" [ngClass]="color">
+      <div class="csc-progress-bar" [style.width.%]="progress"></div>
+      <span>{{ floorProgress() }} %</span>
+    </div>
+  `,
 })
 export class ProgressBarComponent {
   @Input() progress: number;

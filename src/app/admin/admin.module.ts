@@ -1,11 +1,4 @@
-import { ClipboardModule } from '@angular/cdk/clipboard';
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { SharedModule } from 'app/shared/shared.module';
 import { AdminComponent } from './admin.component';
 import { routing } from './admin.router';
 import { AddModalComponent as AddDSCModal } from './dsc/add-modal/add-modal.component';
@@ -31,15 +24,15 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // CommonModule,
+    // SharedModule,
+    // FormsModule,
+    // ReactiveFormsModule,
     routing,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-    ClipboardModule,
+    // MatIconModule,
+    // MatButtonModule,
+    // MatTooltipModule,
+    // ClipboardModule,
     AdminComponent,
     ExecsComponent,
     EventsComponent,

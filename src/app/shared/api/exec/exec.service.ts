@@ -10,7 +10,9 @@ import { StorageService } from '../storage/storage.service';
 import { listWithKeys } from '../util';
 import { Exec } from './exec';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ExecApiService {
   execs: AngularFireList<Exec>;
   _path: string;

@@ -1,17 +1,22 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'csc-google-form',
-  templateUrl: './google-form.component.html',
-  styleUrls: ['./google-form.component.css'],
   standalone: true,
+  template: `
+    <div class="row">
+      <iframe
+        class="col-12"
+        [src]="formUrl()"
+        frameborder="0"
+        marginheight="0"
+        height="500"
+        marginwidth="0"
+        >Loading…
+      </iframe>
+    </div>
+  `,
 })
 export class GoogleFormComponent implements OnInit {
   @Input() googleFormUrl;

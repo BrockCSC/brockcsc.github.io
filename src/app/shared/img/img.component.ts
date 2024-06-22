@@ -9,9 +9,13 @@ import { ImageStyleConfig } from 'app/shared/imageConfig';
 
 @Component({
   selector: 'csc-img',
-  templateUrl: './img.component.html',
-  styleUrls: ['./img.component.scss'],
   standalone: true,
+  styleUrls: ['./img.component.scss'],
+  template: `
+    <div #container class="csc-lazy-img">
+      <img #img [alt]="alt" />
+    </div>
+  `,
 })
 export class ImgComponent implements AfterViewInit {
   @Input() src;

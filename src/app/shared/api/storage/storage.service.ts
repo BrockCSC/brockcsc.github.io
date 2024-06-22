@@ -3,7 +3,9 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
 import { StorageTask } from './storageTask';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class StorageService {
   _storageRef: firebase.storage.Reference;
 

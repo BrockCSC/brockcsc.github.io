@@ -1,4 +1,6 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   CheckboxInput,
   Field,
@@ -10,20 +12,17 @@ import {
   emptyRadioInput,
   emptyTextInput,
 } from '../../api/form/form';
-import { ButtonDirective } from '../../button/button.directive';
 import { ButtonComponent } from '../../button/button.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ButtonDirective } from '../../button/button.directive';
 import { InputContainerComponent } from '../../input-container/input-container.component';
 import { CheckboxCreatorComponent } from '../checkbox-creator/checkbox-creator.component';
 import { RadioCreatorComponent } from '../radio-creator/radio-creator.component';
 import { TextFieldCreatorComponent } from '../text-field-creator/text-field-creator.component';
-import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'csc-firebase-form-creator',
-  templateUrl: './firebase-form-creator.component.html',
-  styleUrls: ['./firebase-form-creator.component.scss'],
   standalone: true,
+  templateUrl: './firebase-form-creator.component.html',
   imports: [
     NgFor,
     NgIf,
