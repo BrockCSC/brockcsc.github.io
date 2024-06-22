@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -13,7 +13,7 @@ import { MerchFormConfig } from 'environments/types';
   templateUrl: './merch.component.html',
   styleUrls: ['./merch.component.scss'],
 })
-export class MerchComponent {
+export class MerchComponent implements OnInit {
   public form: UntypedFormGroup;
   public googleForm: MerchFormConfig;
   public submitted: boolean;
