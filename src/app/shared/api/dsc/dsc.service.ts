@@ -44,7 +44,7 @@ export class DSCApiService {
     return this.cards.remove(card.$key);
   }
 
-  public updateFoodItem(key: string, value: Card): Promise<void> {
+  public updateCard(key: string, value: Card): Promise<void> {
     return this.cards.update(key, value);
   }
 

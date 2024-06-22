@@ -39,7 +39,7 @@ export class EditModalComponent implements OnInit {
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
-    private _foodApiService: DSCApiService,
+    private _dscApiService: DSCApiService,
     private _formBuilder: UntypedFormBuilder
   ) {}
 
@@ -63,8 +63,8 @@ export class EditModalComponent implements OnInit {
     const key = this.editableCard.$key;
     const data = this.form.value;
     alert(data.img);
-    this._foodApiService
-      .updateFoodItem(key, data)
+    this._dscApiService
+      .updateCard(key, data)
       .then(() => {
         this.modal.close();
         this.form.reset();
