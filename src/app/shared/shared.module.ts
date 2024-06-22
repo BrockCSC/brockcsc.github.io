@@ -28,7 +28,7 @@ import { ImgComponent } from './img/img.component';
 import { InputContainerComponent } from './input-container/input-container.component';
 import { LinkComponent } from './link/link.component';
 import { LinkDirective } from './link/link.directive';
-import { ModalModule } from './modal/modal.module';
+
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ProminentContainerComponent } from './prominent-container/prominent-container.component';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -39,7 +39,6 @@ import { UploadComponent } from './upload/upload.component';
 @NgModule({
   imports: [
     CommonModule,
-    ModalModule,
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
@@ -77,7 +76,6 @@ import { UploadComponent } from './upload/upload.component';
     UploadComponent,
     ProgressBarComponent,
     InputContainerComponent,
-    ModalModule,
     CheckboxComponent,
     UploadExistingComponent,
     TooltipComponent,
