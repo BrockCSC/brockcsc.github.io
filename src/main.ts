@@ -19,7 +19,7 @@ import { provideFilesApiService } from 'app/shared/api/files';
 import { provideFoodApiService } from 'app/shared/api/food';
 import { provideFormApiService } from 'app/shared/api/form';
 import { provideStorageService } from 'app/shared/api/storage';
-import { MarkdownModule } from 'ngx-markdown';
+import { provideMarkdown } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes as appRoutes } from './app/app.router';
 import { environment } from './environments/environment';
@@ -34,9 +34,9 @@ bootstrapApplication(AppComponent, {
       AngularFireModule.initializeApp(environment.firebase),
       AngularFireDatabaseModule,
       AngularFireAuthModule,
-      AngularFireStorageModule,
-      MarkdownModule.forRoot({ loader: HttpClient })
+      AngularFireStorageModule
     ),
+    provideMarkdown({ loader: HttpClient }),
     provideRouter(appRoutes),
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
