@@ -6,11 +6,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { GUID } from 'app/shared/guid';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'csc-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
+  standalone: true,
+  imports: [NgIf],
 })
 export class CheckboxComponent implements AfterViewInit {
   @Input() label = null;

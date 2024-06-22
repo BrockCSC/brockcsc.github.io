@@ -8,7 +8,7 @@ describe('ImgSlideshowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ImgSlideshowComponent],
+      imports: [ImgSlideshowComponent],
     }).compileComponents();
   }));
 

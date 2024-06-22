@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
   selector: 'csc-modal-footer',
   templateUrl: './modal-footer.component.html',
   styleUrls: ['./modal-footer.component.scss'],
+  standalone: true,
 })
 export class ModalFooterComponent {}

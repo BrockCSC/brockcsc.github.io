@@ -4,6 +4,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   selector: 'csc-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
+  standalone: true,
 })
 export class ModalComponent {
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix

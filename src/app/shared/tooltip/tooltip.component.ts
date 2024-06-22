@@ -15,6 +15,7 @@ import Popper from 'popper.js';
   selector: 'csc-tooltip',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.scss'],
+  standalone: true,
 })
 export class TooltipComponent implements AfterViewInit {
   @Input() forId: string;
@@ -89,8 +90,7 @@ export class TooltipComponent implements AfterViewInit {
     }
 
     this._$tooltipArrow.style[`${direction}`] = '100%';
-    this._$tooltipArrow.style[
-      `border${this.capitalize(direction)}`
-    ] = setBorder;
+    this._$tooltipArrow.style[`border${this.capitalize(direction)}`] =
+      setBorder;
   }
 }

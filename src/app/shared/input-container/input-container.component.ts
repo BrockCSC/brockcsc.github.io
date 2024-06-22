@@ -1,10 +1,13 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'csc-input-container',
   templateUrl: './input-container.component.html',
   styleUrls: ['./input-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [NgIf],
 })
 export class InputContainerComponent {
   @Input() label: string;

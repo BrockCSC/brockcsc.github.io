@@ -6,6 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'csc-img-slideshow',
@@ -29,6 +30,8 @@ import { Component, Input, OnInit } from '@angular/core';
       transition('hide => show', [animate('2s')]),
     ]),
   ],
+  standalone: true,
+  imports: [NgFor],
 })
 export class ImgSlideshowComponent implements OnInit {
   @Input() srcs: string[];

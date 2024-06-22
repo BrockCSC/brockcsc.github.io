@@ -5,11 +5,30 @@ import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HomeImageConfigs } from './imageConfigs';
+import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { TeamPreviewComponent } from '../team/team-preview/team-preview.component';
+import { EventCardComponent } from '../../shared/event-card/event-card.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { ImgSlideshowComponent } from '../../shared/img-slideshow/img-slideshow.component';
 
 @Component({
   selector: 'csc-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  standalone: true,
+  imports: [
+    ImgSlideshowComponent,
+    RouterLink,
+    NgIf,
+    EventCardComponent,
+    NgFor,
+    TeamPreviewComponent,
+    ButtonDirective,
+    ButtonComponent,
+    AsyncPipe,
+  ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   events: Row[] = [];

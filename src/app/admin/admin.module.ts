@@ -40,8 +40,6 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     MatTooltipModule,
     ClipboardModule,
-  ],
-  declarations: [
     AdminComponent,
     ExecsComponent,
     EventsComponent,

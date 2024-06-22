@@ -3,15 +3,26 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { ContactFormConfig } from 'environments/types';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { NgIf } from '@angular/common';
+import { InputContainerComponent } from '../../shared/input-container/input-container.component';
 
 @Component({
   providers: [UntypedFormBuilder],
   selector: 'csc-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    InputContainerComponent,
+    NgIf,
+    ButtonDirective,
+  ],
 })
 export class ContactComponent {
   public form: UntypedFormGroup;

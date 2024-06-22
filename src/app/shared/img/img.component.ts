@@ -11,6 +11,7 @@ import { ImageStyleConfig } from 'app/shared/imageConfig';
   selector: 'csc-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss'],
+  standalone: true,
 })
 export class ImgComponent implements AfterViewInit {
   @Input() src;

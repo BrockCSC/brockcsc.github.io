@@ -7,7 +7,13 @@ import { routing } from './auth.router';
 import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, routing, RouterModule],
-  declarations: [LoginComponent, LogoutComponent],
+  imports: [
+    CommonModule,
+    SharedModule,
+    routing,
+    RouterModule,
+    LoginComponent,
+    LogoutComponent,
+  ],
 })
 export class AuthModule {}

@@ -8,7 +8,7 @@ describe('TextFieldCreatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TextFieldCreatorComponent],
+      imports: [TextFieldCreatorComponent],
     }).compileComponents();
   }));
 

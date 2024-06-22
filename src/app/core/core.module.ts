@@ -9,9 +9,15 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, RouterModule, routing],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    routing,
+    NavComponent,
+    FooterComponent,
+  ],
   exports: [NavComponent, FooterComponent],
-  declarations: [NavComponent, FooterComponent],
   providers: [AuthService, AuthGuard],
 })
 export class CoreModule {}

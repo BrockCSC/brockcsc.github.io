@@ -8,7 +8,7 @@ describe('LinkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkComponent],
+      imports: [LinkComponent],
     }).compileComponents();
   }));
 

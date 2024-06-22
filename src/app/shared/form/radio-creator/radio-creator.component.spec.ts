@@ -8,7 +8,7 @@ describe('RadioCreatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RadioCreatorComponent],
+      imports: [RadioCreatorComponent],
     }).compileComponents();
   }));
 

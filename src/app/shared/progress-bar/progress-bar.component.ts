@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'csc-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
+  standalone: true,
+  imports: [NgClass],
 })
 export class ProgressBarComponent {
   @Input() progress: number;

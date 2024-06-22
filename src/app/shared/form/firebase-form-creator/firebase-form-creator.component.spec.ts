@@ -8,7 +8,7 @@ describe('FirebaseFormCreatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FirebaseFormCreatorComponent],
+      imports: [FirebaseFormCreatorComponent],
     }).compileComponents();
   }));
 

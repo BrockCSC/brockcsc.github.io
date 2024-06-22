@@ -35,8 +35,6 @@ import { MerchComponent } from './merch/merch.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-  ],
-  declarations: [
     HomeComponent,
     TeamComponent,
     ContactComponent,

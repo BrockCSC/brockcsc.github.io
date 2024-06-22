@@ -8,7 +8,7 @@ describe('DSCComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DSCComponent],
+      imports: [DSCComponent],
     }).compileComponents();
   }));
 

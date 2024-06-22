@@ -8,7 +8,7 @@ describe('UploadExistingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [UploadExistingComponent],
+      imports: [UploadExistingComponent],
     }).compileComponents();
   }));
 

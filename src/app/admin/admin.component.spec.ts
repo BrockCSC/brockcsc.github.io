@@ -8,7 +8,7 @@ describe('AdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminComponent],
+      imports: [AdminComponent],
     }).compileComponents();
   }));
 

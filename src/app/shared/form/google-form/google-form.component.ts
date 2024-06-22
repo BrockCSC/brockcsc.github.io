@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   selector: 'csc-google-form',
   templateUrl: './google-form.component.html',
   styleUrls: ['./google-form.component.css'],
+  standalone: true,
 })
 export class GoogleFormComponent implements OnInit {
   @Input() googleFormUrl;

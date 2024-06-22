@@ -2,11 +2,25 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormApiService } from '../../shared/api/form/form-api.service';
+import { MatIcon } from '@angular/material/icon';
+import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatIconButton } from '@angular/material/button';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'csc-form-responses',
   templateUrl: './form-responses.component.html',
   styleUrls: ['./form-responses.component.css'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    MatIconButton,
+    MatTooltip,
+    CdkCopyToClipboard,
+    MatIcon,
+  ],
 })
 export class FormResponsesComponent implements OnInit {
   @Input() formId: string;
@@ -27,10 +41,12 @@ export class FormResponsesComponent implements OnInit {
       this.entries = _entries;
       this.setMaxCol();
     });
-    this._formApiService.getForm(this.formId).subscribe((value) => {
-      value.fields.forEach((field) => {
-        this.descriptions[field.name] = field.description;
-      });
+    this._formApiService.getForm(this.formId).subscribe({
+      next: (value) => {
+        value.fields.forEach((field) => {
+          this.descriptions[field.name] = field.description;
+        });
+      },
     });
   }
 

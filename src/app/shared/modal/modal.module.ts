@@ -6,14 +6,14 @@ import { ModalHeaderComponent } from './modal-header/modal-header.component';
 import { ModalComponent } from './modal.component';
 
 @NgModule({
-  imports: [CommonModule],
-  exports: [
+  imports: [
+    CommonModule,
     ModalComponent,
     ModalHeaderComponent,
     ModalBodyComponent,
     ModalFooterComponent,
   ],
-  declarations: [
+  exports: [
     ModalComponent,
     ModalHeaderComponent,
     ModalBodyComponent,

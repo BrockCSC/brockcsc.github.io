@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DISCORD_LINK } from './../../shared/utils/constants';
+import { ImgComponent } from '../../shared/img/img.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'csc-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
+  standalone: true,
+  imports: [NgFor, ImgComponent],
 })
 export class FooterComponent implements OnInit {
   public imageSize = 35;

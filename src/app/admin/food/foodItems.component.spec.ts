@@ -7,7 +7,7 @@ describe('ExecsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ExecsComponent],
+      imports: [ExecsComponent],
     }).compileComponents();
   }));
 

@@ -17,14 +17,12 @@ import { EventsHomeComponent } from './home/home.component';
     routing,
     RouterModule,
     ReactiveFormsModule,
-  ],
-  exports: [],
-  declarations: [
     EventsComponent,
     EventsHomeComponent,
     EventComponent,
     EventFormComponent,
   ],
+  exports: [],
   providers: [EventDataService],
 })
 export class EventsModule {}

@@ -8,7 +8,7 @@ describe('ProminentContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProminentContainerComponent],
+      imports: [ProminentContainerComponent],
     }).compileComponents();
   }));
 

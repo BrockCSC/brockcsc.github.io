@@ -3,15 +3,26 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { MerchFormConfig } from 'environments/types';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { NgIf } from '@angular/common';
+import { InputContainerComponent } from '../../shared/input-container/input-container.component';
 
 @Component({
   providers: [UntypedFormBuilder],
   selector: 'csc-merch',
   templateUrl: './merch.component.html',
   styleUrls: ['./merch.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    InputContainerComponent,
+    NgIf,
+    ButtonDirective,
+  ],
 })
 export class MerchComponent implements OnInit {
   public form: UntypedFormGroup;

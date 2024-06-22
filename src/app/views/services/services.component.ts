@@ -3,11 +3,15 @@ import { AngularFireList } from '@angular/fire/compat/database';
 import { Food, FoodApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
 import { DISCORD_LINK } from './../../shared/utils/constants';
+import { NgFor, AsyncPipe, CurrencyPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'csc-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss'],
+  standalone: true,
+  imports: [RouterLink, NgFor, AsyncPipe, CurrencyPipe],
 })
 export class ServicesComponent implements OnInit {
   discordLink = DISCORD_LINK;

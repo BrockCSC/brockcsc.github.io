@@ -14,6 +14,7 @@ import {
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LinkComponent {
   constructor() {}

@@ -8,7 +8,7 @@ describe('GoogleFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GoogleFormComponent],
+      imports: [GoogleFormComponent],
     }).compileComponents();
   }));
 

@@ -8,7 +8,7 @@ describe('MerchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MerchComponent],
+      imports: [MerchComponent],
     }).compileComponents();
   }));
 
