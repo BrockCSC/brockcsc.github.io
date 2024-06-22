@@ -11,11 +11,12 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideCscAuth } from 'app/core/auth';
+import { provideDSCApiService } from 'app/shared/api/dsc';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes as appRoutes } from './app/app.router';
 import { environment } from './environments/environment';
-import { provideCscAuth } from 'app/core/auth';
 
 if (environment.production) {
   enableProdMode();
@@ -34,5 +35,6 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
     provideCscAuth(),
+    provideDSCApiService(),
   ],
 });
