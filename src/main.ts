@@ -13,6 +13,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { provideCscAuth } from 'app/core/auth';
 import { provideDSCApiService } from 'app/shared/api/dsc';
+import { provideEventApiService } from 'app/shared/api/event';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes as appRoutes } from './app/app.router';
@@ -36,5 +37,6 @@ bootstrapApplication(AppComponent, {
     provideAnimations(),
     provideCscAuth(),
     provideDSCApiService(),
+    provideEventApiService(),
   ],
 });
