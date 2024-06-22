@@ -13,7 +13,7 @@ import { routes as authRoutes } from './views/auth/auth.router';
 import { routes as eventRoutes } from './views/events/events.router';
 import { GuideComponent } from './views/guide/guide.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: 'admin',
