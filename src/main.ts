@@ -15,6 +15,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes as appRoutes } from './app/app.router';
 import { environment } from './environments/environment';
+import { provideCscAuth } from 'app/core/auth';
 
 if (environment.production) {
   enableProdMode();
@@ -32,5 +33,6 @@ bootstrapApplication(AppComponent, {
     provideRouter(appRoutes),
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
+    provideCscAuth(),
   ],
 });
