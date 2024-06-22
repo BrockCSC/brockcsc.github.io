@@ -18,6 +18,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes as appRoutes } from './app/app.router';
 import { environment } from './environments/environment';
+import { provideExecApiService } from 'app/shared/api/exec';
 
 if (environment.production) {
   enableProdMode();
@@ -38,5 +39,6 @@ bootstrapApplication(AppComponent, {
     provideCscAuth(),
     provideDSCApiService(),
     provideEventApiService(),
+    provideExecApiService(),
   ],
 });
