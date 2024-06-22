@@ -16,6 +16,7 @@ import { provideDSCApiService } from 'app/shared/api/dsc';
 import { provideEventApiService } from 'app/shared/api/event';
 import { provideExecApiService } from 'app/shared/api/exec';
 import { provideFoodApiService } from 'app/shared/api/food';
+import { provideStorageService } from 'app/shared/api/storage';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app/app.component';
 import { routes as appRoutes } from './app/app.router';
@@ -42,5 +43,6 @@ bootstrapApplication(AppComponent, {
     provideEventApiService(),
     provideExecApiService(),
     provideFoodApiService(),
+    provideStorageService(),
   ],
 });
