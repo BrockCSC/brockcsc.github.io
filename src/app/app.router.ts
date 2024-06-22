@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },
-  { path: 'gallery', component: GalleryComponent },
+  // { path: 'gallery', component: GalleryComponent },
   {
     path: 'events',
     loadChildren: () =>
