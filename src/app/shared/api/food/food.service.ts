@@ -7,5 +7,5 @@ export abstract class FoodApiService {
   abstract getFoodItems(): Observable<Food[]>;
   abstract updateFoodItem(key: string, value: Food): Promise<void>;
   abstract removeFoodItems(foodItems: Food[]): Promise<void>;
-  abstract queryFoodItems(query: QueryFn): Observable<Food[]>;
+  abstract getSection(section: string): Observable<Food[]>;
 }

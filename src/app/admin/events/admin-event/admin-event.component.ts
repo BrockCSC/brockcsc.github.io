@@ -1,11 +1,11 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { firstValueFrom } from 'rxjs';
 import { CscEvent, EventApiService } from '../../../shared/api';
-import { FormResponsesComponent } from '../../form-responses/form-responses.component';
 import { EventViewComponent } from '../../../shared/event-view/event-view.component';
 import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
-import { NgIf } from '@angular/common';
+import { FormResponsesComponent } from '../../form-responses/form-responses.component';
 
 @Component({
   selector: 'csc-admin-event',
@@ -30,13 +30,13 @@ export class AdminEventComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._route.params.pipe(take(1)).subscribe((params) => {
+    firstValueFrom(this._route.params).then((params) => {
       this.id = params['id'];
     });
-    this._eventApiService.getEventByKeyOnce(this.id).subscribe({
-      next: (value) => {
+    firstValueFrom(this._eventApiService.getEventByKey(this.id)).then(
+      (value) => {
         this.event = value;
-      },
-    });
+      }
+    );
   }
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CscEvent, EventApiService } from 'app/shared/api';
 import { EventDataService } from 'app/views/events/event-data.service';
+import { firstValueFrom } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { EventViewComponent } from '../../../shared/event-view/event-view.component';
 import { FirebaseFormComponent } from '../../../shared/form/firebase-form/firebase-form.component';
@@ -49,16 +50,16 @@ export class EventComponent implements OnInit {
       this.loaded = true;
       this.event = this._eventDataService.getEvent();
     } else {
-      this._eventApiService.getEventByKeyOnce(this.id).subscribe({
-        next: (event) => {
+      firstValueFrom(this._eventApiService.getEventByKey(this.id)).then(
+        (event) => {
           this.loaded = true;
           if (event as any) {
             this.event = event as CscEvent;
           } else {
             this.error = `Event doesn't exist.`;
           }
-        },
-      });
+        }
+      );
     }
   }
 }

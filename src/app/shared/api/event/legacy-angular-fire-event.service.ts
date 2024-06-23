@@ -4,8 +4,8 @@ import {
   AngularFireList,
   QueryFn,
 } from '@angular/fire/compat/database';
-import { Observable, Subscribable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { StorageService } from '../storage/storage.service';
 import { listWithKeys, objectWithKeys } from '../util';
 import { CscEvent } from './event';
@@ -80,10 +80,6 @@ export class LegacyAngularFireEventApiService extends EventApiService {
     return objectWithKeys(
       this._db.object(`${this._path}/${key}`)
     ) as Observable<CscEvent>;
-  }
-
-  public getEventByKeyOnce(key: string): Subscribable<CscEvent> {
-    return this.getEventByKey(key).pipe(take(1));
   }
 
   private getTodayTimestamp(): number {

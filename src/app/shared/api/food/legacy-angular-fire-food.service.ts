@@ -44,11 +44,17 @@ export class LegacyAngularFireFoodApiService extends FoodApiService {
     await this.removeFoodItemByKey(food.$key);
   }
 
+  getSection(section: string): Observable<Food[]> {
+    return this.queryFoodItems((ref) => {
+      return ref.orderByChild('section').equalTo(section);
+    });
+  }
+
   private async removeFoodItemByKey(key: string): Promise<void> {
     await this.foodItems.remove(key);
   }
 
-  public queryFoodItems(query: QueryFn): Observable<Food[]> {
+  private queryFoodItems(query: QueryFn): Observable<Food[]> {
     return listWithKeys(this._db.list(this._path, query));
   }
 }

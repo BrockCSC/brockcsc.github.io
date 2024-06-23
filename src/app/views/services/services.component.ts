@@ -23,9 +23,7 @@ export class ServicesComponent implements OnInit {
   ngOnInit() {
     this.sectionData = this.sections.map((title) => {
       return {
-        data: this._foodApiService.queryFoodItems((ref) => {
-          return ref.orderByChild('section').equalTo(title);
-        }),
+        data: this._foodApiService.getSection(title),
         title,
       };
     });

@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState, signInWithPopup, signOut } from '@angular/fire/auth';
-import { Database, object, ref } from '@angular/fire/database';
-import { GoogleAuthProvider } from 'firebase/auth';
+import {
+  Auth,
+  GoogleAuthProvider,
+  authState,
+  signInWithPopup,
+  signOut,
+} from '@angular/fire/auth';
+import { Database, objectVal, ref } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { AuthService, User } from './auth.service';
@@ -10,11 +15,10 @@ import { AuthService, User } from './auth.service';
   providedIn: 'root',
 })
 export class AngularFireAuthService extends AuthService {
-  private _path;
+  private _path = 'user';
 
   constructor(private auth: Auth, private db: Database) {
     super();
-    this._path = 'user';
   }
 
   async googleLogin(): Promise<void> {
@@ -37,13 +41,10 @@ export class AngularFireAuthService extends AuthService {
   }
 
   private getUserById(uid: string): Observable<User> {
-    return object(ref(this.db, `${this._path}/${uid}`)).pipe(
-      map((obj) => {
-        const data = obj.snapshot.val() as any;
-        if (data.admin === null) {
-          data.admin = false;
-        }
-        return data;
+    return objectVal<User>(ref(this.db, `${this._path}/${uid}`)).pipe(
+      map((user) => {
+        user.admin ??= false;
+        return user;
       })
     );
   }
