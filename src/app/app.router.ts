@@ -1,4 +1,4 @@
-import { mapToCanActivate, RouterModule, Routes } from '@angular/router';
+import { mapToCanActivate, Routes } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import {
   ContactComponent,
@@ -18,15 +18,11 @@ export const routes: Routes = [
   {
     path: 'admin',
     children: adminRoutes,
-    // loadChildren: () =>
-    //   import('app/admin/admin.module').then((m) => m.AdminModule),
     canActivate: mapToCanActivate([AuthGuard]),
   },
   {
     path: 'auth',
     children: authRoutes,
-    // loadChildren: () =>
-    //   import('app/views/auth/auth.module').then((m) => m.AuthModule),
   },
   { path: 'home', component: HomeComponent },
   // { path: 'merch', component: MerchComponent },
@@ -41,11 +37,7 @@ export const routes: Routes = [
   {
     path: 'events',
     children: eventRoutes,
-    // loadChildren: () =>
-    //   import('app/views/events/events.module').then((m) => m.EventsModule),
   },
   // { path: 'exec-application', component: ExecApplicationsComponent },
   { path: '**', redirectTo: 'home' },
 ];
-
-export const routing = RouterModule.forRoot(routes);

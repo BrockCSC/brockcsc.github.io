@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { LoginComponent } from 'app/views/auth/login/login.component';
 import { LogoutComponent } from 'app/views/auth/logout/logout.component';
 
@@ -8,5 +8,3 @@ export const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: '**', redirectTo: '' },
 ];
-
-export const routing = RouterModule.forChild(routes);

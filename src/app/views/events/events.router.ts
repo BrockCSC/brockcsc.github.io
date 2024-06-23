@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events.component';
 import { EventsHomeComponent } from './home/home.component';
@@ -14,4 +14,3 @@ export const routes: Routes = [
     ],
   },
 ];
-export const routing = RouterModule.forChild(routes);
