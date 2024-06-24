@@ -1,7 +1,7 @@
 @use 'sass:meta';
 // Global styles
 @use 'variables.scss' as vars;
-@import '~normalize.css/normalize.css';
+@import 'normalize.css/normalize.css';
 @include meta.load-css('styles/_grid.scss');
 @include meta.load-css('styles/_table.scss');
 @include meta.load-css('styles/_checkbox.scss');
