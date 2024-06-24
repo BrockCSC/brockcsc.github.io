@@ -47,7 +47,7 @@ import { Component, Input, OnInit } from '@angular/core';
   ],
 })
 export class ImgSlideshowComponent implements OnInit {
-  @Input() srcs: string[];
+  @Input() srcs?: string[];
   @Input() defaultImage: string;
   @Input() slideDelay = 8000; // ms
   currentSlide = 0;
@@ -58,7 +58,12 @@ export class ImgSlideshowComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
-      this.currentSlide = (this.currentSlide + 1) % this.srcs?.length ?? 0;
+      const srclen = this.srcs?.length ?? 0;
+      if (srclen === 0) {
+        this.currentSlide = this.currentSlide + 1;
+      } else {
+        this.currentSlide = (this.currentSlide + 1) % srclen;
+      }
     }, this.slideDelay);
   }
 
