@@ -8,7 +8,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EventsHomeComponent],
+      imports: [EventsHomeComponent],
     }).compileComponents();
   }));
 

@@ -1,12 +1,30 @@
+import { AsyncPipe, CurrencyPipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/compat/database';
 import { Food, FoodApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
+import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { CheckboxComponent } from '../../shared/checkbox/checkbox.component';
+import { AddModalComponent } from './add-modal/add-modal.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { RemoveModalComponent } from './remove-modal/remove-modal.component';
 
 @Component({
   selector: 'csc-food',
   templateUrl: './foodItems.component.html',
   styleUrls: ['./foodItems.component.scss'],
+  standalone: true,
+  imports: [
+    ButtonDirective,
+    ButtonComponent,
+    NgFor,
+    CheckboxComponent,
+    AddModalComponent,
+    RemoveModalComponent,
+    EditModalComponent,
+    AsyncPipe,
+    CurrencyPipe,
+  ],
 })
 export class FoodItemsComponent implements OnInit {
   foodItems: Observable<Food[]>;

@@ -1,7 +1,7 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 $exec-info-text-color: #515151;
-$tooltip-exec-name-color: $text-white;
+$tooltip-exec-name-color: vars.$text-white;
 $tooltip-exec-desc-color: #a6a6a6;
 
 .row {

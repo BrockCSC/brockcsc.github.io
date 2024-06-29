@@ -1,4 +1,4 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 section {
   display: flex;
@@ -15,11 +15,11 @@ section:last-child {
 }
 
 .odd {
-  background-color: $google-grey;
+  background-color: vars.$google-grey;
 }
 
 .right-col {
-  @media #{$desktop} {
+  @media #{vars.$desktop} {
     padding-left: 1rem;
   }
 }
@@ -42,11 +42,11 @@ img {
   csc-event-card {
     padding-bottom: 0;
     padding-right: 0;
-    @media #{$mobile} {
+    @media #{vars.$mobile} {
       padding-left: 0;
     }
 
-    @media #{$tablet} {
+    @media #{vars.$tablet} {
       padding-left: 0;
     }
   }
@@ -76,5 +76,5 @@ img {
 }
 
 .csc-dsc {
-  background-color: $google-grey;
+  background-color: vars.$google-grey;
 }

@@ -1,12 +1,35 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { AnyCastPipe } from '../../any-cast.pipe';
 import { Field, FieldType, FormInfo } from '../../api/form/form';
 import { FormApiService } from '../../api/form/form-api.service';
+import { ButtonComponent } from '../../button/button.component';
+import { ButtonDirective } from '../../button/button.directive';
+import { CheckboxComponent } from '../../checkbox/checkbox.component';
+import { InputContainerComponent } from '../../input-container/input-container.component';
+import { SpinnerComponent } from '../../spinner/spinner.component';
 
 @Component({
   selector: 'csc-firebase-form',
+  standalone: true,
   templateUrl: './firebase-form.component.html',
-  styleUrls: ['./firebase-form.component.scss'],
+  imports: [
+    NgIf,
+    ReactiveFormsModule,
+    NgFor,
+    InputContainerComponent,
+    CheckboxComponent,
+    ButtonComponent,
+    ButtonDirective,
+    SpinnerComponent,
+    AnyCastPipe,
+  ],
 })
 export class FirebaseFormComponent implements OnInit {
   public form: UntypedFormGroup;
@@ -41,11 +64,13 @@ export class FirebaseFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._formApiService.getFormOnce(this.formId).subscribe((value) => {
-      this.formInfo = value;
-      if (value) {
-        this.initForm();
-      }
+    this._formApiService.getFormOnce(this.formId).subscribe({
+      next: (value) => {
+        this.formInfo = value;
+        if (value) {
+          this.initForm();
+        }
+      },
     });
   }
 

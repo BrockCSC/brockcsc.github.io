@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -7,11 +8,14 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { CscFile } from 'app/shared/api';
+import { InputContainerComponent } from '../../input-container/input-container.component';
 
 @Component({
   selector: 'csc-upload-existing',
   templateUrl: './upload-existing.component.html',
   styleUrls: ['./upload-existing.component.scss'],
+  standalone: true,
+  imports: [InputContainerComponent, NgFor, NgIf],
 })
 export class UploadExistingComponent implements OnChanges {
   @Input() data: CscFile[]; // Read when ngOnChanges is triggered.

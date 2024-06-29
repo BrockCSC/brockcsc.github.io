@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { FoodItemsComponent } from 'app/admin/food/foodItems.component';
 import { HomeComponent } from 'app/admin/home/home.component';
 import { AdminComponent } from './admin.component';
@@ -8,7 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { ExecsComponent } from './execs/execs.component';
 import { FilesComponent } from './files/files.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
@@ -25,5 +25,3 @@ const routes: Routes = [
     ],
   },
 ];
-
-export const routing = RouterModule.forChild(routes);

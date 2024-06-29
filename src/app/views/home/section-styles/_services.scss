@@ -1,7 +1,9 @@
+@use 'variables.scss' as vars;
+
 #csc-services {
   padding-top: 25px;
-  background-color: $maroon;
-  color: $text-white;
+  background-color: vars.$maroon;
+  color: vars.$text-white;
   font-size: 16px;
   .row {
     padding: 10px 0px;
@@ -12,7 +14,7 @@
   }
 
   a {
-    color: $text-white;
+    color: vars.$text-white;
     text-decoration: none;
   }
 }

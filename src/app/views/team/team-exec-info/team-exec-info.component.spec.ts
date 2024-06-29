@@ -8,7 +8,7 @@ describe('TeamExecInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TeamExecInfoComponent],
+      imports: [TeamExecInfoComponent],
     }).compileComponents();
   });
 

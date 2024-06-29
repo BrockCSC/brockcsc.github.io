@@ -1,20 +1,16 @@
-import {
-  AfterViewChecked,
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'li[csclink], a[csclink]',
-  templateUrl: './link.component.html',
+  template: `
+    <div class="csc-link">
+      <ng-content></ng-content>
+      <span class="csc-link-line"></span>
+    </div>
+  `,
   styleUrls: ['./link.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
-export class LinkComponent {
-  constructor() {}
-}
+export class LinkComponent {}

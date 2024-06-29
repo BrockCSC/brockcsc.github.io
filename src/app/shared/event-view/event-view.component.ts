@@ -1,4 +1,6 @@
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { ButtonDirective } from '../button/button.directive';
 
 const url = (path: string) => {
   return `url(${path})`;
@@ -8,6 +10,8 @@ const url = (path: string) => {
   selector: 'csc-event-view',
   templateUrl: './event-view.component.html',
   styleUrls: ['./event-view.component.scss'],
+  standalone: true,
+  imports: [NgIf, ButtonDirective, NgFor, DatePipe],
 })
 export class EventViewComponent {
   @Input() event;

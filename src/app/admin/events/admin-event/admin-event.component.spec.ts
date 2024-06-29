@@ -8,7 +8,7 @@ describe('AdminEventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminEventComponent],
+      imports: [AdminEventComponent],
     }).compileComponents();
   }));
 

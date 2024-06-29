@@ -1,7 +1,8 @@
-@import 'src/variables.scss';
+@use 'sass:color';
+@use 'variables.scss' as vars;
 
-$exec-info-text-color: $text-white;
-$tooltip-exec-name-color: $text-white;
+$exec-info-text-color: vars.$text-white;
+$tooltip-exec-name-color: vars.$text-white;
 $tooltip-exec-desc-color: #a6a6a6;
 $img-width: 200px;
 $img-height: 200px;
@@ -85,7 +86,7 @@ $img-roundness: 20px;
 }
 
 .tooltip-exec-title {
-  color: lighten($tooltip-exec-desc-color, 10%);
+  color: color.adjust($tooltip-exec-desc-color, $lightness: 10%);
 }
 
 .tooltip-exec-desc {

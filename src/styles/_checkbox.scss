@@ -1,4 +1,4 @@
-@import 'node_modules/magic-check/sass/_variable.scss';
-@import 'src/variables.scss';
-$magic-main-color: $maroon;
-@import 'node_modules/magic-check/sass/magic-check.scss';
+@use 'variables.scss' as vars;
+@use 'magic-check/sass/variable.scss';
+variable.$magic-main-color: vars.$maroon;
+@use 'magic-check/sass/magic-check.scss';

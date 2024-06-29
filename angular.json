@@ -9,23 +9,26 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "aot": true,
-            "outputPath": "dist",
+            "outputPath": {
+              "base": "dist",
+              "browser": ""
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/manifest.json"
-            ],
+            "polyfills": ["zone.js"],
+            "assets": ["src/assets", "src/manifest.json"],
             "styles": [
               "src/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules/", "src/"]
+            },
+            "scripts": [],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -41,8 +44,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -55,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "csc:build"
+            "buildTarget": "csc:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "csc:build:production"
+              "buildTarget": "csc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "csc:build"
+            "buildTarget": "csc:build"
           }
         },
         "test": {
@@ -74,26 +75,20 @@
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": "zone.js",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
               "src/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "assets": [
-              "src/assets",
-              "src/manifest.json"
-            ]
+            "assets": ["src/assets", "src/manifest.json"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -113,10 +108,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "e2e/**/*.ts",
-              "e2e/**/*.html"
-            ]
+            "lintFilePatterns": ["e2e/**/*.ts", "e2e/**/*.html"]
           }
         }
       }

@@ -6,6 +6,7 @@ import { AuthService } from 'app/core/auth/auth.service';
   selector: 'csc-logout',
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.scss'],
+  standalone: true,
 })
 export class LogoutComponent {
   public message: string;

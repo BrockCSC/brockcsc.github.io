@@ -1,4 +1,5 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
+
 @-webkit-keyframes animatetop {
   from {
     top: -100%;
@@ -50,7 +51,7 @@
   animation-name: animatetop;
   animation-duration: 0.5s;
   i {
-    color: $text-white;
+    color: vars.$text-white;
     position: absolute;
     top: 5px;
     right: 5px;

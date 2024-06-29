@@ -1,5 +1,6 @@
+import { AsyncPipe, CurrencyPipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/compat/database';
+import { RouterLink } from '@angular/router';
 import { Food, FoodApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
 import { DISCORD_LINK } from './../../shared/utils/constants';
@@ -8,6 +9,8 @@ import { DISCORD_LINK } from './../../shared/utils/constants';
   selector: 'csc-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss'],
+  standalone: true,
+  imports: [RouterLink, NgFor, AsyncPipe, CurrencyPipe],
 })
 export class ServicesComponent implements OnInit {
   discordLink = DISCORD_LINK;
@@ -20,9 +23,7 @@ export class ServicesComponent implements OnInit {
   ngOnInit() {
     this.sectionData = this.sections.map((title) => {
       return {
-        data: this._foodApiService.queryFoodItems((ref) => {
-          return ref.orderByChild('section').equalTo(title);
-        }),
+        data: this._foodApiService.getSection(title),
         title,
       };
     });

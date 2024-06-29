@@ -1,9 +1,11 @@
+@use 'variables.scss' as vars;
+
 #csc-hero {
   padding-top: 0px;
   padding-bottom: 0px;
   a {
     margin-top: 1.5rem;
-    color: $text-white;
+    color: vars.$text-white;
     text-decoration: none;
   }
 }
@@ -11,14 +13,14 @@
 .csc-hero-container {
   background-position: center;
   background-size: cover;
-  height: $main-hero-height;
+  height: vars.$main-hero-height;
   position: relative;
   margin-top: -5.375em;
 }
 
 .csc-hero-overlay {
   width: 100%;
-  height: $main-hero-height;
+  height: vars.$main-hero-height;
   position: absolute;
   left: 0;
   top: 0;
@@ -43,10 +45,10 @@
   position: relative;
   top: 30%;
   left: 0%;
-  color: $text-white;
-  @media #{$mobile} {
+  color: vars.$text-white;
+  @media #{vars.$mobile} {
     text-align: center;
-    line-height: $extraLargeHeading;
+    line-height: vars.$extraLargeHeading;
   }
 }
 
@@ -60,7 +62,7 @@
 }
 
 .csc-hero-heading-2 {
-  font-size: $extraLargeHeading;
+  font-size: vars.$extraLargeHeading;
 }
 
 .csc-hero-heading-3 {

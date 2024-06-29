@@ -3,7 +3,9 @@ import { CscEvent, EventApiService } from 'app/shared/api';
 import { Subscription } from 'rxjs';
 import { EventContainer } from './eventContainer';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class EventDataService {
   private event: CscEvent;
   private upcomingEvents: EventContainer;

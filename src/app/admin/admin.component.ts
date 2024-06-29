@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'csc-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
+  standalone: true,
+  imports: [NgFor, RouterLinkActive, RouterLink, RouterOutlet],
 })
 export class AdminComponent {
   public links: Link[] = [

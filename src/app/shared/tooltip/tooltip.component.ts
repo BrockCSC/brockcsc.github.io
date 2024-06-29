@@ -4,17 +4,21 @@ import {
   Component,
   ElementRef,
   Inject,
-  Injectable,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import Popper from 'popper.js';
 
 @Component({
   selector: 'csc-tooltip',
-  templateUrl: './tooltip.component.html',
+  standalone: true,
   styleUrls: ['./tooltip.component.scss'],
+  template: `
+    <div #tooltip class="tooltip">
+      <ng-content></ng-content>
+      <span #tooltipArrow class="tooltip-arrow"></span>
+    </div>
+  `,
 })
 export class TooltipComponent implements AfterViewInit {
   @Input() forId: string;
@@ -89,8 +93,7 @@ export class TooltipComponent implements AfterViewInit {
     }
 
     this._$tooltipArrow.style[`${direction}`] = '100%';
-    this._$tooltipArrow.style[
-      `border${this.capitalize(direction)}`
-    ] = setBorder;
+    this._$tooltipArrow.style[`border${this.capitalize(direction)}`] =
+      setBorder;
   }
 }

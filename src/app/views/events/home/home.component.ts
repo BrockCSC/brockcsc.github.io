@@ -3,11 +3,16 @@ import { Router } from '@angular/router';
 import { CscEvent } from 'app/shared/api';
 import { EventDataService } from 'app/views/events/event-data.service';
 import { EventContainer } from '../eventContainer';
+import { EventCardComponent } from '../../../shared/event-card/event-card.component';
+import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'csc-events-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  standalone: true,
+  imports: [NgIf, SpinnerComponent, NgFor, EventCardComponent],
 })
 export class EventsHomeComponent implements OnInit, OnDestroy {
   public upcomingEvents: EventContainer;

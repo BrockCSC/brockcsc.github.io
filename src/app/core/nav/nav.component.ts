@@ -1,16 +1,18 @@
-import { Location } from '@angular/common';
+import { AsyncPipe, Location, NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+} from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
 import { ScrollService } from 'app/shared/services/scroll.service';
-import { combineLatest, Observable } from 'rxjs';
-import { map, startWith, switchMap } from 'rxjs/operators';
+import { Observable, combineLatest } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { LinkComponent } from '../../shared/link/link.component';
 
 const WHITE = 'white';
 const MAROON = '#AA3B3B';
@@ -20,6 +22,18 @@ const ANIMATION_END_Y = 30;
   selector: 'csc-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
+  standalone: true,
+  imports: [
+    NgClass,
+    NgIf,
+    RouterLink,
+    ButtonDirective,
+    ButtonComponent,
+    NgFor,
+    LinkComponent,
+    RouterLinkActive,
+    AsyncPipe,
+  ],
 })
 export class NavComponent implements OnInit {
   public logoSrc = 'assets/logo.svg';
