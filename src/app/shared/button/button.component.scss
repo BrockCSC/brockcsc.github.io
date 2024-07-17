@@ -1,4 +1,6 @@
-@import 'src/variables.scss';
+@use 'sass:color';
+@use 'variables.scss' as vars;
+
 // Mixin to reset default browser styles
 // borders, outlines, grey-background etc
 @mixin button-reset {
@@ -19,21 +21,21 @@
   padding-right: $pad-horizontal;
   padding-bottom: $pad-vertical;
   padding-left: $pad-horizontal;
-  background-color: $maroon;
-  color: $text-white;
-  transition: background-color 200ms $ease-in-out-curve-function;
+  background-color: vars.$maroon;
+  color: vars.$text-white;
+  transition: background-color 200ms vars.$ease-in-out-curve-function;
   &:hover {
-    background-color: darken($maroon, 10%);
+    background-color: color.adjust(vars.$maroon, $lightness: -10%);
   }
   &[disabled] {
-    background-color: $dark-grey;
+    background-color: vars.$dark-grey;
     cursor: default;
   }
 }
 
 .success {
-  background-color: $green;
+  background-color: vars.$green;
   &:hover {
-    background-color: darken($green, 5%);
+    background-color: color.adjust(vars.$green, $lightness: -5%);
   }
 }

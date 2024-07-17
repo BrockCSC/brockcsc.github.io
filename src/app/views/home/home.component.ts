@@ -1,15 +1,34 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { CscEvent, CscFile, EventApiService } from 'app/shared/api';
+import { RouterLink } from '@angular/router';
+import { CscEvent, EventApiService } from 'app/shared/api';
+import { FilesApiService } from 'app/shared/api/files/files-api.service';
 import { ImageConfig, ImageStyleConfig } from 'app/shared/imageConfig';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { EventCardComponent } from '../../shared/event-card/event-card.component';
+import { ImgSlideshowComponent } from '../../shared/img-slideshow/img-slideshow.component';
+import { TeamPreviewComponent } from '../team/team-preview/team-preview.component';
 import { HomeImageConfigs } from './imageConfigs';
 
 @Component({
   selector: 'csc-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  standalone: true,
+  imports: [
+    ImgSlideshowComponent,
+    RouterLink,
+    NgIf,
+    EventCardComponent,
+    NgFor,
+    TeamPreviewComponent,
+    ButtonDirective,
+    ButtonComponent,
+    AsyncPipe,
+  ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   events: Row[] = [];
@@ -26,16 +45,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   homeSlideshowSrcs$: Observable<string[]>;
   heroStyleConfig: ImageStyleConfig;
 
-  constructor(private _eventApi: EventApiService, _db: AngularFireDatabase) {
-    this.homeSlideshowSrcs$ = _db
-      .list<CscFile>('files/homeSlideshow')
-      .valueChanges()
-      .pipe(
-        map((files) => {
-          // First one is always the static hero image, initial temp lazy load background is set for it.
-          return [this.images.hero.src, ...files.map((file) => file.url)];
-        })
-      );
+  constructor(private _eventApi: EventApiService, filesApi: FilesApiService) {
+    this.homeSlideshowSrcs$ = filesApi.getHomeSlideshowFiles().pipe(
+      map((files) => {
+        // First one is always the static hero image, initial temp lazy load background is set for it.
+        return [this.images.hero.src, ...files.map((file) => file.url)];
+      })
+    );
   }
 
   ngOnInit() {

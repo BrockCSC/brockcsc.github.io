@@ -1,5 +1,6 @@
-@import 'src/variables.scss';
-$border: 1px solid $dark-grey;
+@use 'variables.scss' as vars;
+
+$border: 1px solid vars.$dark-grey;
 
 .csc-contact {
   display: flex;
@@ -7,25 +8,25 @@ $border: 1px solid $dark-grey;
   margin: 50px auto;
   > div,
   > form {
-    border: 1px solid $dark-grey;
+    border: 1px solid vars.$dark-grey;
     padding: 15px;
   }
   h3 {
     margin-top: 0px;
     margin-bottom: 0px;
   }
-  @media #{$mobile} {
+  @media #{vars.$mobile} {
     margin-top: 15px;
   }
 }
 
 .csc-contact-form {
-  background-color: $light-grey;
+  background-color: vars.$light-grey;
 }
 
 .csc-contact-info {
-  background-color: $maroon;
-  color: $text-white;
+  background-color: vars.$maroon;
+  color: vars.$text-white;
   p {
     margin: 0px;
   }

@@ -1,4 +1,4 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 .csc-link {
   display: inline-block;
@@ -23,7 +23,7 @@
 }
 
 .white-background .csc-link-line {
-  background-color: $csc-maroon;
+  background-color: vars.$csc-maroon;
 }
 
 .csc-link:hover .csc-link-line {

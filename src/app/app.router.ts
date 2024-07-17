@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { mapToCanActivate, Routes } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import {
   ContactComponent,
@@ -7,24 +7,22 @@ import {
   ServicesComponent,
   SignupComponent,
   TeamComponent,
-  ExecApplicationsComponent,
-  MerchComponent,
 } from 'app/views';
-import { GalleryComponent } from './views/gallery/gallery.component';
+import { routes as adminRoutes } from './admin/admin.router';
+import { routes as authRoutes } from './views/auth/auth.router';
+import { routes as eventRoutes } from './views/events/events.router';
 import { GuideComponent } from './views/guide/guide.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: 'admin',
-    loadChildren: () =>
-      import('app/admin/admin.module').then((m) => m.AdminModule),
-    canActivate: [AuthGuard],
+    children: adminRoutes,
+    canActivate: mapToCanActivate([AuthGuard]),
   },
   {
     path: 'auth',
-    loadChildren: () =>
-      import('app/views/auth/auth.module').then((m) => m.AuthModule),
+    children: authRoutes,
   },
   { path: 'home', component: HomeComponent },
   // { path: 'merch', component: MerchComponent },
@@ -35,14 +33,11 @@ const routes: Routes = [
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },
-  { path: 'gallery', component: GalleryComponent },
+  // { path: 'gallery', component: GalleryComponent },
   {
     path: 'events',
-    loadChildren: () =>
-      import('app/views/events/events.module').then((m) => m.EventsModule),
+    children: eventRoutes,
   },
   // { path: 'exec-application', component: ExecApplicationsComponent },
   { path: '**', redirectTo: 'home' },
 ];
-
-export const routing = RouterModule.forRoot(routes);

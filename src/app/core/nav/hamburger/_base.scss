@@ -1,15 +1,17 @@
+@use 'hamburger';
+
 // Hamburger
 // ==================================================
 @use 'sass:math';
 
 .hamburger {
-  padding: $hamburger-padding-y $hamburger-padding-x;
+  padding: hamburger.$hamburger-padding-y hamburger.$hamburger-padding-x;
   display: inline-block;
   cursor: pointer;
 
   transition-property: opacity, filter;
-  transition-duration: $hamburger-hover-transition-duration;
-  transition-timing-function: $hamburger-hover-transition-timing-function;
+  transition-duration: hamburger.$hamburger-hover-transition-duration;
+  transition-timing-function: hamburger.$hamburger-hover-transition-timing-function;
 
   // Normalize (<button>)
   font: inherit;
@@ -22,17 +24,18 @@
   overflow: visible;
 
   &:hover {
-    @if $hamburger-hover-use-filter == true {
-      filter: $hamburger-hover-filter;
+    @if hamburger.$hamburger-hover-use-filter == true {
+      filter: hamburger.$hamburger-hover-filter;
     } @else {
-      opacity: $hamburger-hover-opacity;
+      opacity: hamburger.$hamburger-hover-opacity;
     }
   }
 }
 
 .hamburger-box {
-  width: $hamburger-layer-width;
-  height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
+  width: hamburger.$hamburger-layer-width;
+  height: hamburger.$hamburger-layer-height * 3 +
+    hamburger.$hamburger-layer-spacing * 2;
   display: inline-block;
   position: relative;
 }
@@ -40,15 +43,15 @@
 .hamburger-inner {
   display: block;
   top: 50%;
-  margin-top: math.div($hamburger-layer-height, -2);
+  margin-top: math.div(hamburger.$hamburger-layer-height, -2);
 
   &,
   &::before,
   &::after {
-    width: $hamburger-layer-width;
-    height: $hamburger-layer-height;
-    background-color: $hamburger-layer-color;
-    border-radius: $hamburger-layer-border-radius;
+    width: hamburger.$hamburger-layer-width;
+    height: hamburger.$hamburger-layer-height;
+    background-color: hamburger.$hamburger-layer-color;
+    border-radius: hamburger.$hamburger-layer-border-radius;
     position: absolute;
     transition-property: transform;
     transition-duration: 300ms;
@@ -62,11 +65,15 @@
   }
 
   &::before {
-    top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    top: (
+        hamburger.$hamburger-layer-spacing + hamburger.$hamburger-layer-height
+      ) * -1;
   }
 
   &::after {
-    bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    bottom: (
+        hamburger.$hamburger-layer-spacing + hamburger.$hamburger-layer-height
+      ) * -1;
   }
 }
 
@@ -75,10 +82,10 @@
   &,
   &::before,
   &::after {
-    width: $hamburger-layer-width;
-    height: $hamburger-layer-height;
+    width: hamburger.$hamburger-layer-width;
+    height: hamburger.$hamburger-layer-height;
     background-color: black;
-    border-radius: $hamburger-layer-border-radius;
+    border-radius: hamburger.$hamburger-layer-border-radius;
     position: absolute;
     transition-property: transform;
     transition-duration: 300ms;

@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'anyCast',
+  standalone: true,
 })
 export class AnyCastPipe implements PipeTransform {
   transform(value: any, ...args: any[]): any {

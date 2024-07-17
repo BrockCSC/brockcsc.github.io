@@ -5,10 +5,11 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, NgModule, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/compat/database';
+import { AsyncPipe, NgFor } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Exec, ExecApiService } from 'app/shared/api';
 import { Observable } from 'rxjs';
+import { TeamExecInfoComponent } from './team-exec-info/team-exec-info.component';
 
 @Component({
   selector: 'csc-team',
@@ -36,6 +37,8 @@ import { Observable } from 'rxjs';
       transition('hide => show', animate('1000ms ease-in')),
     ]),
   ],
+  standalone: true,
+  imports: [NgFor, TeamExecInfoComponent, AsyncPipe],
 })
 export class TeamComponent implements OnInit {
   execs: Observable<Exec[]>;

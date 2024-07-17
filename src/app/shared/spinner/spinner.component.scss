@@ -1,4 +1,4 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 .spinner {
   margin: 10px auto;
@@ -9,7 +9,7 @@
 }
 
 .spinner > div {
-  background-color: $maroon;
+  background-color: vars.$maroon;
   height: 100%;
   width: 6px;
   display: inline-block;

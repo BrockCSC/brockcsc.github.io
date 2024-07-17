@@ -5,12 +5,28 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { NgFor } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'csc-img-slideshow',
-  templateUrl: './img-slideshow.component.html',
+  standalone: true,
+  imports: [NgFor],
   styleUrls: ['./img-slideshow.component.scss'],
+  template: `
+    <div
+      class="csc-hero-image"
+      [class.first-load]="firstLoad"
+      [style.background-image]="!firstLoad ? defaultUrl() : 'none'"
+    >
+      <img
+        *ngFor="let src of srcs"
+        (load)="loaded(src)"
+        [@fade]="fadeIn(src) ? 'show' : 'hide'"
+        [src]="src"
+      />
+    </div>
+  `,
   animations: [
     trigger('fade', [
       state(
@@ -31,7 +47,7 @@ import { Component, Input, OnInit } from '@angular/core';
   ],
 })
 export class ImgSlideshowComponent implements OnInit {
-  @Input() srcs: string[];
+  @Input() srcs?: string[];
   @Input() defaultImage: string;
   @Input() slideDelay = 8000; // ms
   currentSlide = 0;
@@ -42,7 +58,12 @@ export class ImgSlideshowComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
-      this.currentSlide = (this.currentSlide + 1) % this.srcs?.length ?? 0;
+      const srclen = this.srcs?.length ?? 0;
+      if (srclen === 0) {
+        this.currentSlide = this.currentSlide + 1;
+      } else {
+        this.currentSlide = (this.currentSlide + 1) % srclen;
+      }
     }, this.slideDelay);
   }
 

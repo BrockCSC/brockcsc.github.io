@@ -35,7 +35,7 @@ export class GalleryComponent {
   galleryImages$: Observable<NgxGalleryImage[]>;
 
   constructor(filesApi: FilesApiService) {
-    this.galleryImages$ = filesApi.gallery$.pipe(
+    this.galleryImages$ = filesApi.gallery$().pipe(
       map((files) => {
         return files.map((file) => ({
           medium: file.url,

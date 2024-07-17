@@ -8,7 +8,7 @@ describe('LogoutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LogoutComponent],
+      imports: [LogoutComponent],
     }).compileComponents();
   }));
 

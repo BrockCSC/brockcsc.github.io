@@ -1,4 +1,4 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 #csc-social-links {
   border-top: 1px solid #cccccc;
   .csc-social-desc {
@@ -29,12 +29,12 @@
       margin-left: 15px;
     }
   }
-  @media #{$mobile} {
+  @media #{vars.$mobile} {
     .csc-social-desc {
       display: none;
     }
   }
-  @media #{$tablet} {
+  @media #{vars.$tablet} {
     .csc-social-desc {
       display: none;
     }
@@ -45,8 +45,8 @@
   height: 80px;
   width: 100%;
   font-size: 14px;
-  color: $text-white;
-  background-color: $navy;
+  color: vars.$text-white;
+  background-color: vars.$navy;
 }
 
 .csc-footer-text {
@@ -57,13 +57,13 @@
     margin-right: 10px;
   }
   a {
-    color: $text-white;
+    color: vars.$text-white;
     text-decoration: underline;
   }
 }
 
 .heart {
-  color: $pink;
+  color: vars.$pink;
   margin-left: 2px;
   margin-right: 2px;
 }

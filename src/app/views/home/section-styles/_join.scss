@@ -1,5 +1,7 @@
+@use 'variables.scss' as vars;
+
 #csc-join {
-  background-color: $light-grey;
+  background-color: vars.$light-grey;
   .csc-join-container {
     text-align: center;
   }

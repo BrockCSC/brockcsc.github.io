@@ -1,4 +1,5 @@
-@import 'src/variables.scss';
+@use 'sass:color';
+@use 'variables' as vars;
 
 table {
   width: 100%;
@@ -7,10 +8,10 @@ table {
 }
 
 thead {
-  font-size: $subHeading;
+  font-size: vars.$subHeading;
   color: rgba(0, 0, 0, 0.75);
-  background-color: darken($grey, 10%);
-  border: 1px solid darken($grey, 15%);
+  background-color: color.adjust(vars.$grey, $lightness: -10%);
+  border: 1px solid color.adjust(vars.$grey, $lightness: -15%);
 }
 
 th {
@@ -23,7 +24,7 @@ td {
 }
 
 tr {
-  border: 1px solid darken($grey, 15%);
+  border: 1px solid color.adjust(vars.$grey, $lightness: -15%);
 }
 
 .csc-checkbox-col {
@@ -31,7 +32,7 @@ tr {
 }
 
 .csc-mat-icon {
-  color: $maroon;
+  color: vars.$maroon;
   text-align: center;
 }
 

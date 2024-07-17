@@ -1,23 +1,24 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
+
 .csc-admin-content {
   padding-bottom: 200px;
 }
 
 .csc-admin-router {
-  background-color: $light-grey;
-  border: 1px solid $dark-grey;
+  background-color: vars.$light-grey;
+  border: 1px solid vars.$dark-grey;
 }
 
 .csc-admin-route {
   display: inline-block;
   padding: 10px 15px;
-  color: $text-black;
+  color: vars.$text-black;
   text-decoration: none;
   &:nth-child(n + 2) {
     margin-left: -1px;
   }
   &.active {
-    background-color: $maroon;
-    color: $text-white;
+    background-color: vars.$maroon;
+    color: vars.$text-white;
   }
 }

@@ -1,4 +1,4 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 .csc-event-type {
   text-align: center;
@@ -13,13 +13,13 @@
 }
 
 .csc-events-past-load a {
-  color: $maroon;
-  border-bottom: 1px solid $maroon;
+  color: vars.$maroon;
+  border-bottom: 1px solid vars.$maroon;
   padding-bottom: 5px;
 }
 
 a {
-  color: $maroon;
+  color: vars.$maroon;
 }
 
 .grid {

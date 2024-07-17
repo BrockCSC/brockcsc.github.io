@@ -1,11 +1,12 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
+
 .csc-modal-header {
-  background-color: $maroon;
+  background-color: vars.$maroon;
   padding: 25px;
   min-height: 75px;
 }
 
 .csc-modal-header-message {
-  color: $text-white;
-  font-size: $largeHeading;
+  color: vars.$text-white;
+  font-size: vars.$largeHeading;
 }

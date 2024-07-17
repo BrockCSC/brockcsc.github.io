@@ -1,5 +1,6 @@
-@import '@angular/material/theming';
-@import 'variables.scss';
+@use 'sass:color';
+@use 'variables.scss' as vars;
+@use '@angular/material';
 
 .event-card-wrapper {
   height: 100%;
@@ -8,18 +9,18 @@
 
   mat-card {
     height: 100%;
-    background-color: $grey;
-    border: 1px solid darken($grey, 15%);
-    @include mat-elevation(0);
+    background-color: vars.$grey;
+    border: 1px solid color.adjust(vars.$grey, $lightness: -15%);
+    @include material.elevation(0);
     transition: all 0.5s;
 
     &:hover {
-      @include mat-elevation(4);
+      @include material.elevation(4);
       transform: scale(1.02);
     }
 
     mat-card-subtitle {
-      color: $csc-maroon;
+      color: vars.$csc-maroon;
       font-weight: medium;
       margin-bottom: 4px;
     }
@@ -38,8 +39,8 @@
 
       .next-tag {
         position: absolute;
-        background-color: $info-maroon;
-        color: $text-white;
+        background-color: vars.$info-maroon;
+        color: vars.$text-white;
         top: 0;
         left: 0;
         margin: 0.5rem;
@@ -81,7 +82,7 @@
     background-color: white;
 
     mat-card-subtitle {
-      color: $google-blue;
+      color: vars.$google-blue;
     }
   }
 }
@@ -91,7 +92,7 @@
     border-radius: 0;
 
     mat-card-subtitle {
-      color: $google-blue;
+      color: vars.$google-blue;
     }
   }
 }

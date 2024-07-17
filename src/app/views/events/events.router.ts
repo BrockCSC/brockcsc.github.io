@@ -1,10 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
-import { EventFormComponent } from './event-form/event-form.component';
+import { Routes } from '@angular/router';
 import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events.component';
 import { EventsHomeComponent } from './home/home.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: EventsComponent,
@@ -15,4 +14,3 @@ const routes: Routes = [
     ],
   },
 ];
-export const routing = RouterModule.forChild(routes);

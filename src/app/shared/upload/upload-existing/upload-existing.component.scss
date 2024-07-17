@@ -1,10 +1,11 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
+
 .csc-item-status {
   display: inline-block;
   vertical-align: middle;
-  color: $green;
+  color: vars.$green;
   &.delete {
-    color: $maroon;
+    color: vars.$maroon;
   }
 }
 

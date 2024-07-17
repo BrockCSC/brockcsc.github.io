@@ -1,4 +1,4 @@
-@import 'src/variables.scss';
+@use 'variables.scss' as vars;
 
 video {
   height: 100vh;
@@ -15,7 +15,7 @@ button {
 
   border: 0px;
   padding: 20px 30px;
-  background-color: $maroon;
+  background-color: vars.$maroon;
   color: white;
   position: absolute;
 

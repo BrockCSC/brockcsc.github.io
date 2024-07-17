@@ -1,20 +1,35 @@
+import { NgIf } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
+  FormsModule,
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { environment } from 'environments/environment';
 import {
   DiscordSignUpGoogleFormConfig,
   SignUpGoogleFormConfig,
 } from 'environments/types';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { InputContainerComponent } from '../../shared/input-container/input-container.component';
 import { DISCORD_LINK } from './../../shared/utils/constants';
 
 @Component({
   selector: 'csc-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    InputContainerComponent,
+    NgIf,
+    ButtonDirective,
+    FormsModule,
+    RouterLink,
+  ],
 })
 export class SignupComponent {
   public form: UntypedFormGroup;

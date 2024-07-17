@@ -1,3 +1,4 @@
+import { NgFor, NgIf } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -13,17 +14,21 @@ import {
   AbstractValueAccessor,
   CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR,
 } from '../abstractValueAccessor';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { UploadExistingComponent } from './upload-existing/upload-existing.component';
-import { UploadService } from './upload.service';
 
 @Component({
   selector: 'csc-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR(UploadComponent)],
+  standalone: true,
+  imports: [NgFor, ProgressBarComponent, NgIf, UploadExistingComponent],
 })
-export class UploadComponent extends AbstractValueAccessor
-  implements OnInit, OnChanges {
+export class UploadComponent
+  extends AbstractValueAccessor
+  implements OnInit, OnChanges
+{
   @Input() message = 'Select files or drag here';
   @Input() type = 'single';
   @Input() data: CscFile[];

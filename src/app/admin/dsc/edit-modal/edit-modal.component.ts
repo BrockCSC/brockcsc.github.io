@@ -1,12 +1,37 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Card, CscFile, DSCApiService } from 'app/shared/api';
 import { ModalComponent } from 'app/shared/modal/modal.component';
+import { ButtonComponent } from '../../../shared/button/button.component';
+import { ButtonDirective } from '../../../shared/button/button.directive';
+import { ModalFooterComponent } from '../../../shared/modal/modal-footer/modal-footer.component';
+import { UploadComponent } from '../../../shared/upload/upload.component';
+import { InputContainerComponent } from '../../../shared/input-container/input-container.component';
+import { ModalBodyComponent } from '../../../shared/modal/modal-body/modal-body.component';
+import { ModalHeaderComponent } from '../../../shared/modal/modal-header/modal-header.component';
+import { ModalComponent as ModalComponent_1 } from '../../../shared/modal/modal.component';
 
 @Component({
   selector: 'csc-edit-card-modal',
   templateUrl: './edit-modal.component.html',
   styleUrls: ['./edit-modal.component.scss'],
+  standalone: true,
+  imports: [
+    ModalComponent_1,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ReactiveFormsModule,
+    InputContainerComponent,
+    UploadComponent,
+    ModalFooterComponent,
+    ButtonDirective,
+    ButtonComponent,
+  ],
 })
 export class EditModalComponent implements OnInit {
   public form: UntypedFormGroup;
@@ -14,7 +39,7 @@ export class EditModalComponent implements OnInit {
   @ViewChild('modal') modal: ModalComponent;
 
   constructor(
-    private _foodApiService: DSCApiService,
+    private _dscApiService: DSCApiService,
     private _formBuilder: UntypedFormBuilder
   ) {}
 
@@ -38,8 +63,8 @@ export class EditModalComponent implements OnInit {
     const key = this.editableCard.$key;
     const data = this.form.value;
     alert(data.img);
-    this._foodApiService
-      .updateFoodItem(key, data)
+    this._dscApiService
+      .updateCard(key, data)
       .then(() => {
         this.modal.close();
         this.form.reset();

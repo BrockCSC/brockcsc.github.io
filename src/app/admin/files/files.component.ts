@@ -1,9 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { CscFile } from 'app/shared/api';
-import { UploadService } from 'app/shared/upload/upload.service';
-import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import {
+  ReactiveFormsModule,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+} from '@angular/forms';
+import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonDirective } from '../../shared/button/button.directive';
+import { InputContainerComponent } from '../../shared/input-container/input-container.component';
 import { FilesApiService } from './../../shared/api/files/files-api.service';
 import { UploadComponent } from './../../shared/upload/upload.component';
 
@@ -11,13 +16,21 @@ import { UploadComponent } from './../../shared/upload/upload.component';
   selector: 'csc-files',
   templateUrl: './files.component.html',
   styleUrls: ['./files.component.css'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    InputContainerComponent,
+    UploadComponent,
+    ButtonDirective,
+    ButtonComponent,
+    AsyncPipe,
+  ],
 })
 export class FilesComponent implements OnInit {
   form: UntypedFormGroup;
 
   constructor(
     private _formBuilder: UntypedFormBuilder,
-    private _db: AngularFireDatabase,
     public filesApi: FilesApiService
   ) {}
 
@@ -28,7 +41,7 @@ export class FilesComponent implements OnInit {
   }
 
   async update() {
-    await this._db.object('files').set(this.form.value);
+    this.filesApi.setHomeSlideshowFiles(this.form.value.homeSlideshow);
     this.form.reset();
   }
 }
