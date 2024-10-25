@@ -34,7 +34,7 @@ export const routes: Routes = [
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },
-  { path: 'icpc', component: ICPCComponent },
+  { path: 'competition', component: ICPCComponent },
   // { path: 'gallery', component: GalleryComponent },
   {
     path: 'events',
