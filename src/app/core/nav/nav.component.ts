@@ -69,6 +69,10 @@ export class NavComponent implements OnInit {
     //   desc: 'DSC',
     // },
     {
+      href: '/competition',
+      desc: 'Competition',
+    },
+    {
       href: '/contact',
       desc: 'Contact',
     },
