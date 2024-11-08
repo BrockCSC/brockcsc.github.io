@@ -37,6 +37,7 @@ $img-size: 40px;
   display: flex;
   align-items: center;
   .exec-avatar {
+    object-fit: cover;
     border-radius: 100%;
     width: $img-size;
     height: $img-size;
