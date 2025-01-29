@@ -37,4 +37,4 @@ jobs:
         with:
           args: deploy --only hosting:brockcsc-pr
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_BROCKCSC_TEST }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY_BROCKCSC_TEST }}
