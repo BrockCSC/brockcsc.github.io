@@ -7,6 +7,7 @@ import {
   ServicesComponent,
   SignupComponent,
   TeamComponent,
+  MerchComponent,
 } from 'app/views';
 import { routes as adminRoutes } from './admin/admin.router';
 import { routes as authRoutes } from './views/auth/auth.router';
@@ -26,7 +27,7 @@ export const routes: Routes = [
     children: authRoutes,
   },
   { path: 'home', component: HomeComponent },
-  // { path: 'merch', component: MerchComponent },
+  { path: 'merch', component: MerchComponent },
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
