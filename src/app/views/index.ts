@@ -4,6 +4,7 @@ export * from './events/events.component';
 export * from './services/services.component';
 export * from './signup/signup.component';
 export * from './merch/merch.component';
+export * from './legacy-merch/legacy-merch.component';
 export * from './contact/contact.component';
 export * from './guide/guide.component';
 export * from './dsc/dsc.component';

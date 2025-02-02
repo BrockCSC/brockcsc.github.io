@@ -8,6 +8,7 @@ import {
   SignupComponent,
   TeamComponent,
   MerchComponent,
+  LegacyMerchComponent,
 } from 'app/views';
 import { routes as adminRoutes } from './admin/admin.router';
 import { routes as authRoutes } from './views/auth/auth.router';
@@ -28,6 +29,7 @@ export const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   { path: 'merch', component: MerchComponent },
+  { path: 'legacy-merch', component: LegacyMerchComponent },
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
