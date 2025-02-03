@@ -8,12 +8,13 @@ import {
   SignupComponent,
   TeamComponent,
   MerchComponent,
+  ICPCComponent,
+  CheckoutComponent,
 } from 'app/views';
 import { routes as adminRoutes } from './admin/admin.router';
 import { routes as authRoutes } from './views/auth/auth.router';
 import { routes as eventRoutes } from './views/events/events.router';
 import { GuideComponent } from './views/guide/guide.component';
-import { ICPCComponent } from './views/icpc/icpc.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -36,6 +37,7 @@ export const routes: Routes = [
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'competition', component: ICPCComponent },
+  { path: 'checkout', component: CheckoutComponent },
   // { path: 'gallery', component: GalleryComponent },
   {
     path: 'events',
