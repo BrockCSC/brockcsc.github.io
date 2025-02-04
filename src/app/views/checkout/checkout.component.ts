@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,7 +24,10 @@ export class CheckoutComponent implements OnInit {
   color: string;
   size: string;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient
+  ) {}
 
   async getSession() {
     const session = await stripe.checkout.sessions.retrieve(
@@ -40,6 +44,8 @@ export class CheckoutComponent implements OnInit {
       session.custom_fields[1].dropdown.value.charAt(0).toUpperCase() +
       session.custom_fields[1].dropdown.value.slice(1);
     this.size = session.custom_fields[2].dropdown.value.toUpperCase();
+
+    this.saveDataToGoogle();
   }
 
   ngOnInit() {
@@ -61,5 +67,14 @@ export class CheckoutComponent implements OnInit {
 
   goToMerch() {
     window.location.href = '/merch';
+  }
+
+  saveDataToGoogle() {
+    this.http
+      .post(
+        `https://docs.google.com/forms/d/e/1FAIpQLSf1FRKOFBc9LD-jx3Io8qskUks6nloPgT3EugiYbVQazHwy4w/formResponse?usp=pp_url&entry.1391238242=${this.student_id}&entry.1187682993=${this.email}&entry.616117323=${this.name}&entry.1041164580=${this.phone}&entry.1770527721=${this.color}&entry.1869920237=${this.size}&entry.2111802762=${this.checkout_session_id}`,
+        null
+      )
+      .subscribe();
   }
 }
