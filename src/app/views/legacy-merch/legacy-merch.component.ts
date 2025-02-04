@@ -1,48 +1,20 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { environment } from 'environments/environment';
-import { MerchFormConfig } from 'environments/types';
+import { Component, OnInit } from '@angular/core';
 import { ButtonDirective } from '../../shared/button/button.directive';
 import { NgIf } from '@angular/common';
 import { InputContainerComponent } from '../../shared/input-container/input-container.component';
 
 @Component({
-  providers: [UntypedFormBuilder],
   selector: 'csc-legacy-merch',
   templateUrl: './legacy-merch.component.html',
   styleUrls: ['./legacy-merch.component.scss'],
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    InputContainerComponent,
-    NgIf,
-    ButtonDirective,
-  ],
+  imports: [InputContainerComponent, NgIf, ButtonDirective],
 })
 export class LegacyMerchComponent implements OnInit {
-  public form: UntypedFormGroup;
-  public googleForm: MerchFormConfig;
-  public submitted: boolean;
-  @ViewChild('merchForm', { static: true })
-  merchForm: ElementRef<HTMLFormElement>;
+  public color: String = 'black';
+  public gender: String = 'm';
 
-  constructor(private _formBuilder: UntypedFormBuilder) {
-    this.form = this._formBuilder.group({
-      email: ['', [Validators.email, Validators.required]],
-      id: ['', [Validators.required]],
-      color: ['', [Validators.required]],
-      size: ['', [Validators.required]],
-      refnum: ['', [Validators.required]],
-    });
-
-    this.submitted = false;
-    this.googleForm = environment.merchForm;
-  }
+  constructor() {}
 
   // Handles scrolling on buy button
   buynow(grid: HTMLElement): void {
@@ -50,9 +22,6 @@ export class LegacyMerchComponent implements OnInit {
   }
 
   // Deals with hoodie color previews
-  public color: String = 'black';
-  public gender: String = 'm';
-
   changeColor(newColor): void {
     const image = <HTMLImageElement>document.getElementById('image');
 
@@ -102,12 +71,8 @@ export class LegacyMerchComponent implements OnInit {
     }
   }
 
-  // Handles form submission
-  onSubmit(): void {
-    if (this.form.valid) {
-      this.submitted = true;
-      this.merchForm.nativeElement.submit();
-      this.merchForm.nativeElement.reset();
-    }
+  // Handles Stripe button click
+  onStripeClick(): void {
+    window.location.href = 'https://buy.stripe.com/cN2fZd4xx3V66OceUZ';
   }
 }
