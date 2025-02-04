@@ -101,12 +101,15 @@ video {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  overflow: hidden;
 
   img {
-    width: 100%;
-    max-width: 400px;
+    width: 120%;
+    max-width: 600px;
     height: auto;
+    object-fit: cover;
     transition: transform 0.3s ease;
+    margin: -2rem;
 
     &:hover {
       transform: scale(1.02);
