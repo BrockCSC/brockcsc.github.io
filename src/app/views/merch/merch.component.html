@@ -1,141 +1,35 @@
 <div>
   <div id="promo">
     <video id="video" loop muted autoplay (click)="toggleMute()">
-      <source src="app/../assets/merch/merch.mp4" />
+      <source src="app/../assets/merch/2025/merch.mp4" />
     </video>
     <button (click)="buynow(grid)" clickable>Buy Today!</button>
   </div>
-  <div #grid class="grid" id="grid">
-    <div>
-      <img id="image" src="app/../assets/merch/black-m.png" />
-    </div>
-    <div>
-      <iframe id="no-target" name="no-target" style="display: none"></iframe>
-      <form
-        #merchForm
-        [formGroup]="form"
-        class="row csc-contact-form"
-        [action]="googleForm.url"
-        target="no-target"
-      >
-        <csc-input-container
-          class="col-6"
-          label="Brock Student Email"
-          labelLocation="top"
-        >
-          <input
-            [name]="googleForm.ids.email"
-            formControlName="email"
-            class="csc-input"
-            type="text"
-            placeholder="aa11bb@brocku.ca"
-          />
-          <span
-            class="signup-error"
-            *ngIf="
-              !form.controls.email.valid &&
-              (form.controls.email.touched || submitted)
-            "
-            >Please enter your Brock Student Email</span
-          >
-        </csc-input-container>
-        <csc-input-container
-          class="col-6"
-          label="Brock Student Id"
-          labelLocation="top"
-        >
-          <input
-            [name]="googleForm.ids.id"
-            formControlName="id"
-            class="csc-input"
-            type="text"
-            placeholder="7665540"
-          />
-          <span
-            class="signup-error"
-            *ngIf="
-              !form.controls.id.valid && (form.controls.id.touched || submitted)
-            "
-            >Please enter your Brock Student ID</span
-          >
-        </csc-input-container>
-        <csc-input-container class="col-6" label="Color" labelLocation="top">
-          <select
-            [name]="googleForm.ids.color"
-            formControlName="color"
-            (change)="changeColor($event.target.value)"
-          >
-            <option value="Black">Black</option>
-            <option value="White">White</option>
-          </select>
-          <span
-            class="signup-error"
-            *ngIf="
-              !form.controls.color.valid &&
-              (form.controls.color.touched || submitted)
-            "
-            >Please pick a color</span
-          >
-        </csc-input-container>
-        <csc-input-container class="col-6" label="Size" labelLocation="top">
-          <select [name]="googleForm.ids.size" formControlName="size">
-            <option value="XS">XS</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-          <span
-            class="signup-error"
-            *ngIf="
-              !form.controls.size.valid &&
-              (form.controls.size.touched || submitted)
-            "
-            >Please pick a size</span
-          >
-        </csc-input-container>
-        Interac e-transfer <b>45 CAD</b> to <b>payments&#64;brockcsc.ca</b>.<br />
-        Locate the reference number on your banking app, or in the notification
-        email.
-        <csc-input-container
-          class="col-12"
-          label="Interac E-Transfer Reference Number"
-          labelLocation="top"
-        >
-          <input
-            [name]="googleForm.ids.refnum"
-            formControlName="refnum"
-            class="csc-input"
-            type="text"
-            placeholder="C1AhjuS9QTJJ"
-          />
-          <span
-            class="signup-error"
-            *ngIf="
-              !form.controls.refnum.valid &&
-              (form.controls.refnum.touched || submitted)
-            "
-            >Please enter the e-transfer reference number</span
-          >
-        </csc-input-container>
-        <div class="col-12">
-          <a
-            csc-button
-            *ngIf="!submitted"
-            class="csc-merch-submit"
-            (click)="onSubmit()"
-            value="Send"
-            >Submit</a
-          >
-          <a
-            csc-button
-            *ngIf="submitted"
-            class="csc-merch-submit success"
-            value="Send"
-            ><i class="material-icons">check</i> Order Submitted!</a
-          >
+  <div class="product-section">
+    <div #grid class="product-container" id="grid">
+      <div class="product-image">
+        <img id="image" src="app/../assets/merch/2025/black-m.png" />
+      </div>
+      <div class="product-details">
+        <h2>CSC 2025 Hoodie</h2>
+        <p class="price">$45.00</p>
+        <div class="color-selector">
+          <csc-input-container class="col-12" label="Color" labelLocation="top">
+            <select (change)="changeColor($event.target.value)">
+              <option value="Black">Black</option>
+              <option value="White">White</option>
+            </select>
+          </csc-input-container>
         </div>
-      </form>
+        <div class="order-button-container">
+          <button (click)="onStripeClick()" class="order-button">
+            Order Now
+          </button>
+        </div>
+        <div class="legacy-button-container">
+          <a href="/legacy-merch" class="legacy-button">View 2024 Merch</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
