@@ -58,10 +58,10 @@ export class LegacyMerchComponent implements OnInit {
 
     if (newColor == 'White') {
       this.color = 'white';
-      image.src = 'app/../assets/merch/white' + '-' + this.gender + '.png';
+      image.src = 'app/../assets/merch/2024/white' + '-' + this.gender + '.png';
     } else {
       this.color = 'black';
-      image.src = 'app/../assets/merch/black' + '-' + this.gender + '.png';
+      image.src = 'app/../assets/merch/2024/black' + '-' + this.gender + '.png';
     }
   }
 
@@ -77,7 +77,7 @@ export class LegacyMerchComponent implements OnInit {
       }
 
       image.src =
-        'app/../assets/merch/' + this.color + '-' + this.gender + '.png';
+        'app/../assets/merch/2024/' + this.color + '-' + this.gender + '.png';
       this.changeGender();
     }, 10000);
   }
