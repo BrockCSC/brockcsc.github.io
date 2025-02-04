@@ -10,3 +10,4 @@ export * from './guide/guide.component';
 export * from './dsc/dsc.component';
 export * from './exec-applications/execapplications.component';
 export * from './icpc/icpc.component';
+export * from './checkout/checkout.component';

@@ -3,6 +3,7 @@ import { FirebaseOptions } from '@angular/fire/app';
 export type Environment = {
   production: boolean;
   discordURL: string;
+  stripeKey: string;
   firebase: FirebaseOptions;
   execApplicationForm: ExecApplicationFormConfig;
   signupForm: SignUpGoogleFormConfig;
