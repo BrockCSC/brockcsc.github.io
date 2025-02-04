@@ -1,7 +1,18 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  enableProdMode,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ButtonDirective } from '../../shared/button/button.directive';
 import { NgIf } from '@angular/common';
 import { InputContainerComponent } from '../../shared/input-container/input-container.component';
+import { environment } from 'environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
 
 @Component({
   providers: [],
@@ -74,6 +85,6 @@ export class MerchComponent implements OnInit {
 
   // Handles Stripe button click
   onStripeClick(): void {
-    window.location.href = 'https://buy.stripe.com/cN2eV9aVVgHS4G44gm';
+    window.location.href = environment.stripe2025;
   }
 }

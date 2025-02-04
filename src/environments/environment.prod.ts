@@ -5,6 +5,8 @@ export const environment: Environment = {
   discordURL: 'https://discord.gg/qsctEK2',
   stripeKey:
     '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',
+  stripe2025: 'https://buy.stripe.com/cN2eV9aVVgHS4G44gm',
+  stripe2024: 'https://buy.stripe.com/cN2fZd4xx3V66OceUZ',
   firebase: {
     apiKey: 'AIzaSyCs9zuNhRinJgZAiY2KQOHXP5pNI2ssQyc',
     authDomain: 'brockcsc-b0f6e.firebaseapp.com',

@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, enableProdMode, OnInit } from '@angular/core';
 import { ButtonDirective } from '../../shared/button/button.directive';
 import { NgIf } from '@angular/common';
 import { InputContainerComponent } from '../../shared/input-container/input-container.component';
+import { environment } from 'environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
 
 @Component({
   selector: 'csc-legacy-merch',
@@ -73,6 +78,6 @@ export class LegacyMerchComponent implements OnInit {
 
   // Handles Stripe button click
   onStripeClick(): void {
-    window.location.href = 'https://buy.stripe.com/cN2fZd4xx3V66OceUZ';
+    window.location.href = environment.stripe2024;
   }
 }
