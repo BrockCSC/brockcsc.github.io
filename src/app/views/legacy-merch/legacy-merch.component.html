@@ -8,8 +8,54 @@
   <div #grid class="grid" id="grid">
     <div class="product-section">
       <div class="product-container">
-        <div class="product-image">
-          <img id="image" src="app/../assets/merch/2024/black-m.png" />
+        <div class="product-display">
+          <div class="product-image">
+            <img id="image" src="app/../assets/merch/2024/black-m.png" />
+          </div>
+          <div class="thumbnail-container">
+            <div class="thumbnail-gallery">
+              <div
+                class="thumbnail"
+                (click)="selectImage('black-m')"
+                data-image-key="black-m"
+              >
+                <img
+                  src="app/../assets/merch/2024/black-m.png"
+                  alt="Black Male Hoodie"
+                />
+              </div>
+              <div
+                class="thumbnail"
+                (click)="selectImage('black-f')"
+                data-image-key="black-f"
+              >
+                <img
+                  src="app/../assets/merch/2024/black-f.png"
+                  alt="Black Female Hoodie"
+                />
+              </div>
+              <div
+                class="thumbnail"
+                (click)="selectImage('white-m')"
+                data-image-key="white-m"
+              >
+                <img
+                  src="app/../assets/merch/2024/white-m.png"
+                  alt="White Male Hoodie"
+                />
+              </div>
+              <div
+                class="thumbnail"
+                (click)="selectImage('white-f')"
+                data-image-key="white-f"
+              >
+                <img
+                  src="app/../assets/merch/2024/white-f.png"
+                  alt="White Female Hoodie"
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="product-details">
           <h2>CSC 2024 Hoodie</h2>

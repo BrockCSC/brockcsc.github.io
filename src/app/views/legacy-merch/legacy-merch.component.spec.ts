@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LegacyMerchComponent } from './legacy-merch.component';
 
@@ -6,7 +6,7 @@ describe('LegacyMerchComponent', () => {
   let component: LegacyMerchComponent;
   let fixture: ComponentFixture<LegacyMerchComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [LegacyMerchComponent],
     }).compileComponents();

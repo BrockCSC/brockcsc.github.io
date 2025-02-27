@@ -25,6 +25,7 @@ if (environment.production) {
 export class MerchComponent implements OnInit {
   public color: String = 'black';
   public gender: String = 'm';
+  private autoChangeEnabled: boolean = true;
 
   constructor() {}
 
@@ -44,10 +45,65 @@ export class MerchComponent implements OnInit {
       this.color = 'black';
       image.src = 'app/../assets/merch/2025/black' + '-' + this.gender + '.png';
     }
+
+    this.updateActiveThumbnail();
+  }
+
+  selectImage(imageKey: string): void {
+    this.autoChangeEnabled = false;
+
+    const [color, gender] = imageKey.split('-');
+    this.color = color;
+    this.gender = gender;
+
+    const image = <HTMLImageElement>document.getElementById('image');
+    image.src = `app/../assets/merch/2025/${imageKey}.png`;
+
+    this.updateActiveThumbnail();
+
+    const colorSelect = document.querySelector('select') as HTMLSelectElement;
+    if (colorSelect) {
+      colorSelect.value = color === 'black' ? 'Black' : 'White';
+    }
+  }
+
+  private updateActiveThumbnail(): void {
+    document.querySelectorAll('.thumbnail').forEach((thumb) => {
+      thumb.classList.remove('active');
+    });
+
+    const currentKey = `${this.color}-${this.gender}`;
+
+    const thumbByData = document.querySelector(
+      `.thumbnail[data-image-key="${currentKey}"]`
+    );
+    if (thumbByData) {
+      thumbByData.classList.add('active');
+      return;
+    }
+
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach((thumb) => {
+      const clickHandler =
+        thumb.getAttribute('ng-reflect-click') ||
+        thumb.getAttribute('onclick') ||
+        '';
+
+      if (clickHandler.includes(currentKey)) {
+        thumb.classList.add('active');
+      } else {
+        const thumbImg = thumb.querySelector('img');
+        if (thumbImg && thumbImg.getAttribute('src').includes(currentKey)) {
+          thumb.classList.add('active');
+        }
+      }
+    });
   }
 
   // Change gender
   changeGender(): void {
+    if (!this.autoChangeEnabled) return;
+
     setTimeout(() => {
       const image = <HTMLImageElement>document.getElementById('image');
 
@@ -59,6 +115,8 @@ export class MerchComponent implements OnInit {
 
       image.src =
         'app/../assets/merch/2025/' + this.color + '-' + this.gender + '.png';
+
+      this.updateActiveThumbnail();
       this.changeGender();
     }, 10000);
   }
@@ -71,6 +129,8 @@ export class MerchComponent implements OnInit {
 
     video.muted = true;
     video.play();
+
+    setTimeout(() => this.updateActiveThumbnail(), 100);
   }
 
   toggleMute() {
