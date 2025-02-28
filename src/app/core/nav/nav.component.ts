@@ -48,10 +48,10 @@ export class NavComponent implements OnInit {
       href: '/events',
       desc: 'Events',
     },
-    // {
-    //   href: '/merch',
-    //   desc: 'Merch',
-    // },
+    {
+      href: '/merch',
+      desc: 'Merch',
+    },
     {
       href: '/services',
       desc: 'Services',

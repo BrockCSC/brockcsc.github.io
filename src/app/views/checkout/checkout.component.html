@@ -1,0 +1,42 @@
+<div class="checkout-container">
+  <div class="checkout-main">Your Order is Confirmed</div>
+  <div class="checkout-summary">Here is a summary of your order:</div>
+  <div class="checkout-item">{{ item_name }}</div>
+  <div class="checkout-grid">
+    <div class="checkout-info">
+      <div class="type">Name:</div>
+      <div class="value">{{ name }}</div>
+    </div>
+    <div class="checkout-info">
+      <div class="type">Email:</div>
+      <div class="value">{{ email }}</div>
+    </div>
+    <div class="checkout-info">
+      <div class="type">Phone:</div>
+      <div class="value">{{ phone }}</div>
+    </div>
+    <div class="checkout-info">
+      <div class="type">Student Id:</div>
+      <div class="value">{{ student_id }}</div>
+    </div>
+    <div class="checkout-info">
+      <div class="type">Color:</div>
+      <div class="value">{{ color }}</div>
+    </div>
+    <div class="checkout-info">
+      <div class="type">Size:</div>
+      <div class="value">{{ size }}</div>
+    </div>
+  </div>
+  <p>
+    We will contact you on your registered email or phone number when your
+    merchandise is ready for pickup.
+  </p>
+  <p>
+    Thank you for purchasing the Brock Computer Science Club {{ item_name }}
+  </p>
+  <button class="csc-button checkout-button" (click)="goToMerch()">
+    Return to Store
+  </button>
+</div>
+<img id="checkout-image" src="app/../assets/merch/2025-checkout.jpg" />
