@@ -7,6 +7,13 @@
   margin-bottom: 3rem;
 }
 
+::ng-deep .markdown-content {
+  h1,
+  h2 {
+    scroll-margin-top: 6.375rem;
+  }
+}
+
 ::ng-deep .markdown-content table {
   display: block;
   max-width: 100%;
