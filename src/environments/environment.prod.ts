@@ -4,7 +4,7 @@ export const environment: Environment = {
   production: true,
   discordURL: 'https://discord.gg/qsctEK2',
   stripeKey:
-    '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',
+    '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',
   stripe2025: 'https://buy.stripe.com/cN2eV9aVVgHS4G44gm',
   stripe2024: 'https://buy.stripe.com/cN2fZd4xx3V66OceUZ',
   firebase: {
