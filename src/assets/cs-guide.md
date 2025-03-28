@@ -12,7 +12,8 @@
 4. [Program Requirements](guide#program-requirements)
    1. [Credit Requirements for Bachelors of Science, Computer Science](guide#credit-requirements)
    2. [Minor in Applied Computing](guide#minor-in-applied-computing)
-   3. [Courses](guide#courses)
+   3. [Double Major](guide#double-major)
+   4. [Courses](guide#courses)
 5. [Additional Resources and Opportunities](guide#additional-resources-and-opportunities)
    1. [Resources](guide#resources)
    2. [Opportunities](guide#opportunities)
@@ -40,6 +41,7 @@ If you're posting any opinionated information, use your name in the sentence (i.
 
 Please add yourself to this list (link is optional) if you've contributed to this guide.
 
+- [Maisam Anjum](https://github.com/Koorikdat)
 - [Jay Shah](https://github.com/jayshah2005)
 - [Dylan Souvage](https://github.com/firefelix)
 - [Kindeep Singh Kargil](https://kindeep.me)
@@ -125,6 +127,13 @@ Students in other disciplines may obtain a minor in Applied Computing within the
 -     Four APCO and/or COSC credits
 
 The applied computing minor is not available to Computer Science students of any kind, and APCO classes are only available to COSC students if they are cross listed as COSC classes, e.g. APCO 2P89 Internet Technologies is also COSC 2P89.
+
+## Double Major
+
+Consider a double major program as this might allow you to have more direction in your non-core computer science courses, and it may serve the advantage of allowing you to bypass courses such as MATH1P06 and COSC4P61, and of course add more qualifications to your resume. A popular pathway is the Computing and Business degree, however you can pair computer science with most programs in sciences, humanities, social sciences, and arts.
+
+- _[Double Major info](<[https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all](https://brocku.ca/webcal/2024/undergrad/cosc.html#sec18)>)_
+- _[Computing and Business](https://brocku.ca/programs/undergraduate/computing-and-business/)_
 
 ## Courses
 

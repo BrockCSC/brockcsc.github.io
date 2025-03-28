@@ -3,6 +3,10 @@ import { Environment } from './types';
 export const environment: Environment = {
   production: true,
   discordURL: 'https://discord.gg/qsctEK2',
+  stripeKey:
+    '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',
+  stripe2025: 'https://buy.stripe.com/cN2eV9aVVgHS4G44gm',
+  stripe2024: 'https://buy.stripe.com/cN2fZd4xx3V66OceUZ',
   firebase: {
     apiKey: 'AIzaSyCs9zuNhRinJgZAiY2KQOHXP5pNI2ssQyc',
     authDomain: 'brockcsc-b0f6e.firebaseapp.com',
