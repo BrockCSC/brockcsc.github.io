@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class LinksComponent {
   openLink(url: string): void {
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }
