@@ -29,7 +29,7 @@ export const routes: Routes = [
     children: authRoutes,
   },
   { path: 'home', component: HomeComponent },
-  { path: 'merch', component: MerchComponent },
+  // { path: 'merch', component: MerchComponent },
   { path: 'legacy-merch', component: LegacyMerchComponent },
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
