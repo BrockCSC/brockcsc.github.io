@@ -128,17 +128,12 @@ Students in other disciplines may obtain a minor in Applied Computing within the
 
 The applied computing minor is not available to Computer Science students of any kind, and APCO classes are only available to COSC students if they are cross listed as COSC classes, e.g. APCO 2P89 Internet Technologies is also COSC 2P89.
 
-
 ## Double Major
-
 
 Consider a double major program as this might allow you to have more direction in your non-core computer science courses, and it may serve the advantage of allowing you to bypass courses such as MATH1P06 and COSC4P61, and of course add more qualifications to your resume. A popular pathway is the Computing and Business degree, however you can pair computer science with most programs in sciences, humanities, social sciences, and arts.
 
-
-- _[Double Major info]([https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all](https://brocku.ca/webcal/2024/undergrad/cosc.html#sec18))_
+- _[Double Major info](<[https://brocku.ca/guides-and-timetables/timetables/?session=fw&type=ug&level=all](https://brocku.ca/webcal/2024/undergrad/cosc.html#sec18)>)_
 - _[Computing and Business](https://brocku.ca/programs/undergraduate/computing-and-business/)_
-
-
 
 ## Courses
 
