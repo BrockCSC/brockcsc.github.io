@@ -15,6 +15,18 @@
 
     <button
       class="link-button"
+      (click)="openLink('https://www.brockbusu.ca/organisation/8492/')"
+    >
+      <img
+        src="assets/icons/busu.jpeg"
+        alt="BUSU icon"
+        class="icon rounded-icon"
+      />
+      <span>BUSU Club Page</span>
+    </button>
+
+    <button
+      class="link-button"
       (click)="openLink('https://experiencebu.brocku.ca/organization/brockcsc')"
     >
       <span class="material-icons">school</span>
@@ -31,26 +43,10 @@
 
     <button
       class="link-button"
-      (click)="openLink('https://twitter.com/brockucsc')"
-    >
-      <img src="assets/icons/twitter.svg" alt="Twitter icon" class="icon" />
-      <span>Follow us on Twitter</span>
-    </button>
-
-    <button
-      class="link-button"
-      (click)="openLink('https://github.com/brockcsc/brockcsc.github.io')"
+      (click)="openLink('https://github.com/brockcsc')"
     >
       <img src="assets/icons/github.svg" alt="GitHub icon" class="icon" />
       <span>Check our GitHub</span>
-    </button>
-
-    <button
-      class="link-button"
-      (click)="openLink('https://www.facebook.com/BrockCSC/')"
-    >
-      <img src="assets/icons/facebook.svg" alt="Facebook icon" class="icon" />
-      <span>Follow us on Facebook</span>
     </button>
 
     <!--
