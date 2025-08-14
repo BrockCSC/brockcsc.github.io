@@ -2,15 +2,12 @@ import { mapToCanActivate, Routes } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import {
   ContactComponent,
-  DSCComponent,
   HomeComponent,
   ServicesComponent,
   SignupComponent,
-  TeamComponent,
   MerchComponent,
-  ICPCComponent,
-  CheckoutComponent,
-  LegacyMerchComponent,
+  ExecApplicationsComponent,
+  TeamComponent,
 } from 'app/views';
 import { routes as adminRoutes } from './admin/admin.router';
 import { routes as authRoutes } from './views/auth/auth.router';
@@ -30,18 +27,13 @@ export const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   // { path: 'merch', component: MerchComponent },
-  // { path: 'legacy-merch', component: LegacyMerchComponent },
   { path: 'team', component: TeamComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
-  // { path: 'dsc', component: DSCComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
   { path: 'services', component: ServicesComponent },
-  // { path: 'competition', component: ICPCComponent },
   { path: 'links', component: LinksComponent },
-  // { path: 'checkout', component: CheckoutComponent },
-  // { path: 'gallery', component: GalleryComponent },
   {
     path: 'events',
     children: eventRoutes,
