@@ -1,5 +1,5 @@
 <footer>
-  <section id="csc-social-links">
+  <section id="csc-social-links" *ngIf="showSocialLinks">
     <div class="row">
       <div class="container">
         <div class="csc-social-links-container">
@@ -12,6 +12,7 @@
                 [height]="imageSize"
                 [style.width.px]="imageSize"
                 [style.height.px]="imageSize"
+                [class]="link.desc === 'BUSU' ? 'busu-icon' : ''"
               ></csc-img>
             </a>
             <a [href]="link.href" class="csc-social-desc">{{ link.desc }}</a>
