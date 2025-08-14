@@ -46,6 +46,11 @@ export class FooterComponent implements OnInit, OnDestroy {
         desc: 'Instagram',
       },
       {
+        src: `${base}/busu.jpeg`,
+        href: 'https://www.brockbusu.ca/organisation/8492/',
+        desc: 'BUSU',
+      },
+      {
         src: `${base}/discord.svg`,
         href: DISCORD_LINK,
         desc: 'Discord',
