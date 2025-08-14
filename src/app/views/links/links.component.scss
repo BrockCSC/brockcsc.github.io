@@ -39,17 +39,23 @@
   gap: 1rem;
   font-size: 1.1rem;
   transition: transform 0.2s, background-color 0.2s;
+  min-height: 4rem;
 
   .material-icons {
-    font-size: 1.5rem;
-    width: 2rem;
+    font-size: 2rem;
+    width: 2.5rem;
     text-align: center;
   }
 
   .icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 0 0.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 0;
+    min-width: 2.5rem;
+  }
+
+  .rounded-icon {
+    border-radius: 15%;
   }
 
   &:hover {

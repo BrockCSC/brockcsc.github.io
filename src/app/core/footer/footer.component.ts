@@ -1,23 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { DISCORD_LINK } from './../../shared/utils/constants';
 import { ImgComponent } from '../../shared/img/img.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'csc-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   standalone: true,
-  imports: [NgFor, ImgComponent],
+  imports: [NgFor, NgIf, ImgComponent],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, OnDestroy {
   public imageSize = 35;
   public socialIcons: SocialIcon[] = [];
+  public showSocialLinks = true;
+  private routerSubscription: Subscription;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.initSocialIcons();
+
+    this.routerSubscription = this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.showSocialLinks = event.url !== '/links';
+      });
+  }
+
+  ngOnDestroy() {
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 
   initSocialIcons(): void {
@@ -29,11 +46,6 @@ export class FooterComponent implements OnInit {
         desc: 'Instagram',
       },
       {
-        src: `${base}/twitter.svg`,
-        href: 'https://twitter.com/brockucsc',
-        desc: 'Twitter',
-      },
-      {
         src: `${base}/discord.svg`,
         href: DISCORD_LINK,
         desc: 'Discord',
@@ -42,11 +54,6 @@ export class FooterComponent implements OnInit {
         src: `${base}/github.svg`,
         href: 'https://github.com/brockcsc/brockcsc.github.io',
         desc: 'GitHub',
-      },
-      {
-        src: `${base}/facebook.svg`,
-        href: 'https://www.facebook.com/BrockCSC/',
-        desc: 'Facebook',
       },
     ];
   }
