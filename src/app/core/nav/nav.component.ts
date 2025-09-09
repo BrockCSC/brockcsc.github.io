@@ -52,10 +52,10 @@ export class NavComponent implements OnInit {
     //   href: '/merch',
     //   desc: 'Merch',
     // },
-    {
-      href: '/services',
-      desc: 'Services',
-    },
+    // {
+    //   href: '/services',
+    //   desc: 'Services',
+    // },
     {
       href: '/guide',
       desc: 'CS Guide',
@@ -72,6 +72,10 @@ export class NavComponent implements OnInit {
     //   href: '/competition',
     //   desc: 'Competition',
     // },
+    {
+      href: 'https://volunteer.brockcsc.ca',
+      desc: 'Volunteer',
+    },
     {
       href: '/contact',
       desc: 'Contact',

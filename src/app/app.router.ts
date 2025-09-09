@@ -32,7 +32,7 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'join', component: SignupComponent },
-  { path: 'services', component: ServicesComponent },
+  // { path: 'services', component: ServicesComponent },
   { path: 'links', component: LinksComponent },
   {
     path: 'events',
