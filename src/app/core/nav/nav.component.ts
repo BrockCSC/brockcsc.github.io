@@ -75,6 +75,7 @@ export class NavComponent implements OnInit {
     {
       href: 'https://volunteer.brockcsc.ca',
       desc: 'Volunteer',
+      isExternal: true,
     },
     {
       href: '/contact',
@@ -142,4 +143,5 @@ interface NavLink {
   href: string;
   desc: string;
   visible?: boolean;
+  isExternal?: boolean;
 }

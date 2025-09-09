@@ -34,14 +34,24 @@
           </button>
         </a>
       </span>
-      <a
-        csclink
-        *ngFor="let link of links"
-        [routerLink]="link.href"
-        routerLinkActive="active-link"
-        [title]="link.desc"
-        >{{ link.desc }}</a
-      >
+      <ng-container *ngFor="let link of links">
+        <a
+          csclink
+          *ngIf="!link.href.startsWith('http')"
+          [routerLink]="link.href"
+          routerLinkActive="active-link"
+          [title]="link.desc"
+          >{{ link.desc }}</a
+        >
+        <a
+          csclink
+          *ngIf="link.href.startsWith('http')"
+          [href]="link.href"
+          rel="noopener noreferrer"
+          [title]="link.desc"
+          >{{ link.desc }}</a
+        >
+      </ng-container>
       <a
         csclink
         *ngIf="linkAdmin.visible"
@@ -85,13 +95,24 @@
     >
       <div class="nav-overlay-content">
         <a routerLink="/home" (click)="toggleOverlayMenu()">Home</a>
-        <a
-          *ngFor="let link of links"
-          [routerLink]="link.href"
-          (click)="toggleOverlayMenu()"
-          [title]="link.desc"
-          >{{ link.desc }}</a
-        >
+        <ng-container *ngFor="let link of links">
+          <a
+            *ngIf="!link.href.startsWith('http')"
+            [routerLink]="link.href"
+            (click)="toggleOverlayMenu()"
+            [title]="link.desc"
+            >{{ link.desc }}</a
+          >
+          <a
+            *ngIf="link.href.startsWith('http')"
+            [href]="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="toggleOverlayMenu()"
+            [title]="link.desc"
+            >{{ link.desc }}</a
+          >
+        </ng-container>
         <a
           *ngIf="linkAdmin.visible"
           [routerLink]="linkAdmin.href"
