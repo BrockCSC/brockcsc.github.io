@@ -53,9 +53,7 @@
     <h2 class="csc-header">About us</h2>
     <div class="row">
       <div class="col-8 col-m-12">
-        <p>
-          We are the Brock Computer Science Club, a local chapter of the ACM.
-        </p>
+        <p>We are the Brock Computer Science Club, a BUSU ratified club.</p>
         <p>
           Our goal is to provide a community for all individuals who are
           interested in Computer Science at Brock University.
@@ -78,7 +76,7 @@
         target="_blank"
         >Read the club charter</a
       >
-      <br />
+      <br /><br />
       <a
         href="https://drive.google.com/file/d/1CPO4Aia-bTdzwhnwBwIMbIGwccr8Ss1Q/view?usp=sharing"
         class="csc-header"
@@ -99,27 +97,6 @@
         data-link-color="#AA3B3B"
         href="https://twitter.com/BrockuCSC"
       ></a>
-    </div>
-  </div>
-</section>
-<section id="csc-services">
-  <div class="row">
-    <div class="container">
-      <h2 class="csc-header">Services</h2>
-      <div class="csc-services-content">
-        <div class="row" *ngFor="let service of services">
-          <div class="column-left">
-            <i class="material-icons">{{ service.icon }}</i
-            ><span class="csc-icon-title">{{ service.title }}</span>
-          </div>
-          <div class="column-right">
-            <p>{{ service.desc }}</p>
-          </div>
-        </div>
-      </div>
-      <a routerLink="/services" class="csc-header"
-        >See more about our services</a
-      >
     </div>
   </div>
 </section>
