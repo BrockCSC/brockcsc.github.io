@@ -72,11 +72,11 @@ export class NavComponent implements OnInit {
     //   href: '/competition',
     //   desc: 'Competition',
     // },
-    {
-      href: 'https://volunteer.brockcsc.ca',
-      desc: 'Volunteer',
-      isExternal: true,
-    },
+    // {
+    //   href: 'https://volunteer.brockcsc.ca',
+    //   desc: 'Volunteer',
+    //   isExternal: true,
+    // },
     {
       href: '/contact',
       desc: 'Contact',
