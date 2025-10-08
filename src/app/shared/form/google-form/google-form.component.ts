@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'csc-google-form',
@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     <div class="row">
       <iframe
         class="col-12"
-        [src]="formUrl()"
+        [src]="sanitizedFormUrl"
         frameborder="0"
         marginheight="0"
         height="500"
@@ -20,6 +20,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class GoogleFormComponent implements OnInit {
   @Input() googleFormUrl;
+  sanitizedFormUrl: SafeResourceUrl;
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -32,9 +33,8 @@ export class GoogleFormComponent implements OnInit {
     }
     linkArray.push('viewform?embedded=true');
     this.googleFormUrl = linkArray.join('/');
-  }
-
-  formUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.googleFormUrl);
+    
+    // Sanitize the URL once during initialization to prevent re-renders
+    this.sanitizedFormUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.googleFormUrl);
   }
 }
