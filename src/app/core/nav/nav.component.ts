@@ -59,6 +59,7 @@ export class NavComponent implements OnInit {
     {
       href: '/guide',
       desc: 'CS Guide',
+      isExternal: true,
     },
     // {
     //   href: '/exec-application',
