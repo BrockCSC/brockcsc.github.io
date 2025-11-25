@@ -48,10 +48,11 @@ export class NavComponent implements OnInit {
       href: '/events',
       desc: 'Events',
     },
-    // {
-    //   href: '/merch',
-    //   desc: 'Merch',
-    // },
+    {
+       href: 'https://merch.brockcsc.ca',
+       desc: 'Merch',
+       isExternal: true,
+    },
     // {
     //   href: '/services',
     //   desc: 'Services',
