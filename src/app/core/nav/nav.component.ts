@@ -51,6 +51,7 @@ export class NavComponent implements OnInit {
     {
        href: 'https://merch.brockcsc.ca',
        desc: 'Merch',
+       isExternal: true,
     },
     // {
     //   href: '/services',
@@ -59,7 +60,6 @@ export class NavComponent implements OnInit {
     {
       href: '/guide',
       desc: 'CS Guide',
-      isExternal: true,
     },
     // {
     //   href: '/exec-application',
